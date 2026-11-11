@@ -1,0 +1,68 @@
+/* A deliberately composed phone experience for the canonical Negus page. */
+.reference-mobile-nav { display: none; }
+.reference-home-frame { position: relative; overflow: hidden; }
+.reference-account-actions { display: inline-flex; align-items: center; gap: 9px; margin-right: 2px; }
+.reference-account-actions a { display: inline-flex; min-height: 42px; align-items: center; justify-content: center; gap: 8px; padding: 0 15px; border: 1px solid var(--line); border-radius: 8px; font-family: var(--font-display); font-size: 11px; font-weight: 700; text-decoration: none; white-space: nowrap; }
+.reference-account-login { color: var(--ink); background: color-mix(in srgb, var(--paper) 85%, transparent); }
+.reference-account-primary { color: #fff; background: var(--ink); }.dark .reference-account-primary { color: #072b26; background: var(--green); }
+.package-inquire-link { display: inline-flex; align-items: center; gap: 7px; color: var(--ink-secondary); font-family: var(--font-display); font-size: 11px; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+.package-inquire-link svg { width: 14px; height: 14px; }
+.homepage-blog-empty { grid-column: 1 / -1; color: var(--ink-muted); font-size: 14px; line-height: 1.6; }
+.homepage-blog-empty a { color: var(--ink); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.reference-home-frame .contact-form-feedback { margin: 0; border-radius: 8px; padding: 11px 13px; font-size: 12px; line-height: 1.55; }
+.reference-home-frame .contact-form-feedback.success { border: 1px solid color-mix(in srgb, var(--green) 55%, transparent); background: var(--green-subtle); color: var(--ink); }
+.reference-home-frame .contact-form-feedback.error { border: 1px solid color-mix(in srgb, #b14438 35%, transparent); background: color-mix(in srgb, #b14438 8%, var(--paper)); color: #a53d33; }
+.reference-home-frame .form-submit-btn:disabled { cursor: wait; opacity: .68; }
+@media (min-width: 721px) {
+  .reference-home-frame .header-nav-links { gap: clamp(14px, 1.8vw, 26px); flex-shrink: 0; }
+  .reference-home-frame .header-nav-links > a { white-space: nowrap; }
+  .reference-home-frame .header-action-btn { display: none; }
+  .reference-home-frame .header-right-actions { gap: 10px; }
+  .reference-account-actions { gap: 7px; }
+  .reference-account-actions a { min-height: 40px; padding: 0 12px; font-size: 10px; }
+}
+@media (max-width: 720px) {
+  .reference-home-frame { padding-bottom: calc(78px + env(safe-area-inset-bottom)); }
+  .reference-home-frame .site-header { height: 68px; }
+  .reference-home-frame .site-header-inner { padding: 0 18px; }
+  .reference-home-frame .official-brand-logo { width: 112px; }
+  .reference-home-frame .header-action-btn { width: 40px; height: 40px; padding: 0; justify-content: center; border-radius: 50%; }
+  .reference-home-frame .header-action-btn span { display: none; }
+  .reference-home-frame .header-action-btn svg { width: 17px; height: 17px; }
+  .reference-home-frame .theme-round-toggle { width: 38px; height: 38px; }
+  .reference-account-actions { margin-right: 0; gap: 6px; }
+  .reference-account-actions a { min-height: 36px; padding: 0 10px; font-size: 10px; }
+  .reference-home-frame .header-right-actions > .reference-account-actions { display: none; }
+  .reference-home-frame .hero-copy-wrap { max-width: none; }
+  .reference-home-frame .hero-copy-wrap h1 { margin: 20px 0 22px; font-size: clamp(44px, 13vw, 62px); line-height: 1.01; }
+  .reference-home-frame .hero-copy-wrap > p { max-width: none; margin-bottom: 28px; font-size: 16px; line-height: 1.62; }
+  .reference-home-frame .hero-button-row { display: grid; grid-template-columns: 1fr; gap: 10px; }
+  .reference-home-frame .hero-button-row .btn-dark-hero { width: 100%; min-height: 56px; justify-content: center; }
+  .reference-home-frame .hero-button-row .btn-link-hero { min-height: 46px; justify-content: center; }
+  .reference-home-frame .marquee-ribbon { padding: 14px 0; }
+  .reference-home-frame .marquee-track { gap: 20px; animation-duration: 24s; }
+  .reference-home-frame .marquee-track span { font-size: 9px; letter-spacing: .12em; }
+  .reference-home-frame .destinations-section, .reference-home-frame .pathfinder-section, .reference-home-frame .programs-section, .reference-home-frame .courses-section, .reference-home-frame .packages-section, .reference-home-frame .community-section, .reference-home-frame .blogs-section, .reference-home-frame .process-section, .reference-home-frame .faq-section, .reference-home-frame .contact-section { padding-top: 58px; padding-bottom: 58px; }
+  .reference-home-frame .section-shell { width: calc(100% - 36px); }
+  .reference-home-frame .destinations-orbit-header h2, .reference-home-frame .pathfinder-head h2, .reference-home-frame .programs-head-grid h2, .reference-home-frame .courses-head-grid h2, .reference-home-frame .packages-head-row h2, .reference-home-frame .community-intro h2, .reference-home-frame .blogs-head-bar h2 { font-size: 34px; line-height: 1.08; letter-spacing: -.05em; }
+  .reference-home-frame .destinations-filter-tabs { display: flex; max-width: none; margin-right: -18px; padding-right: 18px; overflow-x: auto; scrollbar-width: none; }
+  .reference-home-frame .dest-filter-pill { flex: 0 0 auto; min-height: 42px; white-space: nowrap; }
+  .reference-home-frame .destinations-trust-ticker { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .reference-home-frame .destinations-circle-orbit-grid { display: flex; gap: 14px; margin-right: -18px; padding-right: 18px; overflow-x: auto; scroll-snap-type: x mandatory; }
+  .reference-home-frame .circle-destination-node { flex: 0 0 min(86vw, 340px); scroll-snap-align: start; }
+  .reference-home-frame .pathfinder-deck, .reference-home-frame .package-studio-deck { display: block; }
+  .reference-home-frame .pathfinder-tabs-stack, .reference-home-frame .package-selector-tabs { display: flex; overflow-x: auto; margin-bottom: 18px; scrollbar-width: none; }
+  .reference-home-frame .pathfinder-tab-row, .reference-home-frame .package-tab-choice { flex: 0 0 190px; border-right: 1px solid var(--line); border-bottom: 0; }
+  .reference-home-frame .pathfinder-detail-view, .reference-home-frame .package-viewer-panel { min-height: 0; padding: 24px 18px; }
+  .reference-home-frame .program-color-row { grid-template-columns: 54px 1fr; gap: 12px; padding: 20px 0; }
+  .reference-home-frame .program-color-row > button { grid-column: 2; justify-self: start; }
+  .reference-home-frame .course-feature-billboard { display: block; }
+  .reference-home-frame .course-yellow-art { min-height: 190px; }
+  .reference-home-frame .blogs-cards-deck { display: flex; overflow-x: auto; gap: 12px; margin-right: -18px; padding-right: 18px; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .reference-home-frame .blog-story-card { flex: 0 0 82vw; scroll-snap-align: start; }
+  .reference-home-frame .community-intro { grid-template-columns: minmax(0, 1fr); gap: 12px; margin-bottom: 22px; }
+  .reference-home-frame .community-intro p { max-width: 520px; justify-self: start; }
+  .reference-home-frame .community-grid-matrix { display: flex; gap: 0; overflow-x: auto; margin-right: -18px; padding-right: 18px; border-bottom: 0; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .reference-home-frame .community-tile-item { flex: 0 0 min(78vw, 300px); min-height: 166px; padding: 18px 14px; border-bottom: 1px solid var(--line); scroll-snap-align: start; }
+  .reference-home-frame .footer-four-columns { grid-template-columns: 1fr; gap: 28px; }
+}

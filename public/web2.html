@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastering the Common App Activities Section</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f7f7;
+        }
+        .text-shadow-outline {
+            text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+            height: 350px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .card-container {
+            perspective: 1000px;
+            width: 100%;
+            max-width: 500px;
+            height: 300px;
+        }
+        .card {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            position: relative;
+        }
+        .card.is-flipped {
+            transform: rotateY(180deg);
+        }
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border-width: 2px;
+            border-color: #333;
+        }
+        .card-face-front {
+            background: #fff;
+            color: #111827;
+        }
+        .card-face-back {
+            background: #111827;
+            color: #d1d5db;
+            transform: rotateY(180deg);
+        }
+        .scroll-to-top {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            background-color: #111827;
+            color: #FACC15;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <!-- Chosen Palette: Gold & Black. -->
+    <!-- Application Structure Plan: A thematic, single-page dashboard approach. The SPA is divided into logical, interactive sections (e.g., Importance, Building, Description, Mistakes) accessible via a sticky navigation bar. This structure was chosen to guide the user through the report's content in a logical progression from strategic overview to tactical details. It prioritizes clarity and actionability over mirroring the source document's linear chapter format, making the information more digestible and less overwhelming. Key interactions include scrolling, a data visualization of character limits, and interactive flipping cards for examples. -->
+    <!-- Visualization & Content Choices: Summary: Report Info -> Goal -> Viz/Presentation Method -> Interaction -> Justification -> Library/Method - Confirming NO SVG/Mermaid, supporting the DESIGNED structure.
+    1. Character Limits -> Goal: Inform -> Viz: Bar Chart -> Interaction: View-only -> Justification: Clearly visualizes abstract limits -> Library: Chart.js.
+    2. Weak vs. Strong Examples -> Goal: Compare -> Viz: Flipping Cards -> Interaction: Click-to-flip -> Justification: An engaging way to show before/after examples -> Method: HTML/CSS/JS.
+    3. All other content -> Goal: Inform/Organize -> Viz: Structured Text, Lists, Tables -> Interaction: Scroll, Hover -> Justification: Delivers detailed content clearly -> Method: HTML/Tailwind. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="bg-stone-50 text-stone-900">
+
+    <header class="sticky top-0 z-50 py-4 bg-white shadow-xl">
+        <nav class="container mx-auto px-4 md:px-6 flex justify-center space-x-4 md:space-x-8 lg:space-x-12">
+            <a href="#intro" class="text-stone-700 hover:text-amber-500 font-medium transition duration-300">Overview</a>
+            <a href="#strategic-importance" class="text-stone-700 hover:text-amber-500 font-medium transition duration-300">Importance</a>
+            <a href="#building-list" class="text-stone-700 hover:text-amber-500 font-medium transition duration-300">Building</a>
+            <a href="#mastering-description" class="text-stone-700 hover:text-amber-500 font-medium transition duration-300">Description</a>
+            <a href="#common-mistakes" class="text-stone-700 hover:text-amber-500 font-medium transition duration-300">Mistakes</a>
+            <a href="#examples" class="text-stone-700 hover:text-amber-500 font-medium transition duration-300">Examples</a>
+            <a href="#conclusion" class="text-stone-700 hover:text-amber-500 font-medium transition duration-300">Conclusion</a>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 md:px-8 py-12 space-y-24">
+
+        <section id="intro" class="text-center space-y-6">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-stone-900 leading-tight">
+                <span class="text-amber-500">Mastering</span> the Common App Activities Section
+            </h1>
+            <p class="text-lg md:text-xl font-medium max-w-4xl mx-auto text-stone-600">
+                A comprehensive guide to leveraging your extracurriculars, responsibilities, and unique experiences to craft a powerful narrative for admissions.
+            </p>
+        </section>
+
+        <section id="strategic-importance" class="space-y-12">
+            <div class="space-y-4">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-stone-900">The Strategic Importance of Your Activities List</h2>
+                <p class="text-lg text-stone-600">
+                    The Activities section is not a simple checklist. It is a pivotal part of the holistic admissions review, offering a unique window into your character, passions, and potential contributions beyond academic metrics.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+                <div class="space-y-6 p-8 bg-stone-100 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-stone-900">Beyond Grades: What Admissions Officers Seek</h3>
+                    <div class="space-y-4 text-stone-700">
+                        <p>Admissions officers seek to understand who you are outside the classroom. This section adds "persona" to your application, revealing strengths and qualities that quantitative measures like grades or test scores cannot capture. A meticulously crafted list shows how you might uniquely enhance the college community.</p>
+                        <ul class="list-none space-y-2">
+                            <li class="flex items-start">
+                                <span class="text-amber-500 text-xl mr-2">&#9658;</span>
+                                <p>It provides a glimpse into an individual's unique pursuits, interests, and passions.</p>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-amber-500 text-xl mr-2">&#9658;</span>
+                                <p>It reveals strengths and qualities that grades and scores cannot capture.</p>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-amber-500 text-xl mr-2">&#9658;</span>
+                                <p>It showcases your potential positive impact on campus life.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="space-y-6 p-8 bg-stone-100 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-stone-900">Defining "Activity": Broadening Your Scope</h3>
+                    <div class="space-y-4 text-stone-700">
+                        <p>An "extracurricular activity" on the Common App is broadly defined. You should think expansively about what counts. It's not just about school-sponsored organizations.</p>
+                        <div class="bg-amber-100 text-stone-900 p-4 rounded-xl">
+                            <h4 class="font-bold mb-2">Activities can include:</h4>
+                            <ul class="list-none grid grid-cols-2 gap-2">
+                                <li>&#x2022; School clubs</li>
+                                <li>&#x2022; Paid jobs</li>
+                                <li>&#x2022; Sports teams</li>
+                                <li>&#x2022; Internships</li>
+                                <li>&#x2022; Volunteering</li>
+                                <li>&#x2022; Personal hobbies</li>
+                                <li>&#x2022; Creative projects</li>
+                                <li>&#x2022; Research</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-6 p-8 bg-stone-100 rounded-2xl shadow-lg">
+                <h3 class="text-2xl font-bold text-stone-900">The Power of Context: Explaining Unique Circumstances</h3>
+                <p class="text-lg text-stone-700">
+                    The Activities section also provides a vital space to share "other responsibilities and circumstances" that have shaped your life. This is especially important for family responsibilities, which are explicitly recognized as significant commitments. These are not mere household chores, but important needs you are meeting for your family.
+                </p>
+                <p class="text-lg text-stone-700">
+                    By including these, you provide admissions officers with crucial context that helps them understand you as a person and contextualize your academic and extracurricular record. This can transform perceived limitations into powerful demonstrations of maturity, responsibility, and resilience. If more space is required, the Additional Information section of the Common App can be utilized.
+                </p>
+            </div>
+        </section>
+
+        <section id="building-list" class="space-y-12">
+            <div class="space-y-4">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-stone-900">Building Your Activities List: Selection and Prioritization</h2>
+                <p class="text-lg text-stone-600">
+                    Strategic selection and thoughtful ordering are paramount to making your Activities List impactful. Focus on the quality of your experiences, not just the quantity.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="p-6 bg-stone-100 rounded-2xl shadow-lg space-y-4">
+                    <h3 class="text-2xl font-bold text-stone-900">Quality Over Quantity</h3>
+                    <p class="text-stone-700">You can list up to ten activities, but filling all ten slots is not a requirement. Focus on experiences that best convey your unique story and reflect genuine interests and achievements. A long, diluted list can dilute your impact.</p>
+                </div>
+                <div class="p-6 bg-stone-100 rounded-2xl shadow-lg space-y-4">
+                    <h3 class="text-2xl font-bold text-stone-900">Selecting Your Most Impactful Experiences</h3>
+                    <p class="text-stone-700">Choose activities where you spent significant time, achieved notable accomplishments, or held leadership roles. Admissions officers seek evidence of self-awareness and how experiences have shaped you as an individual.</p>
+                </div>
+                <div class="p-6 bg-stone-100 rounded-2xl shadow-lg space-y-4">
+                    <h3 class="text-2xl font-bold text-stone-900">Strategic Ordering</h3>
+                    <p class="text-stone-700">List your most impressive and relevant activities near the top. Prioritize activities that are most time-intensive, hold significant prestige, or align closely with your intended major. This guides the reader's focus.</p>
+                </div>
+                <div class="p-6 bg-stone-100 rounded-2xl shadow-lg space-y-4">
+                    <h3 class="text-2xl font-bold text-stone-900">Combining Similar Activities</h3>
+                    <p class="text-stone-700">Given the character limits, group similar activities on the same line. For example, combine "Animal Hospital Volunteer" and "Pet Sitter" into one entry to conserve valuable space while showcasing a consistent interest.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="mastering-description" class="space-y-12">
+            <div class="space-y-4">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-stone-900">Mastering the Art of Description: Making Every Character Count</h2>
+                <p class="text-lg text-stone-600">
+                    The Common App's strict character limits require concise, powerful, and strategic writing. Every single character must contribute to showcasing your impact and unique qualities.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="space-y-6 p-8 bg-stone-100 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-stone-900">The Character Limits</h3>
+                    <p class="text-stone-700">The Common App imposes strict character limits, presenting a creative challenge. This forces precision and helps you communicate significant impact with minimal words. It is a deliberate test of your ability to prioritize information.</p>
+                    <div class="chart-container">
+                        <canvas id="characterLimitsChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="space-y-6 p-8 bg-stone-100 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-stone-900">Action Verbs: The Engine of Your Descriptions</h3>
+                    <p class="text-stone-700">Begin your descriptions with strong, varied action verbs instead of passive or vague phrasing. Strong verbs lead to more concise and compelling descriptions, making your contributions clearer and more impressive. The 150-character limit means every word must be impactful, and weak verbs waste precious space.</p>
+                    <p class="text-stone-700 font-semibold text-center">
+                        Consider verbs like: Implemented, Collaborated, Designed, Coached, Led, Coordinated, Researched, Managed, Organized, Created, Developed, Tutored, Fundraised, Performed.
+                    </p>
+                </div>
+
+                <div class="space-y-6 p-8 bg-stone-100 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-stone-900">Quantifying Your Impact: Tangible Results</h3>
+                    <p class="text-stone-700">Emphasize tangible, measurable impact whenever possible. Numbers add significant weight and specificity to descriptions. Admissions committees actively look for evidence of impact, and vague statements are insufficient.</p>
+                    <p class="text-stone-700 font-semibold text-center">
+                        Example: Instead of "Raised money," write "Raised $3,000 for..."
+                    </p>
+                    <p class="text-stone-700 font-semibold text-center">
+                        Other examples: "Tutored 10 students," "Managed team of 15," "Volunteered 100+ hours."
+                    </p>
+                </div>
+
+                <div class="md:col-span-2 lg:col-span-3 space-y-6 p-8 bg-stone-100 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-stone-900">Showcasing Leadership and Initiative</h3>
+                    <p class="text-stone-700">Highlight responsibilities that clearly demonstrate leadership skills, even without a formal title. Focus on emphasizing leadership through actions, not just titles. Admissions committees highly value leadership potential, and they understand that impactful leadership is demonstrated through actions and the initiative taken to drive positive change.</p>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-stone-200 p-4 rounded-xl text-stone-800">
+                            <h4 class="font-bold text-stone-900">Guiding/Directing</h4>
+                            <p>Led [team/project] to achieve [result].</p>
+                        </div>
+                        <div class="bg-stone-200 p-4 rounded-xl text-stone-800">
+                            <h4 class="font-bold text-stone-900">Organizing/Coordinating</h4>
+                            <p>Organized [event/program] for [purpose].</p>
+                        </div>
+                        <div class="bg-stone-200 p-4 rounded-xl text-stone-800">
+                            <h4 class="font-bold text-stone-900">Initiating/Developing</h4>
+                            <p>Developed/Implemented [system/strategy].</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-2 lg:col-span-3 space-y-6 p-8 bg-stone-100 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-stone-900">Consistency, Jargon, and Personality</h3>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-xl font-bold text-stone-900 mb-2">Consistency in Tense & Punctuation</h4>
+                            <p class="text-stone-700">Use the present tense for ongoing activities and the past tense for concluded ones. Maintain consistent punctuation across all descriptions. Meticulous attention to these details reflects your professionalism.</p>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-stone-900 mb-2">Navigating Abbreviations and Jargon</h4>
+                            <p class="text-stone-700">Use common abbreviations smartly (e.g., "VP"). Avoid unexplained acronyms or highly technical terms. If a technical term is necessary, briefly explain it. Balance conciseness with universal understanding.</p>
+                        </div>
+                        <div class="md:col-span-2">
+                            <h4 class="text-xl font-bold text-stone-900 mb-2">Injecting Personality and Authenticity</h4>
+                            <p class="text-stone-700">To make descriptions memorable, inject your personality. Admissions officers want to understand you as a person, not just a list of achievements. This can involve using wit, passion, or unique insights to reveal deeper interests and make your application more engaging.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="common-mistakes" class="space-y-12">
+            <div class="space-y-4">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-stone-900">Common Mistakes to Avoid</h2>
+                <p class="text-lg text-stone-600">
+                    Awareness of these common pitfalls and how to circumvent them is crucial for a strong submission.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="p-6 bg-stone-100 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-stone-900 mb-2">Vagueness and Generic Statements</h3>
+                    <p class="text-stone-700">Avoid broad phrases like "Helped with fundraising events." Instead, be specific about your actions and the resulting outcomes.</p>
+                </div>
+                <div class="p-6 bg-stone-100 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-stone-900 mb-2">Understating Your Role or Impact</h3>
+                    <p class="text-stone-700">Do not fail to adequately emphasize your leadership roles and personal initiative. Focus on the significant results or impact you achieved, not just the tasks you performed.</p>
+                </div>
+                <div class="p-6 bg-stone-100 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-stone-900 mb-2">Overloading with Unexplained Jargon</h3>
+                    <p class="text-stone-700">Using jargon or acronyms that are not widely known can confuse admissions officers. Prioritize clear, accessible language and briefly explain technical terms if they are absolutely necessary.</p>
+                </div>
+                <div class="p-6 bg-stone-100 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-stone-900 mb-2">Exaggerating Time Commitments</h3>
+                    <p class="text-stone-700">Admissions officers understand realistic time commitments. Always be truthful and avoid embellishing the facts about the hours you spent on an activity.</p>
+                </div>
+                <div class="p-6 bg-stone-100 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-stone-900 mb-2">Redundancy and Inconsistency</h3>
+                    <p class="text-stone-700">Avoid repeating information across multiple descriptions. Vary your vocabulary and phrasing. Only indicate future participation if you have a sincere interest in continuing that activity in college.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="examples" class="space-y-12 text-center">
+            <div class="space-y-4">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-stone-900">Examples and Transformations</h2>
+                <p class="text-lg text-stone-600">
+                    See how generic descriptions can be transformed into concise, impactful statements that maximize character limits and convey significant value.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-center justify-center">
+
+                <div class="card-container mx-auto" onclick="this.querySelector('.card').classList.toggle('is-flipped')">
+                    <div class="card shadow-lg">
+                        <div class="card-face card-face-front bg-stone-900 text-amber-500">
+                            <h3 class="text-xl font-bold">Weak vs. Strong Example 1: Fundraising</h3>
+                        </div>
+                        <div class="card-face card-face-back bg-stone-100 text-stone-800">
+                            <div class="space-y-4">
+                                <h4 class="text-lg font-bold text-stone-900">Vague:</h4>
+                                <p class="text-sm border-b pb-2 border-stone-400">"Raised money for charity."</p>
+                                <h4 class="text-lg font-bold text-stone-900">Quantified:</h4>
+                                <p class="text-sm">"Led team to raise $5K for local shelters via community bake sales, auctions."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-container mx-auto" onclick="this.querySelector('.card').classList.toggle('is-flipped')">
+                    <div class="card shadow-lg">
+                        <div class="card-face card-face-front bg-stone-900 text-amber-500">
+                            <h3 class="text-xl font-bold">Weak vs. Strong Example 2: Tutoring</h3>
+                        </div>
+                        <div class="card-face card-face-back bg-stone-100 text-stone-800">
+                            <div class="space-y-4">
+                                <h4 class="text-lg font-bold text-stone-900">Vague:</h4>
+                                <p class="text-sm border-b pb-2 border-stone-400">"Helped students with math."</p>
+                                <h4 class="text-lg font-bold text-stone-900">Quantified:</h4>
+                                <p class="text-sm">"Tutored 10 students weekly, improving grades by avg. 20%."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-container mx-auto" onclick="this.querySelector('.card').classList.toggle('is-flipped')">
+                    <div class="card shadow-lg">
+                        <div class="card-face card-face-front bg-stone-900 text-amber-500">
+                            <h3 class="text-xl font-bold">Weak vs. Strong Example 3: Leadership</h3>
+                        </div>
+                        <div class="card-face card-face-back bg-stone-100 text-stone-800">
+                            <div class="space-y-4">
+                                <h4 class="text-lg font-bold text-stone-900">Vague:</h4>
+                                <p class="text-sm border-b pb-2 border-stone-400">"Worked on school newspaper."</p>
+                                <h4 class="text-lg font-bold text-stone-900">Quantified:</h4>
+                                <p class="text-sm">"As editor, revamped layout, doubled readership, trained 5 new writers."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="conclusion" class="space-y-12">
+            <div class="space-y-4">
+                <h2 class="text-3xl md:text-5xl font-extrabold text-stone-900">Conclusion and Recommendations</h2>
+                <p class="text-lg text-stone-600">
+                    The Activities section is a critical and strategic opportunity. When approached with a strategic mindset and meticulous attention to detail, you can transform it into a powerful tool that significantly strengthens your overall college application.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="p-8 bg-stone-100 rounded-2xl shadow-lg space-y-4">
+                    <h3 class="text-2xl font-bold text-stone-900 mb-2">Key Takeaways</h3>
+                    <ul class="list-none space-y-4 text-stone-700">
+                        <li class="flex items-start">
+                            <span class="text-amber-500 text-xl mr-2">&#9679;</span>
+                            <p><strong>Start Early and Reflect Deeply:</strong> Brainstorm and draft your activities well in advance. Reflect on the "what, how, why, and impact" of each experience.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-amber-500 text-xl mr-2">&#9679;</span>
+                            <p><strong>Prioritize Quality Over Quantity:</strong> Focus on selecting the most meaningful and impactful activities that genuinely reflect your interests, rather than simply trying to fill all ten slots.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-amber-500 text-xl mr-2">&#9679;</span>
+                            <p><strong>Master Concise Communication:</strong> Utilize strong action verbs and quantify achievements to demonstrate tangible results. Every character must contribute meaningfully.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-amber-500 text-xl mr-2">&#9679;</span>
+                            <p><strong>Embrace Unique Circumstances:</strong> Include significant family responsibilities. Frame these as demonstrations of maturity, responsibility, and resilience to provide essential context for your application.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-amber-500 text-xl mr-2">&#9679;</span>
+                            <p><strong>Infuse Authenticity and Personality:</strong> Allow your unique voice to shine through in your descriptions to help admissions officers connect with you as an individual.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="p-8 bg-stone-100 rounded-2xl shadow-lg flex flex-col items-center justify-center text-center space-y-4">
+                    <h3 class="text-2xl font-bold text-stone-900">Final Recommendation</h3>
+                    <p class="text-lg text-stone-700">
+                        Proofread meticulously, revise regularly, and ensure your entire application tells a cohesive story without unnecessary repetition.
+                    </p>
+                    <div class="flex items-center space-x-2">
+                        <span class="text-4xl text-amber-500">&#9733;</span>
+                        <p class="text-2xl font-bold text-stone-900">
+                            The most successful applicants transform a bland list into a dynamic showcase of their personal brand.
+                        </p>
+                        <span class="text-4xl text-amber-500">&#9733;</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <button id="scrollToTopBtn" class="scroll-to-top transition-all duration-300 hover:scale-110">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8 mx-auto my-2">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const chartData = {
+                labels: ['Position/Leadership', 'Organization Name', 'Activity Details'],
+                datasets: [{
+                    label: 'Character Limit',
+                    data: [50, 100, 150],
+                    backgroundColor: [
+                        '#FACC15',
+                        '#6B7280',
+                        '#111827'
+                    ],
+                    borderColor: [
+                        '#111827',
+                        '#111827',
+                        '#111827'
+                    ],
+                    borderWidth: 1
+                }]
+            };
+
+            const chartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: (context) => context[0].label,
+                            label: (context) => `Limit: ${context.raw} characters`,
+                            labelColor: (context) => {
+                                const color = context.dataset.backgroundColor[context.dataIndex];
+                                const isDark = Chart.helpers.get = (color) => {
+                                    const c = color.substring(1);
+                                    const rgb = parseInt(c, 16);
+                                    const r = (rgb >> 16) & 0xff;
+                                    const g = (rgb >> 8) & 0xff;
+                                    const b = (rgb >> 0) & 0xff;
+                                    return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+                                };
+                                return {
+                                    borderColor: color,
+                                    backgroundColor: color
+                                };
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: '#4B5563',
+                            font: {
+                                weight: 'bold'
+                            }
+                        },
+                        grid: {
+                            display: false
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            color: '#4B5563'
+                        },
+                        grid: {
+                            color: '#E5E7EB'
+                        }
+                    }
+                }
+            };
+
+            const ctx = document.getElementById('characterLimitsChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: chartData,
+                options: chartOptions
+            });
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+            window.onscroll = function() {
+                if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                    scrollToTopBtn.style.display = "block";
+                } else {
+                    scrollToTopBtn.style.display = "none";
+                }
+            };
+
+            scrollToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+```
+</div>

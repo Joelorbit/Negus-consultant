@@ -1,0 +1,12 @@
+/* ServiceIcon.css */
+
+/* base 3D transform for the icon */
+.icon-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.8s, filter 0.8s; /* smooth rotation + color changes */
+}
+
+/* when hovered */
+.icon-3d.hovered {
+  transform: rotateY(180deg);
+}

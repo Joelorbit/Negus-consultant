@@ -1,0 +1,50 @@
+mentor desplay 
+
+---> page visuality 
+---> profile for them 
+---> pairing them 
+
+
+---> medares we dementor
+---> referal commision 
+
+---> applying 
+---> authentication ?
+---> verify
+
+---> video
+
+---> hour
+---> day
+---> payment
+
+
+Chat feature
+
+clients request for mentor 
+
+  mentor confirmation payment ?
+  if mentor cant ?
+
+
+mentor tab
+  decline and comfirm
+  feed back and commnet for each live session
+
+
+managing clients by mentor
+
+--->  service
+
+meating configration
+    ---> rating at the end
+    ---> mentors and client proof of finishing
+    ---> mentorship program
+
+
+other features ---> finishing there scholarship
+
+mentor ---> payment
+
+---> common app feature
+---> ask question user what they want

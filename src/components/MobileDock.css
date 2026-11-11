@@ -1,0 +1,156 @@
+/* ─────────────────────────────────────────────────────────────
+   Negus Consultants – Global Mobile Floating Dock
+   5-tab ergonomic thumb bar with glassmorphic backdrop
+   ───────────────────────────────────────────────────────────── */
+
+.negus-mobile-dock {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .negus-mobile-dock {
+    position: fixed;
+    bottom: max(12px, env(safe-area-inset-bottom));
+    left: 12px;
+    right: 12px;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+    transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* When mobile hamburger drawer is open, hide the dock smoothly */
+  body.negus-mobile-menu-open .negus-mobile-dock {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: translateY(28px) scale(0.96) !important;
+  }
+
+  .negus-mobile-dock-inner {
+    pointer-events: auto;
+    width: 100%;
+    max-width: 460px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+    gap: 4px;
+    padding: 6px 8px;
+    border-radius: 24px;
+    border: 1px solid var(--line);
+    background: rgba(255, 253, 246, 0.94);
+    box-shadow: 0 14px 40px -4px rgba(18, 61, 43, 0.16),
+                0 4px 12px rgba(18, 61, 43, 0.08);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .dark .negus-mobile-dock-inner,
+  [data-theme='dark'] .negus-mobile-dock-inner {
+    background: rgba(11, 20, 16, 0.94);
+    border-color: rgba(127, 191, 154, 0.2);
+    box-shadow: 0 16px 44px -4px rgba(0, 0, 0, 0.7),
+                0 4px 16px rgba(0, 0, 0, 0.45);
+  }
+
+  .negus-dock-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    padding: 6px 2px 4px;
+    border-radius: 14px;
+    color: var(--ink-secondary);
+    text-decoration: none;
+    min-width: 0;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .negus-dock-icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    color: var(--ink-secondary);
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+  }
+
+  .dark .negus-dock-icon-wrap,
+  [data-theme='dark'] .negus-dock-icon-wrap {
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  .negus-dock-label {
+    font-family: var(--font-display, 'Lexend', sans-serif);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+    color: var(--ink-secondary);
+    transition: color 0.2s ease, font-weight 0.2s ease;
+  }
+
+  .dark .negus-dock-label,
+  [data-theme='dark'] .negus-dock-label {
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  /* Active state */
+  .negus-dock-item.active {
+    background: var(--green-subtle);
+  }
+
+  .dark .negus-dock-item.active,
+  [data-theme='dark'] .negus-dock-item.active {
+    background: rgba(47, 107, 69, 0.22);
+  }
+
+  .negus-dock-item.active .negus-dock-icon-wrap {
+    color: #123d2b;
+    transform: translateY(-1px) scale(1.08);
+  }
+
+  .dark .negus-dock-item.active .negus-dock-icon-wrap,
+  [data-theme='dark'] .negus-dock-item.active .negus-dock-icon-wrap {
+    color: #5be39d;
+  }
+
+  .negus-dock-item.active .negus-dock-label {
+    color: #123d2b;
+    font-weight: 700;
+  }
+
+  .dark .negus-dock-item.active .negus-dock-label,
+  [data-theme='dark'] .negus-dock-item.active .negus-dock-label {
+    color: #5be39d;
+  }
+
+  /* Indicator dot under active tab */
+  .negus-dock-indicator {
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 9999px;
+    background: var(--yellow, #d1bd82);
+    box-shadow: 0 0 6px rgba(209, 189, 130, 0.6);
+  }
+
+  .dark .negus-dock-indicator,
+  [data-theme='dark'] .negus-dock-indicator {
+    background: #dfc68a;
+    box-shadow: 0 0 8px rgba(223, 198, 138, 0.8);
+  }
+}

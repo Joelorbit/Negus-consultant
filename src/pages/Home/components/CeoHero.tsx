@@ -416,6 +416,61 @@ export default function CeoHero() {
           }
         }
 
+        @media (max-width: 640px) {
+          .ceo-hero-section {
+            min-height: auto;
+            padding: 52px 18px 98px;
+          }
+
+          .ceo-hero-eyebrow {
+            margin-bottom: 16px;
+            padding: 5px 11px;
+            font-size: 10px;
+          }
+
+          .ceo-hero-title {
+            margin-bottom: 16px;
+            font-size: clamp(36px, 9.5vw, 46px);
+            line-height: 1.08;
+          }
+
+          .ceo-hero-subhead {
+            margin-bottom: 20px;
+            font-size: 15px;
+            line-height: 1.52;
+          }
+
+          .ceo-hero-checklist {
+            gap: 8px;
+            margin-bottom: 22px;
+          }
+
+          .ceo-hero-check-item {
+            font-size: 12.5px;
+          }
+
+          .ceo-hero-actions {
+            gap: 10px;
+            margin-bottom: 22px;
+          }
+
+          .ceo-hero-btn-primary,
+          .ceo-hero-btn-secondary {
+            min-height: 48px;
+            padding-inline: 20px;
+            font-size: 14px;
+          }
+
+          .ceo-hero-metrics {
+            gap: 10px;
+            padding-top: 18px;
+          }
+
+          .ceo-metric-label {
+            font-size: 10.5px;
+          }
+        }
+
       `}</style>
 
       <div className="ceo-hero-grid">
@@ -427,7 +482,7 @@ export default function CeoHero() {
           </div>
 
           <h1 className="ceo-hero-title">
-            <span className="ceo-hero-amharic">የነገ ህልሞ</span>
+            <span className="ceo-hero-amharic">የነገ ህልሞን</span>
             <span className="ceo-hero-amharic">ዛሬ ከንጉስ ጋር</span>
           </h1>
 

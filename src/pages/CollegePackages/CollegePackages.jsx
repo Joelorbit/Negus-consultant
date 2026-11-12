@@ -49,7 +49,6 @@ import { PackageCard } from "../Packages/Components/PackagesCard";
 import { Testimonials } from "../Packages/Components/Testimonial";
 import { PricingFAQ } from "../Packages/Components/PricingFAQ";
 import OrderDialog from "./Components/OrderDialog";
-import { teamMembers } from "../Testimonials/Components/TeamSection";
 import "../public-pages.css";
 
 const ROUND_LABELS = {
@@ -131,67 +130,6 @@ export default function CollegePackages() {
             <span>OFF</span>
           </div>
         </aside>
-      </section>
-
-      {/* ---------------- Meet Some of Your Mentors ---------------- */}
-      <section className="container mx-auto px-4 max-w-6xl pt-12 pb-2">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
-          <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-primary">
-              World-Class Mentorship
-            </span>
-            <h2 className="text-2xl md:text-3xl font-extrabold text-foreground tracking-tight mt-1">
-              Meet Some of Your Mentors
-            </h2>
-            <p className="text-sm text-muted-foreground mt-1 max-w-xl">
-              Learn directly from scholars who walked the exact same path and won full scholarships at NYU Shanghai, NYU Abu Dhabi, Sarah Lawrence, and beyond.
-            </p>
-          </div>
-          <NavLink
-            to="/mentors"
-            className="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline"
-          >
-            View All Mentors <ArrowRight className="h-3.5 w-3.5" />
-          </NavLink>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {(teamMembers || []).slice(0, 3).map((mentor) => (
-            <div
-              key={mentor.id}
-              className="group relative rounded-2xl border border-border/80 bg-card p-5 transition-all duration-300 hover:border-primary/40 hover:shadow-lg flex items-center gap-4"
-            >
-              <div className="relative h-16 w-16 shrink-0 rounded-full overflow-hidden border-2 border-primary/20 bg-muted">
-                <img
-                  src={mentor.image}
-                  alt={mentor.name}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-              </div>
-              <div className="min-w-0 flex-1">
-                <h3 className="font-bold text-base text-foreground group-hover:text-primary transition-colors truncate">
-                  {mentor.name}
-                </h3>
-                <p className="text-xs font-medium text-primary line-clamp-1">
-                  {mentor.role}
-                </p>
-                <p className="text-[11px] text-muted-foreground line-clamp-1 mt-0.5">
-                  {mentor.department}
-                </p>
-                <div className="flex flex-wrap gap-1 mt-2">
-                  {(mentor.specialties || []).slice(0, 2).map((s) => (
-                    <span
-                      key={s}
-                      className="rounded-md bg-muted px-1.5 py-0.5 text-[10px] font-semibold text-muted-foreground"
-                    >
-                      {s}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
       </section>
 
       {/* ---------------- Main Content & Tabs ---------------- */}

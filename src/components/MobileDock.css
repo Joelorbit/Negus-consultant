@@ -88,9 +88,9 @@
 
   .negus-dock-label {
     font-family: var(--font-display, 'Lexend', sans-serif);
-    font-size: 10px;
+    font-size: 9.5px;
     font-weight: 600;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.035em;
     line-height: 1.15;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -100,9 +100,23 @@
     transition: color 0.2s ease, font-weight 0.2s ease;
   }
 
+  .negus-dock-label-compact {
+    display: none;
+  }
+
   .dark .negus-dock-label,
   [data-theme='dark'] .negus-dock-label {
     color: rgba(255, 255, 255, 0.65);
+  }
+
+  @media (max-width: 360px) {
+    .negus-dock-item[aria-label="Scholarships"] .negus-dock-label-full {
+      display: none;
+    }
+
+    .negus-dock-item[aria-label="Scholarships"] .negus-dock-label-compact {
+      display: block;
+    }
   }
 
   /* Active state */

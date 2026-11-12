@@ -102,6 +102,10 @@ const Navbar = () => {
           font-weight: 500;
         }
 
+        .negus-announcement-msg--mobile {
+          display: none;
+        }
+
         .negus-announcement-cta {
           display: inline-flex;
           align-items: center;
@@ -723,29 +727,38 @@ const Navbar = () => {
 
         @media (max-width: 480px) {
           .negus-announcement-strip {
-            padding: 4px 10px 5px;
+            padding: 4px 10px;
             font-size: 10px;
           }
           .negus-announcement-content {
-            display: grid;
-            grid-template-columns: auto minmax(0, 1fr);
-            gap: 2px 6px;
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 8px;
             align-items: center;
-            justify-content: stretch;
+            justify-content: center;
           }
           .negus-announcement-tag {
-            grid-row: span 2;
-            align-self: start;
-            margin-top: 0;
-            font-size: 8px;
+            display: none;
           }
           .negus-announcement-msg {
             min-width: 0;
-            line-height: 1.35;
+            overflow: hidden;
+            line-height: 1.2;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+          .negus-announcement-msg--desktop {
+            display: none;
+          }
+          .negus-announcement-msg--mobile {
+            display: block;
+            flex: 0 1 auto;
           }
           .negus-announcement-cta {
-            justify-self: start;
-            font-size: 11px;
+            flex: 0 0 auto;
+            gap: 2px;
+            font-size: 10px;
+            white-space: nowrap;
           }
           .negus-global-header {
             height: auto;
@@ -763,13 +776,13 @@ const Navbar = () => {
           .site-theme-toggle,
           .negus-bell-btn,
           .negus-burger {
-            width: 38px;
-            height: 38px;
-            min-width: 38px;
-            min-height: 38px;
-            max-width: 38px;
-            max-height: 38px;
-            flex: 0 0 38px;
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            min-height: 44px;
+            max-width: 44px;
+            max-height: 44px;
+            flex: 0 0 44px;
           }
           .negus-mobile-overlay {
             padding: 76px 18px 28px;
@@ -806,13 +819,13 @@ const Navbar = () => {
           .site-theme-toggle,
           .negus-bell-btn,
           .negus-burger {
-            width: 34px;
-            height: 34px;
-            min-width: 34px;
-            min-height: 34px;
-            max-width: 34px;
-            max-height: 34px;
-            flex: 0 0 34px;
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            min-height: 44px;
+            max-width: 44px;
+            max-height: 44px;
+            flex: 0 0 44px;
           }
         }
       `}</style>
@@ -821,8 +834,11 @@ const Navbar = () => {
       <div className="negus-announcement-strip">
         <div className="negus-announcement-content">
           <span className="negus-announcement-tag">ANNOUNCEMENT</span>
-          <span className="negus-announcement-msg">
+          <span className="negus-announcement-msg negus-announcement-msg--desktop">
             📢 2026/2027 Scholarship Cohort Online Training Registration is Now Open! | Special Forex & Fee Notice
+          </span>
+          <span className="negus-announcement-msg negus-announcement-msg--mobile">
+            2026/27 online training is open
           </span>
           <Link to="/training" className="negus-announcement-cta">
             <span>Register for training</span>

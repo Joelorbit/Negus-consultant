@@ -11,6 +11,7 @@ import {
   SUPPORT_TELEGRAM_URL,
   SUPPORT_PHONE,
 } from "../../config/supportContact";
+import { testimonialPhotos } from "../../assets/testimonialPhotos";
 import "../public-pages.css";
 
 const TRAININGS = [
@@ -23,7 +24,7 @@ const TRAININGS = [
     start: "Nov 18, 2026",
     end: "Jan 12, 2027",
     status: "open",
-    thumbnail: "/hero-teaching.jpg",
+    thumbnail: "/thumbnail/full_course.jpg",
   },
   {
     id: "essay-intensive",
@@ -34,7 +35,7 @@ const TRAININGS = [
     start: "Dec 6, 2026",
     end: "Dec 7, 2026",
     status: "open",
-    thumbnail: "/testimonial.jpg",
+    thumbnail: "/assets/training/photo_2026-01-13_11-55-38.jpg",
   },
   {
     id: "visa-masterclass",
@@ -45,7 +46,7 @@ const TRAININGS = [
     start: "Completed Sep 2026",
     end: "Completed",
     status: "completed",
-    thumbnail: "/team1.jpg",
+    thumbnail: "/assets/training/photo_2025-11-29_09-18-06.jpg",
   },
 ];
 
@@ -58,22 +59,23 @@ export default function TrainingPage() {
             <p className="public-eyebrow"><Community aria-hidden="true" /> ABOUT THE TRAINING</p>
             <h1 className="public-page-title">Practical training for your next <em>application step.</em></h1>
             <p className="public-page-copy">
-              Learn scholarship research, application writing, and interview preparation through structured sessions led by people who have navigated the process.
+              Build confidence in scholarship research, application writing, and interviews through structured, practical sessions.
             </p>
             <div className="public-page-actions">
               <Link className="public-button public-button-primary" to="/courses">Start with the course <ArrowRight aria-hidden="true" /></Link>
               <a className="public-button public-button-secondary" href={SUPPORT_TELEGRAM_URL} target="_blank" rel="noreferrer">Contact Us</a>
             </div>
           </div>
-          <aside className="training-mentors-card">
-            <p className="public-eyebrow">MEET THE MENTORS</p>
-            <h2>Guidance from students who have been there.</h2>
-            <div className="training-mentor-pair">
-              <div><img src="/team2.png" alt="Leulseged Mateb" /><strong>Leulseged Mateb</strong></div>
-              <div><img src="/team1.jpg" alt="Abrham Mulualem" /><strong>Abrham Mulualem</strong></div>
-            </div>
-            <Link to="/about" className="public-button public-button-secondary">Meet the Negus team <ArrowRight aria-hidden="true" /></Link>
-          </aside>
+          <figure className="training-visual-card">
+            <img
+              src="/assets/training/photo_2026-01-13_11-55-38.jpg"
+              alt="Students attending a scholarship session at their school"
+            />
+            <figcaption>
+              <span className="public-eyebrow">LEARNING, TOGETHER</span>
+              Practical guidance, shared in the classroom.
+            </figcaption>
+          </figure>
         </div>
       </section>
 
@@ -87,15 +89,7 @@ export default function TrainingPage() {
           </p>
         </div>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-            gap: "22px",
-            maxWidth: "1100px",
-            margin: "0 auto",
-          }}
-        >
+        <div className="training-card-grid">
           {TRAININGS.map((item) => (
             <article
               key={item.id}
@@ -215,8 +209,14 @@ export default function TrainingPage() {
           <h2>Hear from students who trained with Negus.</h2>
         </div>
         <div className="testimonial-media-grid">
-          <article className="testimonial-media-card"><img src="/assets/testimonials/photo_2026-11-12_11-26-18.jpg" alt="Arsema" /><div className="testimonial-media-copy"><h3>Arsema</h3><p>“Overall throughout the program I have learned so many things.”</p><audio controls preload="none" src="/assets/arema.ogg" aria-label="Arsema voice testimonial" /></div></article>
-          <article className="testimonial-media-card"><img src="/assets/testimonials/photo_2026-11-12_11-26-48.jpg" alt="Efina" /><div className="testimonial-media-copy"><h3>Efina</h3><audio controls preload="none" src="/assets/efina.ogg" aria-label="Efina voice testimonial" /></div></article>
+          {testimonialPhotos.map(({ name, image }) => (
+            <article className="testimonial-media-card" key={name}>
+              <a href={image} target="_blank" rel="noreferrer" aria-label={`Open ${name}'s full testimonial`}>
+                <img src={image} alt={`${name}'s student testimonial`} loading="lazy" />
+              </a>
+              <div className="testimonial-media-copy"><h3>{name}</h3></div>
+            </article>
+          ))}
         </div>
         <div className="public-page-actions"><Link className="public-button public-button-secondary" to="/testimonials">See all testimonials</Link></div>
       </section>

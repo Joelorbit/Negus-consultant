@@ -2,15 +2,19 @@ import { useEffect, useState } from "react";
 import { NavLink, useSearchParams } from "react-router";
 import { VideoDetailPage } from "./Components/VideoDetailPage";
 import { VideosPage } from "./Components/VideoPage";
-import CourseMentorsSection from "./Components/CourseMentorsSection";
 import { useCourseById } from "../../hooks/useCourses";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
 import "../public-pages.css";
+
+const COURSE_PREVIEW_ID = "ytDhlQqU384";
+const COURSE_PREVIEW_TITLE =
+  "Complete Guide to the U.S. College Application (Common App, Essays, & Scholarships)";
 
 function Course() {
   const [searchParams, setSearchParams] = useSearchParams();
   const videoId = searchParams.get("video");
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const [isPreviewPlaying, setIsPreviewPlaying] = useState(false);
 
   // Supports direct links like /courses?video=<id> by loading the course by id
   const { data: deepLinkedCourse } = useCourseById(videoId);
@@ -43,27 +47,43 @@ function Course() {
         </div>
       ) : (
         <div>
-          <section className="course-overview-strip">
-            <div className="course-overview-copy">
-              <p className="public-eyebrow">YOUR APPLICATION, WITH A PLAN</p>
-              <h2>Learn the moves that make a strong application.</h2>
-              <p>Start with the course, then add the support package that fits your goals.</p>
-            </div>
-            <aside className="course-testimonial-snippet">
-              <p className="public-eyebrow">STUDENT VOICE</p>
-              <h3>What our students say</h3>
-              <div className="course-testimonial-person">
-                <img src="/assets/testimonials/photo_2026-11-12_11-26-18.jpg" alt="Arsema" />
-                <div>
-                  <strong>Arsema</strong>
-                  <p>“Overall throughout the program I have learned so many things.”</p>
-                </div>
+          <section className="course-intro-section">
+            <div className="course-intro-inner">
+              <div className="course-intro-copy">
+                <p className="public-eyebrow">START HERE · COURSE PREVIEW</p>
+                <h1>Build a stronger application, <em>step by step.</em></h1>
+                <p>
+                  Watch our guide to the U.S. college application journey, from the Common App
+                  and essays to scholarships. Then explore lessons that help you put each part
+                  into practice.
+                </p>
+                <NavLink className="public-button public-button-primary" to="#course-results">
+                  Explore the lessons <ArrowRight aria-hidden="true" />
+                </NavLink>
               </div>
-              <audio controls preload="none" src="/assets/arema.ogg" aria-label="Arsema voice testimonial" />
-              <NavLink to="/about">See more... <ArrowRight aria-hidden="true" size={15} /></NavLink>
-            </aside>
+              <div className="course-intro-video">
+                {isPreviewPlaying ? (
+                  <iframe
+                    src={`https://www.youtube-nocookie.com/embed/${COURSE_PREVIEW_ID}?autoplay=1&rel=0`}
+                    title={COURSE_PREVIEW_TITLE}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  />
+                ) : (
+                  <button
+                    type="button"
+                    className="course-intro-play"
+                    aria-label={`Play: ${COURSE_PREVIEW_TITLE}`}
+                    onClick={() => setIsPreviewPlaying(true)}
+                  >
+                    <img src="/assets/course-preview.jpg" alt="" />
+                    <span><Play aria-hidden="true" fill="currentColor" />Play the course preview</span>
+                  </button>
+                )}
+              </div>
+            </div>
           </section>
-          <CourseMentorsSection />
           <VideosPage onVideoSelect={handleVideoSelect} />
         </div>
       )}

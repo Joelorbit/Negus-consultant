@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router";
 import {
   ArrowRight,
@@ -6,6 +6,7 @@ import {
   Award,
   Check,
   GraduationCap,
+  Play,
   Spark,
   Telegram,
 } from "./icons";
@@ -24,8 +25,11 @@ import CeoHero from "./components/CeoHero";
 import CeoMessageSection from "./components/CeoMessageSection";
 import CeoFreeToolsSection from "./components/CeoFreeToolsSection";
 import { Reveal, CountUp, ScrollProgress, PixelRain } from "./components/HomeLife";
+import { testimonialPhotos } from "../../assets/testimonialPhotos";
 
 export default function ReferenceHome() {
+  const [isIntroPlaying, setIsIntroPlaying] = useState(false);
+
   return (
     <main style={{ minHeight: "100vh", background: "var(--paper)", color: "var(--ink)" }}>
       {/* Film grain effect */}
@@ -84,7 +88,7 @@ export default function ReferenceHome() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 210px), 1fr))",
             gap: "20px",
             textAlign: "center",
             maxWidth: "960px",
@@ -163,7 +167,7 @@ export default function ReferenceHome() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(190px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 190px), 1fr))",
             gap: "20px",
             maxWidth: "1100px",
             margin: "0 auto",
@@ -269,7 +273,7 @@ export default function ReferenceHome() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))",
             gap: "24px",
             maxWidth: "1100px",
             margin: "0 auto",
@@ -423,57 +427,43 @@ export default function ReferenceHome() {
           </p>
         </div>
 
-        <div
-          style={{
-            maxWidth: "960px",
-            margin: "0 auto 22px",
-            borderRadius: "20px",
-            overflow: "hidden",
-            border: "1px solid var(--line)",
-            background: "#0d1e15",
-            aspectRatio: "16 / 8.5",
-            display: "grid",
-            placeItems: "center",
-            position: "relative",
-          }}
-        >
-          <img
-            src="/hero-teaching.jpg"
-            alt=""
-            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.45 }}
-            loading="lazy"
-          />
-          <div style={{ position: "relative", zIndex: 1, textAlign: "center", padding: "24px", color: "#fffdf6" }}>
-            <p style={{ margin: "0 0 10px", font: "800 11px/1.2 var(--font-display)", letterSpacing: "0.14em", color: "var(--yellow)" }}>
-              INTRO VIDEO
-            </p>
-            <p style={{ margin: 0, maxWidth: "420px", font: "600 1.05rem/1.45 var(--font-display)" }}>
-              A short orientation to scholarships, courses, and how the Negus classroom works.
-            </p>
-            <Link
-              to="/courses"
-              className="btn-dark-hero"
-              style={{ marginTop: "18px", background: "var(--yellow)", color: "#123d2b", borderColor: "var(--yellow)" }}
+        <div className="home-course-intro-video">
+          {isIntroPlaying ? (
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/ytDhlQqU384?autoplay=1&rel=0"
+              title="Complete Guide to the U.S. College Application (Common App, Essays, & Scholarships)"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          ) : (
+            <button
+              type="button"
+              className="home-course-intro-play"
+              aria-label="Play the Negus college application course preview"
+              onClick={() => setIsIntroPlaying(true)}
             >
-              <span>Open course library</span>
-              <ArrowRight aria-hidden="true" />
-            </Link>
-          </div>
+              <img src="/assets/course-preview.jpg" alt="" />
+              <span className="home-course-intro-copy">
+                <span className="home-course-intro-action"><Play aria-hidden="true" fill="currentColor" /> Play preview</span>
+              </span>
+            </button>
+          )}
         </div>
 
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 220px), 1fr))",
             gap: "16px",
             maxWidth: "1100px",
             margin: "0 auto 28px",
           }}
         >
           {[
-            { title: "Scholarship Application Foundations", meta: "Free on YouTube", to: "/courses" },
-            { title: "Common App & Activities Studio", meta: "Free on YouTube", to: "/courses" },
-            { title: "Full Aid Packaging Intensive", meta: "Paid · Add to cart", to: "/packages" },
+            { title: "Scholarship Application Foundations", meta: "Free on YouTube", to: "/courses", image: "/Best-Scholarship-Application-Strategies.jpg" },
+            { title: "Common App & Activities Studio", meta: "Free on YouTube", to: "/courses", image: "/thumbnail/c_part_1.jpg" },
+            { title: "Full Aid Packaging Intensive", meta: "Paid · Add to cart", to: "/packages", image: "/pdf_books.png" },
           ].map((course) => (
             <Link
               key={course.title}
@@ -488,7 +478,9 @@ export default function ReferenceHome() {
                 boxShadow: "var(--shadow-sm)",
               }}
             >
-              <div style={{ aspectRatio: "16/10", background: "linear-gradient(135deg, #123d2b, #2a5940)" }} />
+              <div className="home-course-preview-image">
+                <img src={course.image} alt="" loading="lazy" />
+              </div>
               <div style={{ padding: "16px 18px 18px" }}>
                 <strong style={{ display: "block", font: "700 15px/1.35 var(--font-display)", color: "var(--ink)" }}>
                   {course.title}
@@ -526,7 +518,7 @@ export default function ReferenceHome() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(290px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 290px), 1fr))",
             gap: "24px",
             maxWidth: "1100px",
             margin: "0 auto 36px",
@@ -714,255 +706,29 @@ export default function ReferenceHome() {
         </div>
       </section>
 
-      {/* Featured Courses Preview */}
-      <section className="section-shell" style={{ paddingTop: "36px", paddingBottom: "54px" }}>
-        <div style={{ textAlign: "center", maxWidth: "680px", margin: "0 auto 36px" }}>
-          <div className="eyebrow-tag" style={{ justifyContent: "center", marginBottom: "12px" }}>
-            NEGUS ACADEMY
-          </div>
-          <h2 className="display-title" style={{ fontSize: "clamp(32px, 4vw, 48px)", margin: "0 0 14px" }}>
-            Learn at your own pace.
-          </h2>
-          <p style={{ color: "var(--ink-secondary)", fontSize: "15.5px", lineHeight: "1.7", margin: "0" }}>
-            Practical video masterclasses and toolkits designed by admitted scholars.
-          </p>
-        </div>
-
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(290px, 1fr))",
-            gap: "24px",
-            maxWidth: "1100px",
-            margin: "0 auto 36px",
-          }}
-        >
-          {/* Course 1 */}
-          <Reveal className="home-card" delay={100} style={{
-              borderRadius: "18px",
-              overflow: "hidden",
-              background: "var(--white)",
-              border: "1px solid var(--line)",
-              boxShadow: "var(--shadow-sm)",
-            }}>
-            <div
-              className="home-course-banner"
-              style={{
-                height: "170px",
-                background: "linear-gradient(135deg, #123d2b, #2a5940)",
-                display: "grid",
-                placeItems: "center",
-                color: "var(--yellow)",
-                fontFamily: "var(--font-display)",
-                fontWeight: 800,
-                fontSize: "18px",
-                letterSpacing: "0.05em",
-                textAlign: "center",
-                padding: "20px",
-              }}
-            >
-              ESSAYS & STORYTELLING
-            </div>
-            <div style={{ padding: "24px" }}>
-              <span style={{ fontSize: "12px", fontWeight: 700, color: "var(--gold-ink)", textTransform: "uppercase" }}>MASTERCLASS</span>
-              <h3 style={{ fontFamily: "var(--font-display)", fontSize: "18px", fontWeight: 700, margin: "8px 0 10px", color: "var(--ink)" }}>
-                The Winning Common App Essay
-              </h3>
-              <p style={{ color: "var(--ink-secondary)", fontSize: "13.5px", lineHeight: "1.6", margin: "0 0 18px" }}>
-                Step-by-step frameworks for brainstorming unique essay topics, crafting gripping opening hooks, and avoiding cliches.
-              </p>
-              <Link to="/courses" style={{ color: "var(--ink-secondary)", fontWeight: 700, fontSize: "13.5px", display: "inline-flex", alignItems: "center", gap: "6px" }}>
-                Watch lessons <ArrowRight width={14} height={14} />
-              </Link>
-            </div>
-          </Reveal>
-
-          {/* Course 2 */}
-          <Reveal className="home-card" delay={240} style={{
-              borderRadius: "18px",
-              overflow: "hidden",
-              background: "var(--white)",
-              border: "1px solid var(--line)",
-              boxShadow: "var(--shadow-sm)",
-            }}>
-            <div
-              className="home-course-banner"
-              style={{
-                height: "170px",
-                background: "linear-gradient(135deg, #1f2f25, #35503f)",
-                display: "grid",
-                placeItems: "center",
-                color: "var(--yellow)",
-                fontFamily: "var(--font-display)",
-                fontWeight: 800,
-                fontSize: "18px",
-                letterSpacing: "0.05em",
-                textAlign: "center",
-                padding: "20px",
-              }}
-            >
-              FINANCIAL AID & CSS
-            </div>
-            <div style={{ padding: "24px" }}>
-              <span style={{ fontSize: "12px", fontWeight: 700, color: "var(--gold-ink)", textTransform: "uppercase" }}>GUIDE</span>
-              <h3 style={{ fontFamily: "var(--font-display)", fontSize: "18px", fontWeight: 700, margin: "8px 0 10px", color: "var(--ink)" }}>
-                CSS Profile & ISFAA Aid Mastery
-              </h3>
-              <p style={{ color: "var(--ink-secondary)", fontSize: "13.5px", lineHeight: "1.6", margin: "0 0 18px" }}>
-                How international students accurately document household income, apply for fee waivers, and unlock institutional aid.
-              </p>
-              <Link to="/courses" style={{ color: "var(--ink-secondary)", fontWeight: 700, fontSize: "13.5px", display: "inline-flex", alignItems: "center", gap: "6px" }}>
-                Watch lessons <ArrowRight width={14} height={14} />
-              </Link>
-            </div>
-          </Reveal>
-
-          {/* Course 3 */}
-          <Reveal className="home-card" delay={380} style={{
-              borderRadius: "18px",
-              overflow: "hidden",
-              background: "var(--white)",
-              border: "1px solid var(--line)",
-              boxShadow: "var(--shadow-sm)",
-            }}>
-            <div
-              className="home-course-banner"
-              style={{
-                height: "170px",
-                background: "linear-gradient(135deg, #182820, #2c4436)",
-                display: "grid",
-                placeItems: "center",
-                color: "var(--yellow)",
-                fontFamily: "var(--font-display)",
-                fontWeight: 800,
-                fontSize: "18px",
-                letterSpacing: "0.05em",
-                textAlign: "center",
-                padding: "20px",
-              }}
-            >
-              DIGITAL SAT & TESTS
-            </div>
-            <div style={{ padding: "24px" }}>
-              <span style={{ fontSize: "12px", fontWeight: 700, color: "var(--gold-ink)", textTransform: "uppercase" }}>TEST PREP</span>
-              <h3 style={{ fontFamily: "var(--font-display)", fontSize: "18px", fontWeight: 700, margin: "8px 0 10px", color: "var(--ink)" }}>
-                1500+ Digital SAT Strategy
-              </h3>
-              <p style={{ color: "var(--ink-secondary)", fontSize: "13.5px", lineHeight: "1.6", margin: "0 0 18px" }}>
-                Proven techniques for adaptive testing pacing, hard math shortcuts, and evidence-based reading analysis.
-              </p>
-              <Link to="/courses" style={{ color: "var(--ink-secondary)", fontWeight: 700, fontSize: "13.5px", display: "inline-flex", alignItems: "center", gap: "6px" }}>
-                Watch lessons <ArrowRight width={14} height={14} />
-              </Link>
-            </div>
-          </Reveal>
-        </div>
-
-        <div style={{ textAlign: "center" }}>
-          <Link
-            to="/courses"
-            className="btn-dark-hero"
-            style={{ display: "inline-flex", alignItems: "center", gap: "10px" }}
-          >
-            <span>Browse all courses</span>
-            <ArrowRight aria-hidden="true" />
-          </Link>
-        </div>
-      </section>
-
       {/* Verified Student Wins & Testimonials */}
       <section className="section-shell home-grid-paper" style={{ paddingTop: "36px", paddingBottom: "54px" }}>
         <div style={{ textAlign: "center", maxWidth: "680px", margin: "0 auto 36px" }}>
           <div className="eyebrow-tag" style={{ justifyContent: "center", marginBottom: "12px" }}>
-            PROVEN RESULTS
+            STUDENT STORIES
           </div>
           <h2 className="display-title" style={{ fontSize: "clamp(32px, 4vw, 48px)", margin: "0 0 14px" }}>
-            Real students. Real scholarships.
+            Messages from our students.
           </h2>
           <p style={{ color: "var(--ink-secondary)", fontSize: "15.5px", lineHeight: "1.7", margin: "0" }}>
-            Hear from Ethiopian scholars who partnered with Negus to earn admissions and institutional awards worldwide.
+            Open any student testimonial to read their full message.
           </p>
         </div>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-            gap: "24px",
-            maxWidth: "1100px",
-            margin: "0 auto",
-          }}
-        >
-          {/* Testimonial 1 */}
-          <Reveal className="home-card" delay={100} style={{
-              padding: "28px",
-              borderRadius: "18px",
-              background: "var(--white)",
-              border: "1px solid var(--line)",
-              boxShadow: "var(--shadow-sm)",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-            }}>
-            <p style={{ fontStyle: "italic", color: "var(--ink-secondary)", fontSize: "15px", lineHeight: "1.7", margin: "0 0 20px" }}>
-              &ldquo;Overall throughout the program I have learned so many things.&rdquo;
-            </p>
-            <div style={{ display: "flex", alignItems: "center", gap: "12px", borderTop: "1px solid var(--line)", paddingTop: "16px" }}>
-            <img src="/assets/testimonials/photo_2026-11-12_11-26-18.jpg" alt="Arsema" style={{ width: "40px", height: "40px", borderRadius: "50%", objectFit: "cover" }} />
-              <div>
-                <strong style={{ display: "block", fontFamily: "var(--font-display)", fontSize: "14px", color: "var(--ink)" }}>Arsema</strong>
-                <span style={{ fontSize: "12.5px", color: "var(--gold-ink)", fontWeight: 600 }}>Negus student</span>
-              </div>
-            </div>
-            <audio controls src="/assets/arema.ogg" style={{ width: "100%", height: "30px", marginTop: "14px" }} aria-label="Arsema testimonial" />
-          </Reveal>
-
-          {/* Testimonial 2 */}
-          <Reveal className="home-card" delay={240} style={{
-              padding: "28px",
-              borderRadius: "18px",
-              background: "var(--white)",
-              border: "1px solid var(--line)",
-              boxShadow: "var(--shadow-sm)",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-            }}>
-            <p style={{ fontStyle: "italic", color: "var(--ink-secondary)", fontSize: "15px", lineHeight: "1.7", margin: "0 0 20px" }}>
-              Listen to Efina share her experience with Negus.
-            </p>
-            <div style={{ display: "flex", alignItems: "center", gap: "12px", borderTop: "1px solid var(--line)", paddingTop: "16px" }}>
-                <img src="/assets/testimonials/photo_2026-11-12_11-26-48.jpg" alt="Efina" style={{ width: "40px", height: "40px", borderRadius: "50%", objectFit: "cover" }} />
-              <div>
-                  <strong style={{ display: "block", fontFamily: "var(--font-display)", fontSize: "14px", color: "var(--ink)" }}>Efina</strong>
-                  <span style={{ fontSize: "12px", color: "var(--ink-secondary)", fontWeight: 600 }}>Negus student</span>
-              </div>
-            </div>
-            <audio controls src="/assets/efina.ogg" style={{ width: "100%", height: "30px", marginTop: "14px" }} aria-label="Efina testimonial" />
-          </Reveal>
-
-          {/* Testimonial 3 */}
-          <Reveal className="home-card" delay={380} style={{
-              padding: "28px",
-              borderRadius: "18px",
-              background: "var(--white)",
-              border: "1px solid var(--line)",
-              boxShadow: "var(--shadow-sm)",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-            }}>
-            <p style={{ fontStyle: "italic", color: "var(--ink-secondary)", fontSize: "15px", lineHeight: "1.7", margin: "0 0 20px" }}>
-              &ldquo;From standardized test preparation to financial paperwork, having a mentor who had already succeeded made all the difference. I recommend Negus to anyone serious about studying abroad.&rdquo;
-            </p>
-            <div style={{ display: "flex", alignItems: "center", gap: "12px", borderTop: "1px solid var(--line)", paddingTop: "16px" }}>
-              <img src="/assets/testimonials/photo_2026-11-12_11-26-53.jpg" alt="Yosef" style={{ width: "40px", height: "40px", borderRadius: "50%", objectFit: "cover" }} />
-              <div>
-                <strong style={{ display: "block", fontFamily: "var(--font-display)", fontSize: "14px", color: "var(--ink)" }}>Yosef M.</strong>
-                <span style={{ fontSize: "12.5px", color: "var(--gold-ink)", fontWeight: 600 }}>Drexel University · $145,000 Award</span>
-              </div>
-            </div>
-          </Reveal>
+        <div className="testimonial-media-grid">
+          {testimonialPhotos.map(({ name, image }, index) => (
+            <Reveal className="testimonial-media-card" delay={100 + index * 80} key={name}>
+              <a href={image} target="_blank" rel="noreferrer" aria-label={`Open ${name}'s full testimonial`}>
+                <img src={image} alt={`${name}'s student testimonial`} loading={index > 1 ? "lazy" : "eager"} />
+              </a>
+              <div className="testimonial-media-copy"><h3>{name}</h3></div>
+            </Reveal>
+          ))}
         </div>
         <div style={{ textAlign: "center", marginTop: "26px" }}>
           <Link to="/testimonials" style={{ display: "inline-flex", alignItems: "center", gap: "6px", color: "var(--ink)", fontWeight: 700, fontSize: "13px", textDecoration: "none", borderBottom: "1px solid var(--yellow)", paddingBottom: "4px" }}>See all testimonials <ArrowRight width={14} height={14} /></Link>

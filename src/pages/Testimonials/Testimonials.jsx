@@ -1,70 +1,11 @@
-/* eslint-disable react-refresh/only-export-components */
-import React from "react";
-import { testimonialsData } from "../../assets/data";
-import TestimonialCard from "./Components/TestimonialCard";
-import TeamSection from "./Components/TeamSection";
-import { Sparkles, Trophy, ArrowRight } from "lucide-react";
+import { testimonialPhotos } from "../../assets/testimonialPhotos";
+import { Sparkles, ArrowRight } from "lucide-react";
 import { NavLink } from "react-router";
 import "../public-pages.css";
 
-const studentMedia = [
-  {
-    name: "Arsema",
-    image: "/assets/testimonials/photo_2026-11-12_11-26-18.jpg",
-    audio: "/assets/arema.ogg",
-    caption: "Overall throughout the program I have learned so many things.",
-  },
-  {
-    name: "Efina",
-    image: "/assets/testimonials/photo_2026-11-12_11-26-48.jpg",
-    audio: "/assets/efina.ogg",
-  },
-  { name: "Negus student", image: "/assets/testimonials/photo_2026-11-12_11-26-53.jpg" },
-  { name: "Negus student", image: "/assets/testimonials/photo_2026-11-12_11-26-57.jpg" },
-  { name: "Negus student", image: "/assets/testimonials/photo_2026-11-12_11-27-01.jpg" },
-];
-
-export const mentorsData = [
-  {
-    id: 2,
-    name: "Mentor from NYU Abu Dhabi",
-    title: "Admissions Mentor, NYU Abu Dhabi",
-    photoUrl: "./testimonial.jpg",
-    bio: "Guides students through the application process with insights from one of the most competitive institutions in the Middle East.",
-    linkedIn: "#",
-  },
-  {
-    id: 3,
-    name: "Mentor from NYU Shanghai",
-    title: "Admissions Mentor, NYU Shanghai",
-    photoUrl: "https://htmlstream.com/preview/unify-v2.6.2/assets/img-temp/400x450/img5.jpg",
-    bio: "Supports students applying to top Asian and U.S. programs, bringing experience from NYU’s Shanghai campus.",
-    linkedIn: "#",
-  },
-  {
-    id: 4,
-    name: "Mentor from Drexel University",
-    title: "Scholarship & Admissions Mentor, Drexel University",
-    photoUrl: "https://htmlstream.com/preview/unify-v2.6.2/assets/img-temp/400x450/img5.jpg",
-    bio: "Specializes in U.S. admissions and scholarship opportunities for international students.",
-    linkedIn: "#",
-  },
-  {
-    id: 5,
-    name: "Mentor from University of Messina",
-    title: "Admissions Mentor, University of Messina (Italy)",
-    photoUrl: "https://htmlstream.com/preview/unify-v2.6.2/assets/img-temp/400x450/img5.jpg",
-    bio: "Experienced in guiding applicants toward competitive European study opportunities.",
-    linkedIn: "#",
-  },
-  {
-    id: 6,
-    name: "Mentor from University of Pennsylvania",
-    title: "Admissions Mentor, University of Pennsylvania",
-    photoUrl: "https://htmlstream.com/preview/unify-v2.6.2/assets/img-temp/400x450/img5.jpg",
-    bio: "Helps students secure admission into Ivy League institutions with tailored strategies.",
-    linkedIn: "#",
-  },
+const studentVoiceMessages = [
+  { name: "Arsema", src: "/assets/testimonials/arsema-voice.mp3" },
+  { name: "Efina", src: "/assets/testimonials/efina-voice.mp3" },
 ];
 
 const Testimonials = () => {
@@ -74,15 +15,13 @@ const Testimonials = () => {
       <section className="public-page-hero">
         <div className="public-page-hero-inner">
           <p className="public-eyebrow">
-            <Trophy className="w-4 h-4 text-[var(--gold-ink)]" /> DOCUMENTED ACCEPTANCES &amp; AWARDS
+            <Sparkles className="w-4 h-4 text-[var(--gold-ink)]" /> STUDENT STORIES
           </p>
           <h1 className="public-page-title">
-            Real Ethiopian scholars. <em>Real admissions results.</em>
+            What students say about Negus.
           </h1>
           <p className="public-page-copy">
-            Every year, students working with Negus Consultants earn fully-funded
-            scholarships, Ivy League admissions, and offers from prestigious
-            universities worldwide.
+            Read messages shared by students about their experience with Negus training and guidance.
           </p>
           <div className="public-page-actions">
             <NavLink to="/packages" className="public-button public-button-primary">
@@ -96,53 +35,45 @@ const Testimonials = () => {
         </div>
       </section>
 
-      <section className="public-content testimonial-media-section">
+      <section className="public-content testimonial-voices-section">
         <div className="public-section-heading">
           <p className="public-eyebrow"><Sparkles aria-hidden="true" /> STUDENT VOICES</p>
           <h2>Hear directly from our students.</h2>
-          <p>Photos and voice messages shared by the Negus community.</p>
+          <p>Listen to Arsema and Efina share their experiences.</p>
         </div>
-        <div className="testimonial-media-grid">
-          {studentMedia.map((student, index) => (
-            <article className="testimonial-media-card" key={student.image}>
-              <img src={student.image} alt={`${student.name} testimonial`} loading={index > 1 ? "lazy" : "eager"} />
-              <div className="testimonial-media-copy">
-                <h3>{student.name}</h3>
-                {student.caption && <p>“{student.caption}”</p>}
-                {student.audio && <audio controls preload="none" src={student.audio} aria-label={`${student.name} voice testimonial`} />}
+        <div className="testimonial-voice-grid">
+          {studentVoiceMessages.map(({ name, src }) => (
+            <article className="testimonial-voice-card" key={name}>
+              <div>
+                <span>STUDENT VOICE</span>
+                <h3>{name}</h3>
               </div>
+              <audio controls preload="none" aria-label={`Voice message from ${name}`}>
+                <source src={src} type="audio/mpeg" />
+                Your browser does not support audio playback.
+              </audio>
             </article>
           ))}
         </div>
       </section>
 
-      {/* Featured Scholars Showcase */}
-      <TeamSection />
-
-      {/* Testimonials Stream */}
-      <div className="max-w-6xl mx-auto px-4 lg:px-8 py-16">
-        <div className="text-center mb-14 max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-2 text-xs font-bold text-[var(--ink-muted)] uppercase tracking-widest font-['Lexend'] mb-2">
-            <Sparkles className="w-4 h-4 text-[var(--gold-ink)]" /> WHAT OUR STUDENTS SAY
-          </div>
-          <h2 className="text-3xl lg:text-4xl font-bold font-['Lexend'] text-[var(--ink)]">
-            Stories from our community.
-          </h2>
-          <p className="text-sm text-[var(--ink-secondary)] mt-2">
-            Firsthand accounts from students who navigated SAT prep, essay
-            revisions, and CSS Profile documentation with Negus.
-          </p>
+      <section className="public-content testimonial-media-section">
+        <div className="public-section-heading">
+          <p className="public-eyebrow"><Sparkles aria-hidden="true" /> STUDENT VOICES</p>
+          <h2>Student testimonials.</h2>
+          <p>Open any student card to read their full message.</p>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {testimonialsData.map((testimonial, idx) => (
-            <TestimonialCard
-              key={`${testimonial.id}-${idx}`}
-              testimonial={testimonial}
-            />
+        <div className="testimonial-media-grid">
+          {testimonialPhotos.map((student, index) => (
+            <article className="testimonial-media-card" key={student.image}>
+              <a href={student.image} target="_blank" rel="noreferrer" aria-label={`Open ${student.name}'s full testimonial`}>
+                <img src={student.image} alt={`${student.name}'s student testimonial`} loading={index > 1 ? "lazy" : "eager"} />
+              </a>
+              <div className="testimonial-media-copy"><h3>{student.name}</h3></div>
+            </article>
           ))}
         </div>
-      </div>
+      </section>
     </div>
   );
 };

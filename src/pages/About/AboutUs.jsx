@@ -1,7 +1,7 @@
 import AboutHero from "./Components/AboutHero";
 import AboutMethodology from "./Components/AboutMethodology";
 import AboutAcceptanceShowcase from "./Components/AboutAcceptanceShowcase";
-import AboutTeamSection from "./Components/AboutTeamSection";
+import MentorProfilesSection from "./Components/MentorProfilesSection";
 import AboutCenterCard from "./Components/AboutCenterCard";
 import "../public-pages.css";
 
@@ -14,44 +14,20 @@ const outreach = [
   ["photo_2026-01-13_11-55-38.jpg", "Menen School · students"],
 ];
 
-const testimonials = [
-  ["Arsema", "Overall throughout the program I have learned so many things.", "photo_2026-11-12_11-26-18.jpg", "/assets/arema.ogg"],
-  ["Efina", "", "photo_2026-11-12_11-26-48.jpg", "/assets/efina.ogg"],
-];
-
 export default function AboutUs() {
   return (
     <main className="public-page public-about-page pb-20 space-y-12">
       {/* 1. Hero Section */}
       <AboutHero />
 
+      {/* Mentor profiles are intentionally available only on About. */}
+      <MentorProfilesSection />
+
       {/* 2. Core Pillars & Methodology */}
       <AboutMethodology />
 
       {/* 3. University Acceptances & Crests */}
       <AboutAcceptanceShowcase />
-
-      <section className="public-content public-about-testimonials">
-        <div className="public-section-heading">
-          <p className="public-eyebrow">WHAT OUR STUDENTS SAY</p>
-          <h2>Progress sounds different for everyone.</h2>
-        </div>
-        <div className="about-testimonial-grid">
-          {testimonials.map(([name, quote, image, audio]) => (
-            <article className="about-testimonial-card" key={name}>
-              <div className="about-testimonial-person">
-                <img src={`/assets/testimonials/${image}`} alt={name} />
-                <strong>{name}</strong>
-              </div>
-              {quote && <p>“{quote}”</p>}
-              <audio controls src={audio} />
-            </article>
-          ))}
-        </div>
-        <div className="public-page-actions">
-          <a className="public-button public-button-secondary" href="/testimonials">See all testimonials</a>
-        </div>
-      </section>
 
       <section className="public-content public-about-outreach">
         <div className="public-section-heading">
@@ -106,9 +82,6 @@ export default function AboutUs() {
           <a className="public-button public-button-secondary" href="https://www.tiktok.com/@negus.consultant" target="_blank" rel="noreferrer">Follow us on TikTok</a>
         </div>
       </section>
-
-      {/* 4. Team Profiles */}
-      <AboutTeamSection />
 
       {/* 5. Addis Ababa Center & Contact Card */}
       <AboutCenterCard />

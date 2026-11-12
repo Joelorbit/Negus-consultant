@@ -50,6 +50,7 @@ const MobileDock = () => {
     {
       to: "/scholarships",
       label: "Scholarships",
+      compactLabel: "Funding",
       icon: GraduationCap,
       isActive: (path) => path.startsWith("/scholarships"),
     },
@@ -78,6 +79,7 @@ const MobileDock = () => {
             <NavLink
               key={item.to}
               to={item.to}
+              aria-label={item.label}
               className={`negus-dock-item${active ? " active" : ""}`}
               onPointerDown={() => preloadPublicRoute(item.to)}
               onFocus={() => preloadPublicRoute(item.to)}
@@ -85,7 +87,12 @@ const MobileDock = () => {
               <span className="negus-dock-icon-wrap">
                 <Icon width={20} height={20} strokeWidth={active ? 2.2 : 1.7} />
               </span>
-              <span className="negus-dock-label">{item.label}</span>
+              <span className="negus-dock-label negus-dock-label-full">{item.label}</span>
+              {item.compactLabel && (
+                <span className="negus-dock-label negus-dock-label-compact" aria-hidden="true">
+                  {item.compactLabel}
+                </span>
+              )}
               {active && (
                 <span className="negus-dock-indicator" aria-hidden="true" />
               )}

@@ -99,9 +99,6 @@ const PackageMultiStepForm = lazyPage(
 const Applications = lazyPage(
   () => import("./pages/admin/Dashboard/Applications/Applications"),
 );
-const MentorDetails = lazyPage(
-  () => import("./pages/Testimonials/id/MentorDetails"),
-);
 const ContactMessages = lazyPage(
   () => import("./pages/admin/Dashboard/ContactMessages/ContactMessages"),
 );
@@ -263,7 +260,6 @@ const App = () => {
           <Route path="/free-tools" element={<FreeToolsPage />} />
           <Route path="/free-tour" element={<FreeTourPage />} />
           <Route path="/testimonials" element={<TestimonialsPage />} />
-          <Route path="/testimonials/:id" element={<MentorDetails />} />
 
           <Route path="/packages" element={<CollegePackages />}></Route>
           <Route path="/packages/courses" element={<PackagesPage />}></Route>

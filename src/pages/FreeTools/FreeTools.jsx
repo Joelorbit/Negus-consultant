@@ -137,7 +137,7 @@ export default function FreeToolsPage() {
             className="free-tools-essay-grid"
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 220px), 1fr))",
               gap: "16px",
               marginBottom: "48px",
             }}
@@ -182,7 +182,7 @@ export default function FreeToolsPage() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 240px), 1fr))",
               gap: "16px",
             }}
           >

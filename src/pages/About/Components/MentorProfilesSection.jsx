@@ -37,7 +37,11 @@ export default function MentorProfilesSection() {
                 </span>
               </button>
             </DialogTrigger>
-            <DialogContent className="mentor-profile-dialog" showCloseButton={false}>
+            <DialogContent
+              className="mentor-profile-dialog"
+              showCloseButton={false}
+              style={{ translate: "none" }}
+            >
               <DialogClose className="mentor-profile-close" aria-label="Close mentor profile">
                 <X aria-hidden="true" />
               </DialogClose>

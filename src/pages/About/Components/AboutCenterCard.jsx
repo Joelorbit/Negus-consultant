@@ -79,7 +79,7 @@ export default function AboutCenterCard() {
             to="/packages"
             className="public-button public-button-secondary text-[14px] min-h-11 px-6 py-3 inline-flex items-center gap-2"
           >
-            <span>Explore Packages</span>
+            <span>Get started</span>
           </NavLink>
         </div>
       </div>

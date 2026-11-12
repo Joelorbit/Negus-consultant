@@ -33,7 +33,7 @@ export function VideosPage({ onVideoSelect }) {
         <div className="public-section-heading course-results-heading">
           <div>
             <p className="public-eyebrow">LEARN WITH DIRECTION</p>
-            <h2>Browse the course library.</h2>
+            <h2>Explore available lessons.</h2>
           </div>
           <label className="course-sort-control">
             <span>Sort courses</span>
@@ -63,7 +63,7 @@ export function VideosPage({ onVideoSelect }) {
           </div>
         ) : error ? (
           <div className="public-empty-state" role="alert">
-            <h3>The course library is temporarily unavailable.</h3>
+            <h3>Courses are temporarily unavailable.</h3>
             <p>Try again in a moment, or explore application support while we reconnect.</p>
             <NavLink className="public-button public-button-primary" to="/packages">Explore packages <ArrowRight aria-hidden="true" /></NavLink>
           </div>

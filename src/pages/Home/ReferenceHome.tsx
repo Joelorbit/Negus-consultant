@@ -74,7 +74,7 @@ export default function ReferenceHome() {
       </div>
 
       {/* "መልእክት አለን" Founder Video Message & 5 Category Tiles (Page 2 Sketch) */}
-      <div id="overview"><CeoMessageSection /></div>
+      <CeoMessageSection />
 
       {/* Proven Track Record & Trust Bar (Pure Light Theme) */}
       <section className="section-shell" style={{ paddingTop: "54px", paddingBottom: "64px" }}>
@@ -864,7 +864,7 @@ export default function ReferenceHome() {
             className="btn-dark-hero"
             style={{ display: "inline-flex", alignItems: "center", gap: "10px" }}
           >
-            <span>Browse Full Course Library</span>
+            <span>Browse all courses</span>
             <ArrowRight aria-hidden="true" />
           </Link>
         </div>

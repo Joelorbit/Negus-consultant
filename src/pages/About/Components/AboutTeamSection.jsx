@@ -1,35 +1,12 @@
 import { Users, GraduationCap, Award } from "lucide-react";
+import { teamMembers } from "../../../assets/teamMembers";
 
 export default function AboutTeamSection() {
-  const teamMembers = [
-    {
-      name: "Leulseged Mateb",
-      role: "",
-      admit: "Admitted to Sarah Lawrence, Georgetown & 4 others",
-      image: "/team2.png",
-      bio: "Passionate about opening international doors for African youth. Guides overall admissions vision, narrative frameworks, and scholarship strategy.",
-    },
-    {
-      name: "Abrham Mulualem",
-      role: "",
-      admit: "Computer Engineering & Admissions Trainer",
-      image: "/team1.jpg",
-      bio: "Specializes in Common App personal statements, narrative voice, and Ivy-plus profile engineering with hundreds of hours of 1-on-1 coaching.",
-    },
-    {
-      name: "Nebiyu Beweket",
-      role: "",
-      admit: "Admitted to NYU Abu Dhabi (Full Aid)",
-      image: "/testimonial.jpg",
-      bio: "Focuses on standardized testing strategy (Digital SAT / IELTS) and global liberal arts scholarship applications with comprehensive financial aid packaging.",
-    },
-  ];
-
   return (
     <section className="public-content public-about-team">
       <div className="public-about-section-heading">
         <div className="inline-flex items-center gap-2 text-[12px] font-bold text-[var(--ink-muted)] uppercase tracking-widest font-['Lexend'] mb-2">
-          <Users className="w-4 h-4 text-[var(--yellow)]" /> LEADERSHIP &amp; MENTORS
+          <Users className="w-4 h-4 text-[var(--yellow)]" /> OUR TEAM
         </div>
         <h2 className="text-3xl lg:text-4xl font-extrabold font-['Lexend'] text-[var(--ink)] tracking-tight">
           Guided by scholars who walked the path.
@@ -63,10 +40,9 @@ export default function AboutTeamSection() {
               <h3 className="font-['Lexend'] font-bold text-lg sm:text-xl text-[var(--ink)] mb-1">
                 {member.name}
               </h3>
-              {member.role && <p className="text-[13px] font-['Lexend'] font-bold text-[var(--gold-ink)] mb-2">{member.role}</p>}
               <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[var(--green-soft)] text-[var(--ink-secondary)] text-[12px] font-['Lexend'] font-bold mb-4 border border-[var(--line)]">
                 <Award className="w-3.5 h-3.5" />
-                <span>{member.admit}</span>
+                <span>{member.experience}</span>
               </div>
               <p className="text-[13px] sm:text-sm text-[var(--ink-secondary)] leading-relaxed">
                 {member.bio}

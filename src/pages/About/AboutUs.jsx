@@ -68,6 +68,15 @@ export default function AboutUs() {
         </div>
       </section>
 
+      <section className="public-content about-school-cta">
+        <div>
+          <p className="public-eyebrow">INVITE US TO YOUR SCHOOL</p>
+          <h2>Want us to teach at your school?</h2>
+          <p>We bring free scholarship sessions to high schools, in person or online. Tell us about your school and we will plan a visit.</p>
+        </div>
+        <a className="public-button public-button-primary" href="https://t.me/negushelpcenter" target="_blank" rel="noreferrer">Contact Us</a>
+      </section>
+
       <section className="public-content about-services">
         <div className="public-section-heading">
           <p className="public-eyebrow">OUR SERVICES</p>
@@ -93,21 +102,12 @@ export default function AboutUs() {
           <p>Join our Telegram channel or follow us on TikTok for new opportunities and practical advice.</p>
         </div>
         <div className="about-community-actions">
-          <a className="public-button public-button-primary" href="https://t.me/Negushelpcenter" target="_blank" rel="noreferrer">Join our Telegram channel</a>
-          <a className="public-button public-button-secondary" href="https://www.tiktok.com" target="_blank" rel="noreferrer">Follow us on TikTok</a>
+          <a className="public-button public-button-primary" href="https://t.me/NEGUSCONSULTANTS" target="_blank" rel="noreferrer">Join our Telegram channel</a>
+          <a className="public-button public-button-secondary" href="https://www.tiktok.com/@negus.consultant" target="_blank" rel="noreferrer">Follow us on TikTok</a>
         </div>
       </section>
 
-      <section className="public-content about-school-cta">
-        <div>
-          <p className="public-eyebrow">INVITE US TO YOUR SCHOOL</p>
-          <h2>Want us to teach at your school?</h2>
-          <p>We bring free scholarship sessions to high schools, in person or online. Tell us about your school and we will plan a visit.</p>
-        </div>
-        <a className="public-button public-button-primary" href="https://t.me/Negushelpcenter" target="_blank" rel="noreferrer">Contact Us</a>
-      </section>
-
-      {/* 4. Leadership & Verified Mentors */}
+      {/* 4. Team Profiles */}
       <AboutTeamSection />
 
       {/* 5. Addis Ababa Center & Contact Card */}

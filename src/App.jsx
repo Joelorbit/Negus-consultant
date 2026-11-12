@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route, useLocation } from "react-router";
+import { Routes, Route, Navigate, useLocation } from "react-router";
 import Navbar from "./components/Navbar";
 import MobileDock from "./components/MobileDock";
 import { Toaster } from "sonner";
@@ -255,6 +255,7 @@ const App = () => {
           <Route path="/verify-email" element={<VerifyEmail />} />
 
           <Route path="/about" element={<AboutUs />} />
+          <Route path="/course" element={<Navigate to="/courses" replace />} />
           <Route path="/courses" element={<Course />} />
           <Route path="/training" element={<TrainingPage />} />
           <Route path="/training/:id" element={<TrainingDetailPage />} />

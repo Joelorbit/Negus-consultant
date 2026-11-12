@@ -228,6 +228,9 @@ export default function TrainingPage() {
           Enroll in the course first, add a standalone package when you need it, or reach us on Telegram for help choosing.
         </p>
         <div className="public-page-actions">
+          <NavLink className="public-button public-button-outline-light" to="/courses">
+            Start with the course <Clock aria-hidden="true" />
+          </NavLink>
           <a
             className="public-button public-button-light"
             href={SUPPORT_TELEGRAM_URL}
@@ -236,9 +239,6 @@ export default function TrainingPage() {
           >
             Contact Us
           </a>
-          <NavLink className="public-button public-button-outline-light" to="/courses">
-            Start with the course <Clock aria-hidden="true" />
-          </NavLink>
         </div>
       </section>
     </main>

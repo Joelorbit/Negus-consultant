@@ -27,7 +27,7 @@ export default function AboutHero() {
             className="public-button public-button-secondary text-[14px] min-h-11 px-6 py-3 inline-flex items-center gap-2"
           >
             <BookOpen className="w-4 h-4" />
-            <span>Browse Course Library</span>
+            <span>Browse courses</span>
           </NavLink>
         </div>
         <div className="public-hero-note">

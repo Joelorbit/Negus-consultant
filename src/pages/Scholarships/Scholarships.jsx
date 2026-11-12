@@ -125,8 +125,8 @@ export default function ScholarshipsPage() {
             <a className="public-button public-button-primary" href="#scholarships-stream">
               Explore Live Scholarships <ArrowRight aria-hidden="true" />
             </a>
-            <NavLink className="public-button public-button-secondary" to="/packages">
-              Get Application Coaching
+            <NavLink className="public-button public-button-secondary" to="/courses">
+              Start with the course
             </NavLink>
           </div>
 
@@ -366,9 +366,14 @@ export default function ScholarshipsPage() {
               and prepare you for rigorous scholarship interview panels.
             </p>
             <div className="pt-3">
-              <NavLink to="/packages" className="public-button public-button-primary text-xs font-bold">
-                View Mentorship & Packages <ArrowRight className="h-3.5 w-3.5" />
-              </NavLink>
+              <div className="public-page-actions">
+                <NavLink to="/courses" className="public-button public-button-primary text-xs font-bold">
+                  Start with the course <ArrowRight className="h-3.5 w-3.5" />
+                </NavLink>
+                <NavLink to="/packages" className="public-button public-button-secondary text-xs font-bold">
+                  Explore application packages
+                </NavLink>
+              </div>
             </div>
           </div>
           <div className="public-offer-stamp" aria-hidden="true">

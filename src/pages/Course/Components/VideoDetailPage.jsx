@@ -431,7 +431,7 @@ export function VideoDetailPage({ video, onBack }) {
           aria-label="Return to course catalog"
         >
           <ArrowLeft width={16} height={16} />
-          <span>Back to Course Library</span>
+          <span>Back to available lessons</span>
         </button>
 
         <div className="negus-detail-grid">
@@ -463,7 +463,7 @@ export function VideoDetailPage({ video, onBack }) {
                     </h3>
                     <p className="negus-locked-desc">
                       {isFree && !user
-                        ? "Sign in to watch this free lesson and explore the course library."
+                        ? "Sign in to watch this free lesson and explore available courses."
                         : "An active course package unlocks this lesson and the rest of the learning library."}
                     </p>
                     <NavLink
@@ -630,8 +630,7 @@ export function VideoDetailPage({ video, onBack }) {
                 <Spark width={18} height={18} /> Need Application Mentorship?
               </h4>
               <p className="text-[12.5px] text-[var(--ink-secondary)] leading-relaxed mb-4">
-                Work directly with successful Ethiopian scholars who secured
-                full-ride admissions to top universities abroad.
+                Get guidance on applications, scholarship options, and your next steps.
               </p>
               <NavLink
                 to="/packages"

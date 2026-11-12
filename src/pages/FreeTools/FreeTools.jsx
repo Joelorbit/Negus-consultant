@@ -8,25 +8,11 @@ import {
   Sparks,
 } from "iconoir-react";
 import { SUPPORT_TELEGRAM_URL } from "../../config/supportContact";
+import { useGetBlogs } from "../../hooks/useBlogs";
+import BlogCard from "../Blogs/components/BlogCard";
 import "../public-pages.css";
 
-const VIDEOS = [
-  {
-    title: "Scholarship application roadmap",
-    brief: "Screen recording from a past Negus online scholarship training.",
-    embedUrl: "https://www.youtube.com/embed/ScMzIvxBSi4?rel=0",
-  },
-  {
-    title: "CSS Profile walkthrough highlights",
-    brief: "Key moments from a live financial-aid clinic.",
-    embedUrl: "https://www.youtube.com/embed/HcOc7P5BMi4?rel=0",
-  },
-  {
-    title: "Common App activities that stand out",
-    brief: "Mentor tips from a prior cohort session.",
-    embedUrl: "https://www.youtube.com/embed/UB1O30fR-EE?rel=0",
-  },
-];
+const NEGUS_YOUTUBE_URL = "https://www.youtube.com/@negusconsultants";
 
 const ESSAYS = [
   {
@@ -57,19 +43,26 @@ const ESSAYS = [
 
 export default function FreeToolsPage() {
   const [essayOpen, setEssayOpen] = useState(null);
+  const {
+    data: blogs,
+    isLoading: blogsLoading,
+    isError: blogsError,
+    refetch: refetchBlogs,
+  } = useGetBlogs({ staleTime: 60_000, retry: 1 });
+  const blogPosts = Array.isArray(blogs) ? blogs.slice(0, 3) : [];
 
   return (
     <main className="public-page">
       <section className="public-page-hero">
         <div className="public-page-hero-inner">
           <p className="public-eyebrow">
-            <Sparks aria-hidden="true" /> FREE TOOLS & LEAD ACCESS
+            <Sparks aria-hidden="true" /> FREE TOOLS & LEARNING RESOURCES
           </p>
           <h1 className="public-page-title">
             Free resources for your next <em>application step.</em>
           </h1>
           <p className="public-page-copy">
-            Browse practical application tools, essay examples, and past scholarship training recordings.
+            Browse practical application tools, worked essay samples, and advice from the Negus team.
           </p>
         </div>
       </section>
@@ -80,39 +73,60 @@ export default function FreeToolsPage() {
             <p className="public-eyebrow">
               <MediaVideo aria-hidden="true" /> YOUTUBE VIDEOS
             </p>
-            <h2>Past training recordings</h2>
-            <p>Scholarship training recordings you can preview now. Scroll the row on smaller screens.</p>
+            <h2>Training videos from Negus</h2>
+            <p>Browse published videos on the official Negus Consultants YouTube channel.</p>
           </div>
-          <div
-            className="free-tools-video-grid"
-            style={{
-              marginBottom: "48px",
-            }}
+          <a
+            className="free-tools-recording-card"
+            href={NEGUS_YOUTUBE_URL}
+            target="_blank"
+            rel="noreferrer"
           >
-            {VIDEOS.map((video) => (
-              <div
-                key={video.title}
-                className="free-tools-video-card"
-              >
-                <iframe
-                  style={{
-                    aspectRatio: "16/9",
-                    borderRadius: "12px",
-                    width: "100%",
-                    border: 0,
-                  }}
-                  src={video.embedUrl}
-                  title={video.title}
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-                <strong style={{ font: "700 15px/1.3 var(--font-display)", color: "var(--ink)" }}>{video.title}</strong>
-                <span style={{ color: "var(--ink-muted)", fontSize: "13px", lineHeight: 1.5 }}>{video.brief}</span>
-              </div>
-            ))}
-          </div>
+            <span className="free-tools-recording-icon"><MediaVideo aria-hidden="true" /></span>
+            <span>
+              <strong>Explore Negus videos on YouTube</strong>
+              <small>Open the official channel to browse the available scholarship and application videos.</small>
+            </span>
+            <ArrowRight aria-hidden="true" />
+          </a>
+        </div>
 
+        <div className="free-tools-blog-section">
+          <div className="public-section-heading">
+            <p className="public-eyebrow"><Book aria-hidden="true" /> BLOG &amp; ADVICE</p>
+            <h2>Practical guidance from the Negus team.</h2>
+          </div>
+          {blogsLoading ? (
+            <div className="public-blog-grid" aria-label="Loading articles">
+              {[0, 1, 2].map((item) => <div className="public-skeleton blog-skeleton" key={item} />)}
+            </div>
+          ) : blogsError ? (
+            <div className="public-empty-state" role="alert">
+              <h3>Articles are temporarily unavailable.</h3>
+              <div className="public-page-actions">
+                <button className="public-button public-button-primary" type="button" onClick={() => refetchBlogs()}>Try again</button>
+                <NavLink className="public-button public-button-secondary" to="/blogs">Browse all articles</NavLink>
+              </div>
+            </div>
+          ) : blogPosts.length ? (
+            <>
+              <div className="public-blog-grid">
+                {blogPosts.map((post) => <BlogCard key={post.id} {...post} />)}
+              </div>
+              <div className="public-page-actions">
+                <NavLink className="public-button public-button-secondary" to="/blogs">See all articles <ArrowRight aria-hidden="true" /></NavLink>
+              </div>
+            </>
+          ) : (
+            <div className="public-empty-state">
+              <h3>New articles are on the way.</h3>
+              <p>Visit the Negus journal for the latest scholarship and application advice.</p>
+              <NavLink className="public-button public-button-secondary" to="/blogs">Visit the journal <ArrowRight aria-hidden="true" /></NavLink>
+            </div>
+          )}
+        </div>
+
+        <div>
           <div className="public-section-heading">
             <p className="public-eyebrow">
               <Page aria-hidden="true" /> SAMPLE WORKED ESSAYS
@@ -180,14 +194,6 @@ export default function FreeToolsPage() {
                 COMING SOON
               </span>
             </article>
-            <article className="free-tools-document-card">
-              <div className="free-tools-essay-icon"><Book aria-hidden="true" /></div>
-              <h3>Blogs & tips</h3>
-              <p>Practical articles on applications, essays, testing, and studying abroad.</p>
-              <NavLink className="public-button public-button-secondary" to="/blogs">
-                <Book aria-hidden="true" /> Read blogs
-              </NavLink>
-            </article>
           </div>
         </div>
       </section>
@@ -197,8 +203,8 @@ export default function FreeToolsPage() {
         <h2>Want a clear plan for your application?</h2>
         <p>Start with the Negus course or contact our team on Telegram.</p>
         <div className="public-page-actions">
-          <NavLink className="public-button public-button-light" to="/register">
-            Sign up
+          <NavLink className="public-button public-button-light" to="/courses">
+            Explore courses
           </NavLink>
           <a
             className="public-button public-button-outline-light"

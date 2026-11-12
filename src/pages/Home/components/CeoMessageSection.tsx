@@ -1,19 +1,7 @@
-import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { ArrowRight, ArrowUpRight, Play, Spark, GraduationCap, Award } from "../icons";
 
 export default function CeoMessageSection() {
-  const [videoModalOpen, setVideoModalOpen] = useState(false);
-
-  useEffect(() => {
-    if (!videoModalOpen) return undefined;
-    const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setVideoModalOpen(false);
-    };
-    document.addEventListener("keydown", closeOnEscape);
-    return () => document.removeEventListener("keydown", closeOnEscape);
-  }, [videoModalOpen]);
-
   return (
     <section className="ceo-message-section" id="overview">
       <style>{`
@@ -309,34 +297,34 @@ export default function CeoMessageSection() {
         </div>
         <h2 className="ceo-message-title"><span className="ceo-message-amharic">መልእክት አለን</span> — We Have a Message</h2>
         <p className="ceo-message-subhead">
-          Watch our founder’s video message on navigating international university admissions, scholarship funding, and standardized testing from Addis Ababa.
+          Explore practical guidance from Negus on international university applications, scholarships, and standardized tests.
         </p>
       </div>
 
       <div className="ceo-message-grid">
-        {/* Left: Video Preview Card */}
+        {/* Left: Official video channel card */}
         <div className="ceo-video-card">
-          <div
+          <a
             className="ceo-video-screen"
-            onClick={() => setVideoModalOpen(true)}
-            role="button"
-            tabIndex={0}
-            aria-label="Play video message"
+            href="https://www.youtube.com/@negusconsultants"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Open the Negus Consultants YouTube channel"
           >
             <img
               src="/hero-teaching.jpg"
-              alt="Negus Mentor Video Session"
+              alt="Negus scholarship training session"
               loading="lazy"
             />
-            <button type="button" className="ceo-video-play-btn" aria-label="Play video">
+            <span className="ceo-video-play-btn" aria-hidden="true">
               <Play width={24} height={24} style={{ marginLeft: "3px" }} />
-            </button>
-          </div>
+            </span>
+          </a>
 
           <div className="ceo-video-copy">
             <h3 className="ceo-message-amharic">የተማሪዎቻችን ስኬት የኛ ኩራት ነው!</h3>
             <p>
-              Learn why 450+ Ethiopian scholars trusted Negus for full institutional aid, Common App strategy, and visa interview coaching.
+              Visit the official Negus Consultants YouTube channel for published scholarship and application guidance.
             </p>
           </div>
         </div>
@@ -418,34 +406,6 @@ export default function CeoMessageSection() {
         </Link>
       </div>
 
-      {/* YouTube video modal */}
-      {videoModalOpen && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm"
-          onClick={() => setVideoModalOpen(false)}
-        >
-          <div
-            className="relative w-full max-w-3xl bg-black rounded-2xl overflow-hidden aspect-video shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <iframe
-              className="h-full w-full"
-              src="https://www.youtube.com/embed/ScMzIvxBSi4?autoplay=1&rel=0"
-              title="Negus Consultants founder message"
-              allow="autoplay; encrypted-media; picture-in-picture"
-              allowFullScreen
-            />
-            <button
-              type="button"
-              onClick={() => setVideoModalOpen(false)}
-              aria-label="Close founder message"
-              className="absolute right-4 top-4 rounded-full bg-black/70 px-3 py-1 text-xs font-bold text-white hover:bg-black"
-            >
-              X
-            </button>
-          </div>
-        </div>
-      )}
     </section>
   );
 }

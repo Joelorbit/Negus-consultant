@@ -3,13 +3,14 @@ import axiosInstance from "../lib/axiosInstance";
 
 // ----------- BLOGS -----------
 
-export const useGetBlogs = () => {
+export const useGetBlogs = (options = {}) => {
   return useQuery({
     queryKey: ["blogs"],
     queryFn: async () => {
       const { data } = await axiosInstance.get("/blogs");
       return data.blogs;
     },
+    ...options,
   });
 };
 

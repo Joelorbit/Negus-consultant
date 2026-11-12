@@ -10,6 +10,7 @@ import {
   LogIn,
 } from "iconoir-react";
 import { useMe } from "../hooks/useAuth";
+import { preloadPublicRoute } from "../utils/preloadPublicRoute";
 
 const MobileDock = () => {
   const { data: user } = useMe();
@@ -78,6 +79,8 @@ const MobileDock = () => {
               key={item.to}
               to={item.to}
               className={`negus-dock-item${active ? " active" : ""}`}
+              onPointerDown={() => preloadPublicRoute(item.to)}
+              onFocus={() => preloadPublicRoute(item.to)}
             >
               <span className="negus-dock-icon-wrap">
                 <Icon width={20} height={20} strokeWidth={active ? 2.2 : 1.7} />

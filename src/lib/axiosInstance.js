@@ -4,14 +4,19 @@ import { mockAxiosAdapter } from "../mock/mockApiEngine.js";
 const configuredApiUrl =
   import.meta.env.VITE_API_URL || import.meta.env.VITE_API_BASE_URL;
 const normalizedApiUrl = configuredApiUrl?.trim().replace(/\/+$/, "");
-const apiBaseUrl = normalizedApiUrl
+const isVercelHost =
+  typeof window !== "undefined" &&
+  window.location.hostname.endsWith(".vercel.app");
+const apiBaseUrl = isVercelHost
+  ? "/api"
+  : normalizedApiUrl
   ? normalizedApiUrl.endsWith("/api")
     ? normalizedApiUrl
     : `${normalizedApiUrl}/api`
   : "/api";
 
 const axiosInstance = axios.create({
-  // VITE_API_URL may be the site root or an /api URL; local dev defaults to Vite's proxy.
+  // Deployed Vercel pages use the same-origin rewrite, avoiding cross-origin API/CORS failures.
   baseURL: apiBaseUrl,
   withCredentials: true,
   timeout: 5000,

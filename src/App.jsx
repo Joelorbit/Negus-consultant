@@ -200,8 +200,11 @@ const App = () => {
 
   useEffect(() => {
     ReactGA.initialize("G-SDR9JNX304");
+  }, []);
+
+  useEffect(() => {
     ReactGA.send({ hitType: "pageview", page: location.pathname });
-  }, [location]);
+  }, [location.pathname]);
 
   return (
     <ThemeProvider defaultTheme="light">

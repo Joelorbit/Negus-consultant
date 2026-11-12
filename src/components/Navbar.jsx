@@ -5,6 +5,7 @@ import { TABS } from "../constants/Data";
 import UserProfile from "./UserProfile";
 import { useGetBlogs } from "../hooks/useBlogs";
 import { ArrowUpRight, Bell } from "iconoir-react";
+import { preloadPublicRoute } from "../utils/preloadPublicRoute";
 
 const Navbar = () => {
   const { data: user, isLoading: isUserLoading } = useMe();
@@ -15,7 +16,7 @@ const Navbar = () => {
     data: blogs = [],
     isLoading: isBlogsLoading,
     isError: isBlogsError,
-  } = useGetBlogs();
+  } = useGetBlogs({ enabled: Boolean(user && notificationsOpen), staleTime: 60_000 });
   const location = useLocation();
 
   // Close mobile menu on route change
@@ -853,6 +854,8 @@ const Navbar = () => {
               className={({ isActive }) =>
                 `negus-nav-item${isActive ? " active" : ""}`
               }
+              onPointerEnter={() => preloadPublicRoute(tab.href)}
+              onFocus={() => preloadPublicRoute(tab.href)}
             >
               {tab.label}
             </NavLink>
@@ -1025,6 +1028,8 @@ const Navbar = () => {
                 `negus-mobile-item${isActive ? " active" : ""}`
               }
               onClick={() => setMobileMenuOpen(false)}
+              onPointerDown={() => preloadPublicRoute(tab.href)}
+              onFocus={() => preloadPublicRoute(tab.href)}
             >
               {tab.label}
             </NavLink>

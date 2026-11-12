@@ -1,5 +1,4 @@
 import AboutHero from "./Components/AboutHero";
-import AboutStats from "./Components/AboutStats";
 import AboutMethodology from "./Components/AboutMethodology";
 import AboutAcceptanceShowcase from "./Components/AboutAcceptanceShowcase";
 import AboutTeamSection from "./Components/AboutTeamSection";
@@ -26,13 +25,10 @@ export default function AboutUs() {
       {/* 1. Hero Section */}
       <AboutHero />
 
-      {/* 2. Key Metrics & Outcomes */}
-      <AboutStats />
-
-      {/* 3. Core Pillars & Methodology */}
+      {/* 2. Core Pillars & Methodology */}
       <AboutMethodology />
 
-      {/* 4. University Acceptances & Crests */}
+      {/* 3. University Acceptances & Crests */}
       <AboutAcceptanceShowcase />
 
       <section className="public-content public-about-testimonials">
@@ -108,10 +104,10 @@ export default function AboutUs() {
         <a className="public-button public-button-primary" href="https://t.me/Negushelpcenter" target="_blank" rel="noreferrer">Contact Us</a>
       </section>
 
-      {/* 5. Leadership & Verified Mentors */}
+      {/* 4. Leadership & Verified Mentors */}
       <AboutTeamSection />
 
-      {/* 6. Addis Ababa Center & Contact Card */}
+      {/* 5. Addis Ababa Center & Contact Card */}
       <AboutCenterCard />
     </main>
   );

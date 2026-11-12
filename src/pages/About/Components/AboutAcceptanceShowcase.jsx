@@ -38,13 +38,14 @@ export default function AboutAcceptanceShowcase() {
         </p>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5 sm:gap-6 max-w-6xl mx-auto">
+      <div className="about-acceptance-scroller">
         {/* `Crest` is used as a JSX element below; core no-unused-vars cannot see JSX tag usage. */}
         {/* eslint-disable-next-line no-unused-vars */}
         {acceptances.map(({ name, loc, award, Crest }) => (
-          <div
+          <a
             key={name}
-            className="p-6 rounded-2xl bg-[var(--white)] border border-[var(--line)] shadow-xs flex flex-col items-center text-center gap-4 transition-transform hover:-translate-y-1"
+            href="/courses"
+            className="about-acceptance-card"
           >
             <div className="w-12 h-12 flex items-center justify-center">
               <Crest className="w-10 h-10 object-contain" />
@@ -60,7 +61,7 @@ export default function AboutAcceptanceShowcase() {
             <span className="inline-flex items-center text-[12px] font-['Lexend'] font-bold text-[var(--gold-ink)] bg-[var(--yellow-soft)] border border-[var(--line)] px-3.5 py-1.5 rounded-full">
               ★ {award}
             </span>
-          </div>
+          </a>
         ))}
       </div>
     </section>

@@ -1,4 +1,5 @@
 export const TABS = [
+  { label: "Home", href: "/" },
   { label: "Courses", href: "/courses" },
   { label: "Training", href: "/training" },
   { label: "Packages", href: "/packages" },

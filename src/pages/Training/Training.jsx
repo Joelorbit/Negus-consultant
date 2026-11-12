@@ -74,7 +74,7 @@ export default function TrainingPage() {
               target="_blank"
               rel="noreferrer"
             >
-              Free call on Telegram
+              Contact Us
             </a>
           </div>
         </div>
@@ -199,10 +199,9 @@ export default function TrainingPage() {
 
       <section className="public-page-cta">
         <p className="public-eyebrow">NEED A QUICK ANSWER?</p>
-        <h2>Talk with the team before you register.</h2>
+        <h2>Choose your next step.</h2>
         <p>
-          Prefer a free call? Reach us on Telegram or phone {SUPPORT_PHONE}. Low-connectivity
-          students can also follow trainings via our Telegram archive.
+          Enroll in the course first, add a standalone package when you need it, or reach us on Telegram for help choosing.
         </p>
         <div className="public-page-actions">
           <a
@@ -211,10 +210,10 @@ export default function TrainingPage() {
             target="_blank"
             rel="noreferrer"
           >
-            Free call / Telegram
+            Contact Us
           </a>
-          <NavLink className="public-button public-button-outline-light" to="/packages">
-            View packages <Clock aria-hidden="true" />
+          <NavLink className="public-button public-button-outline-light" to="/courses">
+            Start with the course <Clock aria-hidden="true" />
           </NavLink>
         </div>
       </section>

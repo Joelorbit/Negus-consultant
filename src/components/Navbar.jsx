@@ -722,21 +722,21 @@ const Navbar = () => {
 
         @media (max-width: 480px) {
           .negus-announcement-strip {
-            padding: 8px 14px 9px;
-            font-size: 11px;
+            padding: 4px 10px 5px;
+            font-size: 10px;
           }
           .negus-announcement-content {
             display: grid;
             grid-template-columns: auto minmax(0, 1fr);
-            gap: 5px 8px;
+            gap: 2px 6px;
             align-items: center;
             justify-content: stretch;
           }
           .negus-announcement-tag {
             grid-row: span 2;
             align-self: start;
-            margin-top: 1px;
-            font-size: 9px;
+            margin-top: 0;
+            font-size: 8px;
           }
           .negus-announcement-msg {
             min-width: 0;

@@ -296,14 +296,10 @@ export default function CeoFreeToolsSection() {
               Inspect essays that helped Ethiopian scholars win full rides at Harvard, Amherst, Williams, and NYU.
             </p>
           </div>
-          <button
-            type="button"
-            onClick={() => setSelectedEssay(SAMPLE_ESSAYS[0])}
-            className="ceo-resource-action"
-          >
+          <Link to="/free-tools" className="ceo-resource-action">
             <span>Read Sample Essays ({SAMPLE_ESSAYS.length})</span>
             <ArrowRight width={14} height={14} />
-          </button>
+          </Link>
         </div>
 
         {/* Resource 3: CV Builder */}

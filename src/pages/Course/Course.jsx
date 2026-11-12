@@ -41,6 +41,18 @@ function Course() {
         </div>
       ) : (
         <div>
+          <section className="course-overview-strip">
+            <div>
+              <p className="public-eyebrow">YOUR APPLICATION, WITH A PLAN</p>
+              <h2>Learn the moves that make a strong application.</h2>
+              <p>Start with the course, then add the support package that fits your goals.</p>
+            </div>
+            <div className="course-overview-stats">
+              <span><strong>23</strong> Videos</span>
+              <span><strong>600+</strong> Students</span>
+              <span><strong>1:1</strong> Guidance</span>
+            </div>
+          </section>
           <VideosPage onVideoSelect={handleVideoSelect} />
         </div>
       )}

@@ -32,19 +32,28 @@ const VIDEOS = [
 
 const ESSAYS = [
   {
-    topic: "Overcoming limited resources to lead a school club",
-    university: "Williams College",
-    excerpt: "Show the constraint, the decision you made, and the measurable change that followed.",
+    topic: "Overcoming educational barriers through community action",
+    university: "Harvard University",
+    excerpt: "Worked sample: When our school library closed after the rainy season damaged its roof, I started a shared reading hour under the science-lab veranda. At first, six students came. I asked each one to bring a book, a question, and one younger student. By the end of the term, the reading hour had become a student-run exchange with a rotating shelf and weekly discussion.",
+    lesson: "Show the constraint, the choice you made, and the change that followed. A strong essay lets the reader see your character through action.",
   },
   {
-    topic: "Why community health work shaped my major",
-    university: "Howard University",
-    excerpt: "Connect a specific moment in your community to the questions you want to study.",
+    topic: "Intellectual curiosity and physics research",
+    university: "Amherst College",
+    excerpt: "Worked sample: I first became interested in light when a cracked phone screen turned the afternoon sun into a row of colors on my desk. Without a laboratory, I rebuilt the experiment with cardboard, a water glass, and a discarded lens. The measurements were imperfect, but each error gave me a better question about what I was actually observing.",
+    lesson: "Use a specific question and the imperfect materials you had to reveal how you think, not only what you achieved.",
   },
   {
     topic: "Building a silent-zone library culture at school",
     university: "NYU Abu Dhabi",
-    excerpt: "Use a small, concrete initiative to reveal how you listen, organize, and bring people in.",
+    excerpt: "Worked sample: Our library was busy, but it was rarely quiet enough for anyone to study. I did not begin with a rule. I began by asking students when they needed focus and what would make the space feel shared rather than controlled. We tested one silent hour, posted the schedule in Amharic and English, and adjusted it after listening to the students who used the room most.",
+    lesson: "A small initiative can reveal listening, organization, and community-building more clearly than a list of titles.",
+  },
+  {
+    topic: "Why Williams and the future of East African technology",
+    university: "Williams College",
+    excerpt: "Worked sample: I want to study technology where the question is never separated from the people it serves. In my community, a reliable solution is often not the most advanced one; it is the one that can be repaired, explained, and shared. Williams appeals to me because close discussion and broad study would let me connect computing with the human questions behind access.",
+    lesson: "Name the specific learning environment you want, then connect it to the questions your experience has already taught you to ask.",
   },
 ];
 
@@ -202,6 +211,7 @@ export default function FreeToolsPage() {
             <h2>Essay topic + university</h2>
           </div>
           <div
+            className="free-tools-essay-grid"
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
@@ -212,6 +222,7 @@ export default function FreeToolsPage() {
             {ESSAYS.map((essay) => (
               <article
                 key={essay.topic}
+                className="free-tools-essay-card"
                 style={{
                   border: "1px solid var(--line)",
                   borderRadius: "16px",
@@ -221,6 +232,8 @@ export default function FreeToolsPage() {
                   gap: "10px",
                 }}
               >
+                <img className="free-tools-essay-image" src="/common_app.png" alt="Common App essay resources" />
+                <div className="free-tools-essay-icon"><Page aria-hidden="true" /></div>
                 <h3 style={{ margin: 0, font: "700 16px/1.35 var(--font-display)", color: "var(--ink)" }}>
                   {essay.topic}
                 </h3>
@@ -230,12 +243,14 @@ export default function FreeToolsPage() {
                   className="public-button public-button-secondary"
                   onClick={() => setEssayOpen(essayOpen === essay.topic ? null : essay.topic)}
                 >
-                  {essayOpen === essay.topic ? "Hide" : "Read tip"}
+                  {essayOpen === essay.topic ? "Hide sample" : "Read sample"}
                 </button>
                 {essayOpen === essay.topic && (
-                  <p style={{ margin: 0, color: "var(--ink-secondary)", fontSize: "13px", lineHeight: 1.55 }}>
-                    {essay.excerpt}
-                  </p>
+                  <div className="free-tools-essay-reading">
+                    <p>{essay.excerpt}</p>
+                    <strong>What to notice</strong>
+                    <p>{essay.lesson}</p>
+                  </div>
                 )}
               </article>
             ))}
@@ -248,14 +263,16 @@ export default function FreeToolsPage() {
               gap: "16px",
             }}
           >
-            <article className="public-empty-state">
+            <article className="free-tools-document-card">
+              <div className="free-tools-essay-icon"><Page aria-hidden="true" /></div>
               <h3>CV Builder</h3>
               <p>We’re building a guided academic CV builder with scholarship-ready prompts and export.</p>
               <span className="public-eyebrow" style={{ justifyContent: "center", marginTop: "8px" }}>
                 COMING SOON
               </span>
             </article>
-            <article className="public-empty-state">
+            <article className="free-tools-document-card">
+              <div className="free-tools-essay-icon"><Book aria-hidden="true" /></div>
               <h3>Blogs & tips</h3>
               <p>Practical articles on applications, essays, testing, and studying abroad.</p>
               <NavLink className="public-button public-button-secondary" to="/blogs">

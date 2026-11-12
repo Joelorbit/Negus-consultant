@@ -6,7 +6,7 @@ export default function CeoHero() {
   const scrollToExplore = () => {
     const el = document.getElementById("overview") || document.getElementById("courses");
     if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
@@ -18,10 +18,10 @@ export default function CeoHero() {
           --hero-amharic: "Menbere", sans-serif;
           position: relative;
           width: 100%;
-          min-height: min(940px, calc(100svh - 74px));
+          min-height: min(820px, calc(100svh - 74px));
           display: flex;
           align-items: center;
-          padding: clamp(52px, 7vw, 104px) 0 clamp(52px, 7vw, 104px) clamp(20px, 4vw, 56px);
+          padding: clamp(38px, 5vw, 72px) 0 clamp(42px, 5vw, 76px) clamp(20px, 4vw, 56px);
           max-width: none;
           margin: 0 auto;
           overflow: hidden;
@@ -427,27 +427,26 @@ export default function CeoHero() {
           </div>
 
           <h1 className="ceo-hero-title">
-            <span className="ceo-hero-amharic">የነገ ህልሞን</span>
-            <span className="ceo-hero-amharic">ዛሬ ከንጉስ ጋር!</span>
+            <span className="ceo-hero-amharic">የነገ ህልሞ</span>
+            <span className="ceo-hero-amharic">ዛሬ ከንጉስ ጋር</span>
           </h1>
 
           <p className="ceo-hero-subhead">
-            <span className="ceo-hero-amharic">ለኢትዮጵያውያን ተማሪዎች የተሟላ የነፃ ትምህርት ዕድል</span>{" "}
-            (Full Scholarship)፣ <span className="ceo-hero-amharic">የዲጂታል SAT እና IELTS ፈተና ዝግጅት፣ እና የአሜሪካና የካናዳ ዩኒቨርሲቲ ማመልከቻ ዝግጅት ከአንጋፋ አማካሪዎች ጋር።</span>
+            <span className="ceo-hero-amharic">ኢትዮጵያውያን ተማሪዎችን ለተለያዩ የኢንተርናሽናል ስኮላርሺፕ ብቁ ማድረግ ዋና አላማችን ነው።</span>
           </p>
 
           <div className="ceo-hero-checklist">
             <div className="ceo-hero-check-item">
               <span className="ceo-hero-check-icon"><Check width={12} height={12} /></span>
-              <span>Full Institutional Packaging (Common App, CSS Profile & ISFAA Aid)</span>
+              <span>High School Scholarship (UWC / ALA) Trainings</span>
             </div>
             <div className="ceo-hero-check-item">
               <span className="ceo-hero-check-icon"><Check width={12} height={12} /></span>
-              <span>Digital SAT (1500+ Track) & Academic IELTS (Band 8.0+) Mastery</span>
+              <span>Bachelor&apos;s / University Scholarship Trainings</span>
             </div>
             <div className="ceo-hero-check-item">
               <span className="ceo-hero-check-icon"><Check width={12} height={12} /></span>
-              <span>1-on-1 Narrative Essay Coaching & Ivy League Embassy Mock Interviews</span>
+              <span>Essay &amp; IELTS Training (Group and 1-on-1)</span>
             </div>
           </div>
 

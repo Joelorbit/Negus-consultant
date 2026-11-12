@@ -9,10 +9,10 @@ export default function AboutHero() {
           <GraduationCap className="w-4 h-4 text-[var(--yellow)]" /> ABOUT NEGUS CONSULTANTS
         </p>
         <h1 className="public-page-title">
-          Demystifying global admissions for <em>ambitious scholars.</em>
+          Helping Ethiopian students reach the world's universities.
         </h1>
         <p className="public-page-copy">
-          Negus Consultants is an educational consultancy based in Addis Ababa, Ethiopia. We equip high-achieving scholars with the strategic roadmap, essay coaching, and financial aid positioning required to win competitive international scholarships.
+          Our mission is to open international education to every capable Ethiopian student, whatever their family's income. We give students practical, honest guidance, built on real applications and experiences that worked.
         </p>
         <div className="public-page-actions">
           <NavLink

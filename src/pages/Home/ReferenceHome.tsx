@@ -23,7 +23,6 @@ import {
 import CeoHero from "./components/CeoHero";
 import CeoMessageSection from "./components/CeoMessageSection";
 import CeoFreeToolsSection from "./components/CeoFreeToolsSection";
-import GuidedJourney from "./components/GuidedJourney";
 import { Reveal, CountUp, ScrollProgress, PixelRain } from "./components/HomeLife";
 
 export default function ReferenceHome() {
@@ -37,7 +36,6 @@ export default function ReferenceHome() {
       {/* Authentic CEO Classroom Hero (Page 1 Sketch with Amharic Headline & Teaching Photo) */}
       <CeoHero />
 
-      <GuidedJourney />
 
       {/* Marquee Ribbon */}
       <div className="marquee-ribbon" aria-label="Negus core service tracks">
@@ -86,15 +84,14 @@ export default function ReferenceHome() {
             gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))",
             gap: "20px",
             textAlign: "center",
-            maxWidth: "1000px",
+            maxWidth: "960px",
             margin: "0 auto",
           }}
         >
           {[
-            { value: <CountUp to={12.8} decimals={1} prefix="$" suffix="M+" />, color: "#123d2b", label: "Scholarships Awarded" },
-            { value: <CountUp to={450} suffix="+" />, color: "#19523b", label: "Scholars Guided" },
-            { value: <CountUp to={94} suffix="%" />, color: "#123d2b", label: "Top-Choice Acceptance" },
-            { value: "20+ Yrs", color: "#d1bd82", label: "Dedicated Mentorship" },
+            { value: "30,000+", color: "#123d2b", label: "Students and families reached" },
+            { value: "2,000+", color: "#19523b", label: "Students guided" },
+            { value: "10+", color: "#123d2b", label: "Universities that admitted our students" },
           ].map((stat, i) => (
             <Reveal
               key={stat.label}
@@ -106,6 +103,10 @@ export default function ReferenceHome() {
                 background: "#ffffff",
                 border: "1.5px solid rgba(18, 61, 43, 0.14)",
                 boxShadow: "0 10px 28px rgba(18, 61, 43, 0.08)",
+                textAlign: "center",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
               }}
             >
               <strong
@@ -129,6 +130,7 @@ export default function ReferenceHome() {
                   letterSpacing: "-0.01em",
                   marginTop: "6px",
                   display: "block",
+                  maxWidth: "190px",
                 }}
               >
                 {stat.label}
@@ -139,7 +141,7 @@ export default function ReferenceHome() {
       </section>
 
       {/* "መልእክት አለን" Founder Video Message & 5 Category Tiles (Page 2 Sketch) */}
-      <CeoMessageSection />
+      <div id="overview"><CeoMessageSection /></div>
 
       {/* Free Tools & Lead Capture Gate (Page 5 Sketch) */}
       <CeoFreeToolsSection />
@@ -906,14 +908,13 @@ export default function ReferenceHome() {
               &ldquo;Negus turned what felt like an impossible goal into a clear roadmap. My mentor knew exactly how to highlight my background, and I received a full scholarship.&rdquo;
             </p>
             <div style={{ display: "flex", alignItems: "center", gap: "12px", borderTop: "1px solid var(--line)", paddingTop: "16px" }}>
-              <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "var(--green-soft)", color: "var(--ink)", display: "grid", placeItems: "center", fontWeight: 700 }}>
-                K
-              </div>
+            <img src="/assets/testimonials/photo_2026-11-12_11-26-18.jpg" alt="Arsema" style={{ width: "40px", height: "40px", borderRadius: "50%", objectFit: "cover" }} />
               <div>
                 <strong style={{ display: "block", fontFamily: "var(--font-display)", fontSize: "14px", color: "var(--ink)" }}>Kirubel T.</strong>
                 <span style={{ fontSize: "12.5px", color: "var(--gold-ink)", fontWeight: 600 }}>Georgetown University · $85k/yr</span>
               </div>
             </div>
+            <audio controls src="/assets/arema.ogg" style={{ width: "100%", height: "30px", marginTop: "14px" }} aria-label="Arsema testimonial" />
           </Reveal>
 
           {/* Testimonial 2 */}
@@ -931,14 +932,13 @@ export default function ReferenceHome() {
               &ldquo;The essay coaching was truly transformative. They didn&apos;t write it for me; they challenged me to find my genuine voice and present my life story with dignity.&rdquo;
             </p>
             <div style={{ display: "flex", alignItems: "center", gap: "12px", borderTop: "1px solid var(--line)", paddingTop: "16px" }}>
-              <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "var(--yellow-soft)", color: "var(--gold-ink)", display: "grid", placeItems: "center", fontWeight: 700 }}>
-                B
-              </div>
+              <img src="/assets/testimonials/photo_2026-11-12_11-26-48.jpg" alt="Efina" style={{ width: "40px", height: "40px", borderRadius: "50%", objectFit: "cover" }} />
               <div>
                 <strong style={{ display: "block", fontFamily: "var(--font-display)", fontSize: "14px", color: "var(--ink)" }}>Blen A.</strong>
                 <span style={{ fontSize: "12px", color: "var(--ink-secondary)", fontWeight: 600 }}>Williams College · Full Financial Aid</span>
               </div>
             </div>
+            <audio controls src="/assets/efina.ogg" style={{ width: "100%", height: "30px", marginTop: "14px" }} aria-label="Efina testimonial" />
           </Reveal>
 
           {/* Testimonial 3 */}
@@ -956,15 +956,16 @@ export default function ReferenceHome() {
               &ldquo;From standardized test preparation to financial paperwork, having a mentor who had already succeeded made all the difference. I recommend Negus to anyone serious about studying abroad.&rdquo;
             </p>
             <div style={{ display: "flex", alignItems: "center", gap: "12px", borderTop: "1px solid var(--line)", paddingTop: "16px" }}>
-              <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "var(--green-soft)", color: "var(--ink)", display: "grid", placeItems: "center", fontWeight: 700 }}>
-                Y
-              </div>
+              <img src="/assets/testimonials/photo_2026-11-12_11-26-53.jpg" alt="Yosef" style={{ width: "40px", height: "40px", borderRadius: "50%", objectFit: "cover" }} />
               <div>
                 <strong style={{ display: "block", fontFamily: "var(--font-display)", fontSize: "14px", color: "var(--ink)" }}>Yosef M.</strong>
                 <span style={{ fontSize: "12.5px", color: "var(--gold-ink)", fontWeight: 600 }}>Drexel University · $145,000 Award</span>
               </div>
             </div>
           </Reveal>
+        </div>
+        <div style={{ textAlign: "center", marginTop: "26px" }}>
+          <Link to="/about" style={{ display: "inline-flex", alignItems: "center", gap: "6px", color: "var(--ink)", fontWeight: 700, fontSize: "13px", textDecoration: "none", borderBottom: "1px solid var(--yellow)", paddingBottom: "4px" }}>See Testimonials <ArrowRight width={14} height={14} /></Link>
         </div>
       </section>
 

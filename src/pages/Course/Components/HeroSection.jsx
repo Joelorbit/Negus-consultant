@@ -5,7 +5,7 @@ export function HeroSection({ searchTerm, onSearchChange }) {
   return (
     <section className="public-page-hero course-page-hero">
       <div className="public-page-hero-inner">
-        <p className="public-eyebrow"><Book aria-hidden="true" /> THE NEGUS COURSE LIBRARY</p>
+        <p className="public-eyebrow"><Book aria-hidden="true" /> THE NEGUS COURSE</p>
         <h1 className="public-page-title">Build your skills. Move your application <em>forward.</em></h1>
         <p className="public-page-copy">
           Learn at your own pace with practical lessons for scholarships, university applications, and the tests that open more doors.

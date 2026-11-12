@@ -1,4 +1,4 @@
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import {
   ArrowRight,
   Calendar,
@@ -52,31 +52,28 @@ const TRAININGS = [
 export default function TrainingPage() {
   return (
     <main className="public-page">
-      <section className="public-page-hero">
-        <div className="public-page-hero-inner">
-          <p className="public-eyebrow">
-            <Community aria-hidden="true" /> GROUP ONLINE TRAININGS
-          </p>
-          <h1 className="public-page-title">
-            Trainings with timelines, mentors, and clear <em>registration.</em>
-          </h1>
-          <p className="public-page-copy">
-            Find ongoing and past Negus online trainings in one place — who they are for,
-            start and end dates, and how to register before seats close.
-          </p>
-          <div className="public-page-actions">
-            <a className="public-button public-button-primary" href="#training-catalog">
-              Browse trainings <ArrowRight aria-hidden="true" />
-            </a>
-            <a
-              className="public-button public-button-secondary"
-              href={SUPPORT_TELEGRAM_URL}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Contact Us
-            </a>
+      <section className="public-page-hero training-page-hero">
+        <div className="public-page-hero-inner training-hero-grid">
+          <div className="training-overview">
+            <p className="public-eyebrow"><Community aria-hidden="true" /> ABOUT THE TRAINING</p>
+            <h1 className="public-page-title">Practical training for your next <em>application step.</em></h1>
+            <p className="public-page-copy">
+              Learn scholarship research, application writing, and interview preparation through structured sessions led by people who have navigated the process.
+            </p>
+            <div className="public-page-actions">
+              <Link className="public-button public-button-primary" to="/courses">Start with the course <ArrowRight aria-hidden="true" /></Link>
+              <a className="public-button public-button-secondary" href={SUPPORT_TELEGRAM_URL} target="_blank" rel="noreferrer">Contact Us</a>
+            </div>
           </div>
+          <aside className="training-mentors-card">
+            <p className="public-eyebrow">MEET THE MENTORS</p>
+            <h2>Guidance from students who have been there.</h2>
+            <div className="training-mentor-pair">
+              <div><img src="/team2.png" alt="Leulseged Mateb" /><strong>Leulseged Mateb</strong></div>
+              <div><img src="/team1.jpg" alt="Abrham Mulualem" /><strong>Abrham Mulualem</strong></div>
+            </div>
+            <Link to="/about" className="public-button public-button-secondary">Meet the Negus team <ArrowRight aria-hidden="true" /></Link>
+          </aside>
         </div>
       </section>
 
@@ -195,6 +192,33 @@ export default function TrainingPage() {
             </article>
           ))}
         </div>
+      </section>
+
+      <section className="public-content training-essay-pricing">
+        <div className="public-section-heading">
+          <p className="public-eyebrow">ESSAY SUPPORT PACKAGES</p>
+          <h2>Choose the timeline that works for you.</h2>
+        </div>
+        <div className="training-price-grid">
+          {[["6-Month Essay Package", "1,870 ETB"], ["2-Year Essay Package", "2,900 ETB"]].map(([name, price]) => (
+            <article className="training-price-card" key={name}>
+              <span>{name}</span><strong>{price}</strong>
+              <a className="public-button public-button-secondary" href={SUPPORT_TELEGRAM_URL} target="_blank" rel="noreferrer">Ask about this package</a>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="public-content training-testimonials">
+        <div className="public-section-heading">
+          <p className="public-eyebrow">STUDENT VOICES</p>
+          <h2>Hear from students who trained with Negus.</h2>
+        </div>
+        <div className="testimonial-media-grid">
+          <article className="testimonial-media-card"><img src="/assets/testimonials/photo_2026-11-12_11-26-18.jpg" alt="Arsema" /><div className="testimonial-media-copy"><h3>Arsema</h3><p>“Overall throughout the program I have learned so many things.”</p><audio controls preload="none" src="/assets/arema.ogg" aria-label="Arsema voice testimonial" /></div></article>
+          <article className="testimonial-media-card"><img src="/assets/testimonials/photo_2026-11-12_11-26-48.jpg" alt="Efina" /><div className="testimonial-media-copy"><h3>Efina</h3><audio controls preload="none" src="/assets/efina.ogg" aria-label="Efina voice testimonial" /></div></article>
+        </div>
+        <div className="public-page-actions"><Link className="public-button public-button-secondary" to="/testimonials">See all testimonials</Link></div>
       </section>
 
       <section className="public-page-cta">

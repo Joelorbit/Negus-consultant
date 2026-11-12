@@ -1,30 +1,36 @@
-import { Sparkles, Target, Shield, Heart, Zap } from "lucide-react";
+import { Sparkles, Target, Shield, Heart, Zap, Handshake } from "lucide-react";
 
 export default function AboutMethodology() {
   const pillars = [
     {
       icon: Target,
-      title: "Our Mission",
-      desc: "To empower ambitious Ethiopian students with the strategic knowledge, tools, and direct scholar guidance needed to secure life-changing international scholarships.",
-      badge: "Purpose",
+      title: "Guide students well",
+      desc: "Give students practical, honest guidance shaped by real applications and experience.",
+      badge: "01",
     },
     {
       icon: Shield,
-      title: "Integrity & Truth",
-      desc: "We operate with absolute transparency. We believe in candid profile evaluations, realistic institution roadmaps, and honest advisory relationships.",
-      badge: "Standard",
+      title: "Reach more schools",
+      desc: "Bring free scholarship sessions to more high schools, in person and online.",
+      badge: "02",
     },
     {
       icon: Heart,
-      title: "Student-First Mentorship",
-      desc: "Every essay, activity list, and interview prep session is personal. We help you tell your authentic story in the most compelling, dignified voice.",
-      badge: "Approach",
+      title: "Keep information open",
+      desc: "Make reliable scholarship information accessible to students and families.",
+      badge: "03",
     },
     {
       icon: Zap,
-      title: "Rigorous Strategy",
-      desc: "We understand institutional admissions priorities, financial aid mechanics (CSS Profile / ISFAA), and how to position international applicants for full-ride awards.",
-      badge: "Execution",
+      title: "Build on real experience",
+      desc: "Share advice grounded in applications, outcomes, and lessons learned along the way.",
+      badge: "04",
+    },
+    {
+      icon: Handshake,
+      title: "Grow partnerships",
+      desc: "Work with schools and communities to create more pathways to international education.",
+      badge: "05",
     },
   ];
 
@@ -32,17 +38,17 @@ export default function AboutMethodology() {
     <section className="public-content public-about-values">
       <div className="public-about-section-heading">
         <div className="inline-flex items-center gap-2 text-[12px] font-bold text-[var(--ink-muted)] uppercase tracking-widest font-['Lexend'] mb-2">
-          <Sparkles className="w-4 h-4 text-[var(--yellow)]" /> OUR CORE PILLARS
+          <Sparkles className="w-4 h-4 text-[var(--yellow)]" /> OUR GOALS
         </div>
         <h2 className="text-3xl lg:text-4xl font-extrabold font-['Lexend'] text-[var(--ink)] tracking-tight">
-          Built on proven results and genuine care.
+          Practical guidance. Wider access.
         </h2>
         <p className="text-sm sm:text-base text-[var(--ink-secondary)] mt-2 max-w-xl mx-auto leading-relaxed">
-          How we partner with each applicant to turn complex international requirements into a structured, stress-free roadmap.
+          Our goals are simple: guide students well, reach more schools, and keep scholarship information accessible.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
         {pillars.map((p, idx) => {
           const Icon = p.icon;
           return (

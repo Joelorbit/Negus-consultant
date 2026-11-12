@@ -73,6 +73,9 @@ export default function ReferenceHome() {
         </div>
       </div>
 
+      {/* "መልእክት አለን" Founder Video Message & 5 Category Tiles (Page 2 Sketch) */}
+      <div id="overview"><CeoMessageSection /></div>
+
       {/* Proven Track Record & Trust Bar (Pure Light Theme) */}
       <section className="section-shell" style={{ paddingTop: "54px", paddingBottom: "64px" }}>
         <div className="eyebrow-tag" style={{ justifyContent: "center", marginBottom: "28px" }}>
@@ -139,9 +142,6 @@ export default function ReferenceHome() {
           ))}
         </div>
       </section>
-
-      {/* "መልእክት አለን" Founder Video Message & 5 Category Tiles (Page 2 Sketch) */}
-      <div id="overview"><CeoMessageSection /></div>
 
       {/* Free Tools & Lead Capture Gate (Page 5 Sketch) */}
       <CeoFreeToolsSection />

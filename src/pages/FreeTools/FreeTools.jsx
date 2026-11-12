@@ -7,9 +7,7 @@ import {
   Page,
   Sparks,
 } from "iconoir-react";
-import { toast } from "sonner";
 import { SUPPORT_TELEGRAM_URL } from "../../config/supportContact";
-import { useCreateContactMessage } from "../../hooks/useContactMessages";
 import "../public-pages.css";
 
 const VIDEOS = [
@@ -58,38 +56,7 @@ const ESSAYS = [
 ];
 
 export default function FreeToolsPage() {
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [unlocked, setUnlocked] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
   const [essayOpen, setEssayOpen] = useState(null);
-  const { mutateAsync: createContactMessage } = useCreateContactMessage();
-
-  const unlock = async (event) => {
-    event.preventDefault();
-    if (!email.trim() || !phone.trim()) {
-      toast.error("Email and phone are required to unlock free tools.");
-      return;
-    }
-    setSubmitting(true);
-    try {
-      await createContactMessage({
-        name: email.split("@")[0] || "Free tools visitor",
-        email: email.trim(),
-        subject: "Free tools access request",
-        message: `Free tools requested. Phone: ${phone.trim()}`,
-      });
-      setUnlocked(true);
-      toast.success("Access unlocked. Explore the free resources below.");
-    } catch (error) {
-      toast.error(
-        error?.response?.data?.message ||
-          "We could not unlock the tools right now. Please try again.",
-      );
-    } finally {
-      setSubmitting(false);
-    }
-  };
 
   return (
     <main className="public-page">
@@ -99,73 +66,15 @@ export default function FreeToolsPage() {
             <Sparks aria-hidden="true" /> FREE TOOLS & LEAD ACCESS
           </p>
           <h1 className="public-page-title">
-            A taste of Negus resources — then we stay in <em>touch.</em>
+            Free resources for your next <em>application step.</em>
           </h1>
           <p className="public-page-copy">
-            Preview YouTube training recordings, sample essays, CV Builder, and blogs.
-            Share your email and phone so we can send the full library and guidance for your next step.
+            Browse practical application tools, essay examples, and past scholarship training recordings.
           </p>
         </div>
       </section>
 
       <section className="public-content" style={{ maxWidth: "920px" }}>
-        {!unlocked ? (
-          <form
-            onSubmit={unlock}
-            className="public-empty-state"
-            style={{
-              justifyItems: "stretch",
-              maxWidth: "640px",
-              margin: "0 auto 40px",
-              gridTemplateColumns: "1fr",
-            }}
-          >
-            <h3>Get access</h3>
-            <p>Enter a reachable email and phone number to receive the full free library and follow-up guidance.</p>
-            <div style={{ display: "grid", gap: "12px", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))" }}>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Email"
-                style={{
-                  minHeight: "48px",
-                  border: "1px solid var(--line-strong)",
-                  borderRadius: "9px",
-                  padding: "0 14px",
-                  background: "var(--white)",
-                  color: "var(--ink)",
-                  font: "14px var(--font-body)",
-                }}
-              />
-              <input
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                placeholder="Phone"
-                style={{
-                  minHeight: "48px",
-                  border: "1px solid var(--line-strong)",
-                  borderRadius: "9px",
-                  padding: "0 14px",
-                  background: "var(--white)",
-                  color: "var(--ink)",
-                  font: "14px var(--font-body)",
-                }}
-              />
-            </div>
-            <button type="submit" className="public-button public-button-primary" disabled={submitting}>
-              {submitting ? "Unlocking…" : "Get access"}
-            </button>
-          </form>
-        ) : (
-          <p
-            className="public-eyebrow"
-            style={{ justifyContent: "center", marginBottom: "28px", color: "var(--ink-secondary)" }}
-          >
-            ACCESS UNLOCKED — EXPLORE BELOW
-          </p>
-        )}
-
         <div>
           <div className="public-section-heading">
             <p className="public-eyebrow">
@@ -285,8 +194,8 @@ export default function FreeToolsPage() {
 
       <section className="public-page-cta">
         <p className="public-eyebrow">READY FOR MORE?</p>
-        <h2>Sign up so we can guide your next move.</h2>
-        <p>Create an account for course access, or message the team for a free call.</p>
+        <h2>Want a clear plan for your application?</h2>
+        <p>Start with the Negus course or contact our team on Telegram.</p>
         <div className="public-page-actions">
           <NavLink className="public-button public-button-light" to="/register">
             Sign up
@@ -297,7 +206,7 @@ export default function FreeToolsPage() {
             target="_blank"
             rel="noreferrer"
           >
-            Free call on Telegram
+            Contact Us
           </a>
         </div>
       </section>

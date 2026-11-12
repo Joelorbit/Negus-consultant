@@ -196,23 +196,16 @@ export default function CollegePackages() {
 
       {/* ---------------- Main Content & Tabs ---------------- */}
       <section className="container mx-auto px-4 max-w-6xl py-10" id="package-catalog">
-        <Tabs defaultValue="application" className="w-full space-y-12">
+        <Tabs defaultValue="courses" className="w-full space-y-12">
           {/* Custom Styled Tab List */}
           <div className="flex justify-center">
             <TabsList className="inline-flex h-auto flex-wrap items-center justify-center gap-2 rounded-2xl bg-muted/60 p-2 border border-border/80 shadow-sm">
               <TabsTrigger
-                value="application"
+                value="courses"
                 className="flex items-center gap-2 rounded-xl px-4 py-2.5 text-xs md:text-sm font-bold text-muted-foreground transition-all data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md"
               >
-                <GraduationCap className="h-4 w-4 shrink-0" />
-                <span>Full Application Packages</span>
-              </TabsTrigger>
-              <TabsTrigger
-                value="mentorship"
-                className="flex items-center gap-2 rounded-xl px-4 py-2.5 text-xs md:text-sm font-bold text-muted-foreground transition-all data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md"
-              >
-                <Users className="h-4 w-4 shrink-0" />
-                <span>1-on-1 Mentorship</span>
+                <BookOpen className="h-4 w-4 shrink-0" />
+                <span>Course Packages</span>
               </TabsTrigger>
               <TabsTrigger
                 value="standalone"
@@ -222,11 +215,18 @@ export default function CollegePackages() {
                 <span>Standalone Services</span>
               </TabsTrigger>
               <TabsTrigger
-                value="courses"
+                value="application"
                 className="flex items-center gap-2 rounded-xl px-4 py-2.5 text-xs md:text-sm font-bold text-muted-foreground transition-all data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md"
               >
-                <BookOpen className="h-4 w-4 shrink-0" />
-                <span>Course Packages</span>
+                <GraduationCap className="h-4 w-4 shrink-0" />
+                <span>Full Scholarship Packages</span>
+              </TabsTrigger>
+              <TabsTrigger
+                value="mentorship"
+                className="flex items-center gap-2 rounded-xl px-4 py-2.5 text-xs md:text-sm font-bold text-muted-foreground transition-all data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-md"
+              >
+                <Users className="h-4 w-4 shrink-0" />
+                <span>1-on-1 Mentorship</span>
               </TabsTrigger>
             </TabsList>
           </div>

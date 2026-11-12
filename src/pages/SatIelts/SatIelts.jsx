@@ -173,7 +173,7 @@ export default function SatIeltsPage() {
             target="_blank"
             rel="noreferrer"
           >
-            <Phone aria-hidden="true" /> Free call
+            <Phone aria-hidden="true" /> Contact Us
           </a>
         </div>
       </section>

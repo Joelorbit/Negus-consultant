@@ -7,6 +7,23 @@ import { Sparkles, Trophy, ArrowRight } from "lucide-react";
 import { NavLink } from "react-router";
 import "../public-pages.css";
 
+const studentMedia = [
+  {
+    name: "Arsema",
+    image: "/assets/testimonials/photo_2026-11-12_11-26-18.jpg",
+    audio: "/assets/arema.ogg",
+    caption: "Overall throughout the program I have learned so many things.",
+  },
+  {
+    name: "Efina",
+    image: "/assets/testimonials/photo_2026-11-12_11-26-48.jpg",
+    audio: "/assets/efina.ogg",
+  },
+  { name: "Negus student", image: "/assets/testimonials/photo_2026-11-12_11-26-53.jpg" },
+  { name: "Negus student", image: "/assets/testimonials/photo_2026-11-12_11-26-57.jpg" },
+  { name: "Negus student", image: "/assets/testimonials/photo_2026-11-12_11-27-01.jpg" },
+];
+
 export const mentorsData = [
   {
     id: 2,
@@ -76,6 +93,26 @@ const Testimonials = () => {
               <span>Browse Courses</span>
             </NavLink>
           </div>
+        </div>
+      </section>
+
+      <section className="public-content testimonial-media-section">
+        <div className="public-section-heading">
+          <p className="public-eyebrow"><Sparkles aria-hidden="true" /> STUDENT VOICES</p>
+          <h2>Hear directly from our students.</h2>
+          <p>Photos and voice messages shared by the Negus community.</p>
+        </div>
+        <div className="testimonial-media-grid">
+          {studentMedia.map((student, index) => (
+            <article className="testimonial-media-card" key={student.image}>
+              <img src={student.image} alt={`${student.name} testimonial`} loading={index > 1 ? "lazy" : "eager"} />
+              <div className="testimonial-media-copy">
+                <h3>{student.name}</h3>
+                {student.caption && <p>“{student.caption}”</p>}
+                {student.audio && <audio controls preload="none" src={student.audio} aria-label={`${student.name} voice testimonial`} />}
+              </div>
+            </article>
+          ))}
         </div>
       </section>
 

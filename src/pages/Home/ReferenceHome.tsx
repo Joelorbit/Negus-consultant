@@ -905,13 +905,13 @@ export default function ReferenceHome() {
               justifyContent: "space-between",
             }}>
             <p style={{ fontStyle: "italic", color: "var(--ink-secondary)", fontSize: "15px", lineHeight: "1.7", margin: "0 0 20px" }}>
-              &ldquo;Negus turned what felt like an impossible goal into a clear roadmap. My mentor knew exactly how to highlight my background, and I received a full scholarship.&rdquo;
+              &ldquo;Overall throughout the program I have learned so many things.&rdquo;
             </p>
             <div style={{ display: "flex", alignItems: "center", gap: "12px", borderTop: "1px solid var(--line)", paddingTop: "16px" }}>
             <img src="/assets/testimonials/photo_2026-11-12_11-26-18.jpg" alt="Arsema" style={{ width: "40px", height: "40px", borderRadius: "50%", objectFit: "cover" }} />
               <div>
-                <strong style={{ display: "block", fontFamily: "var(--font-display)", fontSize: "14px", color: "var(--ink)" }}>Kirubel T.</strong>
-                <span style={{ fontSize: "12.5px", color: "var(--gold-ink)", fontWeight: 600 }}>Georgetown University · $85k/yr</span>
+                <strong style={{ display: "block", fontFamily: "var(--font-display)", fontSize: "14px", color: "var(--ink)" }}>Arsema</strong>
+                <span style={{ fontSize: "12.5px", color: "var(--gold-ink)", fontWeight: 600 }}>Negus student</span>
               </div>
             </div>
             <audio controls src="/assets/arema.ogg" style={{ width: "100%", height: "30px", marginTop: "14px" }} aria-label="Arsema testimonial" />
@@ -929,13 +929,13 @@ export default function ReferenceHome() {
               justifyContent: "space-between",
             }}>
             <p style={{ fontStyle: "italic", color: "var(--ink-secondary)", fontSize: "15px", lineHeight: "1.7", margin: "0 0 20px" }}>
-              &ldquo;The essay coaching was truly transformative. They didn&apos;t write it for me; they challenged me to find my genuine voice and present my life story with dignity.&rdquo;
+              Listen to Efina share her experience with Negus.
             </p>
             <div style={{ display: "flex", alignItems: "center", gap: "12px", borderTop: "1px solid var(--line)", paddingTop: "16px" }}>
-              <img src="/assets/testimonials/photo_2026-11-12_11-26-48.jpg" alt="Efina" style={{ width: "40px", height: "40px", borderRadius: "50%", objectFit: "cover" }} />
+                <img src="/assets/testimonials/photo_2026-11-12_11-26-48.jpg" alt="Efina" style={{ width: "40px", height: "40px", borderRadius: "50%", objectFit: "cover" }} />
               <div>
-                <strong style={{ display: "block", fontFamily: "var(--font-display)", fontSize: "14px", color: "var(--ink)" }}>Blen A.</strong>
-                <span style={{ fontSize: "12px", color: "var(--ink-secondary)", fontWeight: 600 }}>Williams College · Full Financial Aid</span>
+                  <strong style={{ display: "block", fontFamily: "var(--font-display)", fontSize: "14px", color: "var(--ink)" }}>Efina</strong>
+                  <span style={{ fontSize: "12px", color: "var(--ink-secondary)", fontWeight: 600 }}>Negus student</span>
               </div>
             </div>
             <audio controls src="/assets/efina.ogg" style={{ width: "100%", height: "30px", marginTop: "14px" }} aria-label="Efina testimonial" />
@@ -965,7 +965,7 @@ export default function ReferenceHome() {
           </Reveal>
         </div>
         <div style={{ textAlign: "center", marginTop: "26px" }}>
-          <Link to="/about" style={{ display: "inline-flex", alignItems: "center", gap: "6px", color: "var(--ink)", fontWeight: 700, fontSize: "13px", textDecoration: "none", borderBottom: "1px solid var(--yellow)", paddingBottom: "4px" }}>See Testimonials <ArrowRight width={14} height={14} /></Link>
+          <Link to="/testimonials" style={{ display: "inline-flex", alignItems: "center", gap: "6px", color: "var(--ink)", fontWeight: 700, fontSize: "13px", textDecoration: "none", borderBottom: "1px solid var(--yellow)", paddingBottom: "4px" }}>See all testimonials <ArrowRight width={14} height={14} /></Link>
         </div>
       </section>
 

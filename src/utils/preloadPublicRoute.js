@@ -7,6 +7,7 @@ const routeLoaders = {
   "/scholarships": () => import("../pages/Scholarships/Scholarships"),
   "/free-tools": () => import("../pages/FreeTools/FreeTools"),
   "/about": () => import("../pages/About/AboutUs"),
+  "/testimonials": () => import("../pages/Testimonials/Testimonials"),
 };
 
 export function preloadPublicRoute(path) {

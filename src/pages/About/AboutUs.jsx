@@ -16,7 +16,7 @@ const outreach = [
 
 const testimonials = [
   ["Arsema", "Overall throughout the program I have learned so many things.", "photo_2026-11-12_11-26-18.jpg", "/assets/arema.ogg"],
-  ["Efina", "A clearer plan made the application feel possible.", "photo_2026-11-12_11-26-48.jpg", "/assets/efina.ogg"],
+  ["Efina", "", "photo_2026-11-12_11-26-48.jpg", "/assets/efina.ogg"],
 ];
 
 export default function AboutUs() {
@@ -43,10 +43,13 @@ export default function AboutUs() {
                 <img src={`/assets/testimonials/${image}`} alt={name} />
                 <strong>{name}</strong>
               </div>
-              <p>“{quote}”</p>
+              {quote && <p>“{quote}”</p>}
               <audio controls src={audio} />
             </article>
           ))}
+        </div>
+        <div className="public-page-actions">
+          <a className="public-button public-button-secondary" href="/testimonials">See all testimonials</a>
         </div>
       </section>
 

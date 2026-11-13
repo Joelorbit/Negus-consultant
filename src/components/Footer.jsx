@@ -43,7 +43,7 @@ const Footer = () => {
           <div className="public-footer-col">
             <h2>Connect Directly</h2>
             <a href="tel:+251964730248" style={{ whiteSpace: "nowrap" }}>Call Primary: +251 964 730 248</a>
-            <a href="tel:+251943041418" style={{ whiteSpace: "nowrap" }}>Call Alternative: +251 943 041 418</a>
+            <a href="tel:+251943041418" style={{ whiteSpace: "nowrap" }}>Call Admin: +251 943 041 418</a>
             <a href="mailto:contact@negusconsultants.com">
               contact@negusconsultants.com
             </a>

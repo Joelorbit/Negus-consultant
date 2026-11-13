@@ -4,13 +4,9 @@ import {
   Calendar,
   GraduationCap,
   Community,
-  Clock,
   CheckCircle,
 } from "iconoir-react";
-import {
-  SUPPORT_TELEGRAM_URL,
-  SUPPORT_PHONE,
-} from "../../config/supportContact";
+import { SUPPORT_TELEGRAM_URL } from "../../config/supportContact";
 import { testimonialPhotos } from "../../assets/testimonialPhotos";
 import "../public-pages.css";
 
@@ -25,6 +21,7 @@ const TRAININGS = [
     end: "Jan 12, 2027",
     status: "open",
     thumbnail: "/thumbnail/full_course.jpg",
+    mentors: "Negus admissions mentors",
   },
   {
     id: "essay-intensive",
@@ -36,6 +33,7 @@ const TRAININGS = [
     end: "Dec 7, 2026",
     status: "open",
     thumbnail: "/assets/training/photo_2026-01-13_11-55-38.jpg",
+    mentors: "Essay coaches from the Negus admissions team",
   },
   {
     id: "visa-masterclass",
@@ -47,6 +45,7 @@ const TRAININGS = [
     end: "Completed",
     status: "completed",
     thumbnail: "/assets/training/photo_2025-11-29_09-18-06.jpg",
+    mentors: "Negus visa-preparation mentors",
   },
 ];
 
@@ -61,10 +60,6 @@ export default function TrainingPage() {
             <p className="public-page-copy">
               Build confidence in scholarship research, application writing, and interviews through structured, practical sessions.
             </p>
-            <div className="public-page-actions">
-              <Link className="public-button public-button-primary" to="/courses">Start with the course <ArrowRight aria-hidden="true" /></Link>
-              <a className="public-button public-button-secondary" href={SUPPORT_TELEGRAM_URL} target="_blank" rel="noreferrer">Contact Us</a>
-            </div>
           </div>
           <figure className="training-visual-card">
             <img
@@ -76,6 +71,9 @@ export default function TrainingPage() {
               Practical guidance, shared in the classroom.
             </figcaption>
           </figure>
+          <a className="public-button public-button-primary training-explore-link" href="#training-catalog">
+            Explore trainings <ArrowRight aria-hidden="true" />
+          </a>
         </div>
       </section>
 
@@ -84,8 +82,8 @@ export default function TrainingPage() {
           <p className="public-eyebrow">TRAINING CATALOG</p>
           <h2>Ongoing sessions first. Completed ones keep their testimonials.</h2>
           <p>
-            About two cards per row on desktop. Open a training to see mentors, delivery
-            details, FAQs, and payment when registration is live.
+            Compare upcoming sessions and completed recordings. Open a training for its
+            schedule, mentors, and registration details.
           </p>
         </div>
 
@@ -93,7 +91,7 @@ export default function TrainingPage() {
           {TRAININGS.map((item) => (
             <article
               key={item.id}
-              className="home-card"
+              className="home-card training-card"
               style={{
                 overflow: "hidden",
                 borderRadius: "18px",
@@ -104,7 +102,7 @@ export default function TrainingPage() {
                 flexDirection: "column",
               }}
             >
-              <div style={{ aspectRatio: "16 / 10", overflow: "hidden", background: "var(--green-subtle)" }}>
+              <div className="training-card-image" style={{ aspectRatio: "16 / 10", overflow: "hidden", background: "var(--green-subtle)" }}>
                 <img
                   src={item.thumbnail}
                   alt=""
@@ -115,6 +113,7 @@ export default function TrainingPage() {
               <div style={{ padding: "22px 22px 24px", display: "grid", gap: "12px", flex: 1 }}>
                 <div style={{ display: "flex", justifyContent: "space-between", gap: "10px", alignItems: "center" }}>
                   <span
+                    className={`training-status-pill ${item.status === "open" ? "is-open" : "is-ended"}`}
                     style={{
                       display: "inline-flex",
                       alignItems: "center",
@@ -124,8 +123,6 @@ export default function TrainingPage() {
                       font: "700 11px/1.2 var(--font-display)",
                       letterSpacing: "0.06em",
                       textTransform: "uppercase",
-                      background: item.status === "open" ? "var(--yellow-soft)" : "var(--green-soft)",
-                      color: "var(--ink)",
                     }}
                   >
                     {item.status === "open" ? (
@@ -133,7 +130,7 @@ export default function TrainingPage() {
                         <CheckCircle width={12} height={12} aria-hidden="true" /> Registration open
                       </>
                     ) : (
-                      "Completed"
+                      "Ended · recordings by request"
                     )}
                   </span>
                 </div>
@@ -149,6 +146,10 @@ export default function TrainingPage() {
                 </h3>
                 <p style={{ margin: 0, color: "var(--ink-secondary)", fontSize: "14px", lineHeight: 1.6 }}>
                   {item.summary}
+                </p>
+                <p className="training-card-mentors">
+                  <GraduationCap width={16} height={16} aria-hidden="true" />
+                  <span>{item.mentors}</span>
                 </p>
                 <ul
                   style={{
@@ -190,11 +191,11 @@ export default function TrainingPage() {
 
       <section className="public-content training-essay-pricing">
         <div className="public-section-heading">
-          <p className="public-eyebrow">ESSAY SUPPORT PACKAGES</p>
-          <h2>Choose the timeline that works for you.</h2>
+          <p className="public-eyebrow">COURSE SUPPORT PACKAGES</p>
+          <h2>Choose the support timeline that works for you.</h2>
         </div>
         <div className="training-price-grid">
-          {[["6-Month Essay Package", "1,870 ETB"], ["2-Year Essay Package", "2,900 ETB"]].map(([name, price]) => (
+          {[["6-Month Course Support Package", "1,870 ETB"], ["2-Year Course Support Package", "2,900 ETB"]].map(([name, price]) => (
             <article className="training-price-card" key={name}>
               <span>{name}</span><strong>{price}</strong>
               <a className="public-button public-button-secondary" href={SUPPORT_TELEGRAM_URL} target="_blank" rel="noreferrer">Ask about this package</a>
@@ -222,23 +223,11 @@ export default function TrainingPage() {
       </section>
 
       <section className="public-page-cta">
-        <p className="public-eyebrow">NEED A QUICK ANSWER?</p>
-        <h2>Choose your next step.</h2>
-        <p>
-          Enroll in the course first, add a standalone package when you need it, or reach us on Telegram for help choosing.
-        </p>
+        <p className="public-eyebrow">YOUR NEXT STEP</p>
+        <h2>Find the training that fits your goals.</h2>
+        <p>Compare upcoming sessions and choose where you want to begin.</p>
         <div className="public-page-actions">
-          <NavLink className="public-button public-button-outline-light" to="/courses">
-            Start with the course <Clock aria-hidden="true" />
-          </NavLink>
-          <a
-            className="public-button public-button-light"
-            href={SUPPORT_TELEGRAM_URL}
-            target="_blank"
-            rel="noreferrer"
-          >
-            Contact Us
-          </a>
+          <a className="public-button public-button-light" href="#training-catalog">Explore trainings <ArrowRight aria-hidden="true" /></a>
         </div>
       </section>
     </main>

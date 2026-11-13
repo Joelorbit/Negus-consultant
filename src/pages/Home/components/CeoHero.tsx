@@ -21,7 +21,7 @@ export default function CeoHero() {
           min-height: min(820px, calc(100svh - 74px));
           display: flex;
           align-items: center;
-          padding: clamp(38px, 5vw, 72px) 0 clamp(42px, 5vw, 76px) clamp(20px, 4vw, 56px);
+          padding: 0 0 clamp(42px, 5vw, 76px) clamp(20px, 4vw, 56px);
           max-width: none;
           margin: 0 auto;
           overflow: hidden;
@@ -303,7 +303,7 @@ export default function CeoHero() {
           .ceo-hero-section {
             --paper: #07130e;
             min-height: min(900px, 100svh);
-            padding: clamp(72px, 15vw, 112px) 22px 220px;
+            padding: 32px 22px 220px;
             color: #fff;
             background: #07130e;
           }
@@ -419,7 +419,7 @@ export default function CeoHero() {
         @media (max-width: 640px) {
           .ceo-hero-section {
             min-height: auto;
-            padding: 52px 18px 98px;
+            padding: 24px 18px 98px;
           }
 
           .ceo-hero-eyebrow {

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router";
+import { FileUser, FileVideo2 } from "lucide-react";
 import { ArrowRight, ArrowUpRight, Check, Spark, Award, FileText } from "../icons";
 
 const SAMPLE_ESSAYS = [
@@ -196,6 +197,23 @@ export default function CeoFreeToolsSection() {
           margin: 0 0 8px;
         }
 
+        .ceo-resource-icon {
+          display: grid;
+          width: 44px;
+          height: 44px;
+          place-items: center;
+          margin-bottom: 14px;
+          border: 1px solid rgba(18, 61, 43, 0.12);
+          border-radius: 14px;
+          background: var(--green-subtle);
+          color: #123d2b;
+        }
+
+        .ceo-resource-icon svg {
+          width: 22px;
+          height: 22px;
+        }
+
         .ceo-resource-card p {
           font-family: var(--font-body, 'Outfit', sans-serif);
           font-size: 13.5px;
@@ -270,21 +288,17 @@ export default function CeoFreeToolsSection() {
         {/* Resource 1: YouTube Recordings Archive */}
         <div className="ceo-resource-card">
           <div>
+            <span className="ceo-resource-icon"><FileVideo2 aria-hidden="true" /></span>
             <span className="ceo-resource-badge">VIDEO ARCHIVE</span>
             <h3>Past Online Trainings</h3>
             <p>
               7–10 recorded sessions covering digital SAT math pacing, Common App activity lists, and CSS Profile tax forms.
             </p>
           </div>
-          <a
-            href="https://www.youtube.com/@negusconsultants"
-            target="_blank"
-            rel="noreferrer"
-            className="ceo-resource-action"
-          >
-            <span>Watch on YouTube</span>
-            <ArrowUpRight width={14} height={14} />
-          </a>
+          <Link to="/free-tools" className="ceo-resource-action">
+            <span>Browse Free Tools &amp; Recordings</span>
+            <ArrowRight width={14} height={14} />
+          </Link>
         </div>
 
         {/* Resource 2: Sample Worked Essays */}
@@ -305,6 +319,7 @@ export default function CeoFreeToolsSection() {
         {/* Resource 3: CV Builder */}
         <div className="ceo-resource-card">
           <div>
+            <span className="ceo-resource-icon"><FileUser aria-hidden="true" /></span>
             <span className="ceo-resource-badge">CAREER & ADMISSIONS</span>
             <h3>Academic CV & Resume Builder</h3>
             <p>

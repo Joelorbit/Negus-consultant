@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router";
+import { Instagram, Youtube } from "lucide-react";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -174,16 +175,16 @@ export default function ReferenceHome() {
           }}
         >
           {[
-            { name: "Georgetown", loc: "Washington, D.C.", award: "$85k/yr Award", Crest: GeorgetownCrest },
-            { name: "Williams College", loc: "Massachusetts", award: "Full Financial Aid", Crest: WilliamsCrest },
-            { name: "Drexel University", loc: "Philadelphia, PA", award: "$145k Scholarship", Crest: DrexelCrest },
-            { name: "Howard University", loc: "Washington, D.C.", award: "Full Tuition", Crest: HowardCrest },
-            { name: "NYU Abu Dhabi", loc: "Abu Dhabi & NYC", award: "Full Need-Based Aid", Crest: NyuCrest },
-            { name: "Hult International", loc: "Boston & London", award: "$120k Merit Grant", Crest: HultCrest },
-            { name: "Sarah Lawrence", loc: "New York", award: "Full Institutional Aid", Crest: SarahLawrenceCrest },
-            { name: "Canisius University", loc: "New York", award: "$95k Presidential", Crest: CanisiusCrest },
-            { name: "Clark University", loc: "Massachusetts", award: "Global Scholars Award", Crest: ClarkCrest },
-          ].map(({ name, loc, award, Crest }, i) => (
+            { name: "Georgetown", loc: "Washington, D.C.", award: "$85k/yr Award", href: "https://www.georgetown.edu/", Crest: GeorgetownCrest },
+            { name: "Williams College", loc: "Massachusetts", award: "Full Financial Aid", href: "https://www.williams.edu/", Crest: WilliamsCrest },
+            { name: "Drexel University", loc: "Philadelphia, PA", award: "$145k Scholarship", href: "https://drexel.edu/", Crest: DrexelCrest },
+            { name: "Howard University", loc: "Washington, D.C.", award: "Full Tuition", href: "https://howard.edu/", Crest: HowardCrest },
+            { name: "NYU Abu Dhabi", loc: "Abu Dhabi & NYC", award: "Full Need-Based Aid", href: "https://nyuad.nyu.edu/", Crest: NyuCrest },
+            { name: "Hult International", loc: "Boston & London", award: "$120k Merit Grant", href: "https://www.hult.edu/", Crest: HultCrest },
+            { name: "Sarah Lawrence", loc: "New York", award: "Full Institutional Aid", href: "https://www.sarahlawrence.edu/", Crest: SarahLawrenceCrest },
+            { name: "Canisius University", loc: "New York", award: "$95k Presidential", href: "https://www.canisius.edu/", Crest: CanisiusCrest },
+            { name: "Clark University", loc: "Massachusetts", award: "Global Scholars Award", href: "https://www.clarku.edu/", Crest: ClarkCrest },
+          ].map(({ name, loc, award, href, Crest }, i) => (
             <Reveal
               key={name}
               variant="stamp"
@@ -204,13 +205,17 @@ export default function ReferenceHome() {
             >
               <div
                 style={{
-                  width: "48px",
-                  height: "48px",
+                  width: "72px",
+                  height: "72px",
+                  borderRadius: "50%",
+                  background: "var(--green-subtle)",
                   display: "grid",
                   placeItems: "center",
                 }}
               >
-                <Crest style={{ width: "42px", height: "42px" }} />
+                  <a className="home-university-icon-link" href={href} target="_blank" rel="noreferrer" aria-label={`Visit ${name} official website`}>
+                    <Crest style={{ width: "60px", height: "60px" }} />
+                  </a>
               </div>
               <div>
                 <strong
@@ -414,8 +419,8 @@ export default function ReferenceHome() {
       </section>
 
       {/* Course Preview (CEO homepage sketch — intro video + 3 cards + Explore) */}
-      <section className="section-shell" id="courses" style={{ paddingTop: "36px", paddingBottom: "40px" }}>
-        <div style={{ textAlign: "center", maxWidth: "700px", margin: "0 auto 28px" }}>
+      <section className="section-shell home-course-section" id="courses" style={{ paddingTop: "28px", paddingBottom: "36px" }}>
+        <div style={{ textAlign: "center", maxWidth: "700px", margin: "0 auto 20px" }}>
           <div className="eyebrow-tag" style={{ justifyContent: "center", marginBottom: "12px" }}>
             COURSE PREVIEW
           </div>
@@ -454,11 +459,11 @@ export default function ReferenceHome() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 220px), 1fr))",
-            gap: "16px",
+            gap: "14px",
             maxWidth: "1100px",
-            margin: "0 auto 28px",
+            margin: "0 auto 20px",
           }}
+          className="home-course-preview-grid"
         >
           {[
             { title: "Scholarship Application Foundations", meta: "Free on YouTube", to: "/courses", image: "/Best-Scholarship-Application-Strategies.jpg" },
@@ -707,7 +712,7 @@ export default function ReferenceHome() {
       </section>
 
       {/* Verified Student Wins & Testimonials */}
-      <section className="section-shell home-grid-paper" style={{ paddingTop: "36px", paddingBottom: "54px" }}>
+      <section className="section-shell home-grid-paper home-testimonial-section" style={{ paddingTop: "36px", paddingBottom: "54px" }}>
         <div style={{ textAlign: "center", maxWidth: "680px", margin: "0 auto 36px" }}>
           <div className="eyebrow-tag" style={{ justifyContent: "center", marginBottom: "12px" }}>
             STUDENT STORIES
@@ -778,6 +783,36 @@ export default function ReferenceHome() {
             </Link>
           </div>
         </Reveal>
+      </section>
+
+      <section className="home-social-section" aria-labelledby="home-social-title">
+        <div className="home-social-inner">
+          <div className="home-social-copy">
+            <span className="home-social-eyebrow">THE CONVERSATION CONTINUES</span>
+            <h2 id="home-social-title">Scholarship guidance, wherever you are.</h2>
+            <p>Join our community for new opportunities, practical advice, and conversations with students who have been there.</p>
+            <div className="home-social-links">
+              <a href="https://t.me/NEGUSCONSULTANTS" target="_blank" rel="noreferrer" className="home-social-link home-social-link-primary">
+                <Telegram aria-hidden="true" /><span>Join Telegram</span><ArrowUpRight aria-hidden="true" />
+              </a>
+              <a href="https://www.youtube.com/@negusconsultants" target="_blank" rel="noreferrer" className="home-social-link">
+                <Youtube aria-hidden="true" /><span>YouTube</span><ArrowUpRight aria-hidden="true" />
+              </a>
+              <a href="https://www.instagram.com/negusconsultants" target="_blank" rel="noreferrer" className="home-social-link">
+                <Instagram aria-hidden="true" /><span>Instagram</span><ArrowUpRight aria-hidden="true" />
+              </a>
+            </div>
+          </div>
+          <a className="home-social-feature" href="https://youtu.be/ldL5J1EnlZg" target="_blank" rel="noreferrer">
+            <img src="https://img.youtube.com/vi/ldL5J1EnlZg/hqdefault.jpg" alt="" loading="lazy" />
+            <span className="home-social-play"><Play aria-hidden="true" fill="currentColor" /></span>
+            <span className="home-social-feature-copy">
+              <span>FROM THE NEGUS COMMUNITY</span>
+              <strong>How to Win the UWC Scholarship · Part 2</strong>
+              <span className="home-social-watch"><Youtube aria-hidden="true" /> Watch the conversation <ArrowUpRight aria-hidden="true" /></span>
+            </span>
+          </a>
+        </div>
       </section>
     </main>
   );

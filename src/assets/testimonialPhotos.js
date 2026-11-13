@@ -19,4 +19,8 @@ export const testimonialPhotos = [
     name: "Gelila Millon",
     image: "/assets/testimonials/photo_2026-11-12_11-27-01.jpg",
   },
+  {
+    name: "Betelehem",
+    image: "/assets/testimonials/photo_2026-11-13_betelehem.jpg",
+  },
 ];

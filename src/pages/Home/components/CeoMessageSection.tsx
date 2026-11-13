@@ -140,6 +140,15 @@ export default function CeoMessageSection() {
           margin: 0 0 8px;
         }
 
+        .ceo-video-subtitle {
+          margin: -8px 0 18px;
+          color: #947a38;
+          font-family: var(--section-amharic);
+          font-size: 15px;
+          font-weight: 700;
+          text-align: center;
+        }
+
         .ceo-video-copy p {
           font-family: var(--font-body, 'Outfit', sans-serif);
           font-size: 14.5px;
@@ -306,10 +315,10 @@ export default function CeoMessageSection() {
         <div className="ceo-video-card">
           <a
             className="ceo-video-screen"
-            href="https://www.youtube.com/@negusconsultants"
+            href="https://youtu.be/ldL5J1EnlZg"
             target="_blank"
             rel="noreferrer"
-            aria-label="Open the Negus Consultants YouTube channel"
+            aria-label="Play the Negus Consultants scholarship message on YouTube"
           >
             <img
               src="/hero-teaching.jpg"
@@ -320,6 +329,8 @@ export default function CeoMessageSection() {
               <Play width={24} height={24} style={{ marginLeft: "3px" }} />
             </span>
           </a>
+
+          <p className="ceo-video-subtitle">መልዕክት አለን · Watch our message</p>
 
           <div className="ceo-video-copy">
             <h3 className="ceo-message-amharic">የተማሪዎቻችን ስኬት የኛ ኩራት ነው!</h3>

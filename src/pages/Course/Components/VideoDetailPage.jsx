@@ -59,13 +59,12 @@ export function VideoDetailPage({ video, onBack }) {
     ? description
     : description.slice(0, previewLength);
 
-  const isFree = video.is_free === true || Number(video.price ?? 0) <= 0;
   const subscriptionExpiresAt = new Date(user?.subscription_end_date).getTime();
   const hasActiveSubscription =
     user?.subscription_status === true &&
     Number.isFinite(subscriptionExpiresAt) &&
     subscriptionExpiresAt > Date.now();
-  const hasAccess = Boolean(user) && (isFree || hasActiveSubscription);
+  const hasAccess = Boolean(user) && hasActiveSubscription;
 
   return (
     <div className="negus-video-detail-page">
@@ -456,24 +455,16 @@ export function VideoDetailPage({ video, onBack }) {
                     <div className="negus-locked-icon">
                       <Lock width={26} height={26} />
                     </div>
-                    <h3 className="negus-locked-title">
-                      {isFree && !user
-                        ? "Sign in to preview this course"
-                        : "Premium Course Lesson"}
-                    </h3>
+                    <h3 className="negus-locked-title">Unlock this lesson</h3>
                     <p className="negus-locked-desc">
-                      {isFree && !user
-                        ? "Sign in to watch this free lesson and explore available courses."
-                        : "An active course package unlocks this lesson and the rest of the learning library."}
+                      An active course package unlocks this lesson and the rest of the learning library.
                     </p>
                     <NavLink
-                      to={user ? "/packages" : "/login"}
+                      to="/packages"
                       className="public-button public-button-primary"
                       style={{ marginTop: "16px" }}
                     >
-                      <span>
-                        {user ? "Explore Access Packages" : "Sign in to continue"}
-                      </span>
+                      <span>Explore packages</span>
                     </NavLink>
                   </div>
                 </div>

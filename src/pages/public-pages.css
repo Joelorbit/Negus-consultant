@@ -915,6 +915,7 @@
 .course-intro-play>span { position:absolute; z-index:1; bottom:clamp(16px,4vw,32px); left:50%; display:inline-flex; min-height:48px; align-items:center; gap:9px; transform:translateX(-50%); border:1px solid rgba(255,255,255,.42); border-radius:999px; padding:0 20px; background:var(--ink); color:var(--paper); font:700 13px/1 var(--font-display); white-space:nowrap; box-shadow:0 8px 26px rgba(0,0,0,.24); }
 .course-intro-play>span svg { width:16px; height:16px; }
 .course-intro-play:focus-visible { outline:3px solid var(--yellow); outline-offset:-5px; }
+.course-explore-lessons { justify-self:center; margin-top:-8px; }
 .course-overview-stats { display:grid; grid-template-columns:repeat(3,auto); gap:20px; color:var(--ink-muted); font:700 11px var(--font-display); text-transform:uppercase; }
 .course-overview-stats span { display:grid; gap:5px; }
 .course-overview-stats strong { color:var(--ink); font-size:26px; letter-spacing:-.05em; }

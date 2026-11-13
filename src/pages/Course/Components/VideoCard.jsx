@@ -1,27 +1,15 @@
 import React, { useState } from "react";
-import { Play, Lock, Clock, Spark } from "iconoir-react";
+import { Lock, Clock, ArrowRight } from "iconoir-react";
+import { NavLink } from "react-router";
 
-export function VideoCard({ video, onClick }) {
+export function VideoCard({ video }) {
   const [imgError, setImgError] = useState(false);
 
   const fallbackThumbnail = "/thumbnail/c_part_1.jpg";
   const displayThumbnail = imgError || !video.thumbnail ? fallbackThumbnail : video.thumbnail;
 
-  const isFree = video.is_free === true;
-
   return (
-    <article
-      className="negus-course-card"
-      onClick={() => onClick(video)}
-      role="button"
-      tabIndex={0}
-      onKeyDown={(e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          onClick(video);
-        }
-      }}
-    >
+    <NavLink className="negus-course-card" to="/packages" aria-label={`Unlock ${video.title} with a course package`}>
       <style>{`
         .negus-course-card {
           position: relative;
@@ -33,6 +21,7 @@ export function VideoCard({ video, onClick }) {
           color: var(--ink);
           overflow: hidden;
           cursor: pointer;
+          text-decoration: none;
           box-shadow: var(--shadow-sm);
           transition: transform 0.25s var(--ease-spring, cubic-bezier(0.16, 1, 0.3, 1)),
                       box-shadow 0.25s ease,
@@ -73,7 +62,7 @@ export function VideoCard({ video, onClick }) {
           display: flex;
           align-items: center;
           justify-content: center;
-          opacity: 0;
+          opacity: 1;
           transition: opacity 0.25s ease;
         }
 
@@ -92,7 +81,7 @@ export function VideoCard({ video, onClick }) {
           align-items: center;
           justify-content: center;
           box-shadow: 0 4px 18px rgba(0,0,0,0.25);
-          transform: scale(0.85);
+          transform: scale(1);
           transition: transform 0.25s var(--ease-spring, cubic-bezier(0.16, 1, 0.3, 1));
         }
 
@@ -118,12 +107,6 @@ export function VideoCard({ video, onClick }) {
           backdrop-filter: blur(10px);
           -webkit-backdrop-filter: blur(10px);
           box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-        }
-
-        .negus-course-status-badge.free {
-          background: color-mix(in srgb, var(--paper) 92%, transparent);
-          color: var(--ink);
-          border: 1px solid var(--line);
         }
 
         .negus-course-status-badge.premium {
@@ -274,6 +257,27 @@ export function VideoCard({ video, onClick }) {
           color: var(--ink-muted);
           border: 1px solid var(--line);
         }
+
+        .negus-course-unlock {
+          display: inline-flex;
+          align-items: center;
+          gap: 7px;
+          align-self: flex-start;
+          margin-top: 16px;
+          color: var(--ink-secondary);
+          font: 700 12px/1.3 var(--font-display, 'Lexend', sans-serif);
+        }
+
+        .negus-course-unlock svg {
+          width: 15px;
+          height: 15px;
+          color: var(--gold-ink);
+        }
+
+        .negus-course-card:focus-visible {
+          outline: 3px solid var(--gold-ink);
+          outline-offset: 3px;
+        }
       `}</style>
 
       {/* Video Thumbnail */}
@@ -287,21 +291,8 @@ export function VideoCard({ video, onClick }) {
           decoding="async"
         />
 
-        {/* Free or Premium Badge */}
-        <span
-          className={`negus-course-status-badge ${
-            isFree ? "free" : "premium"
-          }`}
-        >
-          {isFree ? (
-            <>
-              <Spark width={12} height={12} /> Free
-            </>
-          ) : (
-            <>
-              <Lock width={12} height={12} /> Premium
-            </>
-          )}
+        <span className="negus-course-status-badge premium">
+          <Lock width={12} height={12} /> Locked
         </span>
 
         {/* Duration */}
@@ -314,11 +305,7 @@ export function VideoCard({ video, onClick }) {
         {/* Play Overlay */}
         <div className="negus-course-overlay" aria-hidden="true">
           <div className="negus-course-play-btn">
-            {isFree ? (
-              <Play width={22} height={22} />
-            ) : (
-              <Lock width={20} height={20} />
-            )}
+            <Lock width={20} height={20} />
           </div>
         </div>
       </div>
@@ -366,7 +353,8 @@ export function VideoCard({ video, onClick }) {
             ))}
           </div>
         )}
+        <span className="negus-course-unlock">Unlock with a package <ArrowRight aria-hidden="true" /></span>
       </div>
-    </article>
+    </NavLink>
   );
 }

@@ -1,34 +1,23 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { ArrowRight } from "iconoir-react";
 import { NavLink } from "react-router";
-import { HeroSection } from "./HeroSection";
 import { CategoryFilter } from "./CategoryFilter";
 import { VideoGrid } from "./VideoGrid";
 import { useCourses, useCategories } from "../../../hooks/useCourses";
 
-export function VideosPage({ onVideoSelect }) {
+export function VideosPage() {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [sortBy, setSortBy] = useState("newest");
-  const [searchTerm, setSearchTerm] = useState("");
   const filters = {
     category: selectedCategory === "all" ? undefined : selectedCategory,
     sortBy,
   };
   const { data: videos = [], isLoading, error } = useCourses(filters);
   const { data: categories = [] } = useCategories();
-  const visibleVideos = useMemo(() => {
-    const query = searchTerm.trim().toLowerCase();
-    if (!query) return videos;
-    return videos.filter((video) =>
-      `${video.title || ""} ${video.description || ""} ${video.category || ""} ${video.instructor_name || ""} ${(video.tags || []).join(" ")}`
-        .toLowerCase()
-        .includes(query),
-    );
-  }, [videos, searchTerm]);
+  const visibleVideos = videos;
 
   return (
     <div className="course-catalog">
-      <HeroSection searchTerm={searchTerm} onSearchChange={setSearchTerm} />
       <section className="public-content course-results" id="course-results">
         <div className="public-section-heading course-results-heading">
           <div>
@@ -68,16 +57,12 @@ export function VideosPage({ onVideoSelect }) {
             <NavLink className="public-button public-button-primary" to="/packages">Explore packages <ArrowRight aria-hidden="true" /></NavLink>
           </div>
         ) : visibleVideos.length ? (
-          <VideoGrid videos={visibleVideos} onVideoClick={onVideoSelect} />
+          <VideoGrid videos={visibleVideos} />
         ) : (
           <div className="public-empty-state">
-            <h3>{searchTerm ? "No courses match that search." : "No courses are available yet."}</h3>
-            <p>{searchTerm ? "Try a different topic or clear the search." : "Contact our team to ask about upcoming courses and training."}</p>
-            {searchTerm ? (
-              <button className="public-button public-button-secondary" onClick={() => setSearchTerm("")}>Clear search</button>
-            ) : (
-              <a className="public-button public-button-primary" href="https://t.me/negushelpcenter" target="_blank" rel="noreferrer">Ask about courses <ArrowRight aria-hidden="true" /></a>
-            )}
+            <h3>No courses are available yet.</h3>
+            <p>Contact our team to ask about upcoming courses and training.</p>
+            <NavLink className="public-button public-button-primary" to="/packages">Explore packages <ArrowRight aria-hidden="true" /></NavLink>
           </div>
         )}
       </section>

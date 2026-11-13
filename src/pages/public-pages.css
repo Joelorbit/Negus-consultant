@@ -334,6 +334,8 @@
 .mentor-about-sessions figcaption { margin-top:8px; color:var(--ink-muted); font-size:12px; line-height:1.5; }
 .mentor-profile-not-found { min-height:60vh; padding-top:80px; }
 .course-explore-lessons { scroll-margin-top:120px; }
+.course-direct-load { display:grid; min-height:55vh; align-content:center; justify-items:start; gap:12px; }
+.course-direct-load h1,.course-direct-load p { margin:0; }
 .course-results { scroll-margin-top:120px; }
 .public-about-office { padding-top: 12px; padding-bottom: clamp(48px, 6vw, 76px); }
 .public-about-section-heading { width: min(100%, 760px); margin: 0 auto 38px; text-align: center; }

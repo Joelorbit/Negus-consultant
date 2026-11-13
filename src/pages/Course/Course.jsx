@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router";
+import { useState } from "react";
+import { NavLink, useSearchParams } from "react-router";
 import { VideoDetailPage } from "./Components/VideoDetailPage";
 import { VideosPage } from "./Components/VideoPage";
 import { useCourseById } from "../../hooks/useCourses";
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, ArrowLeft } from "lucide-react";
 import "../public-pages.css";
 
 const COURSE_PREVIEW_ID = "ytDhlQqU384";
@@ -13,33 +13,48 @@ const COURSE_GUIDE_TITLE =
 function Course() {
   const [searchParams, setSearchParams] = useSearchParams();
   const videoId = searchParams.get("video");
-  const [selectedVideo, setSelectedVideo] = useState(null);
   const [isPreviewPlaying, setIsPreviewPlaying] = useState(false);
 
-  // Supports direct links like /courses?video=<id> by loading the course by id
-  const { data: deepLinkedCourse } = useCourseById(videoId);
-
-  useEffect(() => {
-    if (deepLinkedCourse) setSelectedVideo(deepLinkedCourse);
-  }, [deepLinkedCourse]);
-
-  useEffect(() => {
-    if (!videoId) setSelectedVideo(null);
-  }, [videoId]);
+  const {
+    data: deepLinkedCourse,
+    isLoading: isCourseLoading,
+    isError: hasCourseError,
+  } = useCourseById(videoId);
 
   const handleBackToVideos = () => {
-    setSelectedVideo(null);
     setSearchParams({}, { replace: true });
   };
 
-  const showDetail = Boolean(selectedVideo);
-
   return (
     <main className="public-page public-courses-page">
-      {showDetail ? (
+      {videoId ? (
+        deepLinkedCourse ? (
         <div className="course-detail-shell">
-          <VideoDetailPage video={selectedVideo} onBack={handleBackToVideos} />
+          <VideoDetailPage video={deepLinkedCourse} onBack={handleBackToVideos} />
         </div>
+        ) : (
+          <section className="public-content course-direct-load" aria-live="polite">
+            {isCourseLoading ? (
+              <p role="status">Loading this course…</p>
+            ) : hasCourseError ? (
+              <>
+                <h1>This course couldn’t be loaded.</h1>
+                <p>Please try again, or return to the course list.</p>
+                <NavLink className="public-button public-button-primary" to="/courses">
+                  <ArrowLeft aria-hidden="true" /> Back to courses
+                </NavLink>
+              </>
+            ) : (
+              <>
+                <h1>This course is unavailable.</h1>
+                <p>It may have been removed. Browse the available courses instead.</p>
+                <NavLink className="public-button public-button-primary" to="/courses">
+                  <ArrowLeft aria-hidden="true" /> Back to courses
+                </NavLink>
+              </>
+            )}
+          </section>
+        )
       ) : (
         <div>
           <section className="course-intro-section">

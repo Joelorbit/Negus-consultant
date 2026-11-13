@@ -1,6 +1,5 @@
 // src/pages/CollegePackages/CollegePackages.jsx
 import { useState } from "react";
-import { useNavigate, NavLink } from "react-router";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import {
   Card,
@@ -26,7 +25,6 @@ import {
   BookOpen,
   ArrowDown,
   Download,
-  Check,
   Send,
   Building2,
   DollarSign,
@@ -36,19 +34,20 @@ import {
   useEssayPricingRates,
   useMentorshipPackages,
   useApplicationPackages,
+  usePackageOffer,
 } from "../../hooks/useNegusCatalog";
-import { usePackages } from "../../hooks/usePackages";
 import {
   mockCatalogFixedServices,
   mockCatalogEssayRates,
   mockCatalogMentorshipPackages,
   mockCatalogApplicationPackages,
-  mockPackagesList,
 } from "../../mock/mockData";
-import { PackageCard } from "../Packages/Components/PackagesCard";
 import { Testimonials } from "../Packages/Components/Testimonial";
 import { PricingFAQ } from "../Packages/Components/PricingFAQ";
 import OrderDialog from "./Components/OrderDialog";
+import { getPackagePriceBreakdown } from "../../utils/packagePricing";
+import { SUPPORT_TELEGRAM_URL } from "../../config/supportContact";
+import { COURSE_ACCESS_PACKAGES } from "../../constants/courseAccessPackages";
 import "../public-pages.css";
 
 const ROUND_LABELS = {
@@ -59,8 +58,13 @@ const ROUND_LABELS = {
 
 export default function CollegePackages() {
   const [orderIntent, setOrderIntent] = useState(null); // { type, payload, label, amount }
-  const [selectedPackage, setSelectedPackage] = useState(1);
-  const navigate = useNavigate();
+  const {
+    data: packageOffer,
+    isLoading: loadingPackageOffer,
+    isError: packageOfferError,
+    refetch: refetchPackageOffer,
+  } = usePackageOffer();
+  const discountPercent = Number(packageOffer?.discountPercent ?? 0);
 
   const { data: fixedServicesRaw } = useFixedServices();
   const fixedServices = (fixedServicesRaw && fixedServicesRaw.length > 0) ? fixedServicesRaw : mockCatalogFixedServices;
@@ -74,11 +78,6 @@ export default function CollegePackages() {
   const { data: applicationPackagesRaw, isLoading: loadingApplication } = useApplicationPackages();
   const applicationPackages = (applicationPackagesRaw && applicationPackagesRaw.length > 0) ? applicationPackagesRaw : mockCatalogApplicationPackages;
 
-  const { data: packages, isLoading: loadingCoursePkgs } = usePackages();
-  const coursePackages = (packages?.data && packages.data.length > 0)
-    ? packages.data.filter((pkg) => pkg.access_type || !pkg.type || pkg.type === "package")
-    : mockPackagesList;
-
   const essayByType = (type) =>
     (essayRates ?? [])
       .filter((r) => r.service_type === type)
@@ -86,50 +85,34 @@ export default function CollegePackages() {
 
   return (
     <main className="public-page packages-page">
-      {/* ---------------- Hero Section ---------------- */}
-      <section className="public-page-hero">
-        <div className="public-page-hero-inner">
-          <p className="public-eyebrow">
-            <GraduationCap aria-hidden="true" /> TRANSPARENT, MILESTONE-BASED ADMISSIONS SUPPORT
-          </p>
-          <h1 className="public-page-title">
-            Pick the level of guidance that fits your <em>ambition.</em>
-          </h1>
-          <p className="public-page-copy">
-            From single essay polishes and CSS Profile guidance to full-cycle application management.
-            Transparent milestone payments with zero hidden fees — pay the final round only after winning your visa.
-          </p>
-
-          <div className="public-page-actions">
-            <a className="public-button public-button-primary" href="#package-catalog">
-              Explore Packages <ArrowRight aria-hidden="true" />
-            </a>
-            <NavLink className="public-button public-button-secondary" to="/scholarships">
-              Browse Scholarships
-            </NavLink>
-          </div>
-
-          <div className="public-hero-note">
-            <Check aria-hidden="true" /> Milestone Payments · Zero Hidden Fees · Pay Round 3 Only After Visa
-          </div>
-        </div>
-      </section>
-
-      {/* ---------------- 50% OFF Offer Banner ---------------- */}
-      <section className="container mx-auto px-4 max-w-6xl pt-10">
-        <aside className="public-offer-banner" aria-label="Negus Package Offer">
+      <section className="container mx-auto px-4 max-w-6xl pt-6 sm:pt-8">
+        <aside className="public-offer-banner" aria-labelledby="package-offer-title">
           <div className="public-offer-copy">
-            <span className="public-offer-kicker">LIMITED ENROLLMENT COHORT</span>
-            <h3>Make your dream university affordable.</h3>
+            <span className="public-offer-kicker">LIMITED ENROLMENT COHORT</span>
+            <h1 id="package-offer-title">A focused cohort. A more affordable path.</h1>
             <p>
-              Save up to 50% on eligible admissions packages and masterclasses. All prices listed in transparent Ethiopian Birr (ETB) with flexible round-by-round payment milestones.
+              {discountPercent > 0
+                ? `Save ${discountPercent}% on eligible packages. Prices are listed in Ethiopian Birr (ETB), with flexible round-by-round payment milestones.`
+                : "Explore transparent package pricing in Ethiopian Birr (ETB), with flexible round-by-round payment milestones."}
             </p>
           </div>
-          <div className="public-offer-stamp" aria-hidden="true">
-            <strong>50%</strong>
-            <span>OFF</span>
-          </div>
+          {loadingPackageOffer ? (
+            <div className="public-offer-stamp" role="status">Loading</div>
+          ) : discountPercent > 0 ? (
+            <div className="public-offer-stamp" aria-label={`${discountPercent}% off`}>
+              <strong>{discountPercent}%</strong>
+              <span>OFF</span>
+            </div>
+          ) : null}
         </aside>
+        {packageOfferError && (
+          <div className="package-offer-error" role="alert">
+            <span>Current cohort pricing could not be loaded. Package prices below are shown without the cohort discount.</span>
+            <button type="button" onClick={() => refetchPackageOffer()}>
+              Try again
+            </button>
+          </div>
+        )}
       </section>
 
       {/* ---------------- Main Content & Tabs ---------------- */}
@@ -568,32 +551,81 @@ export default function CollegePackages() {
           <TabsContent value="courses" className="focus-visible:outline-none space-y-8">
             <div className="text-center max-w-2xl mx-auto space-y-2">
               <h3 className="text-2xl font-bold tracking-tight text-foreground font-display">
-                Video Masterclasses & Self-Paced Toolkits
+                Course Access Packages
               </h3>
               <p className="text-xs md:text-sm text-muted-foreground">
-                Watch full comprehensive lecture modules covering Common App, CSS Profile, and winning scholarship stories.
+                Choose one course or get access for six months or two years.
               </p>
             </div>
 
-            {loadingCoursePkgs ? (
-              <div className="grid md:grid-cols-3 gap-8">
-                {[1, 2, 3].map((n) => (
-                  <div key={n} className="h-80 rounded-3xl border border-border bg-muted/30 animate-pulse" />
-                ))}
-              </div>
-            ) : (
-              <div className="grid md:grid-cols-3 gap-8">
-                {coursePackages.map((pkg) => (
-                  <PackageCard
-                    key={pkg.id}
-                    pkg={pkg}
-                    isSelected={selectedPackage === pkg.id}
-                    onNavigate={() => navigate(`/packages/full-course/${pkg.id}`)}
-                    onSelect={() => setSelectedPackage(pkg.id)}
-                  />
-                ))}
-              </div>
-            )}
+            <div className="grid items-stretch gap-5 md:grid-cols-3">
+              {COURSE_ACCESS_PACKAGES.map((option, index) => {
+                const price = getPackagePriceBreakdown(
+                  option.price,
+                  "",
+                  true,
+                  discountPercent,
+                );
+                const isFeatured = index === 1;
+
+                return (
+                  <Card
+                    key={option.name}
+                    className={`flex h-full flex-col rounded-3xl bg-card p-6 shadow-sm ${
+                      isFeatured
+                        ? "border-2 border-primary shadow-lg"
+                        : "border border-border/80"
+                    }`}
+                  >
+                    <CardHeader className="p-0">
+                      <div className="mb-3 flex items-center justify-between gap-3">
+                        <span className="rounded-full bg-primary/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-primary">
+                          {option.access}
+                        </span>
+                        {price?.offerSaving > 0 && (
+                          <Badge className="shrink-0">{discountPercent}% off</Badge>
+                        )}
+                      </div>
+                      <CardTitle className="font-display text-xl">{option.name}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="flex-1 px-0 pt-3">
+                      <p className="min-h-12 text-sm leading-relaxed text-muted-foreground">
+                        {option.description}
+                      </p>
+                      {!loadingPackageOffer && price?.offerSaving > 0 && (
+                        <p className="mt-5 text-xs font-semibold text-muted-foreground">
+                          <del>ETB {price.listPrice.toLocaleString()}</del>
+                          <span className="ml-2 text-primary">
+                            Save ETB {price.offerSaving.toLocaleString()}
+                          </span>
+                        </p>
+                      )}
+                      {loadingPackageOffer ? (
+                        <p className="mt-2 text-sm text-muted-foreground" role="status">
+                          Checking current price…
+                        </p>
+                      ) : (
+                        <p className="mt-2 font-display text-3xl font-extrabold tracking-tight text-foreground">
+                          ETB {(price?.total ?? option.price).toLocaleString()}
+                        </p>
+                      )}
+                    </CardContent>
+                    <CardFooter className="p-0 pt-5">
+                      <Button asChild className="w-full rounded-xl font-bold">
+                        <a
+                          href={SUPPORT_TELEGRAM_URL}
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label={`Ask about the ${option.name} course package`}
+                        >
+                          Ask to enroll <ArrowRight className="ml-2 h-4 w-4" />
+                        </a>
+                      </Button>
+                    </CardFooter>
+                  </Card>
+                );
+              })}
+            </div>
           </TabsContent>
         </Tabs>
       </section>

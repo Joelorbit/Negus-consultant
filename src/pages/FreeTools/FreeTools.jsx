@@ -5,14 +5,31 @@ import {
   Book,
   MediaVideo,
   Page,
-  Sparks,
 } from "iconoir-react";
 import { SUPPORT_TELEGRAM_URL } from "../../config/supportContact";
+import { useMe } from "../../hooks/useAuth";
 import { useGetBlogs } from "../../hooks/useBlogs";
 import BlogCard from "../Blogs/components/BlogCard";
 import "../public-pages.css";
 
 const NEGUS_YOUTUBE_URL = "https://www.youtube.com/@negusconsultants";
+const FEATURED_VIDEOS = [
+  {
+    id: "ytDhlQqU384",
+    title: "Complete Guide to the U.S. College Application",
+    detail: "Common App, essays, and scholarships · In Amharic",
+  },
+  {
+    id: "Qeo4Kctt_WM",
+    title: "Fully Funded High School Scholarship Opportunities",
+    detail: "Scholarship guidance · In Amharic",
+  },
+  {
+    id: "35vimOLs62g",
+    title: "MIT Scholarship Winner Interview & Live Q&A",
+    detail: "A conversation with a scholarship recipient",
+  },
+];
 
 const ESSAYS = [
   {
@@ -43,6 +60,7 @@ const ESSAYS = [
 
 export default function FreeToolsPage() {
   const [essayOpen, setEssayOpen] = useState(null);
+  const { data: user } = useMe();
   const {
     data: blogs,
     isLoading: blogsLoading,
@@ -53,21 +71,7 @@ export default function FreeToolsPage() {
 
   return (
     <main className="public-page">
-      <section className="public-page-hero">
-        <div className="public-page-hero-inner">
-          <p className="public-eyebrow">
-            <Sparks aria-hidden="true" /> FREE TOOLS & LEARNING RESOURCES
-          </p>
-          <h1 className="public-page-title">
-            Free resources for your next <em>application step.</em>
-          </h1>
-          <p className="public-page-copy">
-            Browse practical application tools, worked essay samples, and advice from the Negus team.
-          </p>
-        </div>
-      </section>
-
-      <section className="public-content" style={{ maxWidth: "920px" }}>
+      <section className="public-content free-tools-content">
         <div>
           <div className="public-section-heading">
             <p className="public-eyebrow">
@@ -76,19 +80,44 @@ export default function FreeToolsPage() {
             <h2>Training videos from Negus</h2>
             <p>Browse published videos on the official Negus Consultants YouTube channel.</p>
           </div>
-          <a
-            className="free-tools-recording-card"
-            href={NEGUS_YOUTUBE_URL}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <span className="free-tools-recording-icon"><MediaVideo aria-hidden="true" /></span>
-            <span>
-              <strong>Explore Negus videos on YouTube</strong>
-              <small>Open the official channel to browse the available scholarship and application videos.</small>
-            </span>
-            <ArrowRight aria-hidden="true" />
-          </a>
+          <div className="free-tools-video-grid">
+            {FEATURED_VIDEOS.map((video) => (
+              <article className="free-tools-video-card" key={video.id}>
+                <iframe
+                  src={`https://www.youtube-nocookie.com/embed/${video.id}?rel=0`}
+                  title={video.title}
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+                <div>
+                  <h3>{video.title}</h3>
+                  <p>{video.detail}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="public-page-actions free-tools-video-actions">
+            {user ? (
+              <a
+                className="public-button public-button-primary"
+                href={NEGUS_YOUTUBE_URL}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Explore more videos <ArrowRight aria-hidden="true" />
+              </a>
+            ) : (
+              <NavLink
+                className="public-button public-button-primary"
+                to="/login"
+                state={{ from: "/free-tools" }}
+              >
+                Sign in to explore more videos <ArrowRight aria-hidden="true" />
+              </NavLink>
+            )}
+          </div>
         </div>
 
         <div className="free-tools-blog-section">

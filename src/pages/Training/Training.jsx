@@ -8,6 +8,9 @@ import {
 } from "iconoir-react";
 import { SUPPORT_TELEGRAM_URL } from "../../config/supportContact";
 import { testimonialPhotos } from "../../assets/testimonialPhotos";
+import { usePackageOffer } from "../../hooks/useNegusCatalog";
+import { getPackagePriceBreakdown } from "../../utils/packagePricing";
+import { COURSE_ACCESS_PACKAGES } from "../../constants/courseAccessPackages";
 import "../public-pages.css";
 
 const TRAININGS = [
@@ -50,6 +53,14 @@ const TRAININGS = [
 ];
 
 export default function TrainingPage() {
+  const {
+    data: packageOffer,
+    isLoading: loadingPackageOffer,
+    isError: packageOfferError,
+    refetch,
+  } = usePackageOffer();
+  const discountPercent = Number(packageOffer?.discountPercent ?? 0);
+
   return (
     <main className="public-page">
       <section className="public-page-hero training-page-hero">
@@ -195,13 +206,45 @@ export default function TrainingPage() {
           <h2>Choose the support timeline that works for you.</h2>
         </div>
         <div className="training-price-grid">
-          {[["6-Month Course Support Package", "1,870 ETB"], ["2-Year Course Support Package", "2,900 ETB"]].map(([name, price]) => (
-            <article className="training-price-card" key={name}>
-              <span>{name}</span><strong>{price}</strong>
-              <a className="public-button public-button-secondary" href={SUPPORT_TELEGRAM_URL} target="_blank" rel="noreferrer">Ask about this package</a>
-            </article>
-          ))}
+          {COURSE_ACCESS_PACKAGES.map((option) => {
+            const price = getPackagePriceBreakdown(
+              option.price,
+              "",
+              true,
+              discountPercent,
+            );
+            return (
+              <article className="training-price-card" key={option.id}>
+                <span>{option.name} Course Support</span>
+                {!loadingPackageOffer && price?.offerSaving > 0 && (
+                  <del>ETB {price.listPrice.toLocaleString()}</del>
+                )}
+                <strong>
+                  {loadingPackageOffer
+                    ? "Checking price…"
+                    : `ETB ${(price?.total ?? option.price).toLocaleString()}`}
+                </strong>
+                {!loadingPackageOffer && price?.offerSaving > 0 && (
+                  <small>{discountPercent}% cohort discount</small>
+                )}
+                <a
+                  className="public-button public-button-secondary"
+                  href={SUPPORT_TELEGRAM_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Ask about this package
+                </a>
+              </article>
+            );
+          })}
         </div>
+        {packageOfferError && (
+          <p className="training-pricing-error" role="alert">
+            Current cohort pricing could not be loaded. These amounts are shown without the cohort discount.{" "}
+            <button type="button" onClick={() => refetch()}>Try again</button>
+          </p>
+        )}
       </section>
 
       <section className="public-content training-testimonials">

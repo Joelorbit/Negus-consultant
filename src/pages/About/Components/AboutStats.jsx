@@ -1,12 +1,16 @@
 export default function AboutStats() {
   const stats = [
     { value: "30,000+", label: "Students and families reached", color: "var(--gold-ink)" },
-    { value: "2,000+", label: "Students guided", color: "var(--ink-secondary)" },
+    { value: "2,000+", label: "Students guided one-to-one and in sessions", color: "var(--ink-secondary)" },
     { value: "10+", label: "Universities that admitted our students", color: "var(--ink)" },
   ];
 
   return (
     <section className="public-content public-about-stats">
+      <div className="public-section-heading">
+        <p className="public-eyebrow">IMPACT IN NUMBERS</p>
+        <h2>More students can see a path forward.</h2>
+      </div>
       <div className="about-stats-grid grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6 text-center">
         {stats.map((s, idx) => (
           <div

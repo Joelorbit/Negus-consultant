@@ -1504,6 +1504,43 @@ export async function dispatchMockApi(method, rawUrl, body = null, params = {}) 
   }
 
   // ==================== CATALOG API ====================
+  if (cleanPath === "/catalog/package-offer" && upperMethod === "GET") {
+    return {
+      status: 200,
+      data: getStorageItem("package_offer", { discountPercent: 50 }),
+    };
+  }
+
+  if (cleanPath === "/catalog/package-offer" && upperMethod === "PUT") {
+    if (!localStorage.getItem("token")) {
+      const error = new Error("Unauthorized");
+      error.response = { status: 401, data: { message: error.message } };
+      throw error;
+    }
+
+    const currentUser = getStorageItem("user", defaultMockUser);
+    if (currentUser?.role !== "admin") {
+      const error = new Error("Access denied. Insufficient permissions.");
+      error.response = { status: 403, data: { message: error.message } };
+      throw error;
+    }
+
+    const discountPercent = body?.discountPercent;
+    if (
+      !Number.isInteger(discountPercent) ||
+      discountPercent < 0 ||
+      discountPercent > 100
+    ) {
+      const error = new Error("Discount must be a whole-number percentage from 0 to 100.");
+      error.response = { status: 400, data: { message: error.message } };
+      throw error;
+    }
+
+    const offer = { discountPercent };
+    setStorageItem("package_offer", offer);
+    return { status: 200, data: offer };
+  }
+
   if (cleanPath === "/catalog/fixed-services" && upperMethod === "GET") {
     return { status: 200, data: mockCatalogFixedServices };
   }

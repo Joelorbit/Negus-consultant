@@ -5,31 +5,31 @@ export default function AboutMethodology() {
     {
       icon: Target,
       title: "Guide students well",
-      desc: "Give students practical, honest guidance shaped by real applications and experience.",
+      desc: "Help every student understand their options and submit a complete, competitive application.",
       badge: "01",
     },
     {
       icon: Shield,
       title: "Reach more schools",
-      desc: "Bring free scholarship sessions to more high schools, in person and online.",
+      desc: "Bring scholarship sessions to high schools across Ethiopia, in person and online.",
       badge: "02",
     },
     {
       icon: Heart,
       title: "Keep information open",
-      desc: "Make reliable scholarship information accessible to students and families.",
+      desc: "Share free, accurate scholarship updates on Telegram and TikTok in Amharic and English.",
       badge: "03",
     },
     {
       icon: Zap,
       title: "Build on real experience",
-      desc: "Share advice grounded in applications, outcomes, and lessons learned along the way.",
+      desc: "Learn from students admitted abroad and invite them back to guide others as mentors.",
       badge: "04",
     },
     {
       icon: Handshake,
       title: "Grow partnerships",
-      desc: "Work with schools and communities to create more pathways to international education.",
+      desc: "Work with schools and education partners to support students earlier in their journey.",
       badge: "05",
     },
   ];
@@ -44,7 +44,7 @@ export default function AboutMethodology() {
           Practical guidance. Wider access.
         </h2>
         <p className="text-sm sm:text-base text-[var(--ink-secondary)] mt-2 max-w-xl mx-auto leading-relaxed">
-          Our goals are simple: guide students well, reach more schools, and keep scholarship information accessible.
+          Clear advice, trusted information, and stronger school partnerships can make international study more reachable.
         </p>
       </div>
 

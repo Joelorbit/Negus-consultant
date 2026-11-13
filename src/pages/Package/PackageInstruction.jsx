@@ -18,6 +18,7 @@ import { useSubmitPaymentProof } from "../../hooks/useSubmitPaymentProof";
 import ScreenshotUploader from "./components/ScreenShotUploader";
 import ProgresBar from "./components/ProgresBar";
 import { getPackagePriceBreakdown } from "../../utils/packagePricing";
+import { usePackageOffer } from "../../hooks/useNegusCatalog";
 import { smartNavigate } from "../../utils/mobileNavigation";
 import { toast } from "sonner";
 import "../public-pages.css";
@@ -32,11 +33,20 @@ const PaymentInstruction = () => {
   const { id } = useParams();
   const { data: user } = useMe();
   const { data, isLoading: loading, error } = usePackageById(id);
-  const priceBreakdown = getPackagePriceBreakdown(
-    data?.data?.price,
-    "",
-    data?.data?.type !== "service"
-  );
+  const {
+    data: packageOffer,
+    isLoading: loadingPackageOffer,
+    isError: packageOfferError,
+  } = usePackageOffer();
+  const discountPercent = Number(packageOffer?.discountPercent ?? 0);
+  const priceBreakdown = packageOffer
+    ? getPackagePriceBreakdown(
+        data?.data?.price,
+        "",
+        data?.data?.type !== "service",
+        discountPercent,
+      )
+    : null;
   const {
     mutate: submitPayment,
     isPending: isSubmitting,
@@ -70,6 +80,10 @@ const PaymentInstruction = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (loadingPackageOffer || packageOfferError || !priceBreakdown) {
+      toast.error("Current cohort pricing could not be verified. Reload and try again.");
+      return;
+    }
     if (!user?.id) {
       toast.error("Please sign in or create an account before submitting payment.");
       smartNavigate("/login", { state: { from: `/payment/${id}` } });
@@ -217,15 +231,19 @@ const PaymentInstruction = () => {
             <div>
               <p>
                 {data?.data?.name || "Selected package"}
-                {priceBreakdown.offerSaving > 0 ? " · 50% offer" : " · package price"}
+                {priceBreakdown.offerSaving > 0 ? ` · ${discountPercent}% offer` : " · package price"}
               </p>
               <strong>ETB {priceBreakdown.total.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong>
               {priceBreakdown.offerSaving > 0 && (
                 <del>List price: ETB {priceBreakdown.listPrice.toLocaleString()}</del>
               )}
             </div>
-            {priceBreakdown.offerSaving > 0 && <span className="offer-pill">50% OFF</span>}
+            {priceBreakdown.offerSaving > 0 && <span className="offer-pill">{discountPercent}% OFF</span>}
           </div>
+        )}
+        {loadingPackageOffer && <p role="status">Loading current cohort pricing…</p>}
+        {packageOfferError && (
+          <p role="alert">Current cohort pricing could not be loaded. Reload this page before submitting payment.</p>
         )}
 
         {/* Progress Bar */}
@@ -357,7 +375,7 @@ const PaymentInstruction = () => {
           {/* Submit Button */}
           <Button
             onClick={handleSubmit}
-            disabled={!screenshot || isSubmitting}
+            disabled={!screenshot || isSubmitting || loadingPackageOffer || packageOfferError || !priceBreakdown}
             className={`
               w-full py-10 rounded-xl font-semibold text-lg transition-all duration-200 transform
               ${

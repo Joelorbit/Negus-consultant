@@ -91,13 +91,22 @@ const PackagesTable = ({ packages, onDelete }) => {
                       >
                         <td className="py-4 px-6 text-gray-700">{name}</td>
                         <td className="py-4 px-6">
-                          {features.map((feature, index) => (
-                            <Badge
-                              key={index}
-                              item={feature.name.trim()}
-                              strike={!feature.included}
-                            />
-                          ))}
+                          {(Array.isArray(features) ? features : []).map((feature, index) => {
+                            const name =
+                              typeof feature === "string" ? feature : feature?.name;
+                            if (!name?.trim()) return null;
+
+                            return (
+                              <Badge
+                                key={index}
+                                item={name.trim()}
+                                strike={
+                                  typeof feature === "object" &&
+                                  feature.included === false
+                                }
+                              />
+                            );
+                          })}
                         </td>
 
                         <td className="py-4 px-6 text-gray-700">

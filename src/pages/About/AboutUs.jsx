@@ -1,44 +1,103 @@
 import AboutHero from "./Components/AboutHero";
+import AboutMission from "./Components/AboutMission";
 import AboutMethodology from "./Components/AboutMethodology";
+import AboutStats from "./Components/AboutStats";
+import AboutStudentVoices from "./Components/AboutStudentVoices";
 import AboutAcceptanceShowcase from "./Components/AboutAcceptanceShowcase";
 import MentorProfilesSection from "./Components/MentorProfilesSection";
 import AboutCenterCard from "./Components/AboutCenterCard";
+import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router";
 import "../public-pages.css";
 
 const outreach = [
-  ["photo_1_2026-11-12_11-27-53.jpg", "Seattle Academy · student session"],
-  ["photo_1_2026-11-12_11-28-15.jpg", "Menen School · session speaker"],
-  ["photo_2025-11-29_09-18-05.jpg", "Seattle Academy · session speaker"],
-  ["photo_2025-11-29_09-18-06.jpg", "Seattle Academy · student session"],
-  ["photo_2026-01-13_11-55-36.jpg", "Menen School · outreach tour"],
-  ["photo_2026-01-13_11-55-38.jpg", "Menen School · students"],
+  {
+    image: "leulseged-menen-speaking.jpg",
+    school: "Menen Secondary Female Boarding School",
+    caption: "Scholarship talk for students at Menen Secondary Female Boarding School.",
+  },
+  {
+    image: "leulseged-menen-audience.jpg",
+    school: "Menen Secondary Female Boarding School",
+    caption: "Students at our Menen session learning where and how to apply abroad.",
+  },
+  {
+    image: "leulseged-seattle-academy-lesson.jpg",
+    school: "Seattle Academy",
+    caption: "Lesson on scholarship opportunities and the Common App at Seattle Academy.",
+  },
+  {
+    image: "leulseged-seattle-academy-audience.jpg",
+    school: "Seattle Academy",
+    caption: "Students at Seattle Academy taking notes during our scholarship session.",
+  },
+];
+
+const services = [
+  {
+    to: "/training",
+    number: "01",
+    title: "Online Trainings",
+    subtitle: "ስልጠናዎች",
+    description: "Group cohorts, masterclasses, and interactive schedules.",
+  },
+  {
+    to: "/free-tools",
+    number: "02",
+    title: "Free Tools",
+    subtitle: "ነፃ መገልገያዎች",
+    description: "Video recordings, sample essays, CV builder, and guides.",
+  },
+  {
+    to: "/courses",
+    number: "03",
+    title: "Scholarship Courses",
+    subtitle: "ኮርሶች",
+    description: "Structured self-paced video modules and study plans.",
+  },
+  {
+    to: "/sat-ielts",
+    number: "04",
+    title: "SAT & IELTS",
+    subtitle: "ፈተና ዝግጅት",
+    description: "Digital SAT drills and IELTS Academic preparation.",
+  },
+  {
+    to: "/packages",
+    number: "05",
+    title: "Application Support",
+    subtitle: "የማመልከቻ ድጋፍ",
+    description: "Essay coaching, one-to-one mentorship, and application plans.",
+  },
 ];
 
 export default function AboutUs() {
   return (
     <main className="public-page public-about-page pb-20 space-y-12">
-      {/* 1. Hero Section */}
       <AboutHero />
-
-      {/* Mentor profiles are intentionally available only on About. */}
-      <MentorProfilesSection />
-
-      {/* 2. Core Pillars & Methodology */}
+      <AboutMission />
       <AboutMethodology />
-
-      {/* 3. University Acceptances & Crests */}
+      <AboutStats />
+      <AboutStudentVoices />
       <AboutAcceptanceShowcase />
 
       <section className="public-content public-about-outreach">
         <div className="public-section-heading">
           <p className="public-eyebrow">OUTREACH TOURS</p>
           <h2>Taking scholarships to the classroom.</h2>
+          <p>
+            We visit high schools across Ethiopia to show students what scholarships
+            exist, how the Common App works, and how to choose the right universities.
+          </p>
         </div>
         <div className="about-outreach-grid">
-          {outreach.map(([image, caption]) => (
+          {outreach.map(({ image, school, caption }) => (
             <figure key={image}>
-              <img src={`/assets/training/${image}`} alt={caption} />
-              <figcaption>{caption}</figcaption>
+              <img src={`/assets/mentor-profiles/sessions/${image}`} alt={caption} loading="lazy" />
+              <figcaption>
+                <strong>{school}</strong>
+                <span>{caption}</span>
+              </figcaption>
             </figure>
           ))}
         </div>
@@ -59,31 +118,42 @@ export default function AboutUs() {
           <h2>Choose the support that fits your next step.</h2>
         </div>
         <div className="about-service-grid">
-          {[
-            ["/training", "01", "Online Trainings", "ስልጠናዎች"],
-            ["/free-tools", "02", "Free Tools", "ነፃ መገልገያዎች"],
-            ["/courses", "03", "Scholarship Courses", "ኮርሶች"],
-            ["/sat-ielts", "04", "SAT & IELTS", "ፈተና ዝግጅት"],
-            ["/packages", "05", "Application Support", "የማመልከቻ ድጋፍ"],
-          ].map(([to, number, title, subtitle]) => (
-            <a className="about-service-card" href={to} key={to}><span>{number}</span><strong>{title}</strong><small>{subtitle}</small></a>
+          {services.map(({ to, number, title, subtitle, description }) => (
+            <Link className="about-service-card" to={to} key={to}>
+              <span className="about-service-number">{number}</span>
+              <span className="about-service-title">{title} <i>/</i></span>
+              <span className="about-service-subtitle">{subtitle}</span>
+              <span className="about-service-description">{description}</span>
+              <span className="about-service-arrow" aria-hidden="true"><ArrowUpRight /></span>
+            </Link>
           ))}
         </div>
       </section>
 
-      <section className="public-content about-community">
-        <div>
-          <p className="public-eyebrow">JOIN OUR COMMUNITY</p>
-          <h2>Daily scholarship updates, straight to you.</h2>
-          <p>Join our Telegram channel or follow us on TikTok for new opportunities and practical advice.</p>
-        </div>
-        <div className="about-community-actions">
-          <a className="public-button public-button-primary" href="https://t.me/NEGUSCONSULTANTS" target="_blank" rel="noreferrer">Join our Telegram channel</a>
-          <a className="public-button public-button-secondary" href="https://www.tiktok.com/@negus.consultant" target="_blank" rel="noreferrer">Follow us on TikTok</a>
+      <section className="about-community-banner" aria-labelledby="about-community-title">
+        <img className="about-community-image" src="/hero-teaching.jpg" alt="" loading="lazy" />
+        <div className="about-community-shade" />
+        <div className="about-community-content">
+          <div className="about-community-copy">
+            <p className="public-eyebrow">JOIN OUR COMMUNITY</p>
+            <h2 id="about-community-title">Daily scholarship updates, straight to you.</h2>
+            <p>
+              Join our Telegram channel or follow us on TikTok for new opportunities
+              and practical advice—in Amharic and English.
+            </p>
+            <div className="about-community-actions">
+              <a className="public-button public-button-light" href="https://t.me/NEGUSCONSULTANTS" target="_blank" rel="noreferrer">
+                Join our Telegram channel <ArrowUpRight aria-hidden="true" />
+              </a>
+              <a className="public-button public-button-outline-light" href="https://www.tiktok.com/@negus.consultant" target="_blank" rel="noreferrer">
+                Follow us on TikTok <ArrowUpRight aria-hidden="true" />
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* 5. Addis Ababa Center & Contact Card */}
+      <MentorProfilesSection />
       <AboutCenterCard />
     </main>
   );

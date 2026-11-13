@@ -1,6 +1,32 @@
 // src/hooks/useNegusCatalog.js
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axiosInstance from "../lib/axiosInstance";
+
+export const usePackageOffer = () =>
+  useQuery({
+    queryKey: ["package-offer"],
+    queryFn: async () => {
+      const { data } = await axiosInstance.get("/catalog/package-offer");
+      return data;
+    },
+    retry: false,
+  });
+
+export const useUpdatePackageOffer = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async (discountPercent) => {
+      const { data } = await axiosInstance.put("/catalog/package-offer", {
+        discountPercent,
+      });
+      return data;
+    },
+    onSuccess: (data) => {
+      queryClient.setQueryData(["package-offer"], data);
+    },
+  });
+};
 
 export const useFixedServices = () => {
   return useQuery({

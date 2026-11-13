@@ -1,5 +1,5 @@
 import { NavLink } from "react-router";
-import { GraduationCap, ArrowRight, BookOpen, Check } from "lucide-react";
+import { GraduationCap, ArrowRight, BookOpen } from "lucide-react";
 
 export default function AboutHero() {
   return (
@@ -12,7 +12,7 @@ export default function AboutHero() {
           Helping Ethiopian students reach the world's universities.
         </h1>
         <p className="public-page-copy">
-          Our mission is to open international education to every capable Ethiopian student, whatever their family's income. We give students practical, honest guidance, built on real applications and experiences that worked.
+          Practical guidance, real student experience, and wider access to international education.
         </p>
         <div className="public-page-actions">
           <NavLink
@@ -29,10 +29,6 @@ export default function AboutHero() {
             <BookOpen className="w-4 h-4" />
             <span>Browse courses</span>
           </NavLink>
-        </div>
-        <div className="public-hero-note">
-          <Check className="w-4 h-4 text-[var(--green)] inline mr-1" />
-          <span>Addis Ababa flagship advising · Fully accessible online worldwide</span>
         </div>
       </div>
     </section>

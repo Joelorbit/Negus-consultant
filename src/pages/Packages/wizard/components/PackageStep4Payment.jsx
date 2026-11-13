@@ -3,6 +3,9 @@ import ScreenshotUploader from "../../../Package/components/ScreenShotUploader";
 
 export default function PackageStep4Payment({
   priceBreakdown,
+  discountPercent,
+  loadingPackageOffer,
+  packageOfferError,
   bankDetails,
   handleCopyAccount,
   copiedBankIndex,
@@ -21,6 +24,15 @@ export default function PackageStep4Payment({
         </p>
       </div>
 
+      {loadingPackageOffer && (
+        <p className="pkgw-helper" role="status">Loading current cohort pricing…</p>
+      )}
+      {packageOfferError && (
+        <p className="pkgw-error" role="alert">
+          Current cohort pricing could not be loaded. Reload this page before submitting your application.
+        </p>
+      )}
+
       {priceBreakdown && (
         <div className="pkgw-section pkgw-section--tint pkgw-price">
           <div className="pkgw-price-row">
@@ -34,7 +46,7 @@ export default function PackageStep4Payment({
             <div className="pkgw-price-row pkgw-price-strong">
               <span className="pkgw-price-label">
                 <span className="pkgw-price-dot" style={{ background: "var(--ink-secondary)" }} />
-                Automatic 50% Scholarship Reduction:
+                Automatic {discountPercent}% Cohort Discount:
               </span>
               <span className="pkgw-price-mono">
                 − ETB {priceBreakdown.offerSaving?.toLocaleString()}

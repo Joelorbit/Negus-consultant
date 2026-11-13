@@ -1,4 +1,3 @@
-export const PACKAGE_OFFER_PERCENT = 50;
 export const REFERRAL_DISCOUNT_CODE = "EthioNew1212";
 export const REFERRAL_DISCOUNT_PERCENT = 5;
 
@@ -7,13 +6,14 @@ const roundCurrency = (value) => Math.round((value + Number.EPSILON) * 100) / 10
 export function getPackagePriceBreakdown(
   listPrice,
   referralCode = "",
-  eligibleForOffer = true
+  eligibleForOffer = true,
+  offerPercent = 0,
 ) {
   const original = Number(listPrice);
   if (!Number.isFinite(original) || original < 0) return null;
 
   const offerSaving = eligibleForOffer
-    ? roundCurrency(original * (PACKAGE_OFFER_PERCENT / 100))
+    ? roundCurrency(original * (offerPercent / 100))
     : 0;
   const offerPrice = roundCurrency(original - offerSaving);
   const hasReferral =

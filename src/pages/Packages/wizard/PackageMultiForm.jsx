@@ -6,6 +6,7 @@ import { usePackageById } from "../../../hooks/usePackages";
 import { toast } from "sonner";
 import { smartNavigate } from "../../../utils/mobileNavigation";
 import { getPackagePriceBreakdown } from "../../../utils/packagePricing";
+import { usePackageOffer } from "../../../hooks/useNegusCatalog";
 
 import PackageHeader from "./components/PackageHeader";
 import PackageStepTracker from "./components/PackageStepTracker";
@@ -23,6 +24,12 @@ export default function PackageMultiStepForm() {
   const { data: user } = useMe();
   const { mutate: createApplication, isPending: isSubmittingApp } = useCreateApplication();
   const { data: pkg } = usePackageById(id);
+  const {
+    data: packageOffer,
+    isLoading: loadingPackageOffer,
+    isError: packageOfferError,
+  } = usePackageOffer();
+  const discountPercent = Number(packageOffer?.discountPercent ?? 0);
 
   const [step, setStep] = useState(1);
   const [screenshot, setScreenshot] = useState(null);
@@ -66,11 +73,14 @@ export default function PackageMultiStepForm() {
     screenshot_string: "",
   });
 
-  const priceBreakdown = getPackagePriceBreakdown(
-    pkg?.data?.price,
-    formData.referral,
-    pkg?.data?.type !== "service"
-  );
+  const priceBreakdown = packageOffer
+    ? getPackagePriceBreakdown(
+        pkg?.data?.price,
+        formData.referral,
+        pkg?.data?.type !== "service",
+        discountPercent,
+      )
+    : null;
 
   // Sync user and package IDs
   useEffect(() => {
@@ -186,6 +196,10 @@ export default function PackageMultiStepForm() {
     }
 
     if (currentStep === 4) {
+      if (loadingPackageOffer || packageOfferError) {
+        newErrors.general =
+          "We couldn't verify the current cohort price. Please reload and try again before submitting.";
+      }
       if (!formData.screenshot_string && !screenshot) {
         newErrors.screenshot_string = "Please upload your payment confirmation screenshot.";
       }
@@ -458,6 +472,9 @@ export default function PackageMultiStepForm() {
           {step === 4 && (
             <PackageStep4Payment
               priceBreakdown={priceBreakdown}
+              discountPercent={discountPercent}
+              loadingPackageOffer={loadingPackageOffer}
+              packageOfferError={packageOfferError}
               bankDetails={bankDetails}
               handleCopyAccount={handleCopyAccount}
               copiedBankIndex={copiedBankIndex}

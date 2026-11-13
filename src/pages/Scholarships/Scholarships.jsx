@@ -1,6 +1,5 @@
 import React, { useState, useMemo } from "react";
 import {
-  GraduationCap,
   Sparkles,
   Search,
   Filter,
@@ -8,7 +7,6 @@ import {
   ShieldCheck,
   Globe2,
   Calendar,
-  Check,
   RotateCcw,
   BookOpen,
   Award,
@@ -106,60 +104,6 @@ export default function ScholarshipsPage() {
 
   return (
     <main className="public-page scholarships-page">
-      {/* ---------------- Hero Section ---------------- */}
-      <section className="public-page-hero">
-        <div className="public-page-hero-inner">
-          <p className="public-eyebrow">
-            <GraduationCap aria-hidden="true" /> VERIFIED GLOBAL SCHOLARSHIPS
-          </p>
-          <h1 className="public-page-title">
-            Funding that turns ambition into <em>reality.</em>
-          </h1>
-          <p className="public-page-copy">
-            Explore verified, fully funded scholarships and fellowships across the US,
-            UK, Europe, and Asia. Hand-curated by Negus counselors with exact deadlines,
-            complete coverage breakdowns, and official application portals.
-          </p>
-
-          <div className="public-page-actions">
-            <a className="public-button public-button-primary" href="#scholarships-stream">
-              Explore Live Scholarships <ArrowRight aria-hidden="true" />
-            </a>
-            <NavLink className="public-button public-button-secondary" to="/courses">
-              Start with the course
-            </NavLink>
-          </div>
-
-          <div className="public-hero-note">
-            <Check aria-hidden="true" /> 100% Free Public Catalog · Verified Official Links · Updated Weekly
-          </div>
-        </div>
-      </section>
-
-      {/* ---------------- Key Stats Strip ---------------- */}
-      <div className="border-b border-border/60 bg-muted/30 py-6">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div className="space-y-1">
-              <p className="text-2xl md:text-3xl font-extrabold text-foreground font-display">$2.5M+</p>
-              <p className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">Won by Our Scholars</p>
-            </div>
-            <div className="space-y-1">
-              <p className="text-2xl md:text-3xl font-extrabold text-emerald-600 dark:text-emerald-400 font-display">100%</p>
-              <p className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">Verified Deadlines</p>
-            </div>
-            <div className="space-y-1">
-              <p className="text-2xl md:text-3xl font-extrabold text-foreground font-display">40+ Countries</p>
-              <p className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">Eligible for Ethiopians</p>
-            </div>
-            <div className="space-y-1">
-              <p className="text-2xl md:text-3xl font-extrabold text-foreground font-display">Free</p>
-              <p className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">Open Access Directory</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* ---------------- Main Content Area ---------------- */}
       <section className="public-content" id="scholarships-stream">
         <div className="max-w-6xl mx-auto space-y-8">
@@ -352,6 +296,30 @@ export default function ScholarshipsPage() {
               </Button>
             </div>
           )}
+        </div>
+      </section>
+
+      {/* ---------------- Key Stats Strip ---------------- */}
+      <section className="border-y border-border/60 bg-muted/30 py-6" aria-label="Scholarship directory facts">
+        <div className="container mx-auto max-w-6xl px-4">
+          <div className="grid grid-cols-2 gap-6 text-center md:grid-cols-4">
+            <div className="space-y-1">
+              <p className="font-display text-2xl font-extrabold text-foreground md:text-3xl">2.5M+</p>
+              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Won by Our Scholars</p>
+            </div>
+            <div className="space-y-1">
+              <p className="font-display text-2xl font-extrabold text-emerald-600 dark:text-emerald-400 md:text-3xl">100%</p>
+              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Verified Deadlines</p>
+            </div>
+            <div className="space-y-1">
+              <p className="font-display text-2xl font-extrabold text-foreground md:text-3xl">40+ Countries</p>
+              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Eligible for Ethiopians</p>
+            </div>
+            <div className="space-y-1">
+              <p className="font-display text-2xl font-extrabold text-foreground md:text-3xl">Free</p>
+              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Open Access Directory</p>
+            </div>
+          </div>
         </div>
       </section>
 

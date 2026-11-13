@@ -17,6 +17,7 @@ import { useNavigate } from "react-router";
 import { smartNavigate } from "../../../utils/mobileNavigation";
 import { toast } from "sonner";
 import { getPackagePriceBreakdown } from "../../../utils/packagePricing";
+import { usePackageOffer } from "../../../hooks/useNegusCatalog";
 
 const packageIcons = {
   BookOpen: Book,
@@ -41,12 +42,14 @@ export const PackageCard = ({
   onNavigate,
   applyDiscount = pkg.type !== "service",
 }) => {
+  const { data: packageOffer } = usePackageOffer();
+  const offerPercent = Number(packageOffer?.discountPercent ?? 0);
   const IconComponent = packageIcons[pkg.icon] || GraduationCap;
   const hasContactPrice =
     pkg.price == null || String(pkg.price).toLowerCase().includes("contact");
   const priceBreakdown =
     !hasContactPrice && applyDiscount
-      ? getPackagePriceBreakdown(pkg.price)
+      ? getPackagePriceBreakdown(pkg.price, "", true, offerPercent)
       : null;
   const showDiscount = Boolean(priceBreakdown?.offerSaving > 0);
   const displayedPrice = priceBreakdown?.total ?? Number(pkg.price);
@@ -301,7 +304,7 @@ export const PackageCard = ({
           <span />
         )}
         {showDiscount ? (
-          <span className="negus-card-discount-badge">50% OFF</span>
+          <span className="negus-card-discount-badge">{offerPercent}% OFF</span>
         ) : pkg.discount ? (
           <span className="negus-card-discount-badge">{pkg.discount}</span>
         ) : <span />}
@@ -332,7 +335,7 @@ export const PackageCard = ({
             {priceBreakdown && (
               <div className="negus-card-price-before">
                 <del>{pkg.currency || "ETB"} {priceBreakdown.listPrice.toLocaleString()}</del>
-                <span className="negus-card-savings"> · Save 50%</span>
+                <span className="negus-card-savings"> · Save {offerPercent}%</span>
               </div>
             )}
             <div className="negus-card-price-current">

@@ -262,7 +262,7 @@
 @media(max-width:760px) { .training-hero-grid { grid-template-columns:minmax(0,1fr); gap:28px; } .training-overview .public-page-title,.training-overview .public-page-copy { margin-left:0; text-align:left; } .training-overview .public-page-actions { justify-content:flex-start; } .training-price-grid { grid-template-columns:1fr; } }
 .public-about-values, .public-about-team { padding-top: clamp(40px, 5vw, 64px); padding-bottom: clamp(48px, 6vw, 76px); }
 .mentor-profile-grid { display:grid; grid-template-columns:minmax(0,1fr); gap:20px; width:min(100%,480px); margin:0 auto; }
-.mentor-profile-card { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:stretch; min-width:0; overflow:hidden; padding:0; border:1px solid var(--line); border-radius:18px; background:var(--white); color:var(--ink); text-align:left; box-shadow:var(--shadow-sm); cursor:pointer; transition:transform .2s,border-color .2s,box-shadow .2s; }
+.mentor-profile-card { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:stretch; min-width:0; overflow:hidden; padding:0; border:1px solid var(--line); border-radius:18px; background:var(--white); color:var(--ink); text-align:left; text-decoration:none; box-shadow:var(--shadow-sm); cursor:pointer; transition:transform .2s,border-color .2s,box-shadow .2s; }
 .mentor-profile-grid .mentor-profile-card { width:100%; }
 .mentor-profile-card:hover { transform:translateY(-3px); border-color:var(--green); box-shadow:var(--shadow-md); }
 .mentor-profile-card:focus-visible { outline:3px solid var(--gold-ink); outline-offset:3px; }
@@ -302,6 +302,39 @@
 .mentor-profile-session-grid figure { min-width:0; margin:0; }
 .mentor-profile-session-grid img { display:block; width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:12px; }
 .mentor-profile-session-grid figcaption { margin-top:7px; color:var(--ink-muted); font-size:11px; line-height:1.45; }
+.mentor-about-profile { padding-top:clamp(28px,5vw,56px); padding-bottom:clamp(48px,7vw,80px); }
+.mentor-about-back { display:inline-flex; align-items:center; gap:8px; margin-bottom:22px; color:var(--ink-secondary); font:700 13px var(--font-display); text-decoration:none; }
+.mentor-about-back svg { width:16px; height:16px; }
+.mentor-about-back:hover { color:var(--gold-ink); }
+.mentor-about-hero { display:grid; grid-template-columns:minmax(280px,.8fr) minmax(0,1.2fr); align-items:center; gap:clamp(24px,5vw,60px); padding:clamp(20px,4vw,36px); border:1px solid var(--line); border-radius:22px; background:linear-gradient(125deg,var(--green-subtle),var(--white)); }
+.mentor-about-photo { overflow:hidden; min-height:300px; border-radius:16px; background:var(--paper); }
+.mentor-about-photo img { display:block; width:100%; height:100%; min-height:300px; object-fit:cover; }
+.mentor-about-intro .public-eyebrow { justify-content:flex-start; }
+.mentor-about-intro h1 { margin:10px 0; color:var(--ink); font:700 clamp(32px,5vw,54px)/1.05 var(--font-display); letter-spacing:-.05em; }
+.mentor-about-location { display:flex; align-items:center; gap:7px; color:var(--ink-secondary); }
+.mentor-about-location svg { width:16px; height:16px; }
+.mentor-about-summary { max-width:620px; color:var(--ink-secondary); font-size:15px; line-height:1.75; }
+.mentor-about-section { padding-top:clamp(34px,5vw,58px); }
+.mentor-about-section h2 { margin:0; color:var(--ink); font:700 clamp(24px,3vw,34px)/1.15 var(--font-display); letter-spacing:-.04em; }
+.mentor-about-admissions { display:grid; gap:10px; margin:18px 0 0; padding:0; list-style:none; }
+.mentor-about-admissions li { padding:15px 18px; border:1px solid var(--line); border-radius:12px; background:var(--white); color:var(--ink-secondary); line-height:1.5; }
+.mentor-about-section-heading { margin-bottom:22px; }
+.mentor-about-section-heading .public-eyebrow { justify-content:flex-start; }
+.mentor-about-section-heading h2 { margin-top:8px; }
+.mentor-about-section-heading>p:last-child { color:var(--ink-secondary); }
+.mentor-about-letters { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+.mentor-about-letters>a { min-width:0; padding:10px; border:1px solid var(--line); border-radius:14px; background:var(--white); color:var(--ink); text-decoration:none; box-shadow:var(--shadow-sm); }
+.mentor-about-letters>a:hover { border-color:var(--green); }
+.mentor-about-letters img { display:block; width:100%; height:240px; object-fit:contain; border-radius:8px; background:var(--paper); }
+.mentor-about-letters span { display:flex; align-items:center; justify-content:space-between; gap:6px; padding:10px 3px 2px; font:700 13px/1.35 var(--font-display); }
+.mentor-about-letters span svg { width:16px; height:16px; flex:none; }
+.mentor-about-sessions { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+.mentor-about-sessions figure { min-width:0; margin:0; }
+.mentor-about-sessions img { display:block; width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:14px; }
+.mentor-about-sessions figcaption { margin-top:8px; color:var(--ink-muted); font-size:12px; line-height:1.5; }
+.mentor-profile-not-found { min-height:60vh; padding-top:80px; }
+.course-explore-lessons { scroll-margin-top:120px; }
+.course-results { scroll-margin-top:120px; }
 .public-about-office { padding-top: 12px; padding-bottom: clamp(48px, 6vw, 76px); }
 .public-about-section-heading { width: min(100%, 760px); margin: 0 auto 38px; text-align: center; }
 .public-about-office > div { width: min(100%, 960px); margin: 0 auto; }
@@ -946,6 +979,11 @@
   .mentor-profile-card { grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); }
   .mentor-profile-card-image,.mentor-profile-card-image>img { min-height:200px; }
   .mentor-profile-card-copy { padding:18px; }
+  .mentor-about-hero { grid-template-columns:1fr; }
+  .mentor-about-photo,.mentor-about-photo img { min-height:220px; max-height:360px; }
+  .mentor-about-letters { grid-template-columns:1fr; }
+  .mentor-about-letters img { height:260px; }
+  .mentor-about-sessions { grid-template-columns:1fr; }
   .mentor-profile-bio { grid-template-columns:1fr; gap:18px; }
   .about-service-grid { grid-template-columns:1fr 1fr; }
   .about-community { display:block; }

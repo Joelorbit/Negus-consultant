@@ -1,4 +1,8 @@
 export function CategoryFilter({ categories = [], selectedCategory, onCategoryChange }) {
+  const relevantCategories = categories.filter((category) =>
+    !/\b(web\s*development|ai\s*&?\s*ml|artificial intelligence|machine learning|programming|software development)\b/i.test(category.name || ""),
+  );
+
   return (
     <div className="course-category-filter" aria-label="Filter courses by category">
       <style>{`
@@ -19,7 +23,7 @@ export function CategoryFilter({ categories = [], selectedCategory, onCategoryCh
       >
         All courses
       </button>
-      {categories.map((category) => (
+      {relevantCategories.map((category) => (
         <button
           type="button"
           key={category.id}

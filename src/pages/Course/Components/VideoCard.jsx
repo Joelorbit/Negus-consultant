@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Lock, Clock, ArrowRight } from "iconoir-react";
-import { NavLink } from "react-router";
 
 export function VideoCard({ video }) {
   const [imgError, setImgError] = useState(false);
@@ -9,7 +8,13 @@ export function VideoCard({ video }) {
   const displayThumbnail = imgError || !video.thumbnail ? fallbackThumbnail : video.thumbnail;
 
   return (
-    <NavLink className="negus-course-card" to="/packages" aria-label={`Unlock ${video.title} with a course package`}>
+    <a
+      className="negus-course-card"
+      href={`/courses?video=${encodeURIComponent(video.id)}`}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={`Open ${video.title} in a new tab`}
+    >
       <style>{`
         .negus-course-card {
           position: relative;
@@ -355,6 +360,6 @@ export function VideoCard({ video }) {
         )}
         <span className="negus-course-unlock">Unlock with a package <ArrowRight aria-hidden="true" /></span>
       </div>
-    </NavLink>
+    </a>
   );
 }

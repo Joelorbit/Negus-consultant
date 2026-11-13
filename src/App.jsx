@@ -86,6 +86,9 @@ const TestimonialsPage = lazyPage(
   () => import("./pages/Testimonials/Testimonials"),
 );
 const AboutUs = lazyPage(() => import("./pages/About/AboutUs"));
+const MentorAboutProfile = lazyPage(
+  () => import("./pages/About/Components/MentorAboutProfile"),
+);
 const Blog = lazyPage(() => import("./pages/admin/Dashboard/Blog/Blog"));
 const BlogDetail = lazyPage(() =>
   import("./pages/admin/Dashboard/Blog/detail/BlogDetail").then((m) => ({
@@ -252,6 +255,7 @@ const App = () => {
           <Route path="/verify-email" element={<VerifyEmail />} />
 
           <Route path="/about" element={<AboutUs />} />
+          <Route path="/about/mentors/:slug" element={<MentorAboutProfile />} />
           <Route path="/course" element={<Navigate to="/courses" replace />} />
           <Route path="/courses" element={<Course />} />
           <Route path="/training" element={<TrainingPage />} />

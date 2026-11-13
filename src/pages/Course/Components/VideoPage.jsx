@@ -14,7 +14,13 @@ export function VideosPage() {
   };
   const { data: videos = [], isLoading, error } = useCourses(filters);
   const { data: categories = [] } = useCategories();
-  const visibleVideos = videos;
+  const visibleVideos = videos.filter((video) => {
+    const category = categories.find(
+      (item) => String(item.id) === String(video.category_id ?? video.category),
+    );
+    const categoryName = video.category_name || category?.name || video.category || "";
+    return !/\b(web\s*development|ai\s*&?\s*ml|artificial intelligence|machine learning|programming|software development)\b/i.test(String(categoryName));
+  });
 
   return (
     <div className="course-catalog">

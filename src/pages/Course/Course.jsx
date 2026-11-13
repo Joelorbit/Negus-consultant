@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NavLink, useSearchParams } from "react-router";
+import { useSearchParams } from "react-router";
 import { VideoDetailPage } from "./Components/VideoDetailPage";
 import { VideosPage } from "./Components/VideoPage";
 import { useCourseById } from "../../hooks/useCourses";
@@ -75,9 +75,9 @@ function Course() {
                   </button>
                 )}
               </div>
-              <NavLink className="public-button public-button-primary course-explore-lessons" to="#course-results">
+              <a className="public-button public-button-primary course-explore-lessons" href="#course-results">
                 Explore the lessons <ArrowDown aria-hidden="true" />
-              </NavLink>
+              </a>
             </div>
           </section>
           <VideosPage />

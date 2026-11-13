@@ -4,10 +4,10 @@ import { NavLink, useLocation } from "react-router";
 import {
   HomeSimple,
   Book,
-  Packages,
   GraduationCap,
   User,
   LogIn,
+  VideoCamera,
 } from "iconoir-react";
 import { useMe } from "../hooks/useAuth";
 import { preloadPublicRoute } from "../utils/preloadPublicRoute";
@@ -41,11 +41,11 @@ const MobileDock = () => {
       isActive: (path) => path.startsWith("/courses"),
     },
     {
-      to: "/packages",
-      label: "Packages",
-      icon: Packages,
+      to: "/training",
+      label: "Training",
+      icon: VideoCamera,
       isActive: (path) =>
-        path.startsWith("/packages") || path.startsWith("/college-packages"),
+        path.startsWith("/training"),
     },
     {
       to: "/scholarships",

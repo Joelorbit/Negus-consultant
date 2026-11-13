@@ -1026,7 +1026,7 @@
 .about-service-number { color:var(--gold-ink); font:800 11px/1 var(--font-display); letter-spacing:.12em; }
 .about-service-title { color:var(--ink); font:700 19px/1.2 var(--font-display); }
 .about-service-title i { color:var(--gold-ink); font-style:normal; }
-.about-service-subtitle { color:var(--ink-secondary); font:600 14px/1.4 var(--font-body); }
+.about-service-subtitle { color:var(--ink-secondary); font:600 14px/1.4 var(--font-amharic, var(--font-body)); }
 .about-service-description { align-self:end; color:var(--ink-muted); font-size:13px; line-height:1.55; }
 .about-service-arrow { position:absolute; right:18px; bottom:18px; display:grid; width:34px; height:34px; place-items:center; border:1px solid var(--line); border-radius:50%; background:var(--paper); color:var(--ink); transition:transform .2s,background .2s; }
 .about-service-arrow svg { width:16px; height:16px; }

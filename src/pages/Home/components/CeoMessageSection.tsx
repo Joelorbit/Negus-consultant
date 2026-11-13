@@ -6,8 +6,8 @@ export default function CeoMessageSection() {
     <section className="ceo-message-section" id="overview">
       <style>{`
         .ceo-message-section {
-          --section-english: "Outfit", sans-serif;
-          --section-amharic: "Menbere", sans-serif;
+          --section-english: "Outfit", "Benaiah", sans-serif;
+          --section-amharic: "Benaiah", "Menbere", sans-serif;
           position: relative;
           width: 100%;
           padding: clamp(48px, 6vw, 84px) clamp(20px, 4vw, 56px);
@@ -330,7 +330,7 @@ export default function CeoMessageSection() {
             </span>
           </a>
 
-          <p className="ceo-video-subtitle">መልዕክት አለን · Watch our message</p>
+          <p className="ceo-video-subtitle"><span className="ceo-message-amharic">መልዕክት አለን</span> · Watch our message</p>
 
           <div className="ceo-video-copy">
             <h3 className="ceo-message-amharic">የተማሪዎቻችን ስኬት የኛ ኩራት ነው!</h3>

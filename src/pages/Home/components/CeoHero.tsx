@@ -14,8 +14,8 @@ export default function CeoHero() {
     <section className="ceo-hero-section">
       <style>{`
         .ceo-hero-section {
-          --hero-english: "Outfit", sans-serif;
-          --hero-amharic: "Menbere", sans-serif;
+          --hero-english: "Outfit", "Benaiah", sans-serif;
+          --hero-amharic: "Benaiah", "Menbere", sans-serif;
           position: relative;
           width: 100%;
           min-height: min(820px, calc(100svh - 74px));
@@ -507,11 +507,11 @@ export default function CeoHero() {
 
           <div className="ceo-hero-actions">
             <button type="button" onClick={scrollToExplore} className="ceo-hero-btn-primary">
-              <span>Explore / ጀምር</span>
+              <span>Explore / <span className="ceo-hero-amharic">ጀምር</span></span>
               <ArrowRight width={16} height={16} />
             </button>
             <Link to="/packages" className="ceo-hero-btn-secondary">
-              <span>See Our Packages / ፓኬጆች</span>
+              <span>See Our Packages / <span className="ceo-hero-amharic">ፓኬጆች</span></span>
               <ArrowUpRight width={15} height={15} />
             </Link>
           </div>

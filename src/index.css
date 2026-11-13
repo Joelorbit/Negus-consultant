@@ -1,8 +1,41 @@
 /* ─────────────────────────────────────────────────────────────
    Negus Consultants – Design System
-   Fonts: Lexend (display) + Outfit (body)
+   Fonts: Lexend (display) + Outfit (body) + Benaiah (Amharic)
    Palette: Forest green / Gold / Warm paper
    ───────────────────────────────────────────────────────────── */
+
+/* ── Custom Brand Fonts ────────────────────────────────────── */
+@font-face {
+  font-family: "Benaiah";
+  src: url("/fonts/Benaiah_Abraham_Fikadu.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Benaiah";
+  src: url("/fonts/Benaiah_Abraham_Fikadu.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Benaiah";
+  src: url("/fonts/Benaiah_Abraham_Fikadu.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Benaiah";
+  src: url("/fonts/Benaiah_Abraham_Fikadu.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
 
 @import "tailwindcss";
 @import "tw-animate-css";
@@ -48,8 +81,9 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  --font-display: "Lexend", system-ui, sans-serif;
-  --font-body: "Outfit", system-ui, sans-serif;
+  --font-display: "Lexend", "Benaiah", system-ui, sans-serif;
+  --font-body: "Outfit", "Benaiah", system-ui, sans-serif;
+  --font-amharic: "Benaiah", "Menbere", system-ui, sans-serif;
 
   --animate-fade-in: fadeIn 0.5s var(--ease-spring) both;
   --animate-slide-up: slideUp 0.5s var(--ease-spring) both;
@@ -115,8 +149,9 @@
   --line: rgba(18, 61, 43, 0.12);
   --line-strong: rgba(18, 61, 43, 0.22);
 
-  --font-display: "Lexend", system-ui, sans-serif;
-  --font-body: "Outfit", system-ui, sans-serif;
+  --font-display: "Lexend", "Benaiah", system-ui, sans-serif;
+  --font-body: "Outfit", "Benaiah", system-ui, sans-serif;
+  --font-amharic: "Benaiah", "Menbere", system-ui, sans-serif;
 
   --section-y: clamp(4rem, 8vw, 7.5rem);
   --gutter: clamp(1rem, 4vw, 2rem);

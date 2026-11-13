@@ -3,11 +3,11 @@
    ───────────────────────────────────────────────────────────── */
 
 * {
-  font-family: "Outfit", system-ui, sans-serif;
+  font-family: "Outfit", "Benaiah", system-ui, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Lexend", system-ui, sans-serif;
+  font-family: "Lexend", "Benaiah", system-ui, sans-serif;
 }
 
 @layer components {

@@ -25,6 +25,7 @@ import { toast } from "sonner";
 import { UpgradeCard } from "../../../components/UpgradeCard";
 import { NavLink } from "react-router";
 import { navigateToLogin } from "../../../utils/mobileNavigation";
+import { mentorProfiles } from "../../../assets/mentorProfiles";
 
 export function VideoDetailPage({ video, onBack }) {
   const [newComment, setNewComment] = useState("");
@@ -65,6 +66,12 @@ export function VideoDetailPage({ video, onBack }) {
     Number.isFinite(subscriptionExpiresAt) &&
     subscriptionExpiresAt > Date.now();
   const hasAccess = Boolean(user) && hasActiveSubscription;
+  const instructor = mentorProfiles.find((mentor) =>
+    video.instructor_name?.toLowerCase().includes(mentor.name.split(" ")[0].toLowerCase()),
+  );
+  const instructorProfilePath = instructor
+    ? `/about/mentors/${instructor.name.toLowerCase().replaceAll(" ", "-")}`
+    : null;
 
   return (
     <div className="negus-video-detail-page">
@@ -259,6 +266,26 @@ export function VideoDetailPage({ video, onBack }) {
           margin: 2px 0 0;
           font-size: 12.5px;
           color: var(--ink-muted);
+        }
+
+        .negus-instructor-profile {
+          display: flex;
+          min-width: 0;
+          align-items: center;
+          gap: 14px;
+          flex: 1;
+          color: inherit;
+          text-decoration: none;
+          border-radius: 10px;
+        }
+
+        .negus-instructor-profile:hover .negus-instructor-info h4 {
+          color: var(--gold-ink);
+        }
+
+        .negus-instructor-profile:focus-visible {
+          outline: 3px solid var(--gold-ink);
+          outline-offset: 4px;
         }
 
         .negus-section-title {
@@ -494,16 +521,37 @@ export function VideoDetailPage({ video, onBack }) {
 
               {/* Instructor */}
               <div className="negus-instructor-card">
-                <Avatar className="h-12 w-12 border border-[var(--line-strong)]">
-                  <AvatarImage src={video.instructor_avatar} />
-                  <AvatarFallback className="bg-[var(--ink)] text-[var(--yellow)] font-bold">
-                    {video.instructor_name?.[0] || "N"}
-                  </AvatarFallback>
-                </Avatar>
-                <div className="negus-instructor-info">
-                  <h4>{video.instructor_name || "Negus Advisor"}</h4>
-                  <p>{video.instructor_title || "Admissions Mentor"}</p>
-                </div>
+                {instructorProfilePath ? (
+                  <NavLink
+                    to={instructorProfilePath}
+                    className="negus-instructor-profile"
+                    aria-label={`View ${instructor.name}'s profile`}
+                  >
+                    <Avatar className="h-12 w-12 border border-[var(--line-strong)]">
+                      <AvatarImage src={video.instructor_avatar} />
+                      <AvatarFallback className="bg-[var(--ink)] text-[var(--yellow)] font-bold">
+                        {video.instructor_name?.[0] || "N"}
+                      </AvatarFallback>
+                    </Avatar>
+                    <div className="negus-instructor-info">
+                      <h4>{video.instructor_name || "Negus Advisor"}</h4>
+                      <p>{video.instructor_title || "Admissions Mentor"}</p>
+                    </div>
+                  </NavLink>
+                ) : (
+                  <>
+                    <Avatar className="h-12 w-12 border border-[var(--line-strong)]">
+                      <AvatarImage src={video.instructor_avatar} />
+                      <AvatarFallback className="bg-[var(--ink)] text-[var(--yellow)] font-bold">
+                        {video.instructor_name?.[0] || "N"}
+                      </AvatarFallback>
+                    </Avatar>
+                    <div className="negus-instructor-info">
+                      <h4>{video.instructor_name || "Negus Advisor"}</h4>
+                      <p>{video.instructor_title || "Admissions Mentor"}</p>
+                    </div>
+                  </>
+                )}
                 <NavLink
                   to="/files"
                   className="negus-back-btn ml-auto text-[13.5px]"

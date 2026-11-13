@@ -4,7 +4,6 @@ import { VideoDetailPage } from "./Components/VideoDetailPage";
 import { VideosPage } from "./Components/VideoPage";
 import { useCourseById } from "../../hooks/useCourses";
 import { ArrowDown } from "lucide-react";
-import MentorProfilesSection from "../About/Components/MentorProfilesSection";
 import "../public-pages.css";
 
 const COURSE_PREVIEW_ID = "ytDhlQqU384";
@@ -81,7 +80,6 @@ function Course() {
             </div>
           </section>
           <VideosPage />
-          <MentorProfilesSection />
         </div>
       )}
     </main>

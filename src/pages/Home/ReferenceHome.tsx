@@ -16,7 +16,6 @@ import CeoMessageSection from "./components/CeoMessageSection";
 import CeoFreeToolsSection from "./components/CeoFreeToolsSection";
 import { Reveal, ScrollProgress, PixelRain } from "./components/HomeLife";
 import { testimonialPhotos } from "../../assets/testimonialPhotos";
-import { SUPPORT_TELEGRAM_URL } from "../../config/supportContact";
 
 export default function ReferenceHome() {
   const [isIntroPlaying, setIsIntroPlaying] = useState(false);
@@ -281,26 +280,21 @@ export default function ReferenceHome() {
               <span style={{ fontSize: "12px", fontWeight: 800, letterSpacing: "0.12em", color: "var(--ink-muted)", textTransform: "uppercase" }}>
                 Access to one course
               </span>
-              <h3 style={{ fontFamily: "var(--font-display)", fontSize: "22px", fontWeight: 700, margin: "10px 0 6px", color: "var(--ink)" }}>
+              <h3 style={{ fontFamily: "var(--font-display)", fontSize: "22px", fontWeight: 700, margin: "10px 0 8px", color: "var(--ink)" }}>
                 Per-Course Access
               </h3>
-              <p style={{ color: "var(--ink-secondary)", fontSize: "14px", lineHeight: "1.6", margin: "0 0 18px" }}>
+              <p style={{ color: "var(--ink-secondary)", fontSize: "14px", lineHeight: "1.6", margin: "0 0 24px" }}>
                 Choose one course and focus on the lessons that matter to you.
               </p>
-              <div style={{ fontFamily: "var(--font-display)", fontSize: "28px", fontWeight: 800, color: "var(--ink)", marginBottom: "24px" }}>
-                ETB 600
-              </div>
             </div>
-            <a
-              href={SUPPORT_TELEGRAM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/packages"
               className="btn-dark-hero"
               style={{ width: "100%", justifyContent: "center", textAlign: "center" }}
             >
               <span>Ask to enroll</span>
               <ArrowRight aria-hidden="true" />
-            </a>
+            </Link>
           </Reveal>
 
           {/* Card 2 - 6-Month Package (Featured) */}
@@ -323,20 +317,15 @@ export default function ReferenceHome() {
               <span style={{ fontSize: "12px", fontWeight: 800, letterSpacing: "0.12em", color: "var(--gold-ink)", textTransform: "uppercase" }}>
                 Six months of course access
               </span>
-              <h3 style={{ fontFamily: "var(--font-display)", fontSize: "22px", fontWeight: 700, margin: "10px 0 6px", color: "var(--ink)" }}>
+              <h3 style={{ fontFamily: "var(--font-display)", fontSize: "22px", fontWeight: 700, margin: "10px 0 8px", color: "var(--ink)" }}>
                 6-Month Package
               </h3>
-              <p style={{ color: "var(--ink-secondary)", fontSize: "14px", lineHeight: "1.6", margin: "0 0 18px" }}>
+              <p style={{ color: "var(--ink-secondary)", fontSize: "14px", lineHeight: "1.6", margin: "0 0 24px" }}>
                 A focused half-year plan for steady progress across your studies.
               </p>
-              <div style={{ fontFamily: "var(--font-display)", fontSize: "28px", fontWeight: 800, color: "var(--ink)", marginBottom: "24px" }}>
-                ETB 1,870
-              </div>
             </div>
-            <a
-              href={SUPPORT_TELEGRAM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/packages"
               className="btn-dark-hero"
               style={{
                 width: "100%",
@@ -349,7 +338,7 @@ export default function ReferenceHome() {
             >
               <span>Ask to enroll</span>
               <ArrowRight aria-hidden="true" />
-            </a>
+            </Link>
           </Reveal>
 
           {/* Card 3 - 2-Year Package */}
@@ -371,26 +360,21 @@ export default function ReferenceHome() {
               <span style={{ fontSize: "12px", fontWeight: 800, letterSpacing: "0.12em", color: "var(--ink-muted)", textTransform: "uppercase" }}>
                 Two years of course access
               </span>
-              <h3 style={{ fontFamily: "var(--font-display)", fontSize: "22px", fontWeight: 700, margin: "10px 0 6px", color: "var(--ink)" }}>
+              <h3 style={{ fontFamily: "var(--font-display)", fontSize: "22px", fontWeight: 700, margin: "10px 0 8px", color: "var(--ink)" }}>
                 2-Year Package
               </h3>
-              <p style={{ color: "var(--ink-secondary)", fontSize: "14px", lineHeight: "1.6", margin: "0 0 18px" }}>
+              <p style={{ color: "var(--ink-secondary)", fontSize: "14px", lineHeight: "1.6", margin: "0 0 24px" }}>
                 Long-term access for students who want room to learn at their pace.
               </p>
-              <div style={{ fontFamily: "var(--font-display)", fontSize: "28px", fontWeight: 800, color: "var(--ink)", marginBottom: "24px" }}>
-                ETB 3,200
-              </div>
             </div>
-            <a
-              href={SUPPORT_TELEGRAM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/packages"
               className="btn-dark-hero"
               style={{ width: "100%", justifyContent: "center", textAlign: "center" }}
             >
               <span>Ask to enroll</span>
               <ArrowRight aria-hidden="true" />
-            </a>
+            </Link>
           </Reveal>
         </div>
 

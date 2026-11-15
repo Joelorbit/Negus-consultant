@@ -397,12 +397,15 @@ export default function CeoHero() {
           }
         }
 
+        /* ── Mobile portrait (≤ 640px) ── */
         @media (max-width: 640px) {
           .ceo-hero-section {
             --paper: #07130e;
-            min-height: calc(100svh - 98px);
-            padding: 30px 18px 34px;
-            align-items: stretch;
+            min-height: calc(100svh - 74px);
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: #fff;
             background: #07130e;
           }
@@ -414,34 +417,38 @@ export default function CeoHero() {
           }
 
           .ceo-hero-grid {
-            display: block;
-            min-height: calc(100svh - 160px);
+            display: flex;
+            flex-direction: column;
+            min-height: calc(100svh - 74px);
+            padding: clamp(24px, 4.5svh, 44px) 0 calc(24px + env(safe-area-inset-bottom));
           }
 
           .ceo-hero-left {
-            min-height: inherit;
-            justify-content: flex-start;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 0;
+            /* optical center: 45/55 split so content feels lifted */
+            padding-bottom: 8svh;
           }
 
           .ceo-hero-title {
-            margin-top: 0;
-            margin-bottom: 12px;
-            font-size: clamp(36px, 9.5vw, 46px);
-            line-height: 1.08;
+            margin: 0 0 14px;
+            font-size: clamp(36px, 9.5vw, 48px);
+            line-height: 1.1;
           }
 
           .ceo-hero-subhead {
-            margin-top: 16px;
-            margin-bottom: 27px;
+            margin: 0 0 22px;
             font-size: 15px;
-            line-height: 1.52;
+            line-height: 1.58;
           }
 
           .ceo-hero-checklist {
-            width: min(100%, 420px);
-            margin-inline: auto;
-            gap: 7px;
-            margin-bottom: 34px;
+            width: min(100%, 440px);
+            margin: 0 auto 28px;
+            gap: 9px;
             align-items: stretch;
             text-align: left;
           }
@@ -449,26 +456,26 @@ export default function CeoHero() {
           .ceo-hero-check-item {
             justify-content: flex-start;
             text-align: left;
-            font-size: 14.5px;
+            font-size: 14px;
           }
 
           .ceo-hero-actions {
             gap: 12px;
-            margin-bottom: 20px;
+            margin-bottom: 0;
           }
 
           .ceo-hero-btn-primary,
           .ceo-hero-btn-secondary {
-            min-height: 60px;
-            padding-inline: 12px;
+            min-height: 56px;
+            padding-inline: 14px;
             font-size: 15px;
           }
 
           .ceo-hero-metrics {
-            gap: 14px;
-            padding-top: 14px;
-            margin-top: auto;
-            margin-bottom: calc(clamp(129px, calc(22.7svh - 40px), 152px) + env(safe-area-inset-bottom));
+            gap: clamp(16px, 5vw, 28px);
+            padding-top: 18px;
+            margin-top: 28px;
+            margin-bottom: 0;
           }
 
           .ceo-metric-label {
@@ -488,41 +495,31 @@ export default function CeoHero() {
           }
         }
 
+        /* ── Short mobile screens (≤ 640px AND ≤ 700px tall) ── */
         @media (max-width: 640px) and (max-height: 700px) {
+          .ceo-hero-grid {
+            padding-top: 18px;
+            padding-bottom: calc(16px + env(safe-area-inset-bottom));
+          }
+
+          .ceo-hero-left {
+            padding-bottom: 5svh;
+          }
+
           .ceo-hero-title {
             margin-bottom: 8px;
+            font-size: clamp(32px, 8.8vw, 40px);
           }
 
           .ceo-hero-subhead {
-            margin-top: 8px;
-            margin-bottom: 10px;
-          }
-
-          .ceo-hero-checklist {
-            margin-bottom: 12px;
-          }
-
-          .ceo-hero-metrics {
-            margin-bottom: calc(clamp(96px, calc(46svh - 165px), 129px) + env(safe-area-inset-bottom));
-          }
-        }
-
-        @media (min-width: 381px) and (max-width: 640px) and (max-height: 700px) {
-          .ceo-hero-metrics {
-            margin-bottom: calc(91px + env(safe-area-inset-bottom));
-          }
-
-          .ceo-hero-title {
-            font-size: clamp(32px, 8.7vw, 36px);
-          }
-
-          .ceo-hero-subhead {
+            margin-bottom: 14px;
             font-size: 14px;
-            line-height: 1.4;
+            line-height: 1.45;
           }
 
           .ceo-hero-checklist {
-            gap: 8px;
+            margin-bottom: 18px;
+            gap: 6px;
           }
 
           .ceo-hero-check-item {
@@ -531,70 +528,77 @@ export default function CeoHero() {
 
           .ceo-hero-btn-primary,
           .ceo-hero-btn-secondary {
-            min-height: 54px;
+            min-height: 50px;
+          }
+
+          .ceo-hero-metrics {
+            margin-top: 18px;
+            padding-top: 14px;
+            gap: 14px;
           }
         }
 
-        @media (max-width: 380px) and (max-height: 700px) {
+        /* ── Narrow phones (≤ 380px, any height) ── */
+        @media (max-width: 380px) {
           .ceo-hero-section {
-            padding: 14px 14px;
+            padding: 0 16px;
           }
 
           .ceo-hero-grid {
-            min-height: calc(100svh - 126px);
+            padding-top: 20px;
+            padding-bottom: calc(18px + env(safe-area-inset-bottom));
           }
 
           .ceo-hero-title {
-            margin-top: 0;
             margin-bottom: 10px;
-            font-size: clamp(30px, 10vw, 36px);
-            line-height: 1.05;
+            font-size: clamp(30px, 9.2vw, 38px);
+            line-height: 1.08;
           }
 
           .ceo-hero-subhead {
-            font-size: 13px;
-            line-height: 1.35;
+            margin-bottom: 16px;
+            font-size: 13.5px;
+            line-height: 1.45;
           }
 
           .ceo-hero-checklist {
-            gap: 8px;
+            gap: 7px;
+            margin-bottom: 22px;
           }
 
           .ceo-hero-check-item {
-            gap: 7px;
-            font-size: 12px;
-            line-height: 1.25;
+            gap: 8px;
+            font-size: 13px;
           }
 
           .ceo-hero-check-icon {
-            width: 18px;
-            height: 18px;
+            width: 19px;
+            height: 19px;
           }
 
           .ceo-hero-actions {
-            gap: 8px;
-            margin-bottom: 14px;
+            gap: 10px;
           }
 
           .ceo-hero-btn-primary,
           .ceo-hero-btn-secondary {
-            min-height: 54px;
-            padding-inline: 8px;
-            font-size: 12px;
+            min-height: 52px;
+            padding-inline: 10px;
+            font-size: 13.5px;
           }
 
           .ceo-hero-metrics {
-            gap: 6px;
-            padding-top: 10px;
-            margin-top: auto;
+            gap: 12px;
+            padding-top: 14px;
+            margin-top: 22px;
           }
 
           .ceo-metric-val {
-            font-size: 18px;
+            font-size: 19px;
           }
 
           .ceo-metric-label {
-            font-size: 8.5px;
+            font-size: 10px;
           }
         }
 

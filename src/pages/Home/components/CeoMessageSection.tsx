@@ -352,7 +352,7 @@ export default function CeoMessageSection() {
               <span className="ceo-tile-num">05</span>
               <div className="ceo-tile-text">
                 <strong>About Us</strong>
-                <span>Our 20-year history, verified results & senior mentors</span>
+                <span>2+ years of guidance, verified results & senior mentors</span>
               </div>
             </div>
             <div className="ceo-tile-arrow">

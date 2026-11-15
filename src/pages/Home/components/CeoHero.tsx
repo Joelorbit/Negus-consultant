@@ -399,94 +399,56 @@ export default function CeoHero() {
 
         @media (max-width: 640px) {
           .ceo-hero-section {
-            --paper: #fffdf6;
-            min-height: 0;
-            display: block;
-            padding: 28px 18px 24px;
+            --paper: #07130e;
+            min-height: calc(100svh - 98px);
+            padding: 28px 18px 34px;
             align-items: stretch;
-            color: #123d2b;
-            background: var(--paper);
-          }
-
-          .ceo-hero-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 22px;
-            min-height: 0;
-          }
-
-          .ceo-hero-left {
-            min-height: 0;
-            color: #123d2b;
-          }
-
-          .ceo-hero-right {
-            position: relative;
-            inset: auto;
-            z-index: auto;
-            width: 100%;
-            aspect-ratio: 4 / 3;
-            border-radius: 18px;
-            box-shadow: 0 12px 32px rgba(18, 61, 43, 0.14);
-            pointer-events: auto;
-          }
-
-          .ceo-hero-image-wrap {
-            position: relative;
-            inset: auto;
-            width: 100%;
-            height: 100%;
-            min-height: 0;
-            margin: 0;
+            color: #fff;
+            background: #07130e;
           }
 
           .ceo-hero-image-wrap::after {
-            background: none;
+            background:
+              linear-gradient(180deg, rgba(7, 19, 14, 0.04) 0%, rgba(7, 19, 14, 0.08) 25%, rgba(7, 19, 14, 0.55) 45%, rgba(7, 19, 14, 0.96) 64%, #07130e 100%),
+              linear-gradient(90deg, rgba(7, 19, 14, 0.18), transparent 80%);
           }
 
-          .ceo-hero-img {
-            height: 100%;
-            min-height: 0;
-            object-position: center 45%;
-            transform: none;
-            mask-image: none;
-            -webkit-mask-image: none;
+          .ceo-hero-grid {
+            display: block;
+            min-height: calc(100svh - 160px);
+          }
+
+          .ceo-hero-left {
+            min-height: inherit;
+            justify-content: flex-start;
           }
 
           .ceo-hero-title {
-            margin-bottom: 16px;
+            margin-top: 0;
+            margin-bottom: 12px;
             font-size: clamp(36px, 9.5vw, 46px);
             line-height: 1.08;
-            color: #123d2b;
-            text-shadow: none;
-          }
-
-          .ceo-hero-title span {
-            color: #1a523b;
           }
 
           .ceo-hero-subhead {
-            margin-bottom: 20px;
+            margin-top: clamp(36px, 8svh, 68px);
+            margin-bottom: 12px;
             font-size: 15px;
             line-height: 1.52;
-            color: #315a43;
-            text-shadow: none;
           }
 
           .ceo-hero-checklist {
             gap: 8px;
-            margin-bottom: 22px;
-            color: #123d2b;
+            margin-bottom: 14px;
           }
 
           .ceo-hero-check-item {
             font-size: 12.5px;
-            color: #315a43;
           }
 
           .ceo-hero-actions {
             gap: 10px;
-            margin-bottom: 22px;
+            margin-bottom: 12px;
           }
 
           .ceo-hero-btn-primary,
@@ -498,17 +460,9 @@ export default function CeoHero() {
 
           .ceo-hero-metrics {
             gap: 10px;
-            padding-top: 18px;
-            margin: 0 0 4px;
-            border-top-color: rgba(18, 61, 43, 0.16);
-          }
-
-          .ceo-metric-val {
-            color: #123d2b;
-          }
-
-          .ceo-metric-label {
-            color: #56745f;
+            padding-top: 12px;
+            margin-top: auto;
+            margin-bottom: calc(78px + env(safe-area-inset-bottom));
           }
 
           .ceo-metric-label {
@@ -522,10 +476,11 @@ export default function CeoHero() {
           }
 
           .ceo-hero-grid {
-            min-height: 0;
+            min-height: calc(100svh - 126px);
           }
 
           .ceo-hero-title {
+            margin-top: 0;
             margin-bottom: 8px;
             font-size: clamp(30px, 10vw, 36px);
             line-height: 1.05;
@@ -568,6 +523,7 @@ export default function CeoHero() {
           .ceo-hero-metrics {
             gap: 6px;
             padding-top: 12px;
+            margin-top: 0;
           }
 
           .ceo-metric-val {

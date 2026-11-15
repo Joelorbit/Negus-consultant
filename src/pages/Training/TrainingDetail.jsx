@@ -34,16 +34,7 @@ const DETAIL = {
       "Registration is open. Confirm your seat via Telegram, then complete the training fee invoice shared by the team.",
     status: "open",
     statusLabel: "Registration open",
-    testimonials: [
-      {
-        quote: "The cohort made CSS Profile feel doable. I stopped guessing and started submitting with a plan.",
-        name: "Hanna T.",
-      },
-      {
-        quote: "Mock interviews were the difference. I walked into the embassy knowing exactly how to answer.",
-        name: "Yonatan M.",
-      },
-    ],
+    testimonials: [],
   },
   "essay-intensive": {
     title: "Personal Statement Intensive Weekend",
@@ -64,12 +55,7 @@ const DETAIL = {
     registration: "Limited seats. Register via Telegram to receive the weekend schedule and payment link.",
     status: "open",
     statusLabel: "Registration open",
-    testimonials: [
-      {
-        quote: "I rewrote my opener twice in one afternoon — and it finally sounded like me.",
-        name: "Selam A.",
-      },
-    ],
+    testimonials: [],
   },
   "visa-masterclass": {
     title: "US Embassy Visa Interview Masterclass",
@@ -84,12 +70,7 @@ const DETAIL = {
     registration: null,
     status: "completed",
     statusLabel: "Ended · recordings by request",
-    testimonials: [
-      {
-        quote: "The practice questions mirrored what I actually got asked. I felt prepared, not panicked.",
-        name: "Abel K.",
-      },
-    ],
+    testimonials: [],
   },
 };
 
@@ -176,17 +157,6 @@ export default function TrainingDetailPage() {
             <p>{training.delivery}</p>
           </section>
 
-          {training.testimonials.length > 0 && (
-            <section className="training-detail-testimonials">
-              <p className="public-eyebrow">STUDENT TESTIMONIALS</p>
-              {training.testimonials.map((t) => (
-                <blockquote key={t.name}>
-                  <p>&ldquo;{t.quote}&rdquo;</p>
-                  <cite>— {t.name}</cite>
-                </blockquote>
-              ))}
-            </section>
-          )}
 
         </div>
 

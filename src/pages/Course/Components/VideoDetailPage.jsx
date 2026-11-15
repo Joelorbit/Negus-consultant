@@ -444,6 +444,50 @@ export function VideoDetailPage({ video, onBack }) {
           font-weight: 700;
           color: var(--ink);
         }
+
+        @media (max-width: 640px) {
+          .negus-locked-box {
+            aspect-ratio: 4 / 3;
+            padding: 20px 16px;
+          }
+
+          .negus-locked-content {
+            gap: 8px;
+          }
+
+          .negus-locked-icon {
+            width: 46px;
+            height: 46px;
+          }
+
+          .negus-locked-title {
+            font-size: 18px;
+          }
+
+          .negus-locked-desc {
+            font-size: 13px;
+          }
+
+          .negus-locked-cta {
+            margin-top: 8px !important;
+          }
+
+          .negus-instructor-card {
+            flex-direction: column;
+            align-items: stretch;
+            padding: 16px;
+          }
+
+          .negus-instructor-profile {
+            width: 100%;
+          }
+
+          .negus-instructor-card > .negus-back-btn {
+            width: 100%;
+            justify-content: center;
+            margin-left: 0;
+          }
+        }
       `}</style>
 
       {hasActiveSubscription && <UpgradeCard />}
@@ -488,7 +532,7 @@ export function VideoDetailPage({ video, onBack }) {
                     </p>
                     <NavLink
                       to="/packages"
-                      className="public-button public-button-primary"
+                      className="public-button public-button-primary negus-locked-cta"
                       style={{ marginTop: "16px" }}
                     >
                       <span>Explore packages</span>

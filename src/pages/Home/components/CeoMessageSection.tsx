@@ -126,58 +126,20 @@ export default function CeoMessageSection() {
           outline-offset: -5px;
         }
 
-        @keyframes ceo-aura-pulse {
-          0%, 100% {
-            opacity: 0.75;
-            transform: translate(-50%, -50%) scale(0.96);
-          }
-          50% {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1.08);
-          }
-        }
-
         .ceo-video-copy {
-          position: relative;
           text-align: center;
-          padding: 12px 0 6px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .ceo-video-copy::before {
-          content: "";
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: clamp(220px, 72%, 380px);
-          height: clamp(55px, 85%, 85px);
-          background: radial-gradient(ellipse at center, rgba(209, 189, 130, 0.55) 0%, rgba(26, 92, 62, 0.18) 50%, transparent 75%);
-          filter: blur(16px);
-          border-radius: 50%;
-          pointer-events: none;
-          z-index: 0;
-          animation: ceo-aura-pulse 4s ease-in-out infinite;
+          padding: 10px 0 2px;
         }
 
         .ceo-video-copy h3 {
-          position: relative;
-          z-index: 1;
           font-family: var(--section-amharic);
           font-size: clamp(38px, 5vw, 54px);
           font-weight: 900;
-          color: #0d3422;
+          color: #123d2b;
           margin: 0;
           line-height: 1.15;
           text-align: center;
           white-space: nowrap;
-          letter-spacing: 0.015em;
-          text-shadow:
-            0 2px 6px rgba(13, 52, 34, 0.22),
-            0 0 24px rgba(209, 189, 130, 0.45),
-            0 0 45px rgba(209, 189, 130, 0.25);
         }
 
         .ceo-tiles-stack {

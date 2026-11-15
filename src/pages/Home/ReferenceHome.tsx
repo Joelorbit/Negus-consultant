@@ -81,7 +81,7 @@ export default function ReferenceHome() {
         >
           {[
             { name: "Georgetown", loc: "Washington, D.C.", award: "$85k/yr Award", href: "https://www.georgetown.edu/", logo: "/assets/university-logos/georgetown-seal.png" },
-            { name: "Williams College", loc: "Massachusetts", award: "Full Financial Aid", href: "https://www.williams.edu/", logo: "/assets/university-logos/williams-seal.png" },
+            { name: "Williams College", loc: "Massachusetts", award: "Full Financial Aid", href: "https://www.williams.edu/", logo: "/assets/university-logos/williams-official.svg" },
             { name: "Drexel University", loc: "Philadelphia, PA", award: "$145k Scholarship", href: "https://drexel.edu/", logo: "/assets/university-logos/drexel-official.svg" },
             { name: "Howard University", loc: "Washington, D.C.", award: "Full Tuition", href: "https://howard.edu/", logo: "/assets/university-logos/howard-official.svg" },
             { name: "Hult International", loc: "Boston & London", award: "$120k Merit Grant", href: "https://www.hult.edu/", logo: hultLogo },

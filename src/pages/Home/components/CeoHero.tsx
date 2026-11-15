@@ -292,7 +292,7 @@ export default function CeoHero() {
           .ceo-hero-section {
             --paper: #07130e;
             min-height: min(900px, 100svh);
-            padding: 32px 22px 220px;
+            padding: clamp(32px, 5vw, 48px) 22px clamp(36px, 5vw, 56px);
             color: #fff;
             background: #07130e;
           }
@@ -368,20 +368,26 @@ export default function CeoHero() {
 
           .ceo-hero-checklist {
             width: min(100%, 520px);
+            margin: 0 auto 30px;
             color: #fff;
-            text-align: center;
-            align-items: center;
+            text-align: left;
+            align-items: stretch;
             gap: 12px;
-            margin-bottom: 30px;
           }
 
           .ceo-hero-check-item {
             color: rgba(255, 255, 255, 0.88);
-            justify-content: center;
-            text-align: center;
+            justify-content: flex-start;
+            text-align: left;
+          }
+
+          .ceo-hero-actions {
+            margin-inline: auto;
+            margin-bottom: 24px;
           }
 
           .ceo-hero-metrics {
+            margin-inline: auto;
             border-top-color: rgba(255, 255, 255, 0.24);
           }
 

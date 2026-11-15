@@ -89,15 +89,6 @@ export default function TrainingPage() {
       </section>
 
       <section className="public-content" id="training-catalog">
-        <div className="public-section-heading">
-          <p className="public-eyebrow">TRAINING CATALOG</p>
-          <h2>Ongoing sessions first. Completed ones keep their testimonials.</h2>
-          <p>
-            Compare upcoming sessions and completed recordings. Open a training for its
-            schedule, mentors, and registration details.
-          </p>
-        </div>
-
         <div className="training-card-grid">
           {TRAININGS.map((item) => (
             <article

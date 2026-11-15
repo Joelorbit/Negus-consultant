@@ -248,7 +248,7 @@ export default function ReferenceHome() {
             Guidance for every application stage.
           </h2>
           <p style={{ color: "var(--ink-secondary)", fontSize: "15.5px", lineHeight: "1.7", margin: "0" }}>
-            Transparent pricing in Ethiopian Birr (ETB) with flexible milestones.
+            Comprehensive packages tailored for every milestone of your study abroad journey.
           </p>
         </div>
 
@@ -286,9 +286,6 @@ export default function ReferenceHome() {
               <p style={{ color: "var(--ink-secondary)", fontSize: "14px", lineHeight: "1.6", margin: "0 0 18px" }}>
                 Comprehensive structure feedback, brainstorming sessions, and line-by-line polishing for personal statements and supplements.
               </p>
-              <div style={{ fontFamily: "var(--font-display)", fontSize: "28px", fontWeight: 800, color: "var(--ink)", marginBottom: "20px" }}>
-                2,000 <span style={{ fontSize: "14px", fontWeight: 600, color: "var(--ink-muted)" }}>ETB</span>
-              </div>
               <ul style={{ listStyle: "none", padding: 0, margin: "0 0 24px", display: "grid", gap: "10px", fontSize: "13px", color: "var(--ink-secondary)" }}>
                 <li style={{ display: "flex", alignItems: "center", gap: "8px" }}><Check width={15} height={15} style={{ color: "var(--primary)" }} /> Common App Personal Statement</li>
                 <li style={{ display: "flex", alignItems: "center", gap: "8px" }}><Check width={15} height={15} style={{ color: "var(--primary)" }} /> Up to 3 Supplemental Essays</li>
@@ -331,9 +328,6 @@ export default function ReferenceHome() {
               <p style={{ color: "var(--ink-secondary)", fontSize: "14px", lineHeight: "1.6", margin: "0 0 18px" }}>
                 End-to-end guidance from university shortlisting and financial aid forms to essays, test strategy, and visa interview training.
               </p>
-              <div style={{ fontFamily: "var(--font-display)", fontSize: "28px", fontWeight: 800, color: "var(--ink)", marginBottom: "20px" }}>
-                25,000 <span style={{ fontSize: "14px", fontWeight: 600, color: "var(--ink-muted)" }}>ETB</span>
-              </div>
               <ul style={{ listStyle: "none", padding: 0, margin: "0 0 24px", display: "grid", gap: "10px", fontSize: "13px", color: "var(--ink-secondary)" }}>
                 <li style={{ display: "flex", alignItems: "center", gap: "8px" }}><Check width={15} height={15} style={{ color: "var(--gold-ink)" }} /> 10-15 Target University List</li>
                 <li style={{ display: "flex", alignItems: "center", gap: "8px" }}><Check width={15} height={15} style={{ color: "var(--gold-ink)" }} /> Full Essay & Activity Coaching</li>
@@ -383,9 +377,6 @@ export default function ReferenceHome() {
               <p style={{ color: "var(--ink-secondary)", fontSize: "14px", lineHeight: "1.6", margin: "0 0 18px" }}>
                 Personalized 1-on-1 milestone calls, accountability check-ins, and direct advice from an admitted scholar mentor.
               </p>
-              <div style={{ fontFamily: "var(--font-display)", fontSize: "28px", fontWeight: 800, color: "var(--ink)", marginBottom: "20px" }}>
-                4,000 <span style={{ fontSize: "14px", fontWeight: 600, color: "var(--ink-muted)" }}>ETB</span>
-              </div>
               <ul style={{ listStyle: "none", padding: 0, margin: "0 0 24px", display: "grid", gap: "10px", fontSize: "13px", color: "var(--ink-secondary)" }}>
                 <li style={{ display: "flex", alignItems: "center", gap: "8px" }}><Check width={15} height={15} style={{ color: "var(--primary)" }} /> 1-on-1 Mentorship Sessions</li>
                 <li style={{ display: "flex", alignItems: "center", gap: "8px" }}><Check width={15} height={15} style={{ color: "var(--primary)" }} /> Application Strategy & Timing</li>

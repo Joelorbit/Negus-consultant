@@ -401,7 +401,7 @@ export default function CeoHero() {
           .ceo-hero-section {
             --paper: #07130e;
             min-height: calc(100svh - 98px);
-            padding: 28px 18px 34px;
+            padding: 30px 18px 34px;
             align-items: stretch;
             color: #fff;
             background: #07130e;
@@ -432,7 +432,7 @@ export default function CeoHero() {
 
           .ceo-hero-subhead {
             margin-top: 16px;
-            margin-bottom: 24px;
+            margin-bottom: 27px;
             font-size: 15px;
             line-height: 1.52;
           }
@@ -440,8 +440,8 @@ export default function CeoHero() {
           .ceo-hero-checklist {
             width: min(100%, 420px);
             margin-inline: auto;
-            gap: 11px;
-            margin-bottom: 36px;
+            gap: 7px;
+            margin-bottom: 34px;
             align-items: stretch;
             text-align: left;
           }
@@ -459,7 +459,7 @@ export default function CeoHero() {
 
           .ceo-hero-btn-primary,
           .ceo-hero-btn-secondary {
-            min-height: 64px;
+            min-height: 60px;
             padding-inline: 12px;
             font-size: 15px;
           }
@@ -468,7 +468,7 @@ export default function CeoHero() {
             gap: 14px;
             padding-top: 14px;
             margin-top: auto;
-            margin-bottom: calc(132px + env(safe-area-inset-bottom));
+            margin-bottom: calc(clamp(129px, calc(22.7svh - 40px), 152px) + env(safe-area-inset-bottom));
           }
 
           .ceo-metric-label {
@@ -485,6 +485,53 @@ export default function CeoHero() {
           .ceo-hero-check-icon svg {
             width: 13px;
             height: 13px;
+          }
+        }
+
+        @media (max-width: 640px) and (max-height: 700px) {
+          .ceo-hero-title {
+            margin-bottom: 8px;
+          }
+
+          .ceo-hero-subhead {
+            margin-top: 8px;
+            margin-bottom: 10px;
+          }
+
+          .ceo-hero-checklist {
+            margin-bottom: 12px;
+          }
+
+          .ceo-hero-metrics {
+            margin-bottom: calc(clamp(96px, calc(46svh - 165px), 129px) + env(safe-area-inset-bottom));
+          }
+        }
+
+        @media (min-width: 381px) and (max-width: 640px) and (max-height: 700px) {
+          .ceo-hero-metrics {
+            margin-bottom: calc(91px + env(safe-area-inset-bottom));
+          }
+
+          .ceo-hero-title {
+            font-size: clamp(32px, 8.7vw, 36px);
+          }
+
+          .ceo-hero-subhead {
+            font-size: 14px;
+            line-height: 1.4;
+          }
+
+          .ceo-hero-checklist {
+            gap: 8px;
+          }
+
+          .ceo-hero-check-item {
+            font-size: 13px;
+          }
+
+          .ceo-hero-btn-primary,
+          .ceo-hero-btn-secondary {
+            min-height: 54px;
           }
         }
 
@@ -505,15 +552,12 @@ export default function CeoHero() {
           }
 
           .ceo-hero-subhead {
-            margin-top: 12px;
-            margin-bottom: 14px;
             font-size: 13px;
             line-height: 1.35;
           }
 
           .ceo-hero-checklist {
             gap: 8px;
-            margin-bottom: 18px;
           }
 
           .ceo-hero-check-item {
@@ -543,7 +587,6 @@ export default function CeoHero() {
             gap: 6px;
             padding-top: 10px;
             margin-top: auto;
-            margin-bottom: calc(96px + env(safe-area-inset-bottom));
           }
 
           .ceo-metric-val {

@@ -240,7 +240,6 @@ export default function ScholarshipsPage() {
                 </Button>
                 <a
                   href="https://t.me/negushelpcenter"
-                  target="_blank"
                   rel="noopener noreferrer"
                   className="public-button public-button-primary text-xs"
                 >

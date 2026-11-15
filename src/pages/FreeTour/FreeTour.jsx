@@ -22,7 +22,6 @@ export default function FreeTourPage() {
             <a
               className="public-button public-button-primary"
               href={SUPPORT_TELEGRAM_URL}
-              target="_blank"
               rel="noreferrer"
             >
               <Phone aria-hidden="true" /> Start free call

@@ -250,7 +250,6 @@ const ChatRoom = ({ bookingId, otherUser }) => {
                         <a
                           href={`${getBaseUrl()}${msg.file_url}`}
                           download={msg.file_name}
-                          target="_blank"
                           rel="noopener noreferrer"
                           className={`inline-flex items-center gap-2 px-3 py-2 rounded border ${
                             isOwnMessage

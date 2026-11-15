@@ -38,7 +38,6 @@ export default function PackageHeader({ pkg }) {
         <div className="pkgw-directline-links">
           <a
             href="https://t.me/negushelpcenter"
-            target="_blank"
             rel="noreferrer"
             className="pkgw-directlink"
           >

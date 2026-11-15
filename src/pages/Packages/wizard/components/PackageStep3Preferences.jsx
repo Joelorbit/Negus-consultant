@@ -34,7 +34,6 @@ export default function PackageStep3Preferences({ formData, handleChange, errors
         </div>
         <a
           href="/universitie_list.pdf"
-          target="_blank"
           rel="noopener noreferrer"
           className="pkgw-directory-link"
         >

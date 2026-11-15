@@ -44,7 +44,6 @@ export default function AboutCenterCard() {
             </span>
             <a
               href="https://t.me/negushelpcenter"
-              target="_blank"
               rel="noreferrer"
               className="font-['Lexend'] text-[13px] sm:text-sm font-bold text-[var(--ink)] inline-flex min-h-11 items-center gap-1.5 hover:underline"
             >
@@ -69,7 +68,6 @@ export default function AboutCenterCard() {
         <div className="flex flex-wrap justify-center gap-3 pt-2">
           <a
             href="https://t.me/negushelpcenter"
-            target="_blank"
             rel="noreferrer"
             className="public-button public-button-primary text-[14px] min-h-11 px-6 py-3 inline-flex items-center gap-2"
           >

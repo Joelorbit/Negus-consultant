@@ -1136,7 +1136,6 @@ const Navbar = () => {
               </NavLink>
               <a
                 href="https://t.me/negushelpcenter"
-                target="_blank"
                 rel="noreferrer"
                 className="negus-auth-cta justify-center py-3 text-center"
               >

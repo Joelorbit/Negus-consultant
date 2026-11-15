@@ -16,7 +16,7 @@ export default function AboutStudentVoices() {
       <div className="testimonial-media-grid">
         {testimonialPhotos.map(({ name, image }) => (
           <article className="testimonial-media-card" key={name}>
-            <a href={image} target="_blank" rel="noreferrer" aria-label={`View ${name}'s photo`}>
+            <a href={image} rel="noreferrer" aria-label={`View ${name}'s photo`}>
               <img src={image} alt={`${name}, a Negus student`} loading="lazy" />
             </a>
             <div className="testimonial-media-copy">

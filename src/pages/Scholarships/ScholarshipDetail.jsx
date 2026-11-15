@@ -514,7 +514,7 @@ export default function ScholarshipDetailPage() {
 
               <div className="space-y-3">
                 {link && (
-                  <a href={link} target="_blank" rel="noopener noreferrer" className="block w-full">
+                  <a href={link} rel="noopener noreferrer" className="block w-full">
                     <Button className="w-full rounded-xl py-6 font-bold text-sm bg-primary text-primary-foreground hover:bg-primary/90 shadow-md">
                       Go to Official Portal
                       <ExternalLink className="ml-2 h-4 w-4" />
@@ -553,7 +553,6 @@ export default function ScholarshipDetailPage() {
               </p>
               <a
                 href="https://t.me/negushelpcenter"
-                target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-4 py-2.5 text-xs font-bold text-primary-foreground hover:bg-primary/90 shadow-sm"
               >

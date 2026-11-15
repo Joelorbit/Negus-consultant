@@ -129,7 +129,6 @@ export default function SatIeltsPage() {
             <a
               className="sat-ielts-contact-link"
               href={SUPPORT_TELEGRAM_URL}
-              target="_blank"
               rel="noreferrer"
             >
               Questions? Contact us on Telegram <ArrowRight aria-hidden="true" />

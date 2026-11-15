@@ -72,7 +72,6 @@ const MentorSidebar = ({ onBookSession }) => {
             <a
               key={name}
               href={url}
-              target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-between py-2 px-3 rounded-xl text-sm text-muted-foreground hover:text-foreground hover:bg-secondary transition-all duration-200"
             >

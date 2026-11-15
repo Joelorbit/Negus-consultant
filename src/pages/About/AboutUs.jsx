@@ -106,7 +106,7 @@ export default function AboutUs() {
           <h2>Want us to teach at your school?</h2>
           <p>We bring free scholarship sessions to high schools, in person or online. Tell us about your school and we will plan a visit.</p>
         </div>
-        <a className="public-button public-button-primary" href="https://t.me/negushelpcenter" target="_blank" rel="noreferrer">Contact Us</a>
+        <a className="public-button public-button-primary" href="https://t.me/negushelpcenter" rel="noreferrer">Contact Us</a>
       </section>
 
       <AboutStudentVoices />
@@ -142,10 +142,10 @@ export default function AboutUs() {
               and practical advice—in Amharic and English.
             </p>
             <div className="about-community-actions">
-              <a className="public-button public-button-light" href="https://t.me/NEGUSCONSULTANTS" target="_blank" rel="noreferrer">
+              <a className="public-button public-button-light" href="https://t.me/NEGUSCONSULTANTS" rel="noreferrer">
                 Join our Telegram channel <ArrowUpRight aria-hidden="true" />
               </a>
-              <a className="public-button public-button-outline-light" href="https://www.tiktok.com/@negus.consultant" target="_blank" rel="noreferrer">
+              <a className="public-button public-button-outline-light" href="https://www.tiktok.com/@negus.consultant" rel="noreferrer">
                 Follow us on TikTok <ArrowUpRight aria-hidden="true" />
               </a>
             </div>

@@ -49,7 +49,6 @@ const Footer = () => {
             </a>
             <a
               href="https://t.me/negushelpcenter"
-              target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-1"
             >
@@ -57,7 +56,6 @@ const Footer = () => {
             </a>
             <a
               href="https://t.me/NEGUSCONSULTANTS"
-              target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-1"
             >
@@ -65,7 +63,6 @@ const Footer = () => {
             </a>
             <a
               href="https://www.tiktok.com/@negus.consultant?_t=ZM-8xpBtQiI488&_r=1"
-              target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-1"
             >
@@ -73,7 +70,6 @@ const Footer = () => {
             </a>
             <a
               href="https://www.youtube.com/@negusconsultants"
-              target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-1"
             >

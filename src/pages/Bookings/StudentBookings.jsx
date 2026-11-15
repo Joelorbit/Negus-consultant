@@ -251,7 +251,6 @@ const StudentBookings = () => {
                     {booking.meeting_link && (
                       <a
                         href={booking.meeting_link}
-                        target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 text-sm font-medium"
                       >

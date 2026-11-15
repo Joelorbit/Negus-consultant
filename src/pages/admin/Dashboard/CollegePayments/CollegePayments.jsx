@@ -323,7 +323,6 @@ export default function CollegePayments() {
           <DialogFooter className="flex items-center justify-between sm:justify-between pt-2">
             <a
               href={previewSlipUrl}
-              target="_blank"
               rel="noopener noreferrer"
               className="text-xs font-bold text-primary hover:underline flex items-center gap-1"
             >

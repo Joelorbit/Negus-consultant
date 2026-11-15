@@ -173,7 +173,6 @@ const ApplicationStatus = () => {
                   >
                     <a
                       href={app.video_verification.meeting_link}
-                      target="_blank"
                       rel="noreferrer"
                     >
                       Join Meeting <ExternalLink className="ml-2 w-4 h-4" />
@@ -214,7 +213,7 @@ const ApplicationStatus = () => {
                       className="text-[var(--green)] hover:bg-[var(--green-subtle)]"
                       asChild
                     >
-                      <a href={doc.url} target="_blank" rel="noreferrer">
+                      <a href={doc.url} rel="noreferrer">
                         View File
                       </a>
                     </Button>

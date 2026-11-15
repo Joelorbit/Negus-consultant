@@ -22,11 +22,12 @@ import {
 import { useMe } from "../../../hooks/useAuth";
 import { toast } from "sonner";
 import { UpgradeCard } from "../../../components/UpgradeCard";
-import { NavLink } from "react-router";
+import { NavLink, useLocation } from "react-router";
 import { navigateToLogin } from "../../../utils/mobileNavigation";
 import { mentorProfiles } from "../../../assets/mentorProfiles";
 
 export function VideoDetailPage({ video, onBack }) {
+  const location = useLocation();
   const [newComment, setNewComment] = useState("");
   const [descriptionExpanded, setDescriptionExpanded] = useState(false);
   const { data: comments } = useCourseComments(video.id);
@@ -523,6 +524,7 @@ export function VideoDetailPage({ video, onBack }) {
                 {instructorProfilePath ? (
                   <NavLink
                     to={instructorProfilePath}
+                    state={{ returnTo: `${location.pathname}${location.search}` }}
                     className="negus-instructor-profile"
                     aria-label={`View ${instructor.name}'s profile`}
                   >

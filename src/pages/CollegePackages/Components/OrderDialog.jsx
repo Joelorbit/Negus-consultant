@@ -451,7 +451,6 @@ export default function OrderDialog({ intent, onOpenChange }) {
               </a>
               <a
                 href={SUPPORT_TELEGRAM_URL}
-                target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-2.5 text-sm font-medium text-foreground hover:underline"
               >

@@ -18,9 +18,11 @@
 .home-course-preview-image img[src="/Best-Scholarship-Application-Strategies.jpg"] { object-fit: contain; background: #f7f5ee; }
 .home-course-preview-image img[src="/pdf_books.png"] { object-fit: contain; padding: 18px; background: #123d2b; }
 .section-shell a:hover .home-course-preview-image img { transform: scale(1.03); }
-.home-testimonial-section .testimonial-media-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; max-width: 1120px; margin: 0 auto; }
-.home-testimonial-section .testimonial-media-card img { aspect-ratio: 1 / 1; }
-.home-testimonial-section .testimonial-media-copy { padding: 10px 12px; }
+.home-testimonial-section .testimonial-media-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; max-width: 960px; margin: 0 auto; }
+.home-testimonial-section .testimonial-media-card { min-width: 0; border-radius: 12px; box-shadow: 0 3px 12px rgba(18, 61, 43, .07); }
+.home-testimonial-section .testimonial-media-card img { aspect-ratio: 4 / 3; }
+.home-testimonial-section .testimonial-media-copy { padding: 8px 10px; }
+.home-testimonial-section .testimonial-media-copy h3 { font-size: 13px; }
 .home-social-section { position: relative; overflow: hidden; padding: clamp(76px, 10vw, 112px) clamp(24px, 5vw, 76px) 64px; background: var(--paper); color: var(--ink); }
 .home-social-section::before { position: absolute; top: -240px; right: 4%; width: 640px; height: 640px; border-radius: 50%; background: radial-gradient(circle, rgba(233,239,234,.9), rgba(255,253,246,0) 69%); content: ""; pointer-events: none; }
 .home-social-inner { position: relative; display: grid; grid-template-areas: "copy phone" "feature phone"; grid-template-columns: minmax(0, 1.2fr) minmax(300px, .8fr); grid-template-rows: auto auto; align-items: center; column-gap: clamp(40px, 8vw, 112px); row-gap: 28px; width: min(100%, 1320px); margin: 0 auto; }
@@ -120,8 +122,10 @@
   .home-course-preview-grid .home-course-preview-image { width: 100%; aspect-ratio: 16 / 11; }
   .home-course-preview-grid > a > div:last-child { padding: 12px !important; }
   .home-course-preview-grid > a strong { font-size: 13px !important; }
-  .home-testimonial-section .testimonial-media-grid { display: flex; gap: 12px; margin-right: -18px; padding: 2px 18px 8px 0; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; }
-  .home-testimonial-section .testimonial-media-card { flex: 0 0 min(78vw, 300px); scroll-snap-align: start; }
+  .home-testimonial-section .testimonial-media-grid { display: flex; gap: 10px; margin-right: -18px; padding: 2px 18px 8px 0; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; }
+  .home-testimonial-section .testimonial-media-card { flex: 0 0 min(64vw, 230px); scroll-snap-align: start; }
+  .home-testimonial-section .testimonial-media-card img { aspect-ratio: 4 / 3; }
+  .home-testimonial-section .testimonial-media-copy { padding: 7px 9px; }
   .home-social-section { padding: 58px 20px 46px; }
   .home-social-inner { grid-template-areas: "copy" "phone" "feature"; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto auto; gap: 25px; padding: 0; overflow: visible; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
   .home-social-copy h2 { margin: 12px 0 14px; font-size: clamp(32px, 8.5vw, 42px); }

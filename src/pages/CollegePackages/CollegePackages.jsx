@@ -577,7 +577,6 @@ export default function CollegePackages() {
                       <Button asChild className="w-full rounded-xl font-bold">
                         <a
                           href={SUPPORT_TELEGRAM_URL}
-                          target="_blank"
                           rel="noreferrer"
                           aria-label={`Ask about the ${option.name} course package`}
                         >

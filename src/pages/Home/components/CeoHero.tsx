@@ -570,8 +570,8 @@ export default function CeoHero() {
               <span className="ceo-metric-label">Trainings delivered</span>
             </div>
             <div className="ceo-metric-item">
-              <span className="ceo-metric-val">2+ years</span>
-              <span className="ceo-metric-label">Of impact</span>
+              <span className="ceo-metric-val">2+</span>
+              <span className="ceo-metric-label">Years of impact</span>
             </div>
           </div>
         </div>

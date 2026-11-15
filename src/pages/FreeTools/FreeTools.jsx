@@ -99,7 +99,6 @@ export default function FreeToolsPage() {
               <a
                 className="public-button public-button-primary"
                 href={NEGUS_YOUTUBE_URL}
-                target="_blank"
                 rel="noreferrer"
               >
                 Explore more videos <ArrowRight aria-hidden="true" />
@@ -234,7 +233,6 @@ export default function FreeToolsPage() {
           <a
             className="public-button public-button-outline-light"
             href={SUPPORT_TELEGRAM_URL}
-            target="_blank"
             rel="noreferrer"
           >
             Contact Us

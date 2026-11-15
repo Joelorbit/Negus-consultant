@@ -143,7 +143,6 @@ export default function TrainingDetailPage() {
           <a
             className="training-video-placeholder"
             href="https://www.youtube.com/@negusconsultants"
-            target="_blank"
             rel="noreferrer"
             aria-label={`Watch Negus training videos on YouTube. ${training.title}`}
           >
@@ -197,7 +196,7 @@ export default function TrainingDetailPage() {
             <h2>Ready to join?</h2>
             <p>{training.registration}</p>
             <p className="training-admin-details">The training team will confirm the latest schedule, fees, and registration details.</p>
-            <a className="public-button public-button-light" href={SUPPORT_TELEGRAM_URL} target="_blank" rel="noreferrer">
+            <a className="public-button public-button-light" href={SUPPORT_TELEGRAM_URL} rel="noreferrer">
               <MessageText aria-hidden="true" /> Ask about this training
             </a>
             <NavLink className="training-package-link" to="/packages">
@@ -210,7 +209,7 @@ export default function TrainingDetailPage() {
             <p className="public-eyebrow">THIS SESSION HAS ENDED</p>
             <h2>Interested in the next one?</h2>
             <p>Ask the team about future dates or available recordings.</p>
-            <a className="public-button public-button-light" href={SUPPORT_TELEGRAM_URL} target="_blank" rel="noreferrer">
+            <a className="public-button public-button-light" href={SUPPORT_TELEGRAM_URL} rel="noreferrer">
               <MessageText aria-hidden="true" /> Contact the training team
             </a>
           </aside>

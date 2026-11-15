@@ -230,7 +230,6 @@ export default function TrainingPage() {
                 <a
                   className="public-button public-button-secondary"
                   href={SUPPORT_TELEGRAM_URL}
-                  target="_blank"
                   rel="noreferrer"
                 >
                   Ask about this package
@@ -255,7 +254,7 @@ export default function TrainingPage() {
         <div className="testimonial-media-grid">
           {testimonialPhotos.map(({ name, image }) => (
             <article className="testimonial-media-card" key={name}>
-              <a href={image} target="_blank" rel="noreferrer" aria-label={`Open ${name}'s full testimonial`}>
+              <a href={image} rel="noreferrer" aria-label={`Open ${name}'s full testimonial`}>
                 <img src={image} alt={`${name}'s student testimonial`} loading="lazy" />
               </a>
               <div className="testimonial-media-copy"><h3>{name}</h3></div>

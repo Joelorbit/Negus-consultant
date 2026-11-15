@@ -1,10 +1,13 @@
 import { ArrowLeft, ArrowUpRight, GraduationCap, MapPin } from "lucide-react";
-import { Link, useParams } from "react-router";
+import { Link, useLocation, useParams } from "react-router";
 import { mentorProfiles } from "../../../assets/mentorProfiles";
 import "../../public-pages.css";
 
 export default function MentorAboutProfile() {
   const { slug } = useParams();
+  const { state } = useLocation();
+  const returnTo = state?.returnTo || "/about";
+  const returnLabel = returnTo.startsWith("/courses") ? "Back to course" : "About Negus";
   const mentor = mentorProfiles.find(
     (profile) => profile.name.toLowerCase().replaceAll(" ", "-") === slug,
   );
@@ -21,8 +24,8 @@ export default function MentorAboutProfile() {
   return (
     <main className="public-page mentor-about-page">
       <section className="public-content mentor-about-profile">
-        <Link className="mentor-about-back" to="/about">
-          <ArrowLeft aria-hidden="true" /> About Negus
+        <Link className="mentor-about-back" to={returnTo}>
+          <ArrowLeft aria-hidden="true" /> {returnLabel}
         </Link>
         <div className="mentor-about-hero">
           <div className="mentor-about-photo">
@@ -51,7 +54,7 @@ export default function MentorAboutProfile() {
           </div>
           <div className="mentor-about-letters">
             {mentor.letters.map(({ title, image }) => (
-              <a href={image} target="_blank" rel="noreferrer" key={image}>
+              <a href={image} rel="noreferrer" key={image}>
                 <img src={image} alt={`${title} acceptance letter`} loading="lazy" />
                 <span>{title}<ArrowUpRight aria-hidden="true" /></span>
               </a>

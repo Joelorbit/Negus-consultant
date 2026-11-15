@@ -26,7 +26,6 @@ const FollowUs = () => {
           <div className="flex flex-wrap gap-4 pt-4">
             <a
               href="https://t.me/NEGUSCONSULTANTS"
-              target="_blank"
               rel="noopener noreferrer"
             >
               <Button className="py-6">
@@ -114,7 +113,6 @@ const FollowUs = () => {
 
             <a
               href="https://t.me/NEGUSCONSULTANTS"
-              target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center text-yellow-500 hover:text-yellow-400 transition-colors"
             >
@@ -136,7 +134,6 @@ const FollowUs = () => {
             </p>
             <a
               href="https://www.tiktok.com/@negus.consultant?_t=ZM-8xpBtQiI488&_r=1"
-              target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center text-yellow-500 hover:text-yellow-400 transition-colors"
             >
@@ -159,7 +156,6 @@ const FollowUs = () => {
             </p>
             <a
               href="https://youtube.com/@negusconsultants?si=PoE9UWI7Uue71qoj"
-              target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center text-yellow-500 hover:text-yellow-400 transition-colors"
             >

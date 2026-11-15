@@ -11,9 +11,8 @@ export function VideoCard({ video }) {
     <a
       className="negus-course-card"
       href={`/courses?video=${encodeURIComponent(video.id)}`}
-      target="_blank"
       rel="noreferrer"
-      aria-label={`Open ${video.title} in a new tab`}
+      aria-label={`Open ${video.title}`}
     >
       <style>{`
         .negus-course-card {

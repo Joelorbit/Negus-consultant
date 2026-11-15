@@ -195,7 +195,6 @@ export const ResourceCard = ({ resource, onDownload }) => {
             <>
               <a
                 href={resource.path}
-                target="_blank"
                 rel="noopener noreferrer"
                 style={secondaryBtn}
               >
@@ -214,7 +213,6 @@ export const ResourceCard = ({ resource, onDownload }) => {
           ) : resource.id === "0" ? (
             <a
               href={resource.path}
-              target="_blank"
               rel="noopener noreferrer"
               style={primaryBtn}
             >

@@ -18,7 +18,6 @@ export default function ProfileSupportCard() {
       <div className="space-y-2.5 text-[13px]">
         <a
           href="https://t.me/negushelpcenter"
-          target="_blank"
           rel="noreferrer"
           className="p-3 min-h-[44px] rounded-xl border flex items-center justify-between transition-colors hover:border-[var(--green)]"
           style={{ background: "var(--paper)", borderColor: "var(--line)", color: "var(--ink)" }}

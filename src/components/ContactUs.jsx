@@ -127,7 +127,6 @@ const ContactUs = () => {
 
             <a
               href="https://t.me/negushelpcenter"
-              target="_blank"
               rel="noreferrer"
               className="flex items-center gap-4 p-4 rounded-xl border border-[var(--line)] bg-[var(--white)] hover:border-[var(--green)] transition-colors group"
             >

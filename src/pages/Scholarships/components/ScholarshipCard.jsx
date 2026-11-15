@@ -236,7 +236,6 @@ export default function ScholarshipCard({
               {link && (
                 <a
                   href={link}
-                  target="_blank"
                   rel="noopener noreferrer"
                   className="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold text-muted-foreground hover:text-foreground underline-offset-4 hover:underline"
                 >
@@ -253,7 +252,7 @@ export default function ScholarshipCard({
                 </NavLink>
               ) : (
                 link && (
-                  <a href={link} target="_blank" rel="noopener noreferrer">
+                  <a href={link} rel="noopener noreferrer">
                     <Button className="rounded-xl px-6 py-2.5 font-bold text-xs uppercase tracking-wider bg-primary hover:bg-primary/90 text-primary-foreground shadow-md">
                       Apply on Official Portal
                       <ExternalLink className="ml-2 h-3.5 w-3.5" />

@@ -117,7 +117,6 @@ export default function ScholarshipsTable({ scholarships = [], onDelete }) {
                     {s.link ? (
                       <a
                         href={s.link}
-                        target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1 text-xs font-bold text-primary hover:underline"
                       >

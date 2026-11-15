@@ -120,7 +120,7 @@ export default function ReferenceHome() {
                   boxShadow: "var(--shadow-sm)",
                 }}
               >
-                <a className="home-university-icon-link" href={href} target="_blank" rel="noreferrer" aria-label={`Visit ${name} official website`}>
+                <a className="home-university-icon-link" href={href} rel="noreferrer" aria-label={`Visit ${name} official website`}>
                   <img className="home-university-logo" src={logo} alt={`${name} official logo`} loading="lazy" />
                 </a>
               </div>
@@ -425,27 +425,27 @@ export default function ReferenceHome() {
       </section>
 
       {/* Verified Student Wins & Testimonials */}
-      <section className="section-shell home-grid-paper home-testimonial-section" style={{ paddingTop: "36px", paddingBottom: "54px" }}>
-        <div style={{ textAlign: "center", maxWidth: "680px", margin: "0 auto 36px" }}>
-          <h2 className="display-title" style={{ fontSize: "clamp(32px, 4vw, 48px)", margin: "0 0 14px" }}>
+      <section className="section-shell home-grid-paper home-testimonial-section" style={{ paddingTop: "28px", paddingBottom: "40px" }}>
+        <div style={{ textAlign: "center", maxWidth: "620px", margin: "0 auto 24px" }}>
+          <h2 className="display-title" style={{ fontSize: "clamp(28px, 3.2vw, 40px)", margin: "0 0 10px" }}>
             Messages from our students.
           </h2>
-          <p style={{ color: "var(--ink-secondary)", fontSize: "15.5px", lineHeight: "1.7", margin: "0" }}>
-            Open any student testimonial to read their full message.
+          <p style={{ color: "var(--ink-secondary)", fontSize: "14px", lineHeight: "1.6", margin: "0" }}>
+            Real stories, shared in our students&apos; own words.
           </p>
         </div>
 
         <div className="testimonial-media-grid">
           {testimonialPhotos.map(({ name, image }, index) => (
             <Reveal className="testimonial-media-card" delay={100 + index * 80} key={name}>
-              <a href={image} target="_blank" rel="noreferrer" aria-label={`Open ${name}'s full testimonial`}>
+              <a href={image} rel="noreferrer" aria-label={`Open ${name}'s full testimonial`}>
                 <img src={image} alt={`${name}'s student testimonial`} loading={index > 1 ? "lazy" : "eager"} />
               </a>
               <div className="testimonial-media-copy"><h3>{name}</h3></div>
             </Reveal>
           ))}
         </div>
-        <div style={{ textAlign: "center", marginTop: "26px" }}>
+        <div style={{ textAlign: "center", marginTop: "18px" }}>
           <Link to="/testimonials" style={{ display: "inline-flex", alignItems: "center", gap: "6px", color: "var(--ink)", fontWeight: 700, fontSize: "13px", textDecoration: "none", borderBottom: "1px solid var(--yellow)", paddingBottom: "4px" }}>See all testimonials <ArrowRight width={14} height={14} /></Link>
         </div>
       </section>
@@ -476,7 +476,6 @@ export default function ReferenceHome() {
           <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "14px" }}>
             <a
               href="https://t.me/negushelpcenter"
-              target="_blank"
               rel="noreferrer"
               className="btn-dark-hero"
               style={{ background: "var(--yellow)", color: "#123d2b", borderColor: "var(--yellow)" }}
@@ -498,24 +497,24 @@ export default function ReferenceHome() {
             <h2 id="home-social-title">Scholarship guidance, <span>wherever you are.</span></h2>
             <p>Join our community for new opportunities, practical advice, and conversations with students who have been there.</p>
             <div className="home-social-links">
-              <a href="https://t.me/NEGUSCONSULTANTS" target="_blank" rel="noreferrer" className="home-social-link home-social-link-primary">
+              <a href="https://t.me/NEGUSCONSULTANTS" rel="noreferrer" className="home-social-link home-social-link-primary">
                 <Telegram aria-hidden="true" /><span>Join Telegram</span><ArrowUpRight aria-hidden="true" />
               </a>
-              <a href="https://www.youtube.com/@negusconsultants" target="_blank" rel="noreferrer" className="home-social-link">
+              <a href="https://www.youtube.com/@negusconsultants" rel="noreferrer" className="home-social-link">
                 <Youtube aria-hidden="true" /><span>YouTube</span><ArrowUpRight aria-hidden="true" />
               </a>
-              <a href="https://www.tiktok.com/@negus.consultant?_t=ZM-8xpBtQiI488&_r=1" target="_blank" rel="noreferrer" className="home-social-link">
+              <a href="https://www.tiktok.com/@negus.consultant?_t=ZM-8xpBtQiI488&_r=1" rel="noreferrer" className="home-social-link">
                 <i className="fa-brands fa-tiktok" aria-hidden="true" /><span>TikTok</span><ArrowUpRight aria-hidden="true" />
               </a>
             </div>
-            <a href="https://t.me/NEGUSCONSULTANTS" target="_blank" rel="noreferrer" className="home-social-community">
+            <a href="https://t.me/NEGUSCONSULTANTS" rel="noreferrer" className="home-social-community">
               <span className="home-social-community-icon"><Telegram aria-hidden="true" /></span>
               <span className="home-social-community-count">8K+</span>
               <span className="home-social-community-label">Telegram subscribers</span>
               <ArrowUpRight aria-hidden="true" />
             </a>
           </div>
-          <a className="home-social-feature" href="https://youtu.be/ldL5J1EnlZg" target="_blank" rel="noreferrer">
+          <a className="home-social-feature" href="https://youtu.be/ldL5J1EnlZg" rel="noreferrer">
             <img src="https://img.youtube.com/vi/ldL5J1EnlZg/hqdefault.jpg" alt="" loading="lazy" />
             <span className="home-social-play"><Play aria-hidden="true" fill="currentColor" /></span>
             <span className="home-social-feature-copy">

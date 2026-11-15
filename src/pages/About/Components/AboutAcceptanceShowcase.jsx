@@ -21,9 +21,8 @@ export default function AboutAcceptanceShowcase() {
           <a
             key={src}
             href={src}
-            target="_blank"
             rel="noreferrer"
-            aria-label={`Open ${title} in a new tab`}
+            aria-label={`Open ${title}`}
             className="about-acceptance-card"
           >
             <img src={src} alt={title} loading="lazy" />

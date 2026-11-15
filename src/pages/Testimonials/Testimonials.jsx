@@ -66,7 +66,7 @@ const Testimonials = () => {
         <div className="testimonial-media-grid">
           {testimonialPhotos.map((student, index) => (
             <article className="testimonial-media-card" key={student.image}>
-              <a href={student.image} target="_blank" rel="noreferrer" aria-label={`Open ${student.name}'s full testimonial`}>
+              <a href={student.image} rel="noreferrer" aria-label={`Open ${student.name}'s full testimonial`}>
                 <img src={student.image} alt={`${student.name}'s student testimonial`} loading={index > 1 ? "lazy" : "eager"} />
               </a>
               <div className="testimonial-media-copy"><h3>{student.name}</h3></div>

@@ -411,7 +411,6 @@ export const BlogDetail = () => {
             <span>Official community:</span>
             <a
               href="https://t.me/negushelpcenter"
-              target="_blank"
               rel="noreferrer"
               style={{
                 padding: "9px 14px",
@@ -430,7 +429,6 @@ export const BlogDetail = () => {
             </a>
             <a
               href="https://www.tiktok.com/@negus.consultant"
-              target="_blank"
               rel="noreferrer"
               style={{
                 padding: "9px 14px",

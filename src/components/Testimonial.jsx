@@ -23,9 +23,6 @@ const Testimonial = () => {
 
             {/* Testimonial Content */}
             <div className="relative z-10 max-w-sm text-center">
-              <p className="text-xs text-white font-semibold mb-1 tracking-wide">
-                🔷 TESTIMONIAL
-              </p>
               <h2 className="text-xl font-bold text-white mb-1">
                 Nebiyu Beweket
               </h2>
@@ -39,17 +36,8 @@ const Testimonial = () => {
                 world.”
               </p>
 
-              {/* Stars */}
-              <div className="flex justify-center gap-1 text-primary-foreground">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <svg
-                    key={i}
-                    className="w-5 h-5 fill-current text-yellow-300"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M10 15l-5.878 3.09 1.122-6.545L.489 6.91l6.561-.955L10 0l2.95 5.955 6.561.955-4.755 4.635 1.122 6.545z" />
-                  </svg>
-                ))}
+              <div className="text-sm font-semibold text-yellow-300">
+                Rating: 5 / 5
               </div>
               <NavLink to="/packages">
                 <Button

@@ -7,15 +7,11 @@ import {
   ArrowRight,
   Globe2,
   GraduationCap,
-  Sparkles,
   ExternalLink,
   Send,
-  Building2,
-  ShieldCheck,
   CheckCircle2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { NavLink } from "react-router";
@@ -50,10 +46,8 @@ export default function ScholarshipCard({
     likes_count = 0,
     comments_count = 0,
     link,
-    university,
     country,
     degree_level,
-    funding_type,
     coverage = [],
   } = scholarship;
 
@@ -134,45 +128,22 @@ export default function ScholarshipCard({
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
           
-          {/* Priority / Verified Badge */}
-          <div className="absolute top-3 left-3 flex items-center gap-1.5 rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-slate-900 shadow-sm dark:bg-slate-900/90 dark:text-slate-100">
-            <ShieldCheck className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
-            <span>Verified Award</span>
-          </div>
-
-          {/* Location / Country on Image Bottom */}
-          <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs">
+          <div className="absolute bottom-3 left-3 right-3 flex items-center gap-1.5 text-white text-xs">
             <span className="flex items-center gap-1 font-medium drop-shadow-md">
               <Globe2 className="h-3.5 w-3.5 text-yellow-400" />
               {country || "International"}
             </span>
-            <span className="rounded-md bg-black/50 backdrop-blur-sm px-2 py-0.5 text-[11px] font-semibold text-white/90">
-              {degree_level || "Degree"}
+            <span className="font-medium text-white/90">
+              · {degree_level || "Degree"}
             </span>
           </div>
         </div>
 
         {/* Center / Right: Scholarship Details */}
         <div className="flex-1 min-w-0 space-y-4 w-full">
-          {/* Top Metadata Row */}
-          <div className="flex flex-wrap items-center justify-between gap-3">
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-500/10 px-2.5 py-1 text-xs font-bold text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">
-                <Sparkles className="h-3.5 w-3.5" />
-                {funding_type || "Fully Funded"}
-              </span>
-              {university && (
-                <span className="inline-flex items-center gap-1.5 rounded-lg bg-primary/10 px-2.5 py-1 text-xs font-semibold text-primary">
-                  <Building2 className="h-3.5 w-3.5" />
-                  {university}
-                </span>
-              )}
-            </div>
-
-            <div className="flex items-center gap-1.5 text-xs font-semibold text-muted-foreground bg-muted/60 px-3 py-1 rounded-full border border-border/60">
-              <Calendar className="h-3.5 w-3.5 text-primary" />
-              <span>Deadline: {formattedDeadline}</span>
-            </div>
+          <div className="flex items-center gap-1.5 text-xs font-semibold text-muted-foreground">
+            <Calendar className="h-3.5 w-3.5 text-primary" />
+            <span>Deadline: {formattedDeadline}</span>
           </div>
 
           {/* Scholarship Title */}

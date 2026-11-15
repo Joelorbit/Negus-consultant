@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router";
 import { useMyMentorApplication } from "../../../hooks/useMentorApplications";
-import { Users, FileText, ArrowRight, CheckCircle2, Clock, AlertCircle, Sparkles } from "lucide-react";
+import { Users, FileText, ArrowRight, CheckCircle2, Clock, AlertCircle } from "lucide-react";
 import MentorProfileEditor from "../../Mentors/MentorProfileEditor";
 
 export default function ProfileMentorSection({ user }) {
@@ -42,22 +42,11 @@ export default function ProfileMentorSection({ user }) {
       >
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b pb-4" style={{ borderColor: "var(--line)" }}>
           <div>
-            <div className="eyebrow-tag text-[12px]">
-              <Sparkles className="w-3.5 h-3.5" style={{ color: "var(--yellow)" }} />
-              <span>MENTOR CANDIDATE</span>
-            </div>
             <h2 className="mt-1 font-['Lexend'] text-lg sm:text-xl font-bold" style={{ color: "var(--ink)" }}>
               Mentor Application Status
             </h2>
           </div>
-          <span
-            className="self-start sm:self-center rounded-full px-3 py-1.5 text-[12.5px] font-['Lexend'] font-bold capitalize border"
-            style={{
-              background: "var(--yellow-soft)",
-              color: "var(--ink)",
-              borderColor: "var(--line)",
-            }}
-          >
+          <span className="self-start sm:self-center text-[12.5px] font-['Lexend'] font-bold capitalize text-[var(--ink-secondary)]">
             {statusDisplay}
           </span>
         </div>
@@ -98,10 +87,6 @@ export default function ProfileMentorSection({ user }) {
     >
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div className="space-y-1">
-          <div className="eyebrow-tag text-[12px]">
-            <Users className="w-3.5 h-3.5" style={{ color: "var(--green)" }} />
-            <span>MENTOR NETWORK</span>
-          </div>
           <h2 className="font-['Lexend'] text-lg sm:text-xl font-bold" style={{ color: "var(--ink)" }}>
             Guide Future Scholars Abroad
           </h2>

@@ -60,7 +60,6 @@ function Course() {
           <section className="course-intro-section">
             <div className="course-intro-inner">
               <div className="course-intro-copy">
-                <p className="public-eyebrow">START HERE · WATCH THE GUIDE</p>
                 <h1>Build a stronger application, <em>step by step.</em></h1>
                 <p>
                   Watch our guide to the U.S. college application journey, from the Common App

@@ -8,7 +8,6 @@ import {
   Lock,
   ChatBubble,
   Send,
-  Spark,
 } from "iconoir-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -666,7 +665,7 @@ export function VideoDetailPage({ video, onBack }) {
             {/* Help / Guidance Card */}
             <div className="negus-side-card">
               <h4 className="negus-side-title">
-                <Spark width={18} height={18} /> Need Application Mentorship?
+                Need Application Mentorship?
               </h4>
               <p className="text-[12.5px] text-[var(--ink-secondary)] leading-relaxed mb-4">
                 Get guidance on applications, scholarship options, and your next steps.

@@ -133,7 +133,7 @@ const Navbar = () => {
 
         .negus-header-inner {
           max-width: 1440px;
-          height: 76px;
+          height: 68px;
           margin: 0 auto;
           padding: 0 clamp(20px, 3.5vw, 48px);
           display: flex;
@@ -152,7 +152,7 @@ const Navbar = () => {
         }
 
         .negus-header-logo {
-          height: 40px;
+          height: 36px;
           width: auto;
           object-fit: contain;
           transition: transform 0.2s ease;
@@ -166,7 +166,7 @@ const Navbar = () => {
         .negus-nav-links {
           display: flex;
           align-items: center;
-          gap: clamp(6px, 1.2vw, 18px);
+          gap: clamp(10px, 1vw, 16px);
           flex: 1;
           justify-content: center;
         }
@@ -174,12 +174,12 @@ const Navbar = () => {
         .negus-nav-item {
           position: relative;
           font-family: var(--font-display, 'Lexend', sans-serif);
-          font-size: clamp(12px, 0.95vw, 13.5px);
+          font-size: clamp(11.5px, 0.9vw, 13px);
           font-weight: 600;
           letter-spacing: -0.01em;
           color: var(--ink-secondary);
           text-decoration: none;
-          padding: 7px 10px;
+          padding: 6px 8px;
           border-radius: 9999px;
           white-space: nowrap;
           transition: all 0.2s ease;
@@ -200,22 +200,22 @@ const Navbar = () => {
         .negus-header-actions {
           display: flex;
           align-items: center;
-          gap: clamp(10px, 1.2vw, 18px);
+          gap: clamp(7px, 0.8vw, 12px);
           flex-shrink: 0;
         }
 
         .negus-utilities-group {
           display: flex;
           align-items: center;
-          gap: 10px;
+          gap: 7px;
         }
 
         .negus-header-sep {
           width: 1px;
-          height: 24px;
+          height: 20px;
           background: var(--line-strong);
           opacity: 0.55;
-          margin: 0 4px;
+          margin: 0 2px;
         }
 
         .negus-auth-cluster {
@@ -226,13 +226,13 @@ const Navbar = () => {
         .negus-auth-buttons-pair {
           display: flex;
           align-items: center;
-          gap: 12px;
-          margin-left: 2px;
+          gap: 8px;
+          margin-left: 0;
         }
 
         .negus-account-skeleton {
-          width: 126px;
-          height: 38px;
+          width: 112px;
+          height: 34px;
           border-radius: 999px;
           background: color-mix(in srgb, var(--line-strong) 72%, transparent);
           animation: negus-account-pulse 1.4s ease-in-out infinite;
@@ -249,10 +249,10 @@ const Navbar = () => {
         /* Circular Theme Toggle */
         .negus-theme-toggle,
         .site-theme-toggle {
-          width: 42px;
-          height: 42px;
-          min-width: 42px;
-          min-height: 42px;
+          width: 36px;
+          height: 36px;
+          min-width: 36px;
+          min-height: 36px;
           border-radius: 50%;
           border: 1px solid var(--line-strong);
           background: #ffffff;
@@ -279,10 +279,10 @@ const Navbar = () => {
         /* Bell Notifications Button */
         .negus-bell-btn {
           position: relative;
-          width: 42px;
-          height: 42px;
-          min-width: 42px;
-          min-height: 42px;
+          width: 36px;
+          height: 36px;
+          min-width: 36px;
+          min-height: 36px;
           border-radius: 50%;
           border: 1px solid var(--line-strong);
           background: #ffffff;
@@ -300,6 +300,7 @@ const Navbar = () => {
           border-color: var(--ink);
           transform: translateY(-1px);
         }
+        .negus-bell-btn svg { width: 16px; height: 16px; }
 
         .negus-notification-anchor { position: relative; display: flex; align-items: center; }
         .negus-notification-popover {
@@ -395,14 +396,14 @@ const Navbar = () => {
           position: absolute;
           top: -3px;
           right: -3px;
-          min-width: 19px;
-          height: 19px;
+          min-width: 16px;
+          height: 16px;
           border-radius: 9999px;
           background: #e04538;
           border: 2px solid var(--paper);
           color: #ffffff;
           font-family: var(--font-display, 'Lexend', sans-serif);
-          font-size: 10.5px;
+          font-size: 9px;
           font-weight: 800;
           display: flex;
           align-items: center;
@@ -416,13 +417,13 @@ const Navbar = () => {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          min-height: 42px;
+          min-height: 36px;
           font-family: var(--font-display, 'Lexend', sans-serif);
-          font-size: 13.5px;
+          font-size: 12px;
           font-weight: 700;
           color: var(--ink);
           text-decoration: none;
-          padding: 0 20px;
+          padding: 0 14px;
           border-radius: 9999px;
           border: 1.5px solid var(--line-strong);
           background: #ffffff;
@@ -456,15 +457,15 @@ const Navbar = () => {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          gap: 6px;
-          min-height: 42px;
-          padding: 0 22px;
+          gap: 5px;
+          min-height: 36px;
+          padding: 0 15px;
           background: #123d2b;
           color: #ffffff !important;
           border: 1.5px solid #123d2b;
           border-radius: 9999px;
           font-family: var(--font-display, 'Lexend', sans-serif);
-          font-size: 13.5px;
+          font-size: 12px;
           font-weight: 700;
           letter-spacing: -0.01em;
           text-decoration: none;
@@ -501,6 +502,8 @@ const Navbar = () => {
         }
 
         .negus-auth-cta svg {
+          width: 12px;
+          height: 12px;
           transition: transform 0.2s ease;
         }
 
@@ -511,10 +514,10 @@ const Navbar = () => {
         /* User Profile Pill */
         .negus-user-pill {
           display: flex;
-          min-height: 44px;
+          min-height: 36px;
           align-items: center;
-          gap: 10px;
-          padding: 5px 14px 5px 5px;
+          gap: 7px;
+          padding: 3px 11px 3px 4px;
           border-radius: 9999px;
           border: 1px solid var(--line);
           background: var(--white);
@@ -530,7 +533,7 @@ const Navbar = () => {
 
         .negus-user-pill span {
           font-family: var(--font-display, 'Lexend', sans-serif);
-          font-size: 13.5px;
+          font-size: 12px;
           font-weight: 700;
         }
 
@@ -538,14 +541,14 @@ const Navbar = () => {
         .negus-dash-pill {
           display: inline-flex;
           align-items: center;
-          min-height: 44px;
-          padding: 8px 16px;
+          min-height: 36px;
+          padding: 6px 12px;
           border-radius: 8px;
           border: 1px solid var(--line);
           background: transparent;
           color: var(--ink);
           font-family: var(--font-display, 'Lexend', sans-serif);
-          font-size: 13px;
+          font-size: 12px;
           font-weight: 700;
           text-decoration: none;
           transition: all 0.2s ease;
@@ -670,12 +673,12 @@ const Navbar = () => {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          min-height: 46px;
+          min-height: 40px;
           border: 1.5px solid var(--line-strong);
           background: var(--white);
           color: var(--ink);
           font-weight: 700;
-          font-size: 14px;
+          font-size: 13px;
           border-radius: 12px;
           box-shadow: 0 2px 6px rgba(18, 61, 43, 0.06);
           transition: all 0.2s ease;
@@ -695,13 +698,13 @@ const Navbar = () => {
         }
 
         .negus-mobile-bottom .negus-auth-cta {
-          min-height: 46px;
+          min-height: 40px;
           border-radius: 12px;
-          font-size: 14px;
+          font-size: 13px;
         }
 
         .negus-mobile-bottom .negus-user-pill {
-          min-height: 46px;
+          min-height: 40px;
           border-radius: 12px;
           justify-content: center;
           background: var(--white);
@@ -776,13 +779,13 @@ const Navbar = () => {
           .site-theme-toggle,
           .negus-bell-btn,
           .negus-burger {
-            width: 44px;
-            height: 44px;
-            min-width: 44px;
-            min-height: 44px;
-            max-width: 44px;
-            max-height: 44px;
-            flex: 0 0 44px;
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            min-height: 40px;
+            max-width: 40px;
+            max-height: 40px;
+            flex: 0 0 40px;
           }
           .negus-mobile-overlay {
             padding: 76px 18px 28px;
@@ -795,16 +798,67 @@ const Navbar = () => {
 
         @media (min-width: 1025px) and (max-width: 1500px) {
           .negus-header-inner {
-            gap: 12px;
+            gap: 18px;
             padding-left: 24px;
             padding-right: 24px;
           }
           .negus-nav-links {
-            gap: 2px;
+            gap: 10px;
           }
           .negus-nav-item {
-            padding-left: 7px;
-            padding-right: 7px;
+            font-size: clamp(11.5px, 0.88vw, 12.5px);
+            padding-left: 5px;
+            padding-right: 5px;
+          }
+        }
+
+        @media (min-width: 1025px) and (max-width: 1150px) {
+          .negus-header-inner {
+            gap: 8px;
+            padding-left: 16px;
+            padding-right: 16px;
+          }
+          .negus-header-brand {
+            padding-right: 8px;
+          }
+          .negus-header-logo {
+            height: 32px;
+          }
+          .negus-nav-links {
+            gap: 6px;
+          }
+          .negus-nav-item {
+            font-size: 11px;
+            padding-left: 3px;
+            padding-right: 3px;
+          }
+          .negus-header-actions,
+          .negus-auth-buttons-pair {
+            gap: 6px;
+          }
+          .negus-auth-buttons-pair {
+            margin-left: 0;
+          }
+          .negus-auth-login,
+          .negus-auth-cta {
+            min-height: 34px;
+            font-size: 12px;
+          }
+          .negus-auth-login {
+            padding-right: 12px;
+            padding-left: 12px;
+          }
+          .negus-auth-cta {
+            padding-right: 14px;
+            padding-left: 14px;
+          }
+          .negus-theme-toggle,
+          .site-theme-toggle,
+          .negus-bell-btn {
+            width: 34px;
+            height: 34px;
+            min-width: 34px;
+            min-height: 34px;
           }
         }
 
@@ -819,13 +873,13 @@ const Navbar = () => {
           .site-theme-toggle,
           .negus-bell-btn,
           .negus-burger {
-            width: 44px;
-            height: 44px;
-            min-width: 44px;
-            min-height: 44px;
-            max-width: 44px;
-            max-height: 44px;
-            flex: 0 0 44px;
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            min-height: 40px;
+            max-width: 40px;
+            max-height: 40px;
+            flex: 0 0 40px;
           }
         }
       `}</style>
@@ -833,9 +887,8 @@ const Navbar = () => {
       {/* Top Announcement Strip (CEO Sketch Page 1) */}
       <div className="negus-announcement-strip">
         <div className="negus-announcement-content">
-          <span className="negus-announcement-tag">ANNOUNCEMENT</span>
           <span className="negus-announcement-msg negus-announcement-msg--desktop">
-            📢 2026/2027 Scholarship Cohort Online Training Registration is Now Open! | Special Forex & Fee Notice
+            2026/2027 Scholarship Cohort Online Training Registration is Now Open! | Special Forex & Fee Notice
           </span>
           <span className="negus-announcement-msg negus-announcement-msg--mobile">
             2026/27 online training is open

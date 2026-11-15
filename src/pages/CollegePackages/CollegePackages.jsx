@@ -9,18 +9,14 @@ import {
   CardFooter,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import {
   CheckCircle2,
-  Sparkles,
   GraduationCap,
   Users,
   FileText,
   Clock,
-  ShieldCheck,
   ArrowRight,
-  Zap,
   HelpCircle,
   BookOpen,
   ArrowDown,
@@ -88,7 +84,6 @@ export default function CollegePackages() {
       <section className="container mx-auto px-4 max-w-6xl pt-6 sm:pt-8">
         <aside className="public-offer-banner" aria-labelledby="package-offer-title">
           <div className="public-offer-copy">
-            <span className="public-offer-kicker">LIMITED ENROLMENT COHORT</span>
             <h1 id="package-offer-title">A focused cohort. A more affordable path.</h1>
             <p>
               {discountPercent > 0
@@ -96,14 +91,6 @@ export default function CollegePackages() {
                 : "Explore transparent package pricing in Ethiopian Birr (ETB), with flexible round-by-round payment milestones."}
             </p>
           </div>
-          {loadingPackageOffer ? (
-            <div className="public-offer-stamp" role="status">Loading</div>
-          ) : discountPercent > 0 ? (
-            <div className="public-offer-stamp" aria-label={`${discountPercent}% off`}>
-              <strong>{discountPercent}%</strong>
-              <span>OFF</span>
-            </div>
-          ) : null}
         </aside>
         {packageOfferError && (
           <div className="package-offer-error" role="alert">
@@ -158,9 +145,6 @@ export default function CollegePackages() {
             <div className="rounded-3xl border border-border/80 bg-card p-6 md:p-8 shadow-sm space-y-6">
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-primary">
-                    Zero Risk Guarantee
-                  </span>
                   <h3 className="text-xl md:text-2xl font-bold tracking-tight text-foreground font-display mt-1">
                     How Negus 3-Round Milestone Payments Work
                   </h3>
@@ -168,12 +152,6 @@ export default function CollegePackages() {
                     We divide all comprehensive college admissions support into 3 transparent milestone rounds.
                     You do not pay for subsequent stages until each previous milestone is achieved.
                   </p>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-bold text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">
-                    <ShieldCheck className="h-3.5 w-3.5" />
-                    Student-First Guarantee
-                  </span>
                 </div>
               </div>
 
@@ -241,20 +219,14 @@ export default function CollegePackages() {
                           : "border border-border/80 bg-card hover:border-primary/40"
                       }`}
                     >
-                      {isPopular && (
-                        <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-primary px-4 py-1 text-[11px] font-extrabold uppercase tracking-wider text-primary-foreground shadow-md">
-                          Most Popular
-                        </div>
-                      )}
-
                       <div className="space-y-6">
                         <div>
                           <h3 className="text-2xl font-bold tracking-tight text-foreground font-display">
                             {pkg.name}
                           </h3>
-                          <div className="mt-2.5 inline-flex items-center gap-1.5 rounded-lg bg-primary/10 px-3 py-1 text-xs font-bold text-primary">
+                          <div className="mt-2.5 text-xs font-semibold text-muted-foreground">
                             <span>Up to {pkg.max_colleges} colleges</span>
-                            <span>·</span>
+                            <span> · </span>
                             <span>{pkg.timeline_working_days} working days</span>
                           </div>
                         </div>
@@ -367,13 +339,9 @@ export default function CollegePackages() {
                     className="flex flex-col justify-between rounded-3xl border border-border/80 bg-card p-6 shadow-sm transition-all hover:border-primary/50 hover:shadow-lg"
                   >
                     <div className="space-y-4">
-                      <div className="flex items-center justify-between">
-                        <Badge variant="secondary" className="rounded-full bg-primary/10 text-primary px-3 py-1 text-xs font-bold">
-                          {pkg.duration_label}
-                        </Badge>
-                        <span className="text-xs font-bold text-muted-foreground">
-                          {pkg.session_count} Sessions
-                        </span>
+                      <div className="text-xs font-semibold text-muted-foreground">
+                        <span>{pkg.duration_label}</span>
+                        <span> · {pkg.session_count} sessions</span>
                       </div>
 
                       <div>
@@ -445,9 +413,7 @@ export default function CollegePackages() {
                     Transparent rates based on exact word counts and turnaround speed.
                   </p>
                 </div>
-                <Badge variant="outline" className="w-fit gap-1 bg-background text-xs font-bold">
-                  <Zap className="h-3.5 w-3.5 text-amber-500" /> Fast Delivery
-                </Badge>
+                <span className="text-xs font-semibold text-muted-foreground">Fast delivery</span>
               </div>
 
               <div className="overflow-x-auto">
@@ -579,12 +545,9 @@ export default function CollegePackages() {
                   >
                     <CardHeader className="p-0">
                       <div className="mb-3 flex items-center justify-between gap-3">
-                        <span className="rounded-full bg-primary/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-primary">
+                        <span className="text-xs font-semibold text-muted-foreground">
                           {option.access}
                         </span>
-                        {price?.offerSaving > 0 && (
-                          <Badge className="shrink-0">{discountPercent}% off</Badge>
-                        )}
                       </div>
                       <CardTitle className="font-display text-xl">{option.name}</CardTitle>
                     </CardHeader>

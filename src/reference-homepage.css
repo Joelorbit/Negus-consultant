@@ -2633,6 +2633,18 @@
   max-width: 600px;
   margin: 0 auto 36px;
 }
+.home-university-icon-link {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+}
+.home-university-logo {
+  display: block;
+  max-width: 82%;
+  max-height: 82%;
+  object-fit: contain;
+}
 [data-theme='dark'] .final-cta-billboard p {
   color: #b7dbd5;
 }

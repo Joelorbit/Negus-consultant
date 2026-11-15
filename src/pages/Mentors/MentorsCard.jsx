@@ -4,10 +4,7 @@ import {
   Clock,
   GraduationCap,
   MapPin,
-  Star,
-  CheckCircle2,
 } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
 import { NavLink } from "react-router";
 import {
   HoverCard,
@@ -51,17 +48,13 @@ const MentorsCard = ({ mentor }) => {
                     </div>
                   )}
 
-                  <div className="absolute -bottom-1 -right-1 bg-[var(--white)] p-1 rounded-full shadow-sm">
-                    <CheckCircle2 className="w-5 h-5 text-[var(--yellow)] fill-[var(--ink)]" />
-                  </div>
                 </div>
 
                 <div className="flex flex-col items-center space-y-1.5 text-center w-full">
                   {Number(mentor.rating) > 0 ? (
-                    <div className="flex items-center gap-1 text-[var(--yellow)]">
-                      <Star className="w-4 h-4 fill-[var(--yellow)]" />
+                    <div className="flex items-center gap-1">
                       <span className="text-sm font-bold text-[var(--ink)]">
-                        {Number(mentor.rating).toFixed(1)}
+                        {Number(mentor.rating).toFixed(1)} / 5
                       </span>
                       <span className="text-xs text-[var(--ink-muted)] font-normal">
                         ({mentor.reviews || 0})
@@ -128,22 +121,9 @@ const MentorsCard = ({ mentor }) => {
                 </p>
 
                 <div className="flex flex-wrap gap-1.5 pt-1">
-                  {mentor.skills?.slice(0, 4).map((skill) => (
-                    <span
-                      key={skill}
-                      className="text-xs px-2.5 py-1 rounded-md bg-[var(--green-subtle)] text-[var(--ink-secondary)] border border-[var(--line)] font-medium"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                  {mentor.specialties?.slice(0, 2).map((spec) => (
-                    <span
-                      key={spec}
-                      className="text-xs px-2.5 py-1 rounded-md bg-[var(--yellow-soft)] text-[var(--ink)] border border-[var(--line)] font-medium"
-                    >
-                      {spec}
-                    </span>
-                  ))}
+                  <span className="text-xs text-[var(--ink-muted)]">
+                    {[...(mentor.skills?.slice(0, 4) || []), ...(mentor.specialties?.slice(0, 2) || [])].join(" · ")}
+                  </span>
                 </div>
 
                 <div className="pt-3 flex items-center justify-between border-t border-[var(--line)]">

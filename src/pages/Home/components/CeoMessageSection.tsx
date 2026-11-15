@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { Link } from "react-router";
-import { ArrowRight, ArrowUpRight, Play, Spark, GraduationCap, Award } from "../icons";
+import { ArrowUpRight, Play } from "../icons";
 
 export default function CeoMessageSection() {
+  const [isMessagePlaying, setIsMessagePlaying] = useState(false);
+
   return (
     <section className="ceo-message-section" id="overview">
       <style>{`
@@ -10,51 +13,9 @@ export default function CeoMessageSection() {
           --section-amharic: "Benaiah", "Menbere", sans-serif;
           position: relative;
           width: 100%;
-          padding: clamp(48px, 6vw, 84px) clamp(20px, 4vw, 56px);
+          padding: clamp(24px, 3vw, 40px) clamp(20px, 4vw, 56px) clamp(48px, 6vw, 84px);
           max-width: 1440px;
           margin: 0 auto;
-        }
-
-        .ceo-message-head {
-          text-align: center;
-          max-width: 720px;
-          margin: 0 auto 48px;
-        }
-
-        .ceo-message-eyebrow {
-          display: inline-flex;
-          align-items: center;
-          gap: 6px;
-          font-family: var(--font-display, 'Lexend', sans-serif);
-          font-size: 11px;
-          font-weight: 800;
-          letter-spacing: 0.08em;
-          text-transform: uppercase;
-          color: #d1bd82;
-          background: #123d2b;
-          padding: 4px 12px;
-          border-radius: 999px;
-          margin-bottom: 14px;
-        }
-
-        .ceo-message-title {
-          font-family: var(--section-english);
-          font-size: clamp(28px, 3.4vw, 42px);
-          font-weight: 900;
-          color: #123d2b;
-          letter-spacing: -0.02em;
-          margin: 0 0 12px;
-        }
-
-        .ceo-message-subhead {
-          font-family: var(--section-english);
-          font-size: clamp(15px, 1.2vw, 17px);
-          color: #56745f;
-          line-height: 1.6;
-        }
-
-        .ceo-message-amharic {
-          font-family: var(--section-amharic);
         }
 
         .ceo-message-grid {
@@ -70,7 +31,6 @@ export default function CeoMessageSection() {
           }
         }
 
-        /* Left Video Card */
         .ceo-video-card {
           position: relative;
           background: #ffffff;
@@ -80,34 +40,49 @@ export default function CeoMessageSection() {
           overflow: hidden;
           display: flex;
           flex-direction: column;
-          justify-content: space-between;
+          justify-content: flex-start;
           padding: clamp(24px, 3vw, 36px);
         }
 
         .ceo-video-screen {
           position: relative;
           width: 100%;
-          aspect-ratio: 16 / 9.5;
+          flex: 1 1 auto;
+          min-height: 0;
           border-radius: 18px;
-          background: #0d1e15;
           overflow: hidden;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-          margin-bottom: 24px;
+          background: #0d1e15;
+          margin-bottom: 14px;
           box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
         }
 
+        .ceo-video-screen iframe,
+        .ceo-video-screen button,
         .ceo-video-screen img {
+          display: block;
           width: 100%;
           height: 100%;
-          object-fit: cover;
-          opacity: 0.85;
-          transition: transform 0.3s ease, opacity 0.3s ease;
+          border: 0;
         }
 
-        .ceo-video-screen:hover img {
+        .ceo-video-screen button {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 0;
+          overflow: hidden;
+          background: #0d1e15;
+          cursor: pointer;
+        }
+
+        .ceo-video-screen img {
+          object-fit: cover;
+          opacity: 0.85;
+          transition: transform 0.35s ease, opacity 0.35s ease;
+        }
+
+        .ceo-video-screen button:hover img {
           transform: scale(1.03);
           opacity: 0.95;
         }
@@ -123,41 +98,56 @@ export default function CeoMessageSection() {
           place-items: center;
           box-shadow: 0 8px 28px rgba(18, 61, 43, 0.45);
           border: 3px solid #d1bd82;
-          cursor: pointer;
           transition: transform 0.2s ease, background 0.2s ease;
         }
 
-        .ceo-video-screen:hover .ceo-video-play-btn {
+        .ceo-video-screen button:hover .ceo-video-play-btn {
           transform: scale(1.1);
           background: #19523b;
         }
 
+        .ceo-video-play-label {
+          position: absolute;
+          bottom: 14px;
+          left: 50%;
+          padding: 8px 13px;
+          border: 1px solid rgba(255, 255, 255, 0.22);
+          border-radius: 999px;
+          background: rgba(8, 24, 15, 0.72);
+          color: #fff;
+          font: 700 12px/1 var(--font-display, 'Lexend', sans-serif);
+          letter-spacing: 0.02em;
+          transform: translateX(-50%);
+          white-space: nowrap;
+        }
+
+        .ceo-video-screen button:focus-visible {
+          outline: 3px solid #d1bd82;
+          outline-offset: -5px;
+        }
+
+        .ceo-video-copy {
+          text-align: center;
+        }
+
         .ceo-video-copy h3 {
-          font-family: var(--font-display, 'Lexend', sans-serif);
+          font-family: var(--section-amharic);
           font-size: 24px;
           font-weight: 800;
           color: #123d2b;
           margin: 0 0 8px;
-        }
-
-        .ceo-video-subtitle {
-          margin: -8px 0 18px;
-          color: #947a38;
-          font-family: var(--section-amharic);
-          font-size: 15px;
-          font-weight: 700;
           text-align: center;
         }
 
         .ceo-video-copy p {
-          font-family: var(--font-body, 'Outfit', sans-serif);
+          font-family: var(--section-amharic);
           font-size: 14.5px;
           line-height: 1.6;
           color: #315a43;
           margin: 0;
+          text-align: center;
         }
 
-        /* Right Category Tiles Grid */
         .ceo-tiles-stack {
           display: flex;
           flex-direction: column;
@@ -175,7 +165,7 @@ export default function CeoMessageSection() {
           border-radius: 18px;
           text-decoration: none;
           color: #123d2b;
-          transition: all 0.2s ease;
+          transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
           box-shadow: 0 4px 14px rgba(18, 61, 43, 0.05);
         }
 
@@ -265,88 +255,51 @@ export default function CeoMessageSection() {
           border-color: #19523b;
         }
 
-        /* Bottom Explore Button */
-        .ceo-message-bottom-cta {
-          display: flex;
-          justify-content: center;
-          margin-top: 40px;
-        }
-
-        .ceo-btn-explore-all {
-          display: inline-flex;
-          align-items: center;
-          gap: 10px;
-          min-height: 50px;
-          padding: 0 32px;
-          border-radius: 9999px;
-          background: #ffffff;
-          border: 1.5px solid #123d2b;
-          color: #123d2b;
-          font-family: var(--font-display, 'Lexend', sans-serif);
-          font-size: 14.5px;
-          font-weight: 700;
-          text-decoration: none;
-          box-shadow: 0 4px 16px rgba(18, 61, 43, 0.08);
-          transition: all 0.2s ease;
-        }
-
-        .ceo-btn-explore-all:hover {
-          background: #123d2b;
-          color: #ffffff !important;
-          transform: translateY(-2px);
-          box-shadow: 0 8px 24px rgba(18, 61, 43, 0.2);
-        }
       `}</style>
 
-      {/* Section Header with Amharic Anchor */}
-      <div className="ceo-message-head">
-        <div className="ceo-message-eyebrow">
-          <Spark width={12} height={12} />
-          <span>A SPECIAL MESSAGE FROM NEGUS</span>
-        </div>
-        <h2 className="ceo-message-title"><span className="ceo-message-amharic">መልእክት አለን</span> — We Have a Message</h2>
-        <p className="ceo-message-subhead">
-          Explore practical guidance from Negus on international university applications, scholarships, and standardized tests.
-        </p>
-      </div>
-
       <div className="ceo-message-grid">
-        {/* Left: Official video channel card */}
         <div className="ceo-video-card">
-          <a
-            className="ceo-video-screen"
-            href="https://youtu.be/ldL5J1EnlZg"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Play the Negus Consultants scholarship message on YouTube"
-          >
-            <img
-              src="/hero-teaching.jpg"
-              alt="Negus scholarship training session"
-              loading="lazy"
-            />
-            <span className="ceo-video-play-btn" aria-hidden="true">
-              <Play width={24} height={24} style={{ marginLeft: "3px" }} />
-            </span>
-          </a>
-
-          <p className="ceo-video-subtitle"><span className="ceo-message-amharic">መልዕክት አለን</span> · Watch our message</p>
-
+          <div className="ceo-video-screen">
+            {isMessagePlaying ? (
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/ldL5J1EnlZg?autoplay=1&rel=0"
+                title="Negus Consultants scholarship message"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+            ) : (
+              <button
+                type="button"
+                onClick={() => setIsMessagePlaying(true)}
+                aria-label="Play the Negus Consultants scholarship message"
+              >
+                <img
+                  src="https://img.youtube.com/vi/ldL5J1EnlZg/hqdefault.jpg"
+                  alt="Preview of the Negus Consultants scholarship message"
+                  loading="lazy"
+                />
+                <span className="ceo-video-play-btn" aria-hidden="true">
+                  <Play width={26} height={26} fill="currentColor" style={{ marginLeft: "3px" }} />
+                </span>
+                <span className="ceo-video-play-label">Play message</span>
+              </button>
+            )}
+          </div>
           <div className="ceo-video-copy">
-            <h3 className="ceo-message-amharic">የተማሪዎቻችን ስኬት የኛ ኩራት ነው!</h3>
+            <h3>መልእክት አለን</h3>
             <p>
-              Visit the official Negus Consultants YouTube channel for published scholarship and application guidance.
+              ኢትዮጵያውያን ተማሪዎችን ለተለያዩ የኢንተርናሽናል ስኮላርሺፖች ብቁ ማድረግ ዋና አላማችን ነው።
             </p>
           </div>
         </div>
 
-        {/* Right: 5 Quick-Access Category Tiles (from Page 2 Sketch) */}
         <div className="ceo-tiles-stack">
           <Link to="/training" className="ceo-category-tile">
             <div className="ceo-tile-info">
               <span className="ceo-tile-num">01</span>
               <div className="ceo-tile-text">
-                <strong>Online Trainings / <span className="ceo-message-amharic">ስልጠናዎች</span></strong>
+                <strong>Online Trainings</strong>
                 <span>Group cohorts, masterclasses & interactive schedules</span>
               </div>
             </div>
@@ -359,7 +312,7 @@ export default function CeoMessageSection() {
             <div className="ceo-tile-info">
               <span className="ceo-tile-num">02</span>
               <div className="ceo-tile-text">
-                <strong>Free Tools / <span className="ceo-message-amharic">ነፃ መገልገያዎች</span></strong>
+                <strong>Free Tools</strong>
                 <span>Video recordings, sample essays, CV builder & guides</span>
               </div>
             </div>
@@ -372,7 +325,7 @@ export default function CeoMessageSection() {
             <div className="ceo-tile-info">
               <span className="ceo-tile-num">03</span>
               <div className="ceo-tile-text">
-                <strong>Scholarship Courses / <span className="ceo-message-amharic">ኮርሶች</span></strong>
+                <strong>Scholarship Courses</strong>
                 <span>Structured self-paced video modules & syllabus</span>
               </div>
             </div>
@@ -385,7 +338,7 @@ export default function CeoMessageSection() {
             <div className="ceo-tile-info">
               <span className="ceo-tile-num">04</span>
               <div className="ceo-tile-text">
-                <strong>SAT & IELTS / <span className="ceo-message-amharic">ፈተና ዝግጅት</span></strong>
+                <strong>SAT & IELTS</strong>
                 <span>Digital SAT 1500+ drills & IELTS Band 8.0+ practice</span>
               </div>
             </div>
@@ -398,7 +351,7 @@ export default function CeoMessageSection() {
             <div className="ceo-tile-info">
               <span className="ceo-tile-num">05</span>
               <div className="ceo-tile-text">
-                <strong>About Us / <span className="ceo-message-amharic">ስለ እኛ</span></strong>
+                <strong>About Us</strong>
                 <span>Our 20-year history, verified results & senior mentors</span>
               </div>
             </div>
@@ -407,14 +360,6 @@ export default function CeoMessageSection() {
             </div>
           </Link>
         </div>
-      </div>
-
-      {/* Bottom Exploration CTA */}
-      <div className="ceo-message-bottom-cta">
-        <Link to="/courses" className="ceo-btn-explore-all">
-          <span>Explore All Courses & Programs</span>
-          <ArrowRight width={16} height={16} />
-        </Link>
       </div>
 
     </section>

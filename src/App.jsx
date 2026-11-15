@@ -10,7 +10,7 @@ import { RoleGuard } from "./components/RoleGuard";
 import BuyCourseBanner from "./components/BuyCourseBanner";
 import { useMe } from "./hooks/useAuth";
 import ChatRoom from "./components/ChatRoom";
-import { Component, lazy, Suspense, useEffect } from "react";
+import { Component, lazy, Suspense, useEffect, useLayoutEffect } from "react";
 
 const lazyPage = (loader) => lazy(loader);
 
@@ -183,6 +183,16 @@ const footerRoutesToHide = [
   "/dashboard",
 ];
 
+function RouteScrollReset({ location }) {
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }, [location.pathname, location.search, location.hash, location.key]);
+
+  return null;
+}
+
 const App = () => {
   const { data: user } = useMe();
   const location = useLocation();
@@ -206,6 +216,12 @@ const App = () => {
     ReactGA.send({ hitType: "pageview", page: location.pathname });
   }, [location.pathname]);
 
+  useEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+  }, []);
+
   return (
     <ThemeProvider defaultTheme="light">
       {!hideNavbar && <Navbar />}
@@ -219,11 +235,14 @@ const App = () => {
             role="status"
             aria-label="Loading page"
           >
-            <span className="route-loading-mark">N</span>
-            <span>Loading your next chapter…</span>
+            <span className="route-loading-mark" aria-hidden="true">
+              <span className="route-loading-spinner" />
+            </span>
+            <span>Opening your page…</span>
           </div>
         }
       >
+        <RouteScrollReset location={location} />
         <RouteErrorBoundary resetKey={location.key || location.pathname}>
           <Routes>
           <Route path="/app" element={<AuthLayout />} />

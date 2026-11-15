@@ -6,7 +6,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
-import { GraduationCap, Star } from "lucide-react";
+import { GraduationCap } from "lucide-react";
 import { toast } from "sonner";
 import { getEmbedUrl } from "../../../../utils/yotubeUrl";
 const tabs = ["About", "Education", "Reviews", "Availability"];
@@ -157,7 +157,7 @@ const TabsContent = ({ mentor }) => {
                         </div>
                       </div>
                       <div className="flex items-center gap-1 text-yellow-500 text-sm">
-                        <StarRating rating={review.rating} size={14} />
+                        <StarRating rating={review.rating} />
                       </div>
                       <p className="text-sm text-muted-foreground italic leading-relaxed">
                         {review.text}
@@ -186,16 +186,16 @@ const TabsContent = ({ mentor }) => {
                         key={s}
                         type="button"
                         onClick={() => setReviewRating(s)}
+                        aria-label={`Rate ${s} out of 5`}
+                        aria-pressed={reviewRating === s}
+                        className={cn(
+                          "h-9 w-9 rounded-lg border text-sm font-semibold transition-colors",
+                          s === reviewRating
+                            ? "border-primary bg-primary text-primary-foreground"
+                            : "border-border text-muted-foreground hover:bg-muted",
+                        )}
                       >
-                        <Star
-                          size={18}
-                          className={cn(
-                            "transition-colors",
-                            s <= reviewRating
-                              ? "fill-[hsl(var(--mentor-gold))] text-[hsl(var(--mentor-gold))]"
-                              : "text-border",
-                          )}
-                        />
+                        {s}
                       </button>
                     ))}
                   </div>

@@ -1,5 +1,5 @@
 import { testimonialPhotos } from "../../assets/testimonialPhotos";
-import { Sparkles, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { NavLink } from "react-router";
 import "../public-pages.css";
 
@@ -15,7 +15,7 @@ const Testimonials = () => {
       <section className="public-page-hero">
         <div className="public-page-hero-inner">
           <p className="public-eyebrow">
-            <Sparkles className="w-4 h-4 text-[var(--gold-ink)]" /> STUDENT STORIES
+            STUDENT STORIES
           </p>
           <h1 className="public-page-title">
             What students say about Negus.
@@ -37,7 +37,7 @@ const Testimonials = () => {
 
       <section className="public-content testimonial-voices-section">
         <div className="public-section-heading">
-          <p className="public-eyebrow"><Sparkles aria-hidden="true" /> STUDENT VOICES</p>
+          <p className="public-eyebrow">STUDENT VOICES</p>
           <h2>Hear directly from our students.</h2>
           <p>Listen to Arsema and Efina share their experiences.</p>
         </div>
@@ -59,7 +59,7 @@ const Testimonials = () => {
 
       <section className="public-content testimonial-media-section">
         <div className="public-section-heading">
-          <p className="public-eyebrow"><Sparkles aria-hidden="true" /> STUDENT VOICES</p>
+          <p className="public-eyebrow">STUDENT VOICES</p>
           <h2>Student testimonials.</h2>
           <p>Open any student card to read their full message.</p>
         </div>

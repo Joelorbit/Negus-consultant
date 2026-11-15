@@ -1,6 +1,6 @@
 import React from "react";
-import { Star, Clock, Users, TrendingUp } from "lucide-react";
-import { averageRating, renderStars } from "../../../utils/functions";
+import { Clock, Users, TrendingUp } from "lucide-react";
+import { averageRating } from "../../../utils/functions";
 import UserProfile from "../../../components/UserProfile";
 
 const MentorCard = ({ mentor, onClick, review }) => {
@@ -14,10 +14,8 @@ const MentorCard = ({ mentor, onClick, review }) => {
           <UserProfile user={mentor} width={24} height={24} />
           <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full">
             <div className="flex items-center space-x-1">
-              {/* <Star className="w-4 h-4 text-yellow-500 fill-current" /> */}
-              {renderStars(averageRating(review), Star)}
               <span className="text-sm font-semibold text-gray-800">
-                {averageRating(review)}
+                {averageRating(review).toFixed(1)} / 5
               </span>
             </div>
           </div>

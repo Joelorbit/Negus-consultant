@@ -366,9 +366,7 @@ export default function PackageMultiStepForm() {
         .pkgw-head-toprow { display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
         .pkgw-backlink { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 2px; font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--ink); background: transparent; border: none; border-bottom: 2px solid var(--ink); cursor: pointer; transition: color .16s ease, border-color .16s ease; }
         .pkgw-backlink:hover { color: var(--ink-secondary); border-color: var(--ink-secondary); }
-        .pkgw-head-badge { display: inline-flex; align-items: center; gap: 8px; min-height: 34px; padding: 6px 14px; border-radius: 9999px; font-family: var(--font-display); font-size: 12.5px; font-weight: 700; background: var(--yellow-soft); color: var(--ink); border: 1px solid var(--line); }
         .pkgw-head-hero { text-align: center; display: flex; flex-direction: column; gap: 12px; }
-        .pkgw-head-hero .pkgw-eyebrow { justify-content: center; }
         .pkgw-head-title { font-size: clamp(30px, 4.5vw, 48px); margin: 0; }
         .pkgw-head-lead { color: var(--ink-secondary); font-size: 16px; line-height: 1.65; max-width: 640px; margin: 0 auto; }
         .pkgw-directline { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 18px; border-radius: 18px; border: 1px solid var(--line); background: var(--white); box-shadow: var(--shadow-sm); }

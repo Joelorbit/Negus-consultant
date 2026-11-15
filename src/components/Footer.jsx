@@ -72,12 +72,12 @@ const Footer = () => {
               TikTok Community <ArrowUpRight width={12} height={12} />
             </a>
             <a
-              href="https://www.instagram.com/negusconsultants?igsh=MWs1NHhlcDVyanZ1cQ=="
+              href="https://www.youtube.com/@negusconsultants"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-1"
             >
-              Instagram Stories <ArrowUpRight width={12} height={12} />
+              YouTube Channel <ArrowUpRight width={12} height={12} />
             </a>
           </div>
         </div>

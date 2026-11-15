@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useNavigate, useLocation } from "react-router";
+import { Mail } from "lucide-react";
 
 const VerifyEmail = () => {
   const navigate = useNavigate();
@@ -10,7 +11,9 @@ const VerifyEmail = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-black/60 px-4">
       <div className="bg-background rounded-xl shadow-xl max-w-md w-full p-8 text-center space-y-6">
-        <h1 className="text-2xl font-bold">Verify your email 📧</h1>
+        <h1 className="text-2xl font-bold flex items-center justify-center gap-2">
+          Verify your email <Mail className="h-5 w-5" aria-hidden="true" />
+        </h1>
 
         <p className="text-muted-foreground">
           We’ve sent a verification link to

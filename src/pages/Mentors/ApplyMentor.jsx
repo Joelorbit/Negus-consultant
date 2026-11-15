@@ -12,7 +12,6 @@ import {
   UserCircle,
   Mail,
   School,
-  Sparkles,
   ArrowRight,
   AlertCircle,
   Info,
@@ -180,7 +179,6 @@ const ApplyMentor = () => {
         {/* Centered Page Header */}
         <header className="text-center space-y-3 pb-2">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-['Lexend'] font-bold uppercase tracking-widest bg-[var(--yellow-soft)] text-[var(--ink)] border border-[var(--line)] shadow-xs">
-            <Sparkles className="w-3.5 h-3.5 text-[var(--gold-ink)]" />
             <span>BECOME A SCHOLAR MENTOR</span>
           </div>
           <h1 className="font-['Lexend'] text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[var(--ink)]">
@@ -214,9 +212,6 @@ const ApplyMentor = () => {
             className="w-full flex items-center justify-between p-5 sm:p-6 text-left hover:bg-[var(--green-subtle)] transition-colors"
           >
             <div className="flex items-center gap-3 font-['Lexend'] font-bold text-sm sm:text-base text-[var(--ink)]">
-              <span className="w-8 h-8 rounded-full bg-[var(--green-soft)] text-[var(--green)] flex items-center justify-center shrink-0">
-                <Sparkles className="w-4 h-4" />
-              </span>
               <span>View Mentorship Benefits &amp; Role Details</span>
             </div>
             {showBenefits ? (
@@ -258,7 +253,7 @@ const ApplyMentor = () => {
               {/* 5 Why Become a Mentor Points */}
               <div className="space-y-4">
                 <h4 className="font-['Lexend'] font-bold text-base text-[var(--ink)] flex items-center gap-2">
-                  <span>🌟</span> Why Become a Mentor?
+                  Why Become a Mentor?
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {[
@@ -396,9 +391,8 @@ const ApplyMentor = () => {
                 Specialties &amp; Focus Areas *
               </label>
               <div className="relative">
-                <Sparkles className="absolute left-3.5 top-3.5 w-4 h-4 text-[var(--ink-muted)]" />
                 <Input
-                  className="pl-10 h-11 rounded-xl bg-[var(--paper)] border-[var(--line-strong)] text-[var(--ink)] text-sm focus:border-[var(--green)]"
+                  className="pl-3 h-11 rounded-xl bg-[var(--paper)] border-[var(--line-strong)] text-[var(--ink)] text-sm focus:border-[var(--green)]"
                   value={form.specialties}
                   onChange={handleChange("specialties")}
                   placeholder="e.g. Digital SAT, Common App Essays, CSS Profile, Visa Interviews"
@@ -695,7 +689,7 @@ const ApplyMentor = () => {
               </div>
 
               <h2 className="font-['Lexend'] text-2xl font-bold mb-3 text-[var(--ink)]">
-                Application Submitted Successfully 🎉
+                Application Submitted Successfully
               </h2>
 
               <p className="text-sm text-[var(--ink-secondary)] leading-relaxed mb-6">

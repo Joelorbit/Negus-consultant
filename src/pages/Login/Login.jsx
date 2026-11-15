@@ -4,7 +4,6 @@ import {
   ArrowRight,
   Eye,
   EyeClosed,
-  NavArrowLeft,
 } from "iconoir-react";
 import GoogleSignInButton from "../../components/GoogleSignInButton";
 import { useGoogleAuth, useLogin, useResendVerification } from "../../hooks/useAuth";
@@ -62,12 +61,12 @@ const Login = () => {
     <main className="negus-auth-viewport">
       <style>{`
         .negus-auth-viewport {
-          min-height: 100vh;
+          min-height: 100svh;
           width: 100%;
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: clamp(24px, 4vw, 56px) 16px;
+          padding: 4px 16px;
           background-color: var(--paper);
           background-image: radial-gradient(circle at 50% 12%, color-mix(in srgb, var(--green-subtle) 40%, var(--paper)), var(--paper) 70%);
           color: var(--ink);
@@ -81,7 +80,7 @@ const Login = () => {
           background: #ffffff !important;
           border: 1px solid rgba(18, 61, 43, 0.12) !important;
           border-radius: 24px;
-          padding: clamp(28px, 4.5vw, 44px);
+          padding: 14px clamp(22px, 4vw, 36px);
           box-shadow: 0 16px 40px -12px rgba(18, 61, 43, 0.08), 0 0 0 1px rgba(18, 61, 43, 0.04);
           position: relative;
           z-index: 2;
@@ -94,50 +93,24 @@ const Login = () => {
           box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.7);
         }
 
-        .negus-auth-top-nav {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          margin-bottom: 24px;
-        }
-
-        .negus-auth-back-link {
-          display: inline-flex;
-          align-items: center;
-          gap: 6px;
-          min-height: 40px;
-          padding: 8px 12px;
-          border-radius: 10px;
-          font-family: var(--font-display, 'Lexend', sans-serif);
-          font-size: 12.5px;
-          font-weight: 600;
-          color: var(--ink-muted);
-          text-decoration: none;
-          transition: all 0.2s ease;
-        }
-
-        .negus-auth-back-link:hover {
-          color: var(--ink);
-          background: var(--green-subtle);
-        }
-
         .negus-auth-brand-badge {
           display: flex;
-          flex-direction: column;
+          flex-direction: row;
           align-items: center;
+          justify-content: center;
+          gap: 8px;
           text-align: center;
-          margin-bottom: 24px;
+          margin-bottom: 10px;
         }
 
         .negus-auth-brand-badge img {
-          height: 40px;
+          height: 34px;
           width: auto;
-          margin-bottom: 12px;
         }
 
         .negus-auth-brand-badge span {
           font-family: var(--font-display, 'Lexend', sans-serif);
-          font-size: 12px;
+          font-size: 10px;
           font-weight: 800;
           letter-spacing: 0.14em;
           color: var(--ink);
@@ -145,7 +118,7 @@ const Login = () => {
 
         .negus-auth-headline {
           font-family: var(--font-display, 'Lexend', sans-serif);
-          font-size: 26px;
+          font-size: 24px;
           font-weight: 800;
           color: var(--ink);
           margin: 0 0 6px;
@@ -154,16 +127,16 @@ const Login = () => {
         }
 
         .negus-auth-subhead {
-          font-size: 13.5px;
+          font-size: 13px;
           color: var(--ink-secondary);
-          margin: 0 0 24px;
-          line-height: 1.55;
+          margin: 0 0 10px;
+          line-height: 1.45;
           text-align: center;
         }
 
         .negus-auth-form-body {
           display: grid;
-          gap: 16px;
+          gap: 10px;
         }
 
         .negus-auth-field {
@@ -181,7 +154,7 @@ const Login = () => {
         }
 
         .negus-auth-input {
-          height: 48px;
+          height: 40px;
           width: 100%;
           border: 1px solid var(--line-strong);
           border-radius: 12px;
@@ -262,13 +235,13 @@ const Login = () => {
         }
 
         .negus-auth-primary-btn {
-          height: 48px;
+          height: 40px;
           width: 100%;
           display: inline-flex;
           align-items: center;
           justify-content: center;
           gap: 8px;
-          margin-top: 8px;
+          margin-top: 2px;
           border-radius: 12px;
           background: #123d2b;
           color: #ffffff;
@@ -311,7 +284,7 @@ const Login = () => {
         .negus-divider-line {
           position: relative;
           text-align: center;
-          margin: 22px 0 18px;
+          margin: 10px 0 8px;
         }
 
         .negus-divider-line::before {
@@ -342,7 +315,7 @@ const Login = () => {
         }
 
         .negus-auth-bottom-switch {
-          margin-top: 24px;
+          margin-top: 8px;
           text-align: center;
           font-size: 13.5px;
           color: var(--ink-secondary);
@@ -360,18 +333,10 @@ const Login = () => {
       `}</style>
 
       <section className="negus-auth-solid-card" aria-labelledby="login-heading">
-        <div className="negus-auth-top-nav">
-          <Link className="negus-auth-back-link" to="/">
-            <NavArrowLeft width={16} height={16} />
-            Back to home
-          </Link>
-        </div>
-
         <div className="negus-auth-brand-badge">
           <Link to="/" aria-label="Negus Consultants home">
             <img src={logoSrc} alt="Negus Consultants" />
           </Link>
-          <span>NEGUS CONSULTANTS</span>
         </div>
 
         <h1 id="login-heading" className="negus-auth-headline">Welcome Back</h1>

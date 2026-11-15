@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { GraduationCap, Spark, User, ArrowRight } from "iconoir-react";
+import { GraduationCap, User, ArrowRight } from "iconoir-react";
 import { useNavigate } from "react-router";
 
 const ChooseRole = () => {
@@ -42,7 +42,7 @@ const ChooseRole = () => {
 
           <section className="reference-role-card">
             <h2>
-              <Spark width={24} height={24} /> Mentor
+              <User width={24} height={24} /> Mentor
             </h2>
             <p>
               Share your university admissions experience and help ambitious

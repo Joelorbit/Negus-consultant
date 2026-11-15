@@ -5,7 +5,6 @@ import {
   DollarSign,
   Globe,
   MessageSquare,
-  Sparkles,
   TrendingUp,
 } from "lucide-react";
 import { useNavigate } from "react-router";
@@ -167,7 +166,6 @@ const MentorBenefits = () => {
 
       <section className="mx-auto w-[min(100%-48px,1160px)] py-20">
         <h2 className="mb-12 flex items-center justify-center gap-3 text-center font-['Lexend'] text-3xl font-bold">
-          <Sparkles size={26} className="shrink-0 text-[var(--gold-ink)]" />
           Why Become a Mentor?
         </h2>
 

@@ -12,7 +12,7 @@ import {
 import { toast } from "sonner";
 import { useParams } from "react-router";
 import { usePackageById } from "../../../hooks/usePackages";
-import { Award, CheckCircle, CreditCard, User } from "lucide-react";
+import { Award, CheckCircle, CreditCard, Info, User } from "lucide-react";
 import ScreenshotUploader from "../../Package/components/ScreenShotUploader";
 import { useEffect } from "react";
 import { useMe } from "../../../hooks/useAuth";
@@ -138,7 +138,7 @@ const CourseForm = () => {
       <div className="mt-20 mb-20 max-w-md mx-auto p-8 bg-white rounded-2xl shadow-xl text-center">
         <CheckCircle className="w-16 h-16 text-emerald-500 mx-auto mb-4" />
         <h2 className="text-2xl font-bold text-gray-800 mb-2">
-          Payment Submitted Successfully 🎉
+          Payment Submitted Successfully
         </h2>
         <p className="text-gray-600 mb-6">
           Thank you for your payment. We will verify your account within{" "}
@@ -160,7 +160,7 @@ const CourseForm = () => {
       <div className="mt-4 flex justify-center items-center">
         <div className="mb-4 p-4 bg-orange-50 border border-orange-200 rounded-lg">
           <p className="text-orange-800 text-sm">
-            💡 Note:{" "}
+            <Info className="inline h-4 w-4 mr-1" aria-hidden="true" /> Note:{" "}
             <span className="text-orange-600 font-semibold hover:underline">
               Login
             </span>{" "}

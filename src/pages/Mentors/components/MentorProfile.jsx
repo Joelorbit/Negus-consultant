@@ -8,6 +8,14 @@ import { mentor as fallbackMentor } from "./ProfileComponents/MentorData";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import StarRating from "./ProfileComponents/StarRating";
 import { getEmbedUrl } from "../../../utils/yotubeUrl";
+import {
+  Clock3,
+  MessageCircle,
+  Play,
+  Target,
+  UserRound,
+  Users,
+} from "lucide-react";
 
 const MentorProfile = () => {
   const [bookingOpen, setBookingOpen] = useState(false);
@@ -163,18 +171,18 @@ const MentorProfile = () => {
                 {/* Key stats */}
                 <div className="flex flex-wrap gap-4 pt-4">
                   <div className="flex items-center gap-2 bg-card border border-border px-4 py-2 rounded-xl shadow-sm">
-                    <span className="text-yellow-500 text-sm">★</span>
                     <span className="font-bold text-foreground">
                       {mappedMentor.rating?.toFixed
                         ? mappedMentor.rating.toFixed(1)
                         : mappedMentor.rating}
+                      {" / 5"}
                     </span>
                     <span className="text-muted-foreground text-sm">
                       ({mappedMentor.reviewCount} reviews)
                     </span>
                   </div>
                   <div className="flex items-center gap-2 bg-card border border-border px-4 py-2 rounded-xl shadow-sm">
-                    <span className="text-primary text-sm">👥</span>
+                    <Users className="h-4 w-4 text-primary" aria-hidden="true" />
                     <span className="font-bold text-foreground">
                       {mappedMentor.stats?.studentsMentored || 0}+
                     </span>
@@ -183,7 +191,7 @@ const MentorProfile = () => {
                     </span>
                   </div>
                   <div className="flex items-center gap-2 bg-card border border-border px-4 py-2 rounded-xl shadow-sm">
-                    <span className="text-primary text-sm">⏱</span>
+                    <Clock3 className="h-4 w-4 text-primary" aria-hidden="true" />
                     <span className="font-bold text-foreground">
                       {mappedMentor.stats?.yearsExperience || 0}+
                     </span>
@@ -198,7 +206,7 @@ const MentorProfile = () => {
             {/* About section */}
             <section className="space-y-4">
               <h3 className="text-xl font-bold flex items-center gap-2 text-foreground">
-                <span className="text-primary text-lg">👤</span>
+                <UserRound className="h-5 w-5 text-primary" aria-hidden="true" />
                 About {mappedMentor.name.split(" ")[0] || "Mentor"}
               </h3>
               <div className="text-muted-foreground leading-relaxed">
@@ -211,19 +219,12 @@ const MentorProfile = () => {
               mappedMentor.specializations.length > 0 && (
                 <section className="space-y-4">
                   <h3 className="text-xl font-bold flex items-center gap-2 text-foreground">
-                    <span className="text-primary text-lg">🎯</span>
+                    <Target className="h-5 w-5 text-primary" aria-hidden="true" />
                     Expertise
                   </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {mappedMentor.specializations.map((s) => (
-                      <span
-                        key={s}
-                        className="bg-primary/5 text-primary border border-primary/20 px-3 py-1.5 rounded-lg text-sm font-medium"
-                      >
-                        {s}
-                      </span>
-                    ))}
-                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {mappedMentor.specializations.join(" · ")}
+                  </p>
                 </section>
               )}
 
@@ -231,7 +232,7 @@ const MentorProfile = () => {
             {mappedMentor.introduction_video_url && (
               <section className="space-y-4">
                 <h3 className="text-xl font-bold flex items-center gap-2 text-foreground">
-                  <span className="text-primary text-lg">▶</span>
+                  <Play className="h-5 w-5 text-primary" aria-hidden="true" />
                   Intro Video
                 </h3>
                 <div className="relative aspect-video rounded-2xl overflow-hidden bg-slate-900 shadow-xl">
@@ -251,7 +252,7 @@ const MentorProfile = () => {
               <section className="space-y-6">
                 <div className="flex items-center justify-between">
                   <h3 className="text-xl font-bold flex items-center gap-2 text-foreground">
-                    <span className="text-primary text-lg">💬</span>
+                    <MessageCircle className="h-5 w-5 text-primary" aria-hidden="true" />
                     Student Testimonials
                   </h3>
                 </div>

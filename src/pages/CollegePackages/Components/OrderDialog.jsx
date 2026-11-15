@@ -11,7 +11,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { toast } from "sonner";
 import { Link } from "react-router";
@@ -23,10 +22,10 @@ import {
   Loader2,
   FileCheck,
   AlertCircle,
-  Sparkles,
   Phone,
   Send,
   PhoneCall,
+  Copy,
 } from "lucide-react";
 import {
   useCreateEssayOrder,
@@ -418,12 +417,9 @@ export default function OrderDialog({ intent, onOpenChange }) {
         {/* Header with visual indicator */}
         <DialogHeader className="space-y-2 pb-2">
           <div className="flex items-center justify-between">
-            <Badge
-              variant="outline"
-              className="rounded-full px-3 py-0.5 text-xs font-semibold text-primary border-primary/30 bg-primary/5"
-            >
+            <span className="text-xs font-semibold text-muted-foreground">
               {STEP_BADGE[step]}
-            </Badge>
+            </span>
           </div>
           <DialogTitle className="text-xl font-bold tracking-tight text-slate-900 dark:text-slate-50">
             {intent.label}
@@ -732,9 +728,9 @@ export default function OrderDialog({ intent, onOpenChange }) {
                       navigator.clipboard?.writeText("1000508218765");
                       toast.success("CBE Account Number copied: 1000508218765");
                     }}
-                    className="font-mono font-bold text-primary hover:underline bg-primary/10 px-2 py-1 rounded"
+                    className="inline-flex items-center gap-1.5 font-mono font-bold text-primary hover:underline bg-primary/10 px-2 py-1 rounded"
                   >
-                    1000508218765 📋
+                    1000508218765 <Copy className="h-3.5 w-3.5" aria-hidden="true" />
                   </button>
                 </div>
 
@@ -750,9 +746,9 @@ export default function OrderDialog({ intent, onOpenChange }) {
                       navigator.clipboard?.writeText("0943041418");
                       toast.success("Telebirr number copied: 0943041418");
                     }}
-                    className="font-mono font-bold text-primary hover:underline bg-primary/10 px-2 py-1 rounded"
+                    className="inline-flex items-center gap-1.5 font-mono font-bold text-primary hover:underline bg-primary/10 px-2 py-1 rounded"
                   >
-                    0943041418 📋
+                    0943041418 <Copy className="h-3.5 w-3.5" aria-hidden="true" />
                   </button>
                 </div>
               </div>

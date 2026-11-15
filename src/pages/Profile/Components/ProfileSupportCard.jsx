@@ -7,10 +7,6 @@ export default function ProfileSupportCard() {
       style={{ background: "var(--white)", borderColor: "var(--line)" }}
     >
       <div className="border-b pb-4" style={{ borderColor: "var(--line)" }}>
-        <div className="eyebrow-tag text-[12px] mb-1">
-          <Phone className="w-3.5 h-3.5" style={{ color: "var(--green)" }} />
-          <span>ADVISORY SUPPORT</span>
-        </div>
         <h2 className="mt-1 font-['Lexend'] text-lg font-bold" style={{ color: "var(--ink)" }}>
           Direct Contact Desk
         </h2>

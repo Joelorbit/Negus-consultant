@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Badge } from "../../components/ui/badge";
 import { Button } from "../../components/ui/button";
 import { Label } from "../../components/ui/label";
 
@@ -64,14 +63,20 @@ export function WhereStep({
           <Label className="block mb-2">Select up to 3 destinations</Label>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {FEVERITE_DESTINATIONS.map((country) => (
-              <Badge
+              <button
+                type="button"
                 key={country}
                 onClick={() => toggleCountry(country)}
-                variant={selected.includes(country) ? "" : "secondary"}
-                className="cursor-pointer min-h-[44px] py-3 px-4 w-full justify-center text-center text-[13.5px]"
+                aria-pressed={selected.includes(country)}
+                disabled={!selected.includes(country) && selected.length >= 3}
+                className={`min-h-[44px] w-full rounded-lg border px-4 py-3 text-center text-[13.5px] font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-50 ${
+                  selected.includes(country)
+                    ? "border-primary bg-primary text-primary-foreground"
+                    : "border-border bg-background text-foreground hover:bg-muted"
+                }`}
               >
                 {country}
-              </Badge>
+              </button>
             ))}
           </div>
         </div>

@@ -16,7 +16,6 @@ import {
   CardTitle,
   CardFooter,
 } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import {
   User,
   Briefcase,
@@ -293,20 +292,15 @@ const MentorProfileEditor = () => {
                     setForm({ ...form, skills_csv: e.target.value })
                   }
                 />
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {form.skills_csv
-                    .split(",")
-                    .filter((s) => s.trim())
-                    .map((skill, i) => (
-                      <Badge
-                        key={i}
-                        variant="secondary"
-                        className="bg-blue-50 text-blue-700 hover:bg-blue-100 border-blue-100"
-                      >
-                        {skill.trim()}
-                      </Badge>
-                    ))}
-                </div>
+                {form.skills_csv.trim() && (
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    {form.skills_csv
+                      .split(",")
+                      .map((skill) => skill.trim())
+                      .filter(Boolean)
+                      .join(" · ")}
+                  </p>
+                )}
               </div>
             </CardContent>
           </Card>
@@ -337,14 +331,7 @@ const MentorProfileEditor = () => {
                 </div>
                 <div className="space-y-2">
                   <Label>Consultation Type</Label>
-                  <div className="flex gap-2">
-                    <Badge className="bg-green-50 text-green-700 border-green-100 uppercase text-xs">
-                      1-on-1 Sessions
-                    </Badge>
-                    <Badge className="bg-blue-50 text-blue-700 border-blue-100 uppercase text-xs">
-                      Video Call
-                    </Badge>
-                  </div>
+                  <p className="text-sm text-muted-foreground">1-on-1 sessions · Video call</p>
                 </div>
               </div>
 

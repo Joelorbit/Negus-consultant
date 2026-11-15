@@ -91,18 +91,6 @@ export function Xmark(props: IconProps) {
   )
 }
 
-export function Spark(props: IconProps) {
-  return (
-    <Icon {...props}>
-      <path
-        d="M3 12C9.26752 12 12 9.36306 12 3C12 9.36306 14.7134 12 21 12C14.7134 12 12 14.7134 12 21C12 14.7134 9.26752 12 3 12Z"
-        stroke="currentColor"
-        strokeLinejoin="round"
-      />
-    </Icon>
-  )
-}
-
 export function Compass(props: IconProps) {
   return (
     <Icon {...props}>
@@ -260,25 +248,6 @@ export function Telegram(props: IconProps) {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-    </Icon>
-  )
-}
-
-export function Instagram(props: IconProps) {
-  return (
-    <Icon {...props}>
-      <rect
-        x="2"
-        y="2"
-        width="20"
-        height="20"
-        rx="5"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <circle cx="12" cy="12" r="4" stroke="currentColor" />
-      <path d="M17.5 6.5h.01" stroke="currentColor" strokeLinecap="round" />
     </Icon>
   )
 }

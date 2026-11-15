@@ -28,8 +28,8 @@ const Hero = () => (
 
     </section>
     <div className="reference-marquee" aria-label="Negus core service tracks">
-      <div className="reference-marquee-track">{["ESSAY COACHING", "ONE-ON-ONE MENTORSHIP", "FULL APPLICATION SUPPORT", "EDUCATIONAL COURSES", "DIGITAL SAT MASTERY", "IELTS ACADEMIC INTENSIVE", "CSS PROFILE & ISFAA AID", "VISA INTERVIEW SIMULATION"].map((item) => <span key={item}>{item}<i>✦</i></span>)}</div>
-      <div className="reference-marquee-track" aria-hidden="true">{["ESSAY COACHING", "ONE-ON-ONE MENTORSHIP", "FULL APPLICATION SUPPORT", "EDUCATIONAL COURSES", "DIGITAL SAT MASTERY", "IELTS ACADEMIC INTENSIVE", "CSS PROFILE & ISFAA AID", "VISA INTERVIEW SIMULATION"].map((item) => <span key={item}>{item}<i>✦</i></span>)}</div>
+      <div className="reference-marquee-track">{["ESSAY COACHING", "ONE-ON-ONE MENTORSHIP", "FULL APPLICATION SUPPORT", "EDUCATIONAL COURSES", "DIGITAL SAT MASTERY", "IELTS ACADEMIC INTENSIVE", "CSS PROFILE & ISFAA AID", "VISA INTERVIEW SIMULATION"].map((item) => <span key={item}>{item}</span>)}</div>
+      <div className="reference-marquee-track" aria-hidden="true">{["ESSAY COACHING", "ONE-ON-ONE MENTORSHIP", "FULL APPLICATION SUPPORT", "EDUCATIONAL COURSES", "DIGITAL SAT MASTERY", "IELTS ACADEMIC INTENSIVE", "CSS PROFILE & ISFAA AID", "VISA INTERVIEW SIMULATION"].map((item) => <span key={item}>{item}</span>)}</div>
     </div>
   </>
 );

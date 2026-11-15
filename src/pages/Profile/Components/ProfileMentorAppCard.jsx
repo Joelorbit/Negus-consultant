@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router";
 import { useMyMentorApplication } from "../../../hooks/useMentorApplications";
-import { FileText, ArrowRight, CheckCircle2, Clock, AlertCircle, Sparkles } from "lucide-react";
+import { FileText, ArrowRight, CheckCircle2, Clock, AlertCircle } from "lucide-react";
 
 export default function ProfileMentorAppCard() {
   const navigate = useNavigate();
@@ -79,7 +79,6 @@ export default function ProfileMentorAppCard() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[var(--line)] pb-4">
         <div>
           <div className="inline-flex items-center gap-1.5 text-[12px] font-['Lexend'] font-bold uppercase tracking-wider text-[var(--gold-ink)]">
-            <Sparkles className="w-3.5 h-3.5" />
             <span>ACTIVE APPLICATION</span>
           </div>
           <h2 className="mt-1 font-['Lexend'] text-lg sm:text-xl font-bold text-[var(--ink)]">

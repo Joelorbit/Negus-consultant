@@ -1,3 +1,12 @@
+import {
+  Brain,
+  Briefcase,
+  Code2,
+  Globe2,
+  Palette,
+  TrendingUp,
+} from "lucide-react";
+
 //     id: string;
 //     name: string;
 //     email: string;
@@ -357,37 +366,37 @@ export const categories = [
   {
     id: "all",
     name: "All",
-    icon: "🌐",
+    icon: Globe2,
     count: 120,
   },
   {
     id: "webdev",
     name: "Web Development",
-    icon: "💻",
+    icon: Code2,
     count: 34,
   },
   {
     id: "design",
     name: "Design",
-    icon: "🎨",
+    icon: Palette,
     count: 18,
   },
   {
     id: "marketing",
     name: "Marketing",
-    icon: "📈",
+    icon: TrendingUp,
     count: 27,
   },
   {
     id: "business",
     name: "Business",
-    icon: "💼",
+    icon: Briefcase,
     count: 21,
   },
   {
     id: "ai",
     name: "AI & ML",
-    icon: "🧠",
+    icon: Brain,
     count: 20,
   },
 ];

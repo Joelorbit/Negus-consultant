@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useParams, Link } from "react-router";
+import { useParams, Link, useLocation } from "react-router";
 import { format, formatDistanceToNow } from "date-fns";
 import {
   ArrowLeft,
@@ -7,14 +7,15 @@ import {
   Clock,
   Heart,
   MessageSquare,
+  Share2,
   Send,
-  Sparkles,
 } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { useMe } from "../../../../../hooks/useAuth";
 import { navigateToLogin } from "../../../../../utils/mobileNavigation";
+import { shareLink } from "../../../../../utils/shareLink";
 import {
   useCreateComment,
   useCreateLike,
@@ -26,6 +27,7 @@ import {
 
 export const BlogDetail = () => {
   const { id } = useParams();
+  const location = useLocation();
   const { data: user } = useMe();
 
   const [selectedImage, setSelectedImage] = useState(0);
@@ -37,6 +39,22 @@ export const BlogDetail = () => {
   const { data: comments } = useGetComments(id);
   const { mutate: createLike } = useCreateLike();
   const { mutate: deleteLike } = useDeleteLike();
+  const returnTo = location.state?.returnTo || "/blogs";
+
+  const handleShare = async () => {
+    try {
+      const result = await shareLink({
+        title: blog?.title || "Negus Consultants article",
+        text: "Read this article from Negus Consultants.",
+        url: window.location.href,
+      });
+      if (result === "copied") toast.success("Article link copied.");
+    } catch (error) {
+      if (error?.name !== "AbortError") {
+        toast.error(error?.message || "Could not share this article.");
+      }
+    }
+  };
 
   const handleCommentSubmit = (e) => {
     e.preventDefault();
@@ -129,10 +147,9 @@ export const BlogDetail = () => {
         boxSizing: "border-box",
       }}
     >
-      {/* Back button */}
-      <div style={{ marginBottom: "20px" }}>
+      <div className="blog-reader-actions">
         <Link
-          to="/blogs"
+          to={returnTo}
           style={{
             display: "inline-flex",
             alignItems: "center",
@@ -149,8 +166,12 @@ export const BlogDetail = () => {
           }}
           className="hover:text-[var(--ink)]"
         >
-          <ArrowLeft className="w-4 h-4" /> Back to all articles
+          <ArrowLeft className="w-4 h-4" />           <ArrowLeft className="w-4 h-4" />
+          {returnTo === "/free-tools" ? "Back to Free Tools" : "Back to all articles"}
         </Link>
+        <button className="public-blog-share-button" type="button" onClick={handleShare}>
+          <Share2 aria-hidden="true" /> Share article
+        </button>
       </div>
 
       {/* Main Editorial Reading Card */}
@@ -167,28 +188,6 @@ export const BlogDetail = () => {
       >
         {/* Article Header (Centered) */}
         <header style={{ textAlign: "center", marginBottom: "32px" }}>
-          <div
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "6px",
-              padding: "6px 14px",
-              borderRadius: "9999px",
-              fontSize: "12px",
-              fontFamily: "var(--font-display, 'Lexend', sans-serif)",
-              fontWeight: 800,
-              textTransform: "uppercase",
-              letterSpacing: "0.12em",
-              background: "var(--yellow-soft)",
-              color: "var(--ink)",
-              border: "1px solid var(--line)",
-              marginBottom: "16px",
-            }}
-          >
-            <Sparkles className="w-3.5 h-3.5 text-[var(--gold-ink)]" />
-            <span>{blog?.category || "Scholarship Guidance"}</span>
-          </div>
-
           <h1
             style={{
               fontFamily: "var(--font-display, 'Lexend', sans-serif)",
@@ -637,43 +636,16 @@ export const BlogDetail = () => {
           >
             Explore our admissions packages and expert-led video courses to secure full-ride awards.
           </p>
-          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "12px" }}>
+          <div className="blog-cta-actions">
             <Link
               to="/packages"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                height: "44px",
-                padding: "0 22px",
-                borderRadius: "10px",
-                background: "var(--ink)",
-                color: "var(--paper)",
-                fontFamily: "var(--font-display, 'Lexend', sans-serif)",
-                fontSize: "14px",
-                fontWeight: 700,
-                textDecoration: "none",
-              }}
+              className="blog-cta-link is-primary"
             >
               Explore Packages
             </Link>
             <Link
               to="/courses"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                height: "44px",
-                padding: "0 22px",
-                borderRadius: "10px",
-                border: "1px solid var(--line-strong)",
-                background: "var(--white)",
-                color: "var(--ink)",
-                fontFamily: "var(--font-display, 'Lexend', sans-serif)",
-                fontSize: "14px",
-                fontWeight: 700,
-                textDecoration: "none",
-              }}
+              className="blog-cta-link"
             >
               Browse Courses
             </Link>

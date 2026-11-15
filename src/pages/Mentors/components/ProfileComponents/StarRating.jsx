@@ -1,26 +1,8 @@
-import { Star } from "lucide-react";
-
-const StarRating = ({ rating, max = 5, size = 16 }) => {
+const StarRating = ({ rating, max = 5 }) => {
   return (
-    <div className="flex items-center gap-0.5">
-      {Array.from({ length: max }, (_, i) => {
-        const filled = i < Math.floor(rating);
-        const partial = !filled && i < rating;
-        return (
-          <Star
-            key={i}
-            size={size}
-            className={
-              filled
-                ? "fill-amber-400 text-amber-400"
-                : partial
-                  ? "fill-amber-400/50 text-amber-400/50"
-                  : "text-border"
-            }
-          />
-        );
-      })}
-    </div>
+    <span className="text-sm text-muted-foreground" aria-label={`${rating} out of ${max}`}>
+      {Number(rating).toFixed(1)} / {max}
+    </span>
   );
 };
 export default StarRating;

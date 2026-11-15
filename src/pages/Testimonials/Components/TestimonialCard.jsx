@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Check, Sparkles, X, ZoomIn } from "lucide-react";
+import { Check, X, ZoomIn } from "lucide-react";
 
 const TestimonialCard = (props) => {
   const data =

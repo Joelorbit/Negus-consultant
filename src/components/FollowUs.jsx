@@ -100,8 +100,8 @@ const FollowUs = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {/* Twitter/X Card */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Telegram Card */}
           <div className="bg-card shadow-md p-6 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-yellow-200 transform hover:-translate-y-1 group">
             <div className="w-12 h-12 bg-neutral-700 rounded-full flex items-center justify-center mb-4 group-hover:bg-yellow-500 transition-colors">
               <i className="fa-brands fa-telegram text-xl"></i>
@@ -125,32 +125,7 @@ const FollowUs = () => {
             </a>
           </div>
 
-          {/* Instagram Card */}
-          <div className="bg-card shadow-md p-6 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-yellow-200 transform hover:-translate-y-1 group">
-            <div className="w-12 h-12 bg-neutral-700 rounded-full flex items-center justify-center mb-4 group-hover:bg-gradient-to-tr group-hover:from-purple-600 group-hover:via-pink-500 group-hover:to-yellow-500 transition-colors">
-              <i className="fa-brands fa-instagram text-xl"></i>
-            </div>
-            <h3 className="text-xl font-bold mb-2 text-foreground">
-              Instagram
-            </h3>
-            <p className="text-muted-foreground mb-4">
-              Visual stories showcasing our product, team, and customer success
-              stories.
-            </p>
-            <a
-              href="https://www.instagram.com/negusconsultants?igsh=MWs1NHhlcDVyanZ1cQ=="
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center text-yellow-500 hover:text-yellow-400 transition-colors"
-            >
-              Follow us{" "}
-              <span className="material-symbols-outlined ml-1 text-sm">
-                north_east
-              </span>
-            </a>
-          </div>
-
-          {/* LinkedIn Card */}
+          {/* TikTok Card */}
           <div className="bg-card shadow-md p-6 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-yellow-200 transform hover:-translate-y-1 group">
             <div className="w-12 h-12 bg-neutral-700 rounded-full flex items-center justify-center mb-4 group-hover:bg-black transition-colors">
               <i className="fa-brands fa-tiktok text-xl"></i>

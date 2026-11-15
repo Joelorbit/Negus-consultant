@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Check, Copy, Gift, Sparkles, Tag } from "lucide-react";
+import { Check, Copy, Gift, Tag } from "lucide-react";
 
 export default function ProfileReferralCard({ user }) {
   const [copied, setCopied] = useState(false);
@@ -27,10 +27,6 @@ export default function ProfileReferralCard({ user }) {
     >
       <div className="flex items-center justify-between gap-3 border-b pb-4" style={{ borderColor: "var(--line)" }}>
         <div>
-          <div className="eyebrow-tag text-[12px] mb-1">
-            <Gift className="w-3.5 h-3.5" style={{ color: "var(--yellow)" }} />
-            <span>REFERRAL EARNINGS</span>
-          </div>
           <h2 className="mt-1 font-['Lexend'] text-lg font-bold" style={{ color: "var(--ink)" }}>
             Invite Ambitious Scholars
           </h2>

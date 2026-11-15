@@ -179,7 +179,7 @@ export default function TrainingDetailPage() {
 
           {training.testimonials.length > 0 && (
             <section className="training-detail-testimonials">
-              <p className="public-eyebrow">PREVIOUS PARTICIPANT NOTES</p>
+              <p className="public-eyebrow">STUDENT TESTIMONIALS</p>
               {training.testimonials.map((t) => (
                 <blockquote key={t.name}>
                   <p>&ldquo;{t.quote}&rdquo;</p>
@@ -188,6 +188,7 @@ export default function TrainingDetailPage() {
               ))}
             </section>
           )}
+
         </div>
 
         {isOpen && (
@@ -214,6 +215,23 @@ export default function TrainingDetailPage() {
             </a>
           </aside>
         )}
+      </section>
+
+      <section className="public-content training-testimonial-photo-placeholders" aria-label={`${training.title} photo testimonials`}>
+        <p className="public-eyebrow">TRAINING PHOTO TESTIMONIALS</p>
+        <h2>Student moments from this training.</h2>
+        <p className="training-testimonial-photo-intro">
+          Photos and written testimonials can be added here after this session.
+        </p>
+        <div className="training-testimonial-photo-grid">
+          {[1, 2, 3].map((slot) => (
+            <div className="training-testimonial-photo-placeholder" key={slot}>
+              <span aria-hidden="true">+</span>
+              <strong>Testimonial photo {slot}</strong>
+              <small>To be added after the training</small>
+            </div>
+          ))}
+        </div>
       </section>
     </main>
   );

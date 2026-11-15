@@ -13,7 +13,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useUpdateScholarship } from "../../../../../hooks/useScholarships";
-import { Edit2, Sparkles, Loader2 } from "lucide-react";
+import { Edit2, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 
 export default function EditScholarship({ scholarship }) {
@@ -98,7 +98,6 @@ export default function EditScholarship({ scholarship }) {
         <form className="space-y-4" onSubmit={handleSubmit}>
           <DialogHeader>
             <DialogTitle className="text-xl font-bold font-display flex items-center gap-2">
-              <Sparkles className="h-5 w-5 text-primary" />
               Edit Scholarship Details
             </DialogTitle>
             <DialogDescription className="text-xs text-muted-foreground">

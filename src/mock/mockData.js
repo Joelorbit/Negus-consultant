@@ -970,8 +970,8 @@ export const mockScholarshipComments = {
 export const mockCatalogFixedServices = [
   { id: 1, code: "css_profile", name: "CSS Profile Financial Assistance", price_etb: 1000, description: "End-to-end guidance filling out College Board CSS Profile for maximum institutional non-federal aid." },
   { id: 2, code: "isfaa", name: "ISFAA / Institutional Financial Forms", price_etb: 700, description: "Accurate preparation of International Student Financial Aid Applications and documentation verification." },
-  { id: 3, code: "recommendation_letter", name: "Recommendation Letter Assistance (per letter)", price_etb: 700, description: "Coaching and strategic framing for teacher and counselor recommendation letters." },
-  { id: 4, code: "common_app_support", name: "Standalone Common App Support", price_etb: 2500, description: "Full structural walkthrough, profile setup, extracurricular activities hierarchy, and final review." },
+  { id: 3, code: "recommendation_letter", name: "Recommendation Letter Assistance (per letter)", price_etb: 900, description: "Coaching and strategic framing for teacher and counselor recommendation letters." },
+  { id: 4, code: "common_app_support", name: "Common App Activities List", price_etb: 1500, description: "One-on-one guidance to build and refine your Common App activities list." },
 ];
 
 export const mockCatalogEssayRates = [
@@ -1275,9 +1275,9 @@ export const mockCollegePaymentsList = [
     user_email: "dawit.wolde@gmail.com",
     contact_phone: "+251 91 765 4321",
     order_type: "common_app_support",
-    invoice_description: "Standalone Common App Support",
-    amount_claimed_etb: 2500,
-    invoice_amount_etb: 2500,
+    invoice_description: "Common App Activities List",
+    amount_claimed_etb: 1500,
+    invoice_amount_etb: 1500,
     screenshot_url: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&auto=format&fit=crop&q=80",
     submitted_at: "2026-11-06T10:15:00.000Z",
     status: "pending",

@@ -1,31 +1,21 @@
 import React, { useState } from "react";
 import { Link } from "react-router";
-import { Instagram, Youtube } from "lucide-react";
+import { Youtube } from "lucide-react";
 import {
   ArrowRight,
   ArrowUpRight,
-  Award,
   Check,
-  GraduationCap,
   Play,
-  Spark,
   Telegram,
 } from "./icons";
-import {
-  GeorgetownCrest,
-  WilliamsCrest,
-  DrexelCrest,
-  HowardCrest,
-  HultCrest,
-  NyuCrest,
-  SarahLawrenceCrest,
-  CanisiusCrest,
-  ClarkCrest,
-} from "./universityLogos";
+import hultLogo from "../../assets/hult-university-logo.svg";
+import sarahLawrenceLogo from "../../assets/sarah-lawrence-logo.svg";
+import canisiusLogo from "../../assets/canisius-university-logo.svg";
+import clarkLogo from "../../assets/clark-university-logo.svg";
 import CeoHero from "./components/CeoHero";
 import CeoMessageSection from "./components/CeoMessageSection";
 import CeoFreeToolsSection from "./components/CeoFreeToolsSection";
-import { Reveal, CountUp, ScrollProgress, PixelRain } from "./components/HomeLife";
+import { Reveal, ScrollProgress, PixelRain } from "./components/HomeLife";
 import { testimonialPhotos } from "../../assets/testimonialPhotos";
 
 export default function ReferenceHome() {
@@ -46,107 +36,26 @@ export default function ReferenceHome() {
       <div className="marquee-ribbon" aria-label="Negus core service tracks">
         <div className="marquee-track">
           <span>ESSAY COACHING</span>
-          <i>✦</i>
           <span>ONE-ON-ONE MENTORSHIP</span>
-          <i>✦</i>
           <span>FULL APPLICATION SUPPORT</span>
-          <i>✦</i>
           <span>EDUCATIONAL COURSES</span>
-          <i>✦</i>
           <span>DIGITAL SAT MASTERY</span>
-          <i>✦</i>
           <span>CSS PROFILE & FINANCIAL AID</span>
-          <i>✦</i>
           <span>VISA INTERVIEW PREPARATION</span>
-          <i>✦</i>
         </div>
         <div className="marquee-track" aria-hidden="true">
           <span>ESSAY COACHING</span>
-          <i>✦</i>
           <span>ONE-ON-ONE MENTORSHIP</span>
-          <i>✦</i>
           <span>FULL APPLICATION SUPPORT</span>
-          <i>✦</i>
           <span>EDUCATIONAL COURSES</span>
-          <i>✦</i>
           <span>DIGITAL SAT MASTERY</span>
-          <i>✦</i>
           <span>CSS PROFILE & FINANCIAL AID</span>
-          <i>✦</i>
           <span>VISA INTERVIEW PREPARATION</span>
-          <i>✦</i>
         </div>
       </div>
 
       {/* "መልእክት አለን" Founder Video Message & 5 Category Tiles (Page 2 Sketch) */}
       <CeoMessageSection />
-
-      {/* Proven Track Record & Trust Bar (Pure Light Theme) */}
-      <section className="section-shell" style={{ paddingTop: "54px", paddingBottom: "64px" }}>
-        <div className="eyebrow-tag" style={{ justifyContent: "center", marginBottom: "28px" }}>
-          THE NUMBERS BEHIND THE MISSION
-        </div>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 210px), 1fr))",
-            gap: "20px",
-            textAlign: "center",
-            maxWidth: "960px",
-            margin: "0 auto",
-          }}
-        >
-          {[
-            { value: "30,000+", color: "#123d2b", label: "Students and families reached" },
-            { value: "2,000+", color: "#19523b", label: "Students guided" },
-            { value: "10+", color: "#123d2b", label: "Universities that admitted our students" },
-          ].map((stat, i) => (
-            <Reveal
-              key={stat.label}
-              className="home-card"
-              delay={i * 120}
-              style={{
-                padding: "26px 20px",
-                borderRadius: "20px",
-                background: "#ffffff",
-                border: "1.5px solid rgba(18, 61, 43, 0.14)",
-                boxShadow: "0 10px 28px rgba(18, 61, 43, 0.08)",
-                textAlign: "center",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-            >
-              <strong
-                style={{
-                  display: "block",
-                  fontFamily: "var(--font-display)",
-                  fontSize: "clamp(32px, 3.8vw, 42px)",
-                  fontWeight: 900,
-                  color: stat.color,
-                  lineHeight: 1.1,
-                }}
-              >
-                {stat.value}
-              </strong>
-              <span
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: "13px",
-                  fontWeight: 700,
-                  color: "#56745f",
-                  letterSpacing: "-0.01em",
-                  marginTop: "6px",
-                  display: "block",
-                  maxWidth: "190px",
-                }}
-              >
-                {stat.label}
-              </span>
-            </Reveal>
-          ))}
-        </div>
-      </section>
 
       {/* Free Tools & Lead Capture Gate (Page 5 Sketch) */}
       <CeoFreeToolsSection />
@@ -154,9 +63,6 @@ export default function ReferenceHome() {
       {/* Places Our Students Have Been Accepted To (Creative University Acceptance Showcase) */}
       <section className="section-shell home-grid-paper" style={{ paddingTop: "44px", paddingBottom: "54px" }}>
         <div style={{ textAlign: "center", maxWidth: "700px", margin: "0 auto 32px" }}>
-          <div className="eyebrow-tag" style={{ justifyContent: "center", marginBottom: "12px" }}>
-            VERIFIED ACCEPTANCES &amp; MERIT AWARDS
-          </div>
           <h2 className="display-title" style={{ fontSize: "clamp(28px, 3.6vw, 42px)", margin: "0 0 12px" }}>
             Places our students have been accepted to.
           </h2>
@@ -175,16 +81,15 @@ export default function ReferenceHome() {
           }}
         >
           {[
-            { name: "Georgetown", loc: "Washington, D.C.", award: "$85k/yr Award", href: "https://www.georgetown.edu/", Crest: GeorgetownCrest },
-            { name: "Williams College", loc: "Massachusetts", award: "Full Financial Aid", href: "https://www.williams.edu/", Crest: WilliamsCrest },
-            { name: "Drexel University", loc: "Philadelphia, PA", award: "$145k Scholarship", href: "https://drexel.edu/", Crest: DrexelCrest },
-            { name: "Howard University", loc: "Washington, D.C.", award: "Full Tuition", href: "https://howard.edu/", Crest: HowardCrest },
-            { name: "NYU Abu Dhabi", loc: "Abu Dhabi & NYC", award: "Full Need-Based Aid", href: "https://nyuad.nyu.edu/", Crest: NyuCrest },
-            { name: "Hult International", loc: "Boston & London", award: "$120k Merit Grant", href: "https://www.hult.edu/", Crest: HultCrest },
-            { name: "Sarah Lawrence", loc: "New York", award: "Full Institutional Aid", href: "https://www.sarahlawrence.edu/", Crest: SarahLawrenceCrest },
-            { name: "Canisius University", loc: "New York", award: "$95k Presidential", href: "https://www.canisius.edu/", Crest: CanisiusCrest },
-            { name: "Clark University", loc: "Massachusetts", award: "Global Scholars Award", href: "https://www.clarku.edu/", Crest: ClarkCrest },
-          ].map(({ name, loc, award, href, Crest }, i) => (
+            { name: "Georgetown", loc: "Washington, D.C.", award: "$85k/yr Award", href: "https://www.georgetown.edu/", logo: "/assets/university-logos/georgetown-seal.png" },
+            { name: "Williams College", loc: "Massachusetts", award: "Full Financial Aid", href: "https://www.williams.edu/", logo: "/assets/university-logos/williams-seal.png" },
+            { name: "Drexel University", loc: "Philadelphia, PA", award: "$145k Scholarship", href: "https://drexel.edu/", logo: "/assets/university-logos/drexel-official.svg" },
+            { name: "Howard University", loc: "Washington, D.C.", award: "Full Tuition", href: "https://howard.edu/", logo: "/assets/university-logos/howard-official.svg" },
+            { name: "Hult International", loc: "Boston & London", award: "$120k Merit Grant", href: "https://www.hult.edu/", logo: hultLogo },
+            { name: "Sarah Lawrence", loc: "New York", award: "Full Institutional Aid", href: "https://www.sarahlawrence.edu/", logo: sarahLawrenceLogo },
+            { name: "Canisius University", loc: "New York", award: "$95k Presidential", href: "https://www.canisius.edu/", logo: canisiusLogo },
+            { name: "Clark University", loc: "Massachusetts", award: "Global Scholars Award", href: "https://www.clarku.edu/", logo: clarkLogo },
+          ].map(({ name, loc, award, href, logo }, i) => (
             <Reveal
               key={name}
               variant="stamp"
@@ -205,17 +110,19 @@ export default function ReferenceHome() {
             >
               <div
                 style={{
-                  width: "72px",
-                  height: "72px",
+                  width: "96px",
+                  height: "96px",
                   borderRadius: "50%",
-                  background: "var(--green-subtle)",
+                  border: "1px solid var(--line)",
+                  background: "var(--white)",
                   display: "grid",
                   placeItems: "center",
+                  boxShadow: "var(--shadow-sm)",
                 }}
               >
-                  <a className="home-university-icon-link" href={href} target="_blank" rel="noreferrer" aria-label={`Visit ${name} official website`}>
-                    <Crest style={{ width: "60px", height: "60px" }} />
-                  </a>
+                <a className="home-university-icon-link" href={href} target="_blank" rel="noreferrer" aria-label={`Visit ${name} official website`}>
+                  <img className="home-university-logo" src={logo} alt={`${name} official logo`} loading="lazy" />
+                </a>
               </div>
               <div>
                 <strong
@@ -241,20 +148,8 @@ export default function ReferenceHome() {
                   {loc}
                 </span>
               </div>
-              <span
-                style={{
-                  fontSize: "12px",
-                  fontWeight: 800,
-                  fontFamily: "var(--font-display)",
-                  letterSpacing: "0.02em",
-                  color: "var(--gold-ink)",
-                  background: "var(--yellow-soft)",
-                  padding: "7px 12px",
-                  borderRadius: "9999px",
-                  border: "1px solid var(--line)",
-                }}
-              >
-                ★ {award}
+              <span style={{ fontSize: "12px", color: "var(--gold-ink)", marginTop: "3px" }}>
+                {award}
               </span>
             </Reveal>
           ))}
@@ -264,9 +159,6 @@ export default function ReferenceHome() {
       {/* Course Preview (CEO homepage sketch — intro video + 3 cards + Explore) */}
       <section className="section-shell home-course-section" id="courses" style={{ paddingTop: "28px", paddingBottom: "36px" }}>
         <div style={{ textAlign: "center", maxWidth: "700px", margin: "0 auto 20px" }}>
-          <div className="eyebrow-tag" style={{ justifyContent: "center", marginBottom: "12px" }}>
-            COURSE PREVIEW
-          </div>
           <h2 className="display-title" style={{ fontSize: "clamp(28px, 3.6vw, 42px)", margin: "0 0 12px" }}>
             Start with an intro, then pick a course.
           </h2>
@@ -352,9 +244,6 @@ export default function ReferenceHome() {
       {/* Featured Packages Preview */}
       <section className="section-shell" style={{ paddingTop: "36px", paddingBottom: "54px" }}>
         <div style={{ textAlign: "center", maxWidth: "680px", margin: "0 auto 36px" }}>
-          <div className="eyebrow-tag" style={{ justifyContent: "center", marginBottom: "12px" }}>
-            FLAGSHIP PACKAGES
-          </div>
           <h2 className="display-title" style={{ fontSize: "clamp(32px, 4vw, 48px)", margin: "0 0 14px" }}>
             Guidance for every application stage.
           </h2>
@@ -432,25 +321,6 @@ export default function ReferenceHome() {
               position: "relative",
             }}
           >
-            <div
-              className="home-popular-pulse"
-              style={{
-                position: "absolute",
-                top: "-12px",
-                right: "24px",
-                background: "var(--yellow)",
-                color: "#123d2b",
-                fontFamily: "var(--font-display)",
-                fontSize: "12px",
-                fontWeight: 800,
-                letterSpacing: "0.08em",
-                textTransform: "uppercase",
-                padding: "8px 14px",
-                borderRadius: "9999px",
-              }}
-            >
-              ★ MOST POPULAR
-            </div>
             <div>
               <span style={{ fontSize: "12px", fontWeight: 800, letterSpacing: "0.12em", color: "var(--gold-ink)", textTransform: "uppercase" }}>
                 PACKAGE 02 · COMPLETE
@@ -557,9 +427,6 @@ export default function ReferenceHome() {
       {/* Verified Student Wins & Testimonials */}
       <section className="section-shell home-grid-paper home-testimonial-section" style={{ paddingTop: "36px", paddingBottom: "54px" }}>
         <div style={{ textAlign: "center", maxWidth: "680px", margin: "0 auto 36px" }}>
-          <div className="eyebrow-tag" style={{ justifyContent: "center", marginBottom: "12px" }}>
-            STUDENT STORIES
-          </div>
           <h2 className="display-title" style={{ fontSize: "clamp(32px, 4vw, 48px)", margin: "0 0 14px" }}>
             Messages from our students.
           </h2>
@@ -600,9 +467,6 @@ export default function ReferenceHome() {
           }}
         >
           <PixelRain />
-          <div className="eyebrow-tag" style={{ justifyContent: "center", marginBottom: "14px", color: "var(--yellow)" }}>
-            NEXT STEP
-          </div>
           <h2 className="display-title" style={{ fontSize: "clamp(32px, 4.5vw, 52px)", margin: "0 0 16px" }}>
             Ready to win your scholarship?
           </h2>
@@ -631,8 +495,7 @@ export default function ReferenceHome() {
       <section className="home-social-section" aria-labelledby="home-social-title">
         <div className="home-social-inner">
           <div className="home-social-copy">
-            <span className="home-social-eyebrow">THE CONVERSATION CONTINUES</span>
-            <h2 id="home-social-title">Scholarship guidance, wherever you are.</h2>
+            <h2 id="home-social-title">Scholarship guidance, <span>wherever you are.</span></h2>
             <p>Join our community for new opportunities, practical advice, and conversations with students who have been there.</p>
             <div className="home-social-links">
               <a href="https://t.me/NEGUSCONSULTANTS" target="_blank" rel="noreferrer" className="home-social-link home-social-link-primary">
@@ -641,10 +504,16 @@ export default function ReferenceHome() {
               <a href="https://www.youtube.com/@negusconsultants" target="_blank" rel="noreferrer" className="home-social-link">
                 <Youtube aria-hidden="true" /><span>YouTube</span><ArrowUpRight aria-hidden="true" />
               </a>
-              <a href="https://www.instagram.com/negusconsultants" target="_blank" rel="noreferrer" className="home-social-link">
-                <Instagram aria-hidden="true" /><span>Instagram</span><ArrowUpRight aria-hidden="true" />
+              <a href="https://www.tiktok.com/@negus.consultant?_t=ZM-8xpBtQiI488&_r=1" target="_blank" rel="noreferrer" className="home-social-link">
+                <i className="fa-brands fa-tiktok" aria-hidden="true" /><span>TikTok</span><ArrowUpRight aria-hidden="true" />
               </a>
             </div>
+            <a href="https://t.me/NEGUSCONSULTANTS" target="_blank" rel="noreferrer" className="home-social-community">
+              <span className="home-social-community-icon"><Telegram aria-hidden="true" /></span>
+              <span className="home-social-community-count">8K+</span>
+              <span className="home-social-community-label">Telegram subscribers</span>
+              <ArrowUpRight aria-hidden="true" />
+            </a>
           </div>
           <a className="home-social-feature" href="https://youtu.be/ldL5J1EnlZg" target="_blank" rel="noreferrer">
             <img src="https://img.youtube.com/vi/ldL5J1EnlZg/hqdefault.jpg" alt="" loading="lazy" />
@@ -655,6 +524,17 @@ export default function ReferenceHome() {
               <span className="home-social-watch"><Youtube aria-hidden="true" /> Watch the conversation <ArrowUpRight aria-hidden="true" /></span>
             </span>
           </a>
+          <figure className="home-social-phone">
+            <span className="home-social-phone-glow" />
+            <div className="home-social-phone-frame">
+              <span className="home-social-phone-button" aria-hidden="true" />
+              <img
+                src="/telegram-community-post.png"
+                alt="Negus Consultants Telegram channel showing 8.6K subscribers and its UWC scholarship discussion."
+                loading="lazy"
+              />
+            </div>
+          </figure>
         </div>
       </section>
     </main>

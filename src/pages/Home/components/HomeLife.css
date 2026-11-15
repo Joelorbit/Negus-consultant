@@ -198,57 +198,6 @@
   color: #f4f1e6;
 }
 
-.home-stars {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.home-star {
-  position: absolute;
-  border-radius: 1px;
-  opacity: 0;
-  animation-name: homeTwinkle;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-}
-
-@keyframes homeTwinkle {
-  0%, 100% { opacity: 0; transform: scale(0.6); }
-  50% { opacity: 0.9; transform: scale(1); }
-}
-
-/* Shooting pixel stars: rare golden comets across the night band */
-.home-shooting {
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  border-radius: 1px;
-  background: #dfc68a;
-  opacity: 0;
-  animation: homeShoot 11s linear infinite;
-}
-
-.home-shooting::after {
-  content: "";
-  position: absolute;
-  right: 5px;
-  top: 2px;
-  width: 44px;
-  height: 2px;
-  background: linear-gradient(270deg, rgba(223, 198, 138, 0.75), transparent);
-}
-
-.home-shooting--a { top: 14%; left: 82%; animation-delay: 2s; }
-.home-shooting--b { top: 55%; left: 96%; animation-delay: 7.5s; animation-duration: 13s; }
-
-@keyframes homeShoot {
-  0%, 88% { opacity: 0; transform: translate(0, 0); }
-  90% { opacity: 1; }
-  98% { opacity: 0; transform: translate(-240px, 96px); }
-  100% { opacity: 0; transform: translate(-240px, 96px); }
-}
-
 /* Marquee pauses when you reach for it */
 .marquee-ribbon:hover .marquee-track {
   animation-play-state: paused;
@@ -323,12 +272,6 @@
   .home-count.is-landed .home-count-pixel,
   .home-popular-pulse,
   .home-pixel,
-  .home-star,
-  .home-shooting {
-    animation: none;
-  }
-  .home-star { opacity: 0.7; }
-  .home-shooting { display: none; }
   .home-reveal.is-in .home-method-fill {
     animation: none;
     width: 100%;

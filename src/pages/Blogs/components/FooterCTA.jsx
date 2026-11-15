@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Star } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { NavLink } from "react-router";
 
 const FooterCTA = () => {
@@ -7,34 +7,6 @@ const FooterCTA = () => {
     <section className="py-24 bg-secondary/40 relative overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/10" />
-
-      {/* Floating stars */}
-      <div className="absolute inset-0">
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute"
-            animate={{
-              y: [0, -30, 0],
-              scale: [1, 1.2, 1],
-              opacity: [0.2, 0.6, 0.2],
-              rotate: [0, 180, 360],
-            }}
-            transition={{
-              duration: 5 + i,
-              repeat: Infinity,
-              delay: i * 0.7,
-              ease: "easeInOut",
-            }}
-            style={{
-              left: `${10 + i * 18}%`,
-              top: `${15 + i * 12}%`,
-            }}
-          >
-            <Star className="h-5 w-5 text-accent/50 drop-shadow-sm" />
-          </motion.div>
-        ))}
-      </div>
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10">

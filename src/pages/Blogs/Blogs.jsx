@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
-import { ArrowRight, Book, Search } from "iconoir-react";
-import { NavLink } from "react-router";
+import { ArrowRight, Search } from "iconoir-react";
+import { Link, NavLink, useLocation } from "react-router";
 import { useGetBlogs } from "../../hooks/useBlogs";
 import BlogCard from "./components/BlogCard";
 import "../public-pages.css";
@@ -8,6 +8,8 @@ import "../public-pages.css";
 const BlogsPage = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [search, setSearch] = useState("");
+  const location = useLocation();
+  const returnTo = location.state?.returnTo;
   const { data, isLoading, isError, refetch } = useGetBlogs();
   const posts = useMemo(() => Array.isArray(data) ? data : [], [data]);
 
@@ -28,7 +30,6 @@ const BlogsPage = () => {
     <main className="public-page blogs-page">
       <section className="public-page-hero">
         <div className="public-page-hero-inner">
-          <p className="public-eyebrow"><Book aria-hidden="true" /> THE NEGUS JOURNAL</p>
           <h1 className="public-page-title">Practical advice for the next step in <em>your journey.</em></h1>
           <p className="public-page-copy">
             Read guidance from the Negus team on scholarships, applications, essays, test preparation, and studying abroad.
@@ -36,6 +37,9 @@ const BlogsPage = () => {
           <div className="public-page-actions">
             <a className="public-button public-button-primary" href="#latest-articles">Read the latest <ArrowRight aria-hidden="true" /></a>
             <NavLink className="public-button public-button-secondary" to="/packages">Explore application support</NavLink>
+            {returnTo === "/free-tools" && (
+              <Link className="public-button public-button-secondary" to="/free-tools">Back to Free Tools</Link>
+            )}
           </div>
         </div>
       </section>
@@ -88,7 +92,7 @@ const BlogsPage = () => {
           </div>
         ) : filteredPosts.length ? (
           <div className="public-blog-grid">
-            {filteredPosts.map((post) => <BlogCard key={post.id} {...post} />)}
+            {filteredPosts.map((post) => <BlogCard key={post.id} {...post} returnTo={returnTo || "/blogs"} />)}
           </div>
         ) : (
           <div className="public-empty-state">

@@ -12,7 +12,6 @@ import {
   Lock,
   ArrowRight,
 } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardHeader,
@@ -133,12 +132,10 @@ const ApplicationStatus = () => {
               })}
             </CardDescription>
           </div>
-          <Badge
-            className={`px-3 py-1 flex items-center gap-1.5 capitalize font-semibold border ${statusConfig.color}`}
-          >
+          <div className="flex items-center gap-1.5 text-sm font-semibold capitalize text-muted-foreground">
             <StatusIcon className="w-3.5 h-3.5" />
             {app.status}
-          </Badge>
+          </div>
         </CardHeader>
 
         <CardContent className="space-y-8">

@@ -1,4 +1,4 @@
-import { MessageCircle, Star } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { NavLink } from "react-router";
 
 const MentorCard = ({ mentor }) => {
@@ -22,10 +22,7 @@ const MentorCard = ({ mentor }) => {
               {mentor.university} • {mentor.scholarship}
             </p>
             <div className="flex items-center space-x-3 mt-2 text-sm text-gray-500">
-              <span className="flex items-center space-x-1">
-                <Star className="w-4 h-4 text-yellow-500" />
-                <span>{mentor.rating}</span>
-              </span>
+              <span>{mentor.rating} / 5</span>
               <span>{mentor.sessions} sessions</span>
             </div>
             <div className="mt-3 flex items-center justify-between gap-3">

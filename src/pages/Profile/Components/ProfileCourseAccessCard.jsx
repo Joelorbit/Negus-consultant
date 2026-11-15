@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router";
-import { CreditCard, Check, ChevronDown, ArrowRight, BookOpen, Sparkles, CheckCircle2 } from "lucide-react";
+import { CreditCard, Check, ChevronDown, ArrowRight, BookOpen, CheckCircle2 } from "lucide-react";
 
 export default function ProfileCourseAccessCard({ subscription, isLoading }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,22 +27,11 @@ export default function ProfileCourseAccessCard({ subscription, isLoading }) {
       >
         <div className="flex items-center justify-between gap-3 border-b pb-4" style={{ borderColor: "var(--line)" }}>
           <div>
-            <div className="eyebrow-tag text-[12px] mb-1">
-              <CreditCard className="w-3.5 h-3.5" style={{ color: "var(--green)" }} />
-              <span>ACTIVE LEARNING ACCESS</span>
-            </div>
             <h2 className="mt-1 font-['Lexend'] text-lg sm:text-xl font-bold" style={{ color: "var(--ink)" }}>
               {subscription?.name || "Active Learning Package"}
             </h2>
           </div>
-          <span
-            className="rounded-full px-3 py-1.5 text-[12.5px] font-['Lexend'] font-bold border"
-            style={{
-              background: isActive ? "var(--green-subtle)" : "var(--yellow-soft)",
-              color: isActive ? "var(--green)" : "var(--ink)",
-              borderColor: isActive ? "var(--green)" : "var(--line)",
-            }}
-          >
+          <span className="text-sm font-semibold" style={{ color: isActive ? "var(--green)" : "var(--ink)" }}>
             {isActive ? "Active Plan" : "Renewal Due"}
           </span>
         </div>
@@ -122,10 +111,6 @@ export default function ProfileCourseAccessCard({ subscription, isLoading }) {
     >
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div className="space-y-1">
-          <div className="eyebrow-tag text-[12px]">
-            <BookOpen className="w-3.5 h-3.5" style={{ color: "var(--yellow)" }} />
-            <span>SCHOLARSHIP TRACKS</span>
-          </div>
           <h2 className="font-['Lexend'] text-lg sm:text-xl font-bold" style={{ color: "var(--ink)" }}>
             Select an Admissions Advisory Package
           </h2>

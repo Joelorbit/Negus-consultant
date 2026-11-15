@@ -94,32 +94,6 @@ export function VideoCard({ video }) {
           transform: scale(1);
         }
 
-        /* Top status badge */
-        .negus-course-status-badge {
-          position: absolute;
-          top: 12px;
-          left: 12px;
-          display: inline-flex;
-          align-items: center;
-          gap: 6px;
-          padding: 8px 12px;
-          border-radius: 9999px;
-          font-family: var(--font-display, 'Lexend', sans-serif);
-          font-size: 12px;
-          font-weight: 800;
-          letter-spacing: 0.08em;
-          text-transform: uppercase;
-          backdrop-filter: blur(10px);
-          -webkit-backdrop-filter: blur(10px);
-          box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-        }
-
-        .negus-course-status-badge.premium {
-          background: color-mix(in srgb, #123d2b 88%, transparent);
-          color: var(--yellow);
-          border: 1px solid rgba(209, 189, 130, 0.3);
-        }
-
         /* Duration tag */
         .negus-course-duration {
           position: absolute;
@@ -295,10 +269,6 @@ export function VideoCard({ video }) {
           loading="lazy"
           decoding="async"
         />
-
-        <span className="negus-course-status-badge premium">
-          <Lock width={12} height={12} /> Locked
-        </span>
 
         {/* Duration */}
         {video.duration && (

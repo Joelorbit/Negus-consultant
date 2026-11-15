@@ -238,7 +238,6 @@ const PaymentInstruction = () => {
                 <del>List price: ETB {priceBreakdown.listPrice.toLocaleString()}</del>
               )}
             </div>
-            {priceBreakdown.offerSaving > 0 && <span className="offer-pill">{discountPercent}% OFF</span>}
           </div>
         )}
         {loadingPackageOffer && <p role="status">Loading current cohort pricing…</p>}

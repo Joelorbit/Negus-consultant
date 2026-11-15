@@ -5,10 +5,8 @@ import {
   GraduationCap,
   Calendar,
   Globe2,
-  Building2,
-  Sparkles,
-  ShieldCheck,
   CheckCircle2,
+  DollarSign,
   ExternalLink,
   ArrowRight,
   ArrowLeft,
@@ -24,7 +22,6 @@ import {
   Check,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import {
@@ -134,10 +131,9 @@ export default function ScholarshipDetailPage() {
     image_url,
     deadline,
     link,
-    university,
+
     country,
     degree_level,
-    funding_type,
     coverage = [
       "100% Full Tuition Waiver",
       "Comprehensive Monthly Living Allowance",
@@ -205,16 +201,12 @@ export default function ScholarshipDetailPage() {
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-              <div className="absolute top-4 left-4 flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-slate-900 shadow-sm dark:bg-slate-900 dark:text-slate-100">
-                <ShieldCheck className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
-                Verified Award
-              </div>
               <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white text-xs font-semibold">
                 <span className="flex items-center gap-1">
                   <Globe2 className="h-3.5 w-3.5 text-yellow-400" />
                   {country || "International"}
                 </span>
-                <span className="bg-black/60 backdrop-blur-sm px-2.5 py-1 rounded-md text-[11px]">
+                <span>
                   {degree_level || "Undergraduate & Graduate"}
                 </span>
               </div>
@@ -222,19 +214,6 @@ export default function ScholarshipDetailPage() {
 
             {/* Title & Key Attributes */}
             <div className="flex-1 space-y-4">
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-500/10 px-3 py-1 text-xs font-bold text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">
-                  <Sparkles className="h-3.5 w-3.5" />
-                  {funding_type || "Fully Funded (100% Ride)"}
-                </span>
-                {university && (
-                  <span className="inline-flex items-center gap-1.5 rounded-lg bg-primary/10 px-3 py-1 text-xs font-bold text-primary">
-                    <Building2 className="h-3.5 w-3.5" />
-                    {university}
-                  </span>
-                )}
-              </div>
-
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-foreground font-display leading-[1.15]">
                 {title}
               </h1>
@@ -245,7 +224,7 @@ export default function ScholarshipDetailPage() {
 
               {/* Fast Meta Bar */}
               <div className="flex flex-wrap items-center gap-4 pt-2">
-                <div className="flex items-center gap-2 text-xs font-bold text-muted-foreground bg-muted/60 px-3.5 py-1.5 rounded-full border border-border/60">
+                <div className="flex items-center gap-2 text-xs font-bold text-muted-foreground">
                   <Calendar className="h-4 w-4 text-primary" />
                   <span>Application Deadline: <strong>{formattedDeadline}</strong></span>
                 </div>
@@ -281,12 +260,7 @@ export default function ScholarshipDetailPage() {
       {/* ---------------- 4-Stat Strip ---------------- */}
       <div className="border-b border-border/60 bg-muted/30 py-6">
         <div className="container mx-auto px-4 max-w-6xl">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="rounded-2xl border border-border/60 bg-card p-4 space-y-1 scholarship-card-item">
-              <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Funding Level</span>
-              <p className="text-base font-extrabold text-emerald-600 dark:text-emerald-400">100% Full Ride</p>
-              <p className="text-[11px] text-muted-foreground">Tuition + Stipend + Flights</p>
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <div className="rounded-2xl border border-border/60 bg-card p-4 space-y-1 scholarship-card-item">
               <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Target Level</span>
               <p className="text-base font-extrabold text-foreground">{degree_level || "Postgraduate"}</p>
@@ -315,7 +289,7 @@ export default function ScholarshipDetailPage() {
             <section className="space-y-4">
               <div className="flex items-center gap-2">
                 <span className="h-8 w-8 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold">
-                  💰
+                  <DollarSign className="h-4 w-4" aria-hidden="true" />
                 </span>
                 <h3 className="text-2xl font-bold tracking-tight text-foreground font-display">
                   Comprehensive Coverage & Benefits
@@ -345,7 +319,7 @@ export default function ScholarshipDetailPage() {
             <section className="space-y-4 border-t border-border/60 pt-8">
               <div className="flex items-center gap-2">
                 <span className="h-8 w-8 rounded-xl bg-primary/10 text-primary flex items-center justify-center font-bold">
-                  🎓
+                  <GraduationCap className="h-4 w-4" aria-hidden="true" />
                 </span>
                 <h3 className="text-2xl font-bold tracking-tight text-foreground font-display">
                   Eligibility Criteria & Academic Prerequisites
@@ -372,7 +346,7 @@ export default function ScholarshipDetailPage() {
             <section className="space-y-4 border-t border-border/60 pt-8">
               <div className="flex items-center gap-2">
                 <span className="h-8 w-8 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold">
-                  📑
+                  <FileText className="h-4 w-4" aria-hidden="true" />
                 </span>
                 <h3 className="text-2xl font-bold tracking-tight text-foreground font-display">
                   Required Application Dossier
@@ -399,7 +373,7 @@ export default function ScholarshipDetailPage() {
             <section className="space-y-4 border-t border-border/60 pt-8">
               <div className="flex items-center gap-2">
                 <span className="h-8 w-8 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold">
-                  🚀
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </span>
                 <h3 className="text-2xl font-bold tracking-tight text-foreground font-display">
                   Step-by-Step Application Guide
@@ -606,9 +580,6 @@ export default function ScholarshipDetailPage() {
                       </p>
                       <div className="flex items-center justify-between text-[11px] text-muted-foreground mt-1.5">
                         <span>{rel.country || "International"}</span>
-                        <span className="font-semibold text-emerald-600 dark:text-emerald-400">
-                          {rel.funding_type?.includes("Full") ? "Fully Funded" : "Merit Award"}
-                        </span>
                       </div>
                     </NavLink>
                   ))}

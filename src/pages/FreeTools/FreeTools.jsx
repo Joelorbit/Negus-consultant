@@ -3,7 +3,6 @@ import { NavLink } from "react-router";
 import {
   ArrowRight,
   Book,
-  MediaVideo,
   Page,
 } from "iconoir-react";
 import { SUPPORT_TELEGRAM_URL } from "../../config/supportContact";
@@ -34,7 +33,7 @@ const FEATURED_VIDEOS = [
 const ESSAYS = [
   {
     topic: "Overcoming educational barriers through community action",
-    university: "Harvard University",
+    university: "Georgetown University",
     excerpt: "Worked sample: When our school library closed after the rainy season damaged its roof, I started a shared reading hour under the science-lab veranda. At first, six students came. I asked each one to bring a book, a question, and one younger student. By the end of the term, the reading hour had become a student-run exchange with a rotating shelf and weekly discussion.",
     lesson: "Show the constraint, the choice you made, and the change that followed. A strong essay lets the reader see your character through action.",
   },
@@ -46,7 +45,7 @@ const ESSAYS = [
   },
   {
     topic: "Building a silent-zone library culture at school",
-    university: "NYU Abu Dhabi",
+    university: "Clark University",
     excerpt: "Worked sample: Our library was busy, but it was rarely quiet enough for anyone to study. I did not begin with a rule. I began by asking students when they needed focus and what would make the space feel shared rather than controlled. We tested one silent hour, posted the schedule in Amharic and English, and adjusted it after listening to the students who used the room most.",
     lesson: "A small initiative can reveal listening, organization, and community-building more clearly than a list of titles.",
   },
@@ -74,9 +73,6 @@ export default function FreeToolsPage() {
       <section className="public-content free-tools-content">
         <div>
           <div className="public-section-heading">
-            <p className="public-eyebrow">
-              <MediaVideo aria-hidden="true" /> YOUTUBE VIDEOS
-            </p>
             <h2>Training videos from Negus</h2>
             <p>Browse published videos on the official Negus Consultants YouTube channel.</p>
           </div>
@@ -134,23 +130,23 @@ export default function FreeToolsPage() {
               <h3>Articles are temporarily unavailable.</h3>
               <div className="public-page-actions">
                 <button className="public-button public-button-primary" type="button" onClick={() => refetchBlogs()}>Try again</button>
-                <NavLink className="public-button public-button-secondary" to="/blogs">Browse all articles</NavLink>
+                <NavLink className="public-button public-button-secondary" to="/blogs" state={{ returnTo: "/free-tools" }}>Browse all articles</NavLink>
               </div>
             </div>
           ) : blogPosts.length ? (
             <>
               <div className="public-blog-grid">
-                {blogPosts.map((post) => <BlogCard key={post.id} {...post} />)}
+                {blogPosts.map((post) => <BlogCard key={post.id} {...post} returnTo="/free-tools" />)}
               </div>
               <div className="public-page-actions">
-                <NavLink className="public-button public-button-secondary" to="/blogs">See all articles <ArrowRight aria-hidden="true" /></NavLink>
+                <NavLink className="public-button public-button-secondary" to="/blogs" state={{ returnTo: "/free-tools" }}>See all articles <ArrowRight aria-hidden="true" /></NavLink>
               </div>
             </>
           ) : (
             <div className="public-empty-state">
               <h3>New articles are on the way.</h3>
               <p>Visit the Negus journal for the latest scholarship and application advice.</p>
-              <NavLink className="public-button public-button-secondary" to="/blogs">Visit the journal <ArrowRight aria-hidden="true" /></NavLink>
+              <NavLink className="public-button public-button-secondary" to="/blogs" state={{ returnTo: "/free-tools" }}>Visit the journal <ArrowRight aria-hidden="true" /></NavLink>
             </div>
           )}
         </div>

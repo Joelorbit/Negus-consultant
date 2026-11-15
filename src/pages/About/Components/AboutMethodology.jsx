@@ -1,4 +1,4 @@
-import { Sparkles, Target, Shield, Heart, Zap, Handshake } from "lucide-react";
+import { Target, Shield, Heart, Zap, Handshake } from "lucide-react";
 
 export default function AboutMethodology() {
   const pillars = [
@@ -38,7 +38,7 @@ export default function AboutMethodology() {
     <section className="public-content public-about-values">
       <div className="public-about-section-heading">
         <div className="inline-flex items-center gap-2 text-[12px] font-bold text-[var(--ink-muted)] uppercase tracking-widest font-['Lexend'] mb-2">
-          <Sparkles className="w-4 h-4 text-[var(--yellow)]" /> OUR GOALS
+          OUR GOALS
         </div>
         <h2 className="text-3xl lg:text-4xl font-extrabold font-['Lexend'] text-[var(--ink)] tracking-tight">
           Practical guidance. Wider access.

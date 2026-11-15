@@ -6,7 +6,6 @@ import {
   Package,
   CreditCard,
   TrendingUp,
-  Sparkles,
   Clock,
   ArrowUpRight,
   CheckCircle2,
@@ -115,7 +114,6 @@ export default function DashboardOverview() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b pb-6" style={{ borderColor: "var(--line)" }}>
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-['Lexend'] font-bold border mb-2" style={{ background: "var(--green-soft)", color: "var(--green)", borderColor: "var(--line)" }}>
-            <Sparkles className="w-3.5 h-3.5" />
             <span>EXECUTIVE OPERATIONS CENTER</span>
           </div>
           <h1 className="font-['Lexend'] text-2xl sm:text-3xl font-extrabold tracking-tight" style={{ color: "var(--ink)" }}>

@@ -37,7 +37,6 @@ export default function Profile() {
           className="w-full max-w-md rounded-3xl border p-8 text-center shadow-sm space-y-4"
           style={{ background: "var(--white)", borderColor: "var(--line)" }}
         >
-          <div className="eyebrow-tag text-[12px] justify-center">AUTHENTICATION REQUIRED</div>
           <h1 className="font-['Lexend'] text-2xl font-bold" style={{ color: "var(--ink)", margin: 0 }}>
             Sign in to view your profile
           </h1>
@@ -90,7 +89,6 @@ export default function Profile() {
         >
           <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
             <div>
-              <p className="eyebrow-tag" style={{ color: "var(--gold-ink)", marginBottom: "10px" }}>YOUR ROADMAP</p>
               <h2 id="profile-next-step" className="font-['Lexend'] text-xl font-bold" style={{ margin: 0, color: "var(--ink)" }}>
                 Next: {nextStep}
               </h2>

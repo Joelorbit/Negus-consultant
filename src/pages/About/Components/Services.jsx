@@ -8,7 +8,6 @@ import {
   Shield,
   Zap,
   Award,
-  Star,
 } from "lucide-react";
 import "./ServiceIcon.css"; // Import custom CSS for additional styles
 

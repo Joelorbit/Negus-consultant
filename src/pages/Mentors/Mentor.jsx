@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Search, ArrowRight, Sparkles } from "lucide-react";
+import { Search, ArrowRight } from "lucide-react";
 import MentorsCard from "./MentorsCard";
 import { useMentor } from "../../hooks/useMentorApplications";
 import { NavLink } from "react-router";
@@ -62,7 +62,7 @@ const MentorsPage = () => {
       <section className="public-page-hero">
         <div className="public-page-hero-inner">
           <p className="public-eyebrow">
-            <Sparkles className="w-4 h-4 text-[var(--yellow)]" /> ONE-ON-ONE MENTORSHIP
+            ONE-ON-ONE MENTORSHIP
           </p>
           <h1 className="public-page-title">
             Connect with scholars who have <em>been there.</em>

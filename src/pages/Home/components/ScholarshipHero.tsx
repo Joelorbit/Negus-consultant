@@ -1,32 +1,17 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import "./ScholarshipHero.css";
 
 interface ScholarshipHeroProps {
   onBuildPlan?: () => void;
 }
 
-const MSG = [
-  "Scholarship found!",
-  "Essay approved!",
-  "IELTS band up!",
-  "Visa approved!",
-  "Fully funded!",
-  "You got in!",
-  "Hi! Click anywhere.",
-];
-
 export default function ScholarshipHero({ onBuildPlan }: ScholarshipHeroProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const heroRef = useRef<HTMLElement | null>(null);
-  const bubbleRef = useRef<HTMLDivElement | null>(null);
-
-  const [bubbleText, setBubbleText] = useState("Hi! Click anywhere.");
-  const [bubbleVisible, setBubbleVisible] = useState(true);
 
   useEffect(() => {
     const cv = canvasRef.current;
     const hero = heroRef.current;
-    const bub = bubbleRef.current;
     if (!cv || !hero) return;
 
     const x = cv.getContext("2d");
@@ -120,12 +105,6 @@ export default function ScholarshipHero({ onBuildPlan }: ScholarshipHeroProps) {
       return seed / 2147483647;
     }
 
-    interface Star {
-      x: number;
-      y: number;
-      p: number;
-      b: boolean;
-    }
     interface Cloud {
       x: number;
       y: number;
@@ -166,21 +145,11 @@ export default function ScholarshipHero({ onBuildPlan }: ScholarshipHeroProps) {
       g: number;
     }
 
-    const stars: Star[] = [];
     const clouds: Cloud[] = [];
     const stacks: StackItem[] = [];
     const dust: DustItem[] = [];
     const items: FloatingItem[] = [];
     let parts: Particle[] = [];
-
-    for (let i = 0; i < 80; i++) {
-      stars.push({
-        x: (rnd() * W) | 0,
-        y: (rnd() * H * 0.55) | 0,
-        p: rnd() * 6,
-        b: rnd() < 0.15,
-      });
-    }
 
     for (let i = 0; i < 5; i++) {
       clouds.push({
@@ -239,10 +208,7 @@ export default function ScholarshipHero({ onBuildPlan }: ScholarshipHeroProps) {
     const owl = { x: 60, y: 70, d: 1, vx: 0 };
     let mouse: { x: number; y: number } | null = null;
     let cam = 0;
-    let shoot: { x: number; y: number; l: number } | null = null;
     let last = 0;
-    let msgI = 0;
-    let bubT = 2.5;
 
     function cap(cx: number, cy: number) {
       const g = "#e8b53a";
@@ -431,23 +397,6 @@ export default function ScholarshipHero({ onBuildPlan }: ScholarshipHeroProps) {
       }
     }
 
-    function say(m: string) {
-      setBubbleText(m);
-      setBubbleVisible(true);
-      bubT = 2.4;
-    }
-
-    function metrics() {
-      const r = cv!.getBoundingClientRect();
-      const s = Math.max(r.width / W, r.height / H);
-      return {
-        r,
-        s,
-        ox: (r.width - W * s) / 2,
-        oy: (r.height - H * s) / 2,
-      };
-    }
-
     function toCanvas(e: PointerEvent) {
       const m = metrics();
       return {
@@ -479,12 +428,6 @@ export default function ScholarshipHero({ onBuildPlan }: ScholarshipHeroProps) {
       x!.save();
       x!.translate(Math.round(-cam * 2), 0);
       if (currentMode === "night") {
-        stars.forEach((s) => {
-          if (Math.sin(t * 2 + s.p) > -0.3) {
-            rect(s.x, s.y, s.b ? 2 : 1, s.b ? 2 : 1, "#fff");
-          }
-        });
-
         alpha(0.07, () => {
           circ(214, 26, 20, "#f6efc9");
           circ(214, 26, 14, "#f6efc9");
@@ -492,17 +435,6 @@ export default function ScholarshipHero({ onBuildPlan }: ScholarshipHeroProps) {
         circ(214, 26, 8, "#f6efc9");
         circ(218, 23, 7, sky(23));
 
-        if (!shoot && Math.sin(t * 0.9) > 0.998) {
-          shoot = { x: W * rnd(), y: rnd() * 40, l: 0 };
-        }
-        if (shoot) {
-          for (let i = 0; i < 8; i++) {
-            rect(shoot.x - i * 2, shoot.y - i, 2, 1, i < 3 ? "#fff" : "#8fb4e8");
-          }
-          shoot.x += 3;
-          shoot.y += 1.5;
-          if (++shoot.l > 40) shoot = null;
-        }
       } else {
         alpha(0.2, () => {
           circ(214, 26, 18, "#fff3b0");
@@ -556,10 +488,6 @@ export default function ScholarshipHero({ onBuildPlan }: ScholarshipHeroProps) {
         else if (it.t === "scroll") scroll(a, b);
         else coin(a, b, t, it.p);
 
-        if (Math.sin(t * 3 + it.p) > 0.93) {
-          rect(a + 6, b - 4, 1, 3, "#fff");
-          rect(a + 5, b - 3, 3, 1, "#fff");
-        }
       });
 
       dust.forEach((f) => {
@@ -618,20 +546,6 @@ export default function ScholarshipHero({ onBuildPlan }: ScholarshipHeroProps) {
         return p.l > 0;
       });
 
-      if (bubT > 0) {
-        bubT -= dt;
-        if (bubT <= 0) setBubbleVisible(false);
-      }
-
-      if (bub) {
-        const m = metrics();
-        const half = (bub.offsetWidth || 0) / 2 + 6;
-        const bx = Math.min(Math.max(m.ox + owl.x * m.s, half), m.r.width - half);
-        bub.style.transform = `translate(${Math.round(
-          bx
-        )}px, ${Math.round(m.oy + (owl.y - 13) * m.s)}px) translate(-50%, -100%)`;
-      }
-
       animId = requestAnimationFrame(frame);
     }
 
@@ -648,7 +562,6 @@ export default function ScholarshipHero({ onBuildPlan }: ScholarshipHeroProps) {
       if (target.closest("a, button, li")) return;
       mouse = toCanvas(e);
       burst(mouse.x, mouse.y);
-      say(MSG[msgI++ % MSG.length]);
     };
 
     hero.addEventListener("pointermove", onPointerMove);
@@ -677,21 +590,9 @@ export default function ScholarshipHero({ onBuildPlan }: ScholarshipHeroProps) {
         aria-label="Animated pixel-art university campus with books, scholarship letters and a graduate owl"
       />
 
-      {/* Floating Owl Speech Bubble */}
-      <div
-        ref={bubbleRef}
-        className={`scholarship-bubble ${bubbleVisible ? "on" : ""}`}
-        aria-live="polite"
-      >
-        {bubbleText}
-      </div>
-
       {/* Centered Headline Copy & Calls-To-Action */}
       <div className="scholarship-canvas-copy">
-        <div className="scholarship-canvas-tag">
-          <span className="scholarship-tag-star">★</span>
-          <span>Direct guidance from admitted scholars · Addis Ababa</span>
-        </div>
+        <p className="scholarship-canvas-proof">Direct guidance from admitted scholars · Addis Ababa</p>
 
         <h1 className="scholarship-canvas-title">
           Apply smart. <br />
@@ -715,15 +616,9 @@ export default function ScholarshipHero({ onBuildPlan }: ScholarshipHeroProps) {
           </a>
         </div>
 
-        {/* Selected Admits Chips */}
-        <ul className="scholarship-canvas-chips" aria-label="Selected admits">
-          <li>★ Georgetown</li>
-          <li>★ Williams</li>
-          <li>★ Drexel ($145k)</li>
-          <li>★ Howard</li>
-          <li>★ Sarah Lawrence</li>
-          <li>★ Hult</li>
-        </ul>
+        <p className="scholarship-canvas-admits">
+          Georgetown · Williams · Drexel ($145k) · Howard · Sarah Lawrence · Hult
+        </p>
       </div>
     </section>
   );

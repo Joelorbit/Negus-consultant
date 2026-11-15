@@ -1,5 +1,5 @@
 import { NavLink } from "react-router";
-import { BookOpen, Package, LogOut, Sparkles, Compass } from "lucide-react";
+import { BookOpen, Package, LogOut, Compass } from "lucide-react";
 
 export default function ProfileHeader({ user, handleLogout, isLoggingOut }) {
   const firstName = user?.first_name || "";
@@ -8,10 +8,6 @@ export default function ProfileHeader({ user, handleLogout, isLoggingOut }) {
   return (
     <header className="flex flex-col justify-between gap-5 border-b pb-6 md:flex-row md:items-end" style={{ borderColor: "var(--line)" }}>
       <div className="space-y-1.5">
-        <div className="eyebrow-tag text-[12px]">
-          <Sparkles className="w-3.5 h-3.5" style={{ color: "var(--yellow)" }} />
-          <span>YOUR NEGUS SCHOLAR ACCOUNT</span>
-        </div>
         <h1
           className="font-['Lexend'] text-3xl font-extrabold tracking-tight sm:text-4xl"
           style={{ color: "var(--ink)", margin: 0 }}

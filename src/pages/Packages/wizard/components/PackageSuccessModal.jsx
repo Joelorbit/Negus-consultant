@@ -9,7 +9,7 @@ export default function PackageSuccessModal({ packageName }) {
           <CheckCircle2 className="w-9 h-9" />
         </div>
         <h2 className="font-['Lexend'] text-2xl sm:text-3xl font-extrabold text-[var(--ink)] mb-3 leading-tight">
-          Application Submitted! 🎉
+          Application Submitted!
         </h2>
         <p className="text-[14.5px] text-[var(--ink-secondary)] leading-relaxed mb-7">
           Your application for <strong>{packageName || "your package"}</strong> has been received. Our senior advisory team will contact you on Telegram within 24 hours to begin onboarding.

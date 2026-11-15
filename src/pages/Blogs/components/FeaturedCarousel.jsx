@@ -105,10 +105,6 @@ const FeaturedCarousel = () => {
                         transition={{ duration: 0.6, delay: 0.2 }}
                       >
                         <div className="max-w-2xl">
-                          <span className="inline-block px-3 py-1 bg-accent text-accent-foreground rounded-full text-sm font-medium mb-4">
-                            {post.category}
-                          </span>
-
                           <h3 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
                             {post.title}
                           </h3>

@@ -78,9 +78,6 @@ export default function AboutUs() {
       <AboutMission />
       <AboutMethodology />
       <AboutStats />
-      <AboutStudentVoices />
-      <AboutAcceptanceShowcase />
-
       <section className="public-content public-about-outreach">
         <div className="public-section-heading">
           <p className="public-eyebrow">OUTREACH TOURS</p>
@@ -111,6 +108,9 @@ export default function AboutUs() {
         </div>
         <a className="public-button public-button-primary" href="https://t.me/negushelpcenter" target="_blank" rel="noreferrer">Contact Us</a>
       </section>
+
+      <AboutStudentVoices />
+      <AboutAcceptanceShowcase />
 
       <section className="public-content about-services">
         <div className="public-section-heading">

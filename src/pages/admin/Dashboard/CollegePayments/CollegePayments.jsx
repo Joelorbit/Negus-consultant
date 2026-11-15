@@ -46,7 +46,7 @@ const ORDER_TYPE_LABELS = {
   essay_reviewing: "Essay Reviewing",
   recommendation_letter: "Recommendation Letter",
   financial_aid_form: "Financial Aid Form",
-  common_app_support: "Common App Support",
+  common_app_support: "Common App Activities List",
   mentorship_package: "Mentorship Package",
   application_package: "Application Package",
 };

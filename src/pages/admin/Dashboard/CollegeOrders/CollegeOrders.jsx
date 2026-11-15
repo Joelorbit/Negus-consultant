@@ -55,7 +55,7 @@ const ORDER_TYPE_LABELS = {
   essay_reviewing: "Essay Reviewing",
   recommendation_letter: "Recommendation Letter",
   financial_aid_form: "Financial Aid Form",
-  common_app_support: "Common App Support",
+  common_app_support: "Common App Activities List",
   mentorship_package: "Mentorship Package",
   application_package: "Application Package",
 };
@@ -227,7 +227,7 @@ export default function CollegeOrders() {
               <option value="mentorship_package">Mentorship</option>
               <option value="essay_writing">Essay Writing</option>
               <option value="essay_editing">Essay Editing</option>
-              <option value="common_app_support">Common App Support</option>
+              <option value="common_app_support">Common App Activities List</option>
               <option value="financial_aid_form">Financial Aid Form</option>
             </select>
           </div>

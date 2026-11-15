@@ -7,7 +7,6 @@ import {
   Send,
   Paperclip,
   Smile,
-  Star,
   Calendar,
   FileText,
   Image,
@@ -29,7 +28,7 @@ import {
 } from "lucide-react";
 import { NavLink, useParams } from "react-router";
 import { useGetMentorById, useGetMentorReview } from "../../../hooks/useMentor";
-import { averageRating, renderStars } from "../../../utils/functions";
+import { averageRating } from "../../../utils/functions";
 
 const ChatWindow = () => {
   const { id } = useParams();
@@ -259,8 +258,7 @@ const ChatWindow = () => {
                 {/* <span>{mentor.university}</span> */}
 
                 <span className="hidden sm:flex items-center space-x-1">
-                  {renderStars(averageRating(reviews), Star)}
-                  <span>{reviews[0]?.rating}</span>
+                  <span>{averageRating(reviews).toFixed(1)} / 5</span>
                 </span>
                 <span className="hidden sm:inline">•</span>
                 {/* <span
@@ -505,10 +503,8 @@ const ChatWindow = () => {
                   {/* {mentor.university} */}
                 </p>
                 <div className="inline-flex items-center space-x-1 bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium mb-3">
-                  <Star className="w-4 h-4 fill-current" />
                   <span>
-                    {mentor?.data?.rating} •{/* {mentor.sessions}  */}
-                    sessions
+                    {mentor?.data?.rating} / 5 · sessions
                   </span>
                 </div>
                 <p className="text-[13px] text-gray-500 mb-4 line-clamp-3">

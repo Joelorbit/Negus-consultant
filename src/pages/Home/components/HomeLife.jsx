@@ -143,44 +143,6 @@ export function ScrollProgress() {
   return <div ref={ref} className="home-scroll-progress" aria-hidden="true" />;
 }
 
-export function PixelStars() {
-  const STARS = [
-    { left: "7%", top: "18%", size: 5, delay: "0s", dur: "3.6s", c: "#dfc68a" },
-    { left: "14%", top: "62%", size: 4, delay: "1.1s", dur: "4.2s", c: "#dcebe1" },
-    { left: "23%", top: "30%", size: 6, delay: "2.3s", dur: "3.2s", c: "#dfc68a" },
-    { left: "31%", top: "74%", size: 4, delay: "0.7s", dur: "4.6s", c: "#86c9a4" },
-    { left: "42%", top: "12%", size: 5, delay: "1.8s", dur: "3.8s", c: "#dcebe1" },
-    { left: "50%", top: "48%", size: 4, delay: "3s", dur: "4.4s", c: "#dfc68a" },
-    { left: "58%", top: "22%", size: 6, delay: "0.4s", dur: "3.4s", c: "#dcebe1" },
-    { left: "67%", top: "66%", size: 4, delay: "2.6s", dur: "4s", c: "#dfc68a" },
-    { left: "76%", top: "14%", size: 5, delay: "1.4s", dur: "3.6s", c: "#86c9a4" },
-    { left: "83%", top: "52%", size: 4, delay: "2.1s", dur: "4.8s", c: "#dcebe1" },
-    { left: "91%", top: "28%", size: 6, delay: "0.9s", dur: "3.2s", c: "#dfc68a" },
-    { left: "95%", top: "70%", size: 4, delay: "3.4s", dur: "4.2s", c: "#dcebe1" },
-  ];
-  return (
-    <span className="home-stars" aria-hidden="true">
-      {STARS.map((s, i) => (
-        <i
-          key={i}
-          className="home-star"
-          style={{
-            left: s.left,
-            top: s.top,
-            width: s.size,
-            height: s.size,
-            background: s.c,
-            animationDelay: s.delay,
-            animationDuration: s.dur,
-          }}
-        />
-      ))}
-      <i className="home-shooting home-shooting--a" />
-      <i className="home-shooting home-shooting--b" />
-    </span>
-  );
-}
-
 export function PixelRain() {
   return (
     <span className="home-pixel-rain" aria-hidden="true">

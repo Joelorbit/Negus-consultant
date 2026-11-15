@@ -1,4 +1,3 @@
-import { Star } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
@@ -51,10 +50,8 @@ export const Testimonials = () => {
           >
             <CardContent className="p-6">
               {/* Rating */}
-              <div className="flex items-center gap-1 mb-4">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                ))}
+              <div className="mb-4 text-sm font-semibold text-muted-foreground">
+                Rating: {testimonial.rating} / 5
               </div>
 
               {/* Content */}

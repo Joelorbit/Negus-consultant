@@ -6,13 +6,10 @@ import {
   Group,
   Flash,
   Page,
-  Spark,
-  Star,
   ArrowRight,
   HelpCircle,
   VideoCamera,
 } from "iconoir-react";
-import { Badge } from "@/components/ui/badge";
 import { useNavigate } from "react-router";
 import { smartNavigate } from "../../../utils/mobileNavigation";
 import { toast } from "sonner";
@@ -24,7 +21,7 @@ const packageIcons = {
   Book,
   Crown,
   FileText: Page,
-  Star,
+  Star: GraduationCap,
   Users: Group,
   Group,
   Zap: Flash,
@@ -32,7 +29,7 @@ const packageIcons = {
   Clapperboard: VideoCamera,
   VideoCamera,
   GraduationCap,
-  Spark,
+  Spark: GraduationCap,
 };
 
 export const PackageCard = ({
@@ -51,7 +48,6 @@ export const PackageCard = ({
     !hasContactPrice && applyDiscount
       ? getPackagePriceBreakdown(pkg.price, "", true, offerPercent)
       : null;
-  const showDiscount = Boolean(priceBreakdown?.offerSaving > 0);
   const displayedPrice = priceBreakdown?.total ?? Number(pkg.price);
   const navigate = useNavigate();
 
@@ -120,41 +116,6 @@ export const PackageCard = ({
         .negus-plan-card-refined.highlighted {
           border-color: var(--yellow);
           box-shadow: var(--shadow-card), 0 0 0 1px var(--yellow);
-        }
-
-        .negus-card-badge-row {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          margin-bottom: 20px;
-          min-height: 28px;
-        }
-
-        .negus-card-popular-badge {
-          display: inline-flex;
-          align-items: center;
-          gap: 6px;
-          padding: 5px 12px;
-          border-radius: 9999px;
-          background: var(--yellow);
-          color: #123d2b;
-          font-family: var(--font-display, 'Lexend', sans-serif);
-          font-size: 12px;
-          font-weight: 800;
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
-        }
-
-        .negus-card-discount-badge {
-          display: inline-flex;
-          align-items: center;
-          padding: 4px 10px;
-          border-radius: 9999px;
-          background: var(--green-soft);
-          color: var(--ink);
-          font-family: var(--font-display, 'Lexend', sans-serif);
-          font-size: 12px;
-          font-weight: 700;
         }
 
         .negus-card-icon-wrap {
@@ -293,22 +254,6 @@ export const PackageCard = ({
           transform: translateX(3px);
         }
       `}</style>
-
-      {/* Top Badges */}
-      <div className="negus-card-badge-row">
-        {pkg.popular ? (
-          <span className="negus-card-popular-badge">
-            <Spark width={12} height={12} /> Most Popular
-          </span>
-        ) : (
-          <span />
-        )}
-        {showDiscount ? (
-          <span className="negus-card-discount-badge">{offerPercent}% OFF</span>
-        ) : pkg.discount ? (
-          <span className="negus-card-discount-badge">{pkg.discount}</span>
-        ) : <span />}
-      </div>
 
       {/* Card Icon */}
       <div className="negus-card-icon-wrap">

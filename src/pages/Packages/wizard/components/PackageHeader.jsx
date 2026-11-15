@@ -1,5 +1,5 @@
 import { NavLink } from "react-router";
-import { ArrowLeft, Award, Phone, MessageCircle, Mail } from "lucide-react";
+import { ArrowLeft, Phone, MessageCircle, Mail } from "lucide-react";
 
 export default function PackageHeader({ pkg }) {
   return (
@@ -9,17 +9,13 @@ export default function PackageHeader({ pkg }) {
           <ArrowLeft className="w-4 h-4" /> Return to Packages
         </NavLink>
         {pkg?.data?.name && (
-          <span className="pkgw-head-badge">
-            <Award className="w-4 h-4" style={{ color: "var(--gold-ink)" }} />
-            <span>{pkg.data.name}</span>
+          <span className="text-sm font-semibold text-[var(--ink-secondary)]">
+            {pkg.data.name}
           </span>
         )}
       </div>
 
       <header className="pkgw-head-hero">
-        <div className="pkgw-eyebrow" style={{ justifyContent: "center" }}>
-          YOUR SCHOLARSHIP JOURNEY
-        </div>
         <h1 className="display-title pkgw-head-title">
           Apply for Your Next Chapter
         </h1>

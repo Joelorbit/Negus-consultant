@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router";
 import { FileUser, FileVideo2 } from "lucide-react";
-import { ArrowRight, ArrowUpRight, Check, Spark, Award, FileText } from "../icons";
+import { ArrowRight, ArrowUpRight, Check, Award, FileText } from "../icons";
 
 const SAMPLE_ESSAYS = [
   {
-    university: "Harvard University",
+    university: "Georgetown University",
     prompt: "Common App Personal Statement — Overcoming Educational Barriers in Ethiopia",
     wordCount: "648 Words",
     excerpt: "Walking past the dusty library shelves in Addis Ababa, I realized that true education is not merely receiving facts, but constructing solutions...",
@@ -23,10 +23,10 @@ const SAMPLE_ESSAYS = [
     excerpt: "At Williams, the Oxford-style tutorial system will allow me to challenge assumptions, debate mathematical modeling, and prepare for leadership...",
   },
   {
-    university: "New York University (NYU Abu Dhabi)",
-    prompt: "Full Need-Based Aid Statement & Global Citizenship",
+    university: "Clark University",
+    prompt: "Supplemental Essay — Community Leadership & Global Impact",
     wordCount: "590 Words",
-    excerpt: "Growing up in a multilingual home taught me that translation is more than words—it is empathy. NYU's international community matches my ambition...",
+    excerpt: "Growing up in a multilingual home taught me that translation is more than words—it is empathy. A diverse academic community matches my ambition...",
   },
 ];
 
@@ -61,22 +61,6 @@ export default function CeoFreeToolsSection() {
           text-align: center;
           max-width: 720px;
           margin: 0 auto 40px;
-        }
-
-        .ceo-tools-eyebrow {
-          display: inline-flex;
-          align-items: center;
-          gap: 6px;
-          font-family: var(--font-display, 'Lexend', sans-serif);
-          font-size: 11px;
-          font-weight: 800;
-          letter-spacing: 0.08em;
-          text-transform: uppercase;
-          color: #d1bd82;
-          background: #123d2b;
-          padding: 4px 12px;
-          border-radius: 999px;
-          margin-bottom: 12px;
         }
 
         .ceo-tools-title {
@@ -177,18 +161,6 @@ export default function CeoFreeToolsSection() {
           border-color: #123d2b;
         }
 
-        .ceo-resource-badge {
-          display: inline-block;
-          font-family: var(--font-display, 'Lexend', sans-serif);
-          font-size: 11px;
-          font-weight: 700;
-          color: #123d2b;
-          background: var(--green-subtle);
-          padding: 4px 10px;
-          border-radius: 999px;
-          margin-bottom: 12px;
-        }
-
         .ceo-resource-card h3 {
           font-family: var(--font-display, 'Lexend', sans-serif);
           font-size: 19px;
@@ -223,27 +195,44 @@ export default function CeoFreeToolsSection() {
         }
 
         .ceo-resource-action {
-          display: inline-flex;
+          display: flex;
           align-items: center;
-          gap: 6px;
+          justify-content: space-between;
+          gap: 12px;
+          width: 100%;
+          min-height: 52px;
+          border: 1.5px solid rgba(18, 61, 43, 0.18);
+          border-radius: 12px;
+          padding: 0 16px;
+          background: #f7f8f3;
           font-family: var(--font-display, 'Lexend', sans-serif);
-          font-size: 13px;
+          font-size: 14px;
           font-weight: 700;
           color: #123d2b;
           text-decoration: none;
           cursor: pointer;
+          transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
         }
 
         .ceo-resource-action:hover {
-          text-decoration: underline;
+          transform: translateY(-1px);
+          border-color: #123d2b;
+          background: #eef2e8;
+        }
+
+        .ceo-resource-action:focus-visible {
+          outline: 3px solid #d1bd82;
+          outline-offset: 3px;
+        }
+
+        .ceo-resource-action svg {
+          width: 18px;
+          height: 18px;
+          flex: 0 0 auto;
         }
       `}</style>
 
       <div className="ceo-tools-head">
-        <div className="ceo-tools-eyebrow">
-          <Spark width={12} height={12} />
-          <span>FREE RESOURCES & LEAD GENERATION</span>
-        </div>
         <h2 className="ceo-tools-title">Scholarship Tools & Resources</h2>
         <p className="ceo-tools-subhead">
           Access past video trainings, proven Common App essays, and resume builders to jumpstart your international applications.
@@ -253,7 +242,7 @@ export default function CeoFreeToolsSection() {
       {/* Lead Capture Gate */}
       <div className="ceo-lead-gate-card">
         <h3 style={{ fontFamily: "var(--font-display)", fontSize: "20px", fontWeight: 800, color: "#123d2b", margin: "0 0 6px" }}>
-          {unlocked ? "🎉 Resources Unlocked! Browse below." : "Enter your email or phone to unlock full access:"}
+          {unlocked ? "Resources unlocked. Browse below." : "Enter your email or phone to unlock full access:"}
         </h3>
         <p style={{ fontFamily: "var(--font-body)", fontSize: "13px", color: "#56745f", margin: 0 }}>
           {unlocked ? "You can now read full sample essays and watch workshop archives." : "Get instant access to 7+ YouTube video recordings, sample essays, and our CV template."}
@@ -289,7 +278,6 @@ export default function CeoFreeToolsSection() {
         <div className="ceo-resource-card">
           <div>
             <span className="ceo-resource-icon"><FileVideo2 aria-hidden="true" /></span>
-            <span className="ceo-resource-badge">VIDEO ARCHIVE</span>
             <h3>Past Online Trainings</h3>
             <p>
               7–10 recorded sessions covering digital SAT math pacing, Common App activity lists, and CSS Profile tax forms.
@@ -304,10 +292,9 @@ export default function CeoFreeToolsSection() {
         {/* Resource 2: Sample Worked Essays */}
         <div className="ceo-resource-card">
           <div>
-            <span className="ceo-resource-badge">PROVEN ESSAYS</span>
             <h3>Accepted Student Essays</h3>
             <p>
-              Inspect essays that helped Ethiopian scholars win full rides at Harvard, Amherst, Williams, and NYU.
+              Inspect essays that helped Ethiopian scholars win full rides at Georgetown, Amherst, Williams, and Clark.
             </p>
           </div>
           <Link to="/free-tools" className="ceo-resource-action">
@@ -320,14 +307,13 @@ export default function CeoFreeToolsSection() {
         <div className="ceo-resource-card">
           <div>
             <span className="ceo-resource-icon"><FileUser aria-hidden="true" /></span>
-            <span className="ceo-resource-badge">CAREER & ADMISSIONS</span>
             <h3>Academic CV & Resume Builder</h3>
             <p>
               Build an American-standard 1-page academic resume formatted for Common App admissions committees and scholarships.
             </p>
           </div>
           <Link to="/free-tools" className="ceo-resource-action">
-            <span>Open Free Tools / CV Builder</span>
+            <span>Open Free Tools &amp; CV Builder</span>
             <ArrowRight width={14} height={14} />
           </Link>
         </div>
@@ -335,7 +321,6 @@ export default function CeoFreeToolsSection() {
         {/* Resource 4: Admissions Blogs & Guides */}
         <div className="ceo-resource-card">
           <div>
-            <span className="ceo-resource-badge">EXPERT JOURNAL</span>
             <h3>Scholarship Guides & Strategy</h3>
             <p>
               In-depth articles written by our senior consultants on standardized testing dates, visa questions, and financial aid.
@@ -359,7 +344,7 @@ export default function CeoFreeToolsSection() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between pb-3 border-b border-[#123d2b]/10 mb-4">
-              <span className="px-3 py-1 bg-[#123d2b] text-[#d1bd82] rounded-full text-xs font-bold uppercase">
+              <span className="text-sm font-bold text-[#123d2b]">
                 {selectedEssay.university}
               </span>
               <button

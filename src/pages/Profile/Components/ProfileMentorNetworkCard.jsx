@@ -1,5 +1,5 @@
 import { NavLink } from "react-router";
-import { Users, ArrowRight, DollarSign, Globe, Award, Sparkles } from "lucide-react";
+import { Users, ArrowRight, DollarSign, Globe, Award } from "lucide-react";
 
 export default function ProfileMentorNetworkCard() {
   return (

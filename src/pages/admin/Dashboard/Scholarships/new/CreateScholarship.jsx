@@ -14,7 +14,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useCreateScholarship } from "../../../../../hooks/useScholarships";
 import { toast } from "sonner";
-import { Plus, Sparkles, Building2, Globe2, Calendar, Link as LinkIcon, Upload, Loader2 } from "lucide-react";
+import { Plus, Building2, Globe2, Calendar, Link as LinkIcon, Upload, Loader2 } from "lucide-react";
 
 export default function CreateScholarship() {
   const [open, setOpen] = useState(false);
@@ -103,7 +103,6 @@ export default function CreateScholarship() {
         <form className="space-y-4" onSubmit={handleSubmit}>
           <DialogHeader>
             <DialogTitle className="text-xl font-bold font-display flex items-center gap-2">
-              <Sparkles className="h-5 w-5 text-primary" />
               Publish New Scholarship Opportunity
             </DialogTitle>
             <DialogDescription className="text-xs text-muted-foreground">

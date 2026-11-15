@@ -1,6 +1,7 @@
 // src/hooks/useNegusCatalog.js
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axiosInstance from "../lib/axiosInstance";
+import { normalizeFixedServicePricing } from "../utils/fixedServicePricing";
 
 export const usePackageOffer = () =>
   useQuery({
@@ -33,7 +34,7 @@ export const useFixedServices = () => {
     queryKey: ["fixed-services"],
     queryFn: async () => {
       const { data } = await axiosInstance.get("/catalog/fixed-services");
-      return data;
+      return normalizeFixedServicePricing(data);
     },
   });
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
-import { ArrowRight, ArrowUpRight, Check, Spark } from "../icons";
+import { ArrowRight, ArrowUpRight, Check } from "../icons";
 
 export default function CeoHero() {
   const scrollToExplore = () => {
@@ -55,23 +55,6 @@ export default function CeoHero() {
           text-align: center;
           position: relative;
           z-index: 2;
-        }
-
-        .ceo-hero-eyebrow {
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          padding: 6px 14px;
-          background: color-mix(in srgb, var(--green-soft) 80%, transparent);
-          border: 1px solid rgba(18, 61, 43, 0.15);
-          border-radius: 9999px;
-          font-family: var(--hero-english);
-          font-size: 11.5px;
-          font-weight: 700;
-          letter-spacing: 0.06em;
-          text-transform: uppercase;
-          color: #123d2b;
-          margin-bottom: 20px;
         }
 
         .ceo-hero-title {
@@ -161,20 +144,22 @@ export default function CeoHero() {
         }
 
         .ceo-hero-actions {
-          display: flex;
-          align-items: center;
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
           gap: 14px;
-          flex-wrap: wrap;
+          width: min(100%, 500px);
           margin-bottom: 36px;
-          justify-content: center;
         }
 
         .ceo-hero-btn-primary {
           display: inline-flex;
           align-items: center;
+          justify-content: center;
           gap: 8px;
+          width: 100%;
+          min-width: 0;
           min-height: 52px;
-          padding: 0 28px;
+          padding: 0 16px;
           background: #123d2b;
           color: #ffffff !important;
           border-radius: 9999px;
@@ -198,9 +183,12 @@ export default function CeoHero() {
         .ceo-hero-btn-secondary {
           display: inline-flex;
           align-items: center;
+          justify-content: center;
           gap: 8px;
+          width: 100%;
+          min-width: 0;
           min-height: 52px;
-          padding: 0 26px;
+          padding: 0 16px;
           background: #ffffff;
           color: #123d2b;
           border-radius: 9999px;
@@ -349,13 +337,6 @@ export default function CeoHero() {
             color: #fff;
           }
 
-          .ceo-hero-eyebrow {
-            color: #f0dfab;
-            background: rgba(255, 255, 255, 0.09);
-            border-color: rgba(240, 223, 171, 0.45);
-            backdrop-filter: blur(12px);
-          }
-
           .ceo-hero-title {
             max-width: 680px;
             color: #fff;
@@ -422,12 +403,6 @@ export default function CeoHero() {
             padding: 24px 18px 98px;
           }
 
-          .ceo-hero-eyebrow {
-            margin-bottom: 16px;
-            padding: 5px 11px;
-            font-size: 10px;
-          }
-
           .ceo-hero-title {
             margin-bottom: 16px;
             font-size: clamp(36px, 9.5vw, 46px);
@@ -476,18 +451,13 @@ export default function CeoHero() {
       <div className="ceo-hero-grid">
         {/* Left Column: Authentic CEO Headline & Scholarship Pitch */}
         <div className="ceo-hero-left">
-          <div className="ceo-hero-eyebrow">
-            <Spark width={14} height={14} />
-            <span>Negus Admissions & Scholarship Consultants</span>
-          </div>
-
           <h1 className="ceo-hero-title">
-            <span className="ceo-hero-amharic">የነገ ህልሞን</span>
+            <span className="ceo-hero-amharic">የነገ ህልምዎን</span>
             <span className="ceo-hero-amharic">ዛሬ ከንጉስ ጋር</span>
           </h1>
 
           <p className="ceo-hero-subhead">
-            <span className="ceo-hero-amharic">ኢትዮጵያውያን ተማሪዎችን ለተለያዩ የኢንተርናሽናል ስኮላርሺፕ ብቁ ማድረግ ዋና አላማችን ነው።</span>
+            <span className="ceo-hero-amharic">ኢትዮጵያውያን ተማሪዎችን ለተለያዩ የኢንተርናሽናል ስኮላርሺፖች ብቁ ማድረግ ዋና አላማችን ነው።</span>
           </p>
 
           <div className="ceo-hero-checklist">
@@ -507,27 +477,27 @@ export default function CeoHero() {
 
           <div className="ceo-hero-actions">
             <button type="button" onClick={scrollToExplore} className="ceo-hero-btn-primary">
-              <span>Explore / <span className="ceo-hero-amharic">ጀምር</span></span>
+              <span>Explore</span>
               <ArrowRight width={16} height={16} />
             </button>
             <Link to="/packages" className="ceo-hero-btn-secondary">
-              <span>See Our Packages / <span className="ceo-hero-amharic">ፓኬጆች</span></span>
+              <span>See Our Packages</span>
               <ArrowUpRight width={15} height={15} />
             </Link>
           </div>
 
           <div className="ceo-hero-metrics">
             <div className="ceo-metric-item">
-              <span className="ceo-metric-val">$12.8M+</span>
-              <span className="ceo-metric-label">Scholarships Won</span>
+              <span className="ceo-metric-val">30,000</span>
+              <span className="ceo-metric-label">Audience reached</span>
             </div>
             <div className="ceo-metric-item">
-              <span className="ceo-metric-val">450+</span>
-              <span className="ceo-metric-label">Scholars Placed</span>
+              <span className="ceo-metric-val">180+</span>
+              <span className="ceo-metric-label">Trainings delivered</span>
             </div>
             <div className="ceo-metric-item">
-              <span className="ceo-metric-val">10+ Yrs</span>
-              <span className="ceo-metric-label">Design-led guidance</span>
+              <span className="ceo-metric-val">2+ years</span>
+              <span className="ceo-metric-label">Of impact</span>
             </div>
           </div>
         </div>

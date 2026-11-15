@@ -5,7 +5,6 @@ import {
   Check,
   Eye,
   EyeClosed,
-  NavArrowLeft,
 } from "iconoir-react";
 import GoogleSignInButton from "../../components/GoogleSignInButton";
 import { useGoogleAuth, useRegister } from "../../hooks/useAuth";
@@ -94,12 +93,12 @@ const Register = () => {
     <main className="negus-auth-viewport">
       <style>{`
         .negus-auth-viewport {
-          min-height: 100vh;
+          min-height: 100svh;
           width: 100%;
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: clamp(24px, 4vw, 56px) 16px;
+          padding: 8px 12px;
           background-color: var(--paper);
           background-image: radial-gradient(circle at 50% 12%, color-mix(in srgb, var(--green-subtle) 40%, var(--paper)), var(--paper) 70%);
           color: var(--ink);
@@ -112,8 +111,8 @@ const Register = () => {
           margin: 0 auto;
           background: #ffffff !important;
           border: 1px solid rgba(18, 61, 43, 0.12) !important;
-          border-radius: 24px;
-          padding: clamp(28px, 4.5vw, 44px);
+          border-radius: 20px;
+          padding: 10px clamp(16px, 3vw, 24px);
           box-shadow: 0 16px 40px -12px rgba(18, 61, 43, 0.08), 0 0 0 1px rgba(18, 61, 43, 0.04);
           position: relative;
           z-index: 2;
@@ -126,48 +125,23 @@ const Register = () => {
           box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.7);
         }
 
-        .negus-auth-top-nav {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          margin-bottom: 24px;
-        }
-
-        .negus-auth-back-link {
-          display: inline-flex;
-          align-items: center;
-          gap: 6px;
-          min-height: 44px;
-          padding: 10px 6px;
-          font-family: var(--font-display, 'Lexend', sans-serif);
-          font-size: 12px;
-          font-weight: 600;
-          color: var(--ink-muted);
-          text-decoration: none;
-          transition: color 0.2s ease;
-        }
-
-        .negus-auth-back-link:hover {
-          color: var(--ink);
-        }
-
         .negus-auth-brand-badge {
           display: flex;
-          flex-direction: column;
+          flex-direction: row;
           align-items: center;
+          justify-content: center;
           text-align: center;
-          margin-bottom: 24px;
+          margin-bottom: 5px;
         }
 
         .negus-auth-brand-badge img {
-          height: 40px;
+          height: 28px;
           width: auto;
-          margin-bottom: 12px;
         }
 
         .negus-auth-brand-badge span {
           font-family: var(--font-display, 'Lexend', sans-serif);
-          font-size: 12px;
+          font-size: 10px;
           font-weight: 800;
           letter-spacing: 0.14em;
           color: var(--ink);
@@ -175,47 +149,47 @@ const Register = () => {
 
         .negus-auth-headline {
           font-family: var(--font-display, 'Lexend', sans-serif);
-          font-size: 26px;
+          font-size: 21px;
           font-weight: 800;
           color: var(--ink);
-          margin: 0 0 6px;
+          margin: 0 0 4px;
           letter-spacing: -0.02em;
           text-align: center;
         }
 
         .negus-auth-subhead {
-          font-size: 13.5px;
+          font-size: 11.5px;
           color: var(--ink-secondary);
-          margin: 0 0 24px;
-          line-height: 1.55;
+          margin: 0 0 6px;
+          line-height: 1.3;
           text-align: center;
         }
 
         .negus-auth-form-body {
           display: grid;
-          gap: 16px;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 5px 8px;
         }
 
         .negus-name-row {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 12px;
-        }
-
-        @media (max-width: 480px) {
-          .negus-name-row {
-            grid-template-columns: 1fr;
-          }
+          display: contents;
         }
 
         .negus-auth-field {
           display: grid;
-          gap: 6px;
+          min-width: 0;
+          gap: 2px;
+        }
+
+        .negus-auth-field-wide,
+        .negus-auth-form-body > .negus-form-alert,
+        .negus-auth-form-body > .negus-auth-primary-btn {
+          grid-column: 1 / -1;
         }
 
         .negus-auth-label {
           font-family: var(--font-display, 'Lexend', sans-serif);
-          font-size: 12.5px;
+          font-size: 9.5px;
           font-weight: 700;
           color: var(--ink);
           text-transform: uppercase;
@@ -223,14 +197,14 @@ const Register = () => {
         }
 
         .negus-auth-input {
-          height: 48px;
+          height: 34px;
           width: 100%;
           border: 1px solid var(--line-strong);
-          border-radius: 12px;
-          padding: 0 16px;
+          border-radius: 10px;
+          padding: 0 8px;
           background: var(--paper) !important;
           color: var(--ink) !important;
-          font-size: 14.5px;
+          font-size: 12.5px;
           font-family: inherit;
           outline: none;
           transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -273,8 +247,8 @@ const Register = () => {
           cursor: pointer;
           display: grid;
           place-items: center;
-          width: 44px;
-          height: 44px;
+          width: 34px;
+          height: 34px;
           padding: 0;
           transition: color 0.2s ease;
         }
@@ -300,19 +274,19 @@ const Register = () => {
         }
 
         .negus-auth-primary-btn {
-          height: 48px;
+          height: 34px;
           width: 100%;
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          gap: 8px;
-          margin-top: 8px;
+          gap: 7px;
+          margin-top: 1px;
           border-radius: 12px;
           background: #123d2b;
           color: #ffffff;
           border: 1px solid #123d2b;
           font-family: var(--font-display, 'Lexend', sans-serif);
-          font-size: 14.5px;
+          font-size: 13px;
           font-weight: 700;
           cursor: pointer;
           box-shadow: 0 4px 14px -2px rgba(18, 61, 43, 0.25);
@@ -349,7 +323,7 @@ const Register = () => {
         .negus-divider-line {
           position: relative;
           text-align: center;
-          margin: 22px 0 18px;
+          margin: 5px 0 4px;
         }
 
         .negus-divider-line::before {
@@ -380,9 +354,9 @@ const Register = () => {
         }
 
         .negus-auth-bottom-switch {
-          margin-top: 24px;
+          margin-top: 6px;
           text-align: center;
-          font-size: 13.5px;
+          font-size: 12px;
           color: var(--ink-secondary);
         }
 
@@ -416,18 +390,10 @@ const Register = () => {
       `}</style>
 
       <section className="negus-auth-solid-card" aria-labelledby="signup-heading">
-        <div className="negus-auth-top-nav">
-          <Link className="negus-auth-back-link" to="/">
-            <NavArrowLeft width={16} height={16} />
-            Back to home
-          </Link>
-        </div>
-
         <div className="negus-auth-brand-badge">
           <Link to="/" aria-label="Negus Consultants home">
             <img src={logoSrc} alt="Negus Consultants" />
           </Link>
-          <span>NEGUS CONSULTANTS</span>
         </div>
 
         {isSuccess ? (
@@ -499,7 +465,7 @@ const Register = () => {
                 </div>
               </div>
 
-              <div className="negus-auth-field">
+              <div className="negus-auth-field negus-auth-field-wide">
                 <label className="negus-auth-label" htmlFor="register-email">
                   Email Address
                 </label>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import {
+  ArrowLeft,
   ArrowRight,
   Eye,
   EyeClosed,
@@ -84,6 +85,33 @@ const Login = () => {
           box-shadow: 0 16px 40px -12px rgba(18, 61, 43, 0.08), 0 0 0 1px rgba(18, 61, 43, 0.04);
           position: relative;
           z-index: 2;
+        }
+
+        .negus-auth-home-link {
+          position: absolute;
+          top: 10px;
+          left: 12px;
+          display: inline-flex;
+          align-items: center;
+          gap: 5px;
+          min-height: 30px;
+          padding: 0 8px;
+          border-radius: 999px;
+          color: var(--ink-secondary);
+          font-size: 11px;
+          font-weight: 700;
+          text-decoration: none;
+          transition: color 0.2s ease, background-color 0.2s ease;
+        }
+
+        .negus-auth-home-link:hover {
+          color: var(--ink);
+          background: var(--green-subtle);
+        }
+
+        .negus-auth-home-link:focus-visible {
+          outline: 2px solid var(--primary);
+          outline-offset: 2px;
         }
 
         .dark .negus-auth-solid-card,
@@ -333,6 +361,10 @@ const Login = () => {
       `}</style>
 
       <section className="negus-auth-solid-card" aria-labelledby="login-heading">
+        <Link to="/" className="negus-auth-home-link">
+          <ArrowLeft width={15} height={15} aria-hidden="true" />
+          <span>Home</span>
+        </Link>
         <div className="negus-auth-brand-badge">
           <Link to="/" aria-label="Negus Consultants home">
             <img src={logoSrc} alt="Negus Consultants" />

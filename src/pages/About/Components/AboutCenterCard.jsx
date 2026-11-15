@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, MessageCircle, ArrowRight } from "lucide-react";
+import { Phone, Mail, MessageCircle, ArrowRight } from "lucide-react";
 import { NavLink } from "react-router";
 
 export default function AboutCenterCard() {
@@ -6,15 +6,16 @@ export default function AboutCenterCard() {
     <section className="public-content public-about-office pt-4 pb-16">
       <div className="p-8 sm:p-12 rounded-3xl bg-[var(--white)] border border-[var(--line)] shadow-md text-center max-w-4xl mx-auto space-y-8">
         <div className="w-14 h-14 rounded-2xl bg-[var(--yellow-soft)] text-[var(--gold-ink)] flex items-center justify-center mx-auto shadow-xs">
-          <MapPin className="w-7 h-7" />
+          <MessageCircle className="w-7 h-7" />
         </div>
 
         <div>
           <h3 className="font-['Lexend'] font-bold text-2xl sm:text-3xl text-[var(--ink)]">
-            Visit Our Advisory Center in Addis Ababa
+            Reach Our Advisors
           </h3>
           <p className="text-[13px] sm:text-sm text-[var(--ink-secondary)] max-w-xl mx-auto mt-3 leading-relaxed">
-            We conduct one-on-one strategy sessions both in person at our Addis Ababa headquarters and remotely for scholars across Ethiopia and the diaspora.
+            Get one-on-one application guidance online, wherever you are in Ethiopia or the diaspora.
+            Message our team to arrange a session and discuss the support you need.
           </p>
         </div>
 

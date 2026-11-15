@@ -62,9 +62,8 @@ function Course() {
               <div className="course-intro-copy">
                 <h1>Build a stronger application, <em>step by step.</em></h1>
                 <p>
-                  Watch our guide to the U.S. college application journey, from the Common App
-                  and essays to scholarships. Then explore lessons that help you put each part
-                  into practice.
+                  Explore guides to university admissions and scholarships in the US, Hong Kong,
+                  China, and South Korea, as well as high school opportunities at UWC and ALA.
                 </p>
               </div>
               <div className="course-intro-video">

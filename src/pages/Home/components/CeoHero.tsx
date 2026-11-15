@@ -83,6 +83,7 @@ export default function CeoHero() {
         .ceo-hero-amharic {
           font-family: var(--hero-amharic);
           font-weight: 800;
+          letter-spacing: -0.015em;
         }
 
         .ceo-hero-title span::after {
@@ -434,9 +435,19 @@ export default function CeoHero() {
           }
 
           .ceo-hero-title {
-            margin: 0 0 14px;
-            font-size: clamp(36px, 9.5vw, 48px);
-            line-height: 1.1;
+            margin: 0 0 16px;
+            font-size: clamp(42px, 11.6vw, 56px);
+            line-height: 1.14;
+            letter-spacing: -0.02em;
+          }
+
+          .ceo-hero-title span {
+            white-space: nowrap;
+          }
+
+          .ceo-hero-title span::after {
+            height: 13px;
+            bottom: 2px;
           }
 
           .ceo-hero-subhead {
@@ -508,7 +519,8 @@ export default function CeoHero() {
 
           .ceo-hero-title {
             margin-bottom: 8px;
-            font-size: clamp(32px, 8.8vw, 40px);
+            font-size: clamp(36px, 10vw, 44px);
+            line-height: 1.12;
           }
 
           .ceo-hero-subhead {
@@ -551,8 +563,8 @@ export default function CeoHero() {
 
           .ceo-hero-title {
             margin-bottom: 10px;
-            font-size: clamp(30px, 9.2vw, 38px);
-            line-height: 1.08;
+            font-size: clamp(34px, 10.4vw, 40px);
+            line-height: 1.12;
           }
 
           .ceo-hero-subhead {

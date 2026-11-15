@@ -128,24 +128,18 @@ export default function CeoMessageSection() {
 
         .ceo-video-copy {
           text-align: center;
+          padding: 8px 0 2px;
         }
 
         .ceo-video-copy h3 {
           font-family: var(--section-amharic);
-          font-size: 28px;
+          font-size: clamp(34px, 4.2vw, 48px);
           font-weight: 800;
           color: #123d2b;
-          margin: 0 0 8px;
-          text-align: center;
-        }
-
-        .ceo-video-copy p {
-          font-family: var(--section-amharic);
-          font-size: 14.5px;
-          line-height: 1.6;
-          color: #315a43;
           margin: 0;
+          line-height: 1.2;
           text-align: center;
+          white-space: nowrap;
         }
 
         .ceo-tiles-stack {
@@ -288,9 +282,6 @@ export default function CeoMessageSection() {
           </div>
           <div className="ceo-video-copy">
             <h3>መልእክት አለን</h3>
-            <p>
-              ኢትዮጵያውያን ተማሪዎችን ለተለያዩ የኢንተርናሽናል ስኮላርሺፖች ብቁ ማድረግ ዋና አላማችን ነው።
-            </p>
           </div>
         </div>
 

@@ -399,38 +399,89 @@ export default function CeoHero() {
 
         @media (max-width: 640px) {
           .ceo-hero-section {
-            min-height: calc(100svh - 98px);
-            padding: 28px 18px 34px;
+            --paper: #fffdf6;
+            min-height: 0;
+            display: block;
+            padding: 28px 18px 24px;
             align-items: stretch;
+            color: #123d2b;
+            background: var(--paper);
           }
 
           .ceo-hero-grid {
-            min-height: calc(100svh - 160px);
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+            min-height: 0;
           }
 
           .ceo-hero-left {
-            min-height: inherit;
+            min-height: 0;
+            color: #123d2b;
+          }
+
+          .ceo-hero-right {
+            position: relative;
+            inset: auto;
+            z-index: auto;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            border-radius: 18px;
+            box-shadow: 0 12px 32px rgba(18, 61, 43, 0.14);
+            pointer-events: auto;
+          }
+
+          .ceo-hero-image-wrap {
+            position: relative;
+            inset: auto;
+            width: 100%;
+            height: 100%;
+            min-height: 0;
+            margin: 0;
+          }
+
+          .ceo-hero-image-wrap::after {
+            background: none;
+          }
+
+          .ceo-hero-img {
+            height: 100%;
+            min-height: 0;
+            object-position: center 45%;
+            transform: none;
+            mask-image: none;
+            -webkit-mask-image: none;
           }
 
           .ceo-hero-title {
             margin-bottom: 16px;
             font-size: clamp(36px, 9.5vw, 46px);
             line-height: 1.08;
+            color: #123d2b;
+            text-shadow: none;
+          }
+
+          .ceo-hero-title span {
+            color: #1a523b;
           }
 
           .ceo-hero-subhead {
             margin-bottom: 20px;
             font-size: 15px;
             line-height: 1.52;
+            color: #315a43;
+            text-shadow: none;
           }
 
           .ceo-hero-checklist {
             gap: 8px;
             margin-bottom: 22px;
+            color: #123d2b;
           }
 
           .ceo-hero-check-item {
             font-size: 12.5px;
+            color: #315a43;
           }
 
           .ceo-hero-actions {
@@ -448,8 +499,16 @@ export default function CeoHero() {
           .ceo-hero-metrics {
             gap: 10px;
             padding-top: 18px;
-            margin-top: auto;
-            margin-bottom: calc(78px + env(safe-area-inset-bottom));
+            margin: 0 0 4px;
+            border-top-color: rgba(18, 61, 43, 0.16);
+          }
+
+          .ceo-metric-val {
+            color: #123d2b;
+          }
+
+          .ceo-metric-label {
+            color: #56745f;
           }
 
           .ceo-metric-label {
@@ -463,7 +522,7 @@ export default function CeoHero() {
           }
 
           .ceo-hero-grid {
-            min-height: calc(100svh - 126px);
+            min-height: 0;
           }
 
           .ceo-hero-title {

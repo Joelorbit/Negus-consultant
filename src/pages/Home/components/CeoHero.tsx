@@ -409,8 +409,8 @@ export default function CeoHero() {
 
           .ceo-hero-image-wrap::after {
             background:
-              linear-gradient(180deg, rgba(7, 19, 14, 0.04) 0%, rgba(7, 19, 14, 0.08) 25%, rgba(7, 19, 14, 0.55) 45%, rgba(7, 19, 14, 0.96) 64%, #07130e 100%),
-              linear-gradient(90deg, rgba(7, 19, 14, 0.18), transparent 80%);
+              linear-gradient(180deg, rgba(7, 19, 14, 0.42) 0%, rgba(7, 19, 14, 0.48) 28%, rgba(7, 19, 14, 0.66) 52%, rgba(7, 19, 14, 0.84) 78%, #07130e 100%),
+              linear-gradient(90deg, rgba(7, 19, 14, 0.24), transparent 82%);
           }
 
           .ceo-hero-grid {
@@ -431,42 +431,60 @@ export default function CeoHero() {
           }
 
           .ceo-hero-subhead {
-            margin-top: clamp(36px, 8svh, 68px);
-            margin-bottom: 12px;
+            margin-top: 16px;
+            margin-bottom: 24px;
             font-size: 15px;
             line-height: 1.52;
           }
 
           .ceo-hero-checklist {
-            gap: 8px;
-            margin-bottom: 14px;
+            width: min(100%, 420px);
+            margin-inline: auto;
+            gap: 11px;
+            margin-bottom: 36px;
+            align-items: stretch;
+            text-align: left;
           }
 
           .ceo-hero-check-item {
-            font-size: 12.5px;
+            justify-content: flex-start;
+            text-align: left;
+            font-size: 14.5px;
           }
 
           .ceo-hero-actions {
-            gap: 10px;
-            margin-bottom: 12px;
+            gap: 12px;
+            margin-bottom: 20px;
           }
 
           .ceo-hero-btn-primary,
           .ceo-hero-btn-secondary {
-            min-height: 48px;
-            padding-inline: 20px;
-            font-size: 14px;
+            min-height: 64px;
+            padding-inline: 12px;
+            font-size: 15px;
           }
 
           .ceo-hero-metrics {
-            gap: 10px;
-            padding-top: 12px;
+            gap: 14px;
+            padding-top: 14px;
             margin-top: auto;
-            margin-bottom: calc(78px + env(safe-area-inset-bottom));
+            margin-bottom: calc(132px + env(safe-area-inset-bottom));
           }
 
           .ceo-metric-label {
-            font-size: 10.5px;
+            font-size: 11px;
+          }
+
+          .ceo-hero-check-icon {
+            width: 21px;
+            height: 21px;
+            background: #fff;
+            color: #123d2b;
+          }
+
+          .ceo-hero-check-icon svg {
+            width: 13px;
+            height: 13px;
           }
         }
 
@@ -481,25 +499,26 @@ export default function CeoHero() {
 
           .ceo-hero-title {
             margin-top: 0;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-size: clamp(30px, 10vw, 36px);
             line-height: 1.05;
           }
 
           .ceo-hero-subhead {
-            margin-bottom: 12px;
+            margin-top: 12px;
+            margin-bottom: 14px;
             font-size: 13px;
             line-height: 1.35;
           }
 
           .ceo-hero-checklist {
-            gap: 4px;
-            margin-bottom: 12px;
+            gap: 8px;
+            margin-bottom: 18px;
           }
 
           .ceo-hero-check-item {
             gap: 7px;
-            font-size: 11px;
+            font-size: 12px;
             line-height: 1.25;
           }
 
@@ -510,20 +529,21 @@ export default function CeoHero() {
 
           .ceo-hero-actions {
             gap: 8px;
-            margin-bottom: 10px;
+            margin-bottom: 14px;
           }
 
           .ceo-hero-btn-primary,
           .ceo-hero-btn-secondary {
-            min-height: 44px;
+            min-height: 54px;
             padding-inline: 8px;
             font-size: 12px;
           }
 
           .ceo-hero-metrics {
             gap: 6px;
-            padding-top: 12px;
-            margin-top: 0;
+            padding-top: 10px;
+            margin-top: auto;
+            margin-bottom: calc(96px + env(safe-area-inset-bottom));
           }
 
           .ceo-metric-val {

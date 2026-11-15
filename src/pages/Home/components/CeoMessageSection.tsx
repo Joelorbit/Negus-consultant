@@ -132,7 +132,7 @@ export default function CeoMessageSection() {
 
         .ceo-video-copy h3 {
           font-family: var(--section-amharic);
-          font-size: 24px;
+          font-size: 28px;
           font-weight: 800;
           color: #123d2b;
           margin: 0 0 8px;

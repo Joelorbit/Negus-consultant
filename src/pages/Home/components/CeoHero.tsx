@@ -399,8 +399,17 @@ export default function CeoHero() {
 
         @media (max-width: 640px) {
           .ceo-hero-section {
-            min-height: auto;
-            padding: 24px 18px 98px;
+            min-height: calc(100svh - 98px);
+            padding: 28px 18px 34px;
+            align-items: stretch;
+          }
+
+          .ceo-hero-grid {
+            min-height: calc(100svh - 160px);
+          }
+
+          .ceo-hero-left {
+            min-height: inherit;
           }
 
           .ceo-hero-title {
@@ -439,10 +448,75 @@ export default function CeoHero() {
           .ceo-hero-metrics {
             gap: 10px;
             padding-top: 18px;
+            margin-top: auto;
+            margin-bottom: calc(78px + env(safe-area-inset-bottom));
           }
 
           .ceo-metric-label {
             font-size: 10.5px;
+          }
+        }
+
+        @media (max-width: 380px) and (max-height: 700px) {
+          .ceo-hero-section {
+            padding: 14px 14px;
+          }
+
+          .ceo-hero-grid {
+            min-height: calc(100svh - 126px);
+          }
+
+          .ceo-hero-title {
+            margin-bottom: 8px;
+            font-size: clamp(30px, 10vw, 36px);
+            line-height: 1.05;
+          }
+
+          .ceo-hero-subhead {
+            margin-bottom: 12px;
+            font-size: 13px;
+            line-height: 1.35;
+          }
+
+          .ceo-hero-checklist {
+            gap: 4px;
+            margin-bottom: 12px;
+          }
+
+          .ceo-hero-check-item {
+            gap: 7px;
+            font-size: 11px;
+            line-height: 1.25;
+          }
+
+          .ceo-hero-check-icon {
+            width: 18px;
+            height: 18px;
+          }
+
+          .ceo-hero-actions {
+            gap: 8px;
+            margin-bottom: 10px;
+          }
+
+          .ceo-hero-btn-primary,
+          .ceo-hero-btn-secondary {
+            min-height: 44px;
+            padding-inline: 8px;
+            font-size: 12px;
+          }
+
+          .ceo-hero-metrics {
+            gap: 6px;
+            padding-top: 12px;
+          }
+
+          .ceo-metric-val {
+            font-size: 18px;
+          }
+
+          .ceo-metric-label {
+            font-size: 8.5px;
           }
         }
 

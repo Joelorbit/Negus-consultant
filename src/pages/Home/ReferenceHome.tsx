@@ -4,7 +4,6 @@ import { Youtube } from "lucide-react";
 import {
   ArrowRight,
   ArrowUpRight,
-  Check,
   Play,
   Telegram,
 } from "./icons";
@@ -17,6 +16,7 @@ import CeoMessageSection from "./components/CeoMessageSection";
 import CeoFreeToolsSection from "./components/CeoFreeToolsSection";
 import { Reveal, ScrollProgress, PixelRain } from "./components/HomeLife";
 import { testimonialPhotos } from "../../assets/testimonialPhotos";
+import { SUPPORT_TELEGRAM_URL } from "../../config/supportContact";
 
 export default function ReferenceHome() {
   const [isIntroPlaying, setIsIntroPlaying] = useState(false);
@@ -242,13 +242,14 @@ export default function ReferenceHome() {
       </section>
 
       {/* Featured Packages Preview */}
+      {/* Course Access Packages */}
       <section className="section-shell" style={{ paddingTop: "36px", paddingBottom: "54px" }}>
         <div style={{ textAlign: "center", maxWidth: "680px", margin: "0 auto 36px" }}>
           <h2 className="display-title" style={{ fontSize: "clamp(32px, 4vw, 48px)", margin: "0 0 14px" }}>
-            Guidance for every application stage.
+            Course Access Packages
           </h2>
           <p style={{ color: "var(--ink-secondary)", fontSize: "15.5px", lineHeight: "1.7", margin: "0" }}>
-            Comprehensive packages tailored for every milestone of your study abroad journey.
+            Choose one course or get full library access for six months or two years.
           </p>
         </div>
 
@@ -261,7 +262,7 @@ export default function ReferenceHome() {
             margin: "0 auto 36px",
           }}
         >
-          {/* Card 1 */}
+          {/* Card 1 - Per-Course Access */}
           <Reveal
             className="home-card"
             delay={100}
@@ -278,31 +279,31 @@ export default function ReferenceHome() {
           >
             <div>
               <span style={{ fontSize: "12px", fontWeight: 800, letterSpacing: "0.12em", color: "var(--ink-muted)", textTransform: "uppercase" }}>
-                PACKAGE 01 · FOCUSED
+                Access to one course
               </span>
               <h3 style={{ fontFamily: "var(--font-display)", fontSize: "22px", fontWeight: 700, margin: "10px 0 6px", color: "var(--ink)" }}>
-                Essay Writing Intensive
+                Per-Course Access
               </h3>
               <p style={{ color: "var(--ink-secondary)", fontSize: "14px", lineHeight: "1.6", margin: "0 0 18px" }}>
-                Comprehensive structure feedback, brainstorming sessions, and line-by-line polishing for personal statements and supplements.
+                Choose one course and focus on the lessons that matter to you.
               </p>
-              <ul style={{ listStyle: "none", padding: 0, margin: "0 0 24px", display: "grid", gap: "10px", fontSize: "13px", color: "var(--ink-secondary)" }}>
-                <li style={{ display: "flex", alignItems: "center", gap: "8px" }}><Check width={15} height={15} style={{ color: "var(--primary)" }} /> Common App Personal Statement</li>
-                <li style={{ display: "flex", alignItems: "center", gap: "8px" }}><Check width={15} height={15} style={{ color: "var(--primary)" }} /> Up to 3 Supplemental Essays</li>
-                <li style={{ display: "flex", alignItems: "center", gap: "8px" }}><Check width={15} height={15} style={{ color: "var(--primary)" }} /> Voice & Grammar Polish</li>
-              </ul>
+              <div style={{ fontFamily: "var(--font-display)", fontSize: "28px", fontWeight: 800, color: "var(--ink)", marginBottom: "24px" }}>
+                ETB 600
+              </div>
             </div>
-            <Link
-              to="/packages"
+            <a
+              href={SUPPORT_TELEGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-dark-hero"
               style={{ width: "100%", justifyContent: "center", textAlign: "center" }}
             >
-              <span>Explore package</span>
+              <span>Ask to enroll</span>
               <ArrowRight aria-hidden="true" />
-            </Link>
+            </a>
           </Reveal>
 
-          {/* Card 2 - Most Popular */}
+          {/* Card 2 - 6-Month Package (Featured) */}
           <Reveal
             className="home-card"
             delay={240}
@@ -320,23 +321,22 @@ export default function ReferenceHome() {
           >
             <div>
               <span style={{ fontSize: "12px", fontWeight: 800, letterSpacing: "0.12em", color: "var(--gold-ink)", textTransform: "uppercase" }}>
-                PACKAGE 02 · COMPLETE
+                Six months of course access
               </span>
               <h3 style={{ fontFamily: "var(--font-display)", fontSize: "22px", fontWeight: 700, margin: "10px 0 6px", color: "var(--ink)" }}>
-                Full Application Support
+                6-Month Package
               </h3>
               <p style={{ color: "var(--ink-secondary)", fontSize: "14px", lineHeight: "1.6", margin: "0 0 18px" }}>
-                End-to-end guidance from university shortlisting and financial aid forms to essays, test strategy, and visa interview training.
+                A focused half-year plan for steady progress across your studies.
               </p>
-              <ul style={{ listStyle: "none", padding: 0, margin: "0 0 24px", display: "grid", gap: "10px", fontSize: "13px", color: "var(--ink-secondary)" }}>
-                <li style={{ display: "flex", alignItems: "center", gap: "8px" }}><Check width={15} height={15} style={{ color: "var(--gold-ink)" }} /> 10-15 Target University List</li>
-                <li style={{ display: "flex", alignItems: "center", gap: "8px" }}><Check width={15} height={15} style={{ color: "var(--gold-ink)" }} /> Full Essay & Activity Coaching</li>
-                <li style={{ display: "flex", alignItems: "center", gap: "8px" }}><Check width={15} height={15} style={{ color: "var(--gold-ink)" }} /> CSS Profile & ISFAA Aid Filing</li>
-                <li style={{ display: "flex", alignItems: "center", gap: "8px" }}><Check width={15} height={15} style={{ color: "var(--gold-ink)" }} /> Mock Visa Interview Preparation</li>
-              </ul>
+              <div style={{ fontFamily: "var(--font-display)", fontSize: "28px", fontWeight: 800, color: "var(--ink)", marginBottom: "24px" }}>
+                ETB 1,870
+              </div>
             </div>
-            <Link
-              to="/packages"
+            <a
+              href={SUPPORT_TELEGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-dark-hero"
               style={{
                 width: "100%",
@@ -347,12 +347,12 @@ export default function ReferenceHome() {
                 borderColor: "var(--yellow)",
               }}
             >
-              <span>Get full support</span>
+              <span>Ask to enroll</span>
               <ArrowRight aria-hidden="true" />
-            </Link>
+            </a>
           </Reveal>
 
-          {/* Card 3 */}
+          {/* Card 3 - 2-Year Package */}
           <Reveal
             className="home-card"
             delay={380}
@@ -369,28 +369,28 @@ export default function ReferenceHome() {
           >
             <div>
               <span style={{ fontSize: "12px", fontWeight: 800, letterSpacing: "0.12em", color: "var(--ink-muted)", textTransform: "uppercase" }}>
-                PACKAGE 03 · GUIDANCE
+                Two years of course access
               </span>
               <h3 style={{ fontFamily: "var(--font-display)", fontSize: "22px", fontWeight: 700, margin: "10px 0 6px", color: "var(--ink)" }}>
-                Scholar Mentorship Track
+                2-Year Package
               </h3>
               <p style={{ color: "var(--ink-secondary)", fontSize: "14px", lineHeight: "1.6", margin: "0 0 18px" }}>
-                Personalized 1-on-1 milestone calls, accountability check-ins, and direct advice from an admitted scholar mentor.
+                Long-term access for students who want room to learn at their pace.
               </p>
-              <ul style={{ listStyle: "none", padding: 0, margin: "0 0 24px", display: "grid", gap: "10px", fontSize: "13px", color: "var(--ink-secondary)" }}>
-                <li style={{ display: "flex", alignItems: "center", gap: "8px" }}><Check width={15} height={15} style={{ color: "var(--primary)" }} /> 1-on-1 Mentorship Sessions</li>
-                <li style={{ display: "flex", alignItems: "center", gap: "8px" }}><Check width={15} height={15} style={{ color: "var(--primary)" }} /> Application Strategy & Timing</li>
-                <li style={{ display: "flex", alignItems: "center", gap: "8px" }}><Check width={15} height={15} style={{ color: "var(--primary)" }} /> Milestone Reviews & Feedback</li>
-              </ul>
+              <div style={{ fontFamily: "var(--font-display)", fontSize: "28px", fontWeight: 800, color: "var(--ink)", marginBottom: "24px" }}>
+                ETB 3,200
+              </div>
             </div>
-            <Link
-              to="/packages"
+            <a
+              href={SUPPORT_TELEGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-dark-hero"
               style={{ width: "100%", justifyContent: "center", textAlign: "center" }}
             >
-              <span>Explore package</span>
+              <span>Ask to enroll</span>
               <ArrowRight aria-hidden="true" />
-            </Link>
+            </a>
           </Reveal>
         </div>
 
